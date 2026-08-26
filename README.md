@@ -23,3 +23,5 @@ Can be locally runned via vscode's [live server extension](https://marketplace.v
 ## assets beautified
 
 A select few javascript files that are beautified via [beautifier.io](https://beautifier.io/). This is to make it easier to read by human eyes and allows finding code via line number.
+
+The choosen javascripts files depend on if they will be modified or viewed. index.js is always among these files because it is the main file.
