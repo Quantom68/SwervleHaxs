@@ -13,22 +13,9 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 // ---- minified identifier mapping for the CURRENT bundles ----
 // main bundle: index-DCv2kVM3.js
 // replay chunk: replay-DRoePr8Y.js
+// Updated: 2026-08-25
 const NAMES = {
 };
-
-// The livery chunk swervle's own code lazy-imports via `import("./RaceLiveryV1-XXXX.js")`
-// (see the async private method whose body contains `createRaceLiveryV1`).
-// Re-derive by searching the main bundle for "createRaceLiveryV1({designText:".
-//
-// Must be an ABSOLUTE URL, not root-relative. This gets `import()`-ed from
-// srv-main.js, which — despite running in the page's own JS world for
-// DOM/global access — is still itself a file loaded from the extension
-// package, so ITS OWN `import()` calls resolve against ITS OWN origin
-// (chrome-extension://<id>/), not the page's. A root-relative "/assets/…"
-// value resolved to chrome-extension://<id>/assets/RaceLiveryV1-*.js, which
-// doesn't exist there and always failed silently (caught by wearLivery's
-// try/catch, so ghosts still spawned — just always without a livery).
-const LIVERY_CHUNK_URL = "https://swervle.com/assets/RaceLiveryV1-CP85uaZ8.js";
 
 // Every patch's success/failure, in call order, across all three files —
 // printed as a summary at the end and used for the process's exit code, so

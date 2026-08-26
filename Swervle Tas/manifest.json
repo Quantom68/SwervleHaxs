@@ -1,6 +1,23 @@
 {
-    "manifest-version": 3,
+    "manifest_version": 3,
     "name": "Swervle Tas",
     "description": "tba",
-    "version": "0.0"
+    "version": "0.0.1",
+    "permissions": ["declarativeNetRequest"],
+    "host_permissions": ["https://swervle.com/*"],
+    "declarative_net_request": {
+        "rule_resources": [
+        {
+            "id": "swervle_patch",
+            "enabled": true,
+            "path": "rules.json"
+        }
+        ]
+    },
+    "web_accessible_resources": [
+        {
+        "resources": ["patched-bundle.js", "patched-replay.js"],
+        "matches": ["https://swervle.com/*"]
+        }
+    ]
 }

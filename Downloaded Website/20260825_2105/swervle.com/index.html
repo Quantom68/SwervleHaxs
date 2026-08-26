@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from swervle.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Aug 2026 03:04:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8" />
+    <!-- `viewport-fit=cover` lets the race canvas run under a notch and the home
+         indicator; the HUD and touch controls pay for it back with the
+         `env(safe-area-inset-*)` padding in swervle.css. `user-scalable=no` plus
+         a locked scale is deliberate on a driving game: a two-finger pinch during
+         a race is never a zoom request, it is a thumb on the gas and a thumb on
+         the brake. -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0e7c78" />
+    <!-- Swervle is already a dark UI. Saying so in the <head> reaches a global
+         dark-theme extension before any stylesheet has loaded, which is the only
+         point at which it is cheap to opt out: left undeclared, those extensions
+         rewrite every stylesheet on each DOM mutation or filter the whole document,
+         and over a full-screen WebGL canvas that is ruinous — one such profile took
+         eight seconds to load a map that takes one elsewhere. `color-scheme` is the
+         standard signal (and is mirrored on :root in styles.css); `darkreader-lock`
+         is Dark Reader's own opt-out, which its many forks also honour. -->
+    <meta name="color-scheme" content="dark" />
+    <meta name="darkreader-lock" />
+    <!-- Shipped from public/, so it is served same-origin by the ASSETS binding.
+         THE .ICO IS FIRST AND IT IS THE ONE GOOGLE READS. Its crawler goes
+         looking for /favicon.ico and, until now, got a 404 from this site — which
+         is how a search result ends up with the placeholder globe next to it
+         while the tab in your own browser shows the real thing. Browsers read the
+         PNG below and are unaffected either way.
+         Three rasters in the one file (16/32/48) so a tab, a bookmark bar and a
+         Windows shortcut each get a size drawn for them instead of one downscale. -->
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <!-- Widescreen, fullscreen, installable. `/` because `build:release`
+         ships under /swervle/; the icon and start_url inside the manifest are
+         relative to the manifest itself, so they follow the same base. -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <!-- iOS Safari implements no Fullscreen API on iPhone. These three tags ARE
+         the iOS fullscreen story: with them, "Add to Home Screen" launches
+         Swervle with no browser chrome at all, and the black-translucent bar
+         style lets the race draw behind the status bar. Without them the same
+         home-screen icon opens an ordinary Safari tab. -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Swervle" />
+    <!-- Suppresses iOS Safari's automatic phone-number linkification, which
+         otherwise rewrites lap and split times inside the HUD into tel: links. -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- The homepage's search snippet — the line Google prints under the title.
+         Unlike the og:/twitter: tags below, head injection does NOT replace this,
+         so it applies site-wide. Keep in sync with SWERVLE_SEO_CAPTION_V1; it is
+         one sentence by owner decision — do not append explanatory clauses. -->
+    <meta name="description" content="New racing map every day" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <!-- Site-root canonical. Deep routes get their own via link-preview head
+         injection, which strips this one so no page carries two. -->
+    <!-- The SERP title for the one page Swervle wants indexed. `src/main.ts` resets
+         document.title to "Swervle" on boot, so the browser tab still always reads
+         "Swervle" per the owner rule; only crawlers and the pre-boot document see
+         the longer form. Keep in sync with SWERVLE_SEO_TAGLINE_V1. -->
+    <title>Swervle - Daily Racing Game</title>
+    <!-- Boot used to be one long serial chain: bundle, then track document, then
+         car model, each waiting on the one before it. These two start the other
+         two legs immediately, in parallel with the bundle.
+
+         The car model is route-independent so a plain preload is correct; the
+         track document is not, so it goes through race-prefetch.js, which picks
+         the endpoint from the URL. Keep both BEFORE the module script — the
+         point is to be in flight while the bundle is still arriving.
+
+         Both use / rather than a root-absolute path: `build:release`
+         ships under /swervle/, and validate-production-bundle.mjs fails the
+         build on any protected asset URL that ignores the configured base.
+
+         Both are `fetchpriority="low"`. This is load-bearing, not a hint to be
+         tidied away: the bundle is the ONLY thing that can draw a pixel of UI, and
+         letting these two race it for bandwidth pushed first contentful paint on
+         Slow 4G from 2.7s to 6.0s — six seconds of blank page, which reads as a
+         much slower load than the 2.5s it saved at the far end. Low priority keeps
+         them in flight early while the bundle still gets the pipe. -->
+    <link
+      rel="preload"
+      as="fetch"
+      crossorigin
+      fetchpriority="low"
+      href="assets/car.glb"
+    />
+    <script src="race-prefetch.js"></script>
+    <script type="module" crossorigin src="assets/index-DOtL5588.js"></script>
+    <link rel="modulepreload" crossorigin href="assets/three.core-DdTcUFtD.js">
+    <link rel="modulepreload" crossorigin href="assets/boxman.gameplay-0VV8A6OD.js">
+    <link rel="modulepreload" crossorigin href="assets/EntityId-CmKS15sT.js">
+    <link rel="modulepreload" crossorigin href="assets/LevelDefinition-H34olgHU.js">
+    <link rel="modulepreload" crossorigin href="assets/FlatPlaneLevel-4C-U-2ow.js">
+    <link rel="modulepreload" crossorigin href="assets/ProtectedAssetManifest-BjhYKyPB.js">
+    <link rel="modulepreload" crossorigin href="assets/GLTFLoader-Dux7Zhmq.js">
+    <link rel="modulepreload" crossorigin href="assets/TerrainPalette-DJLfdme6.js">
+    <link rel="modulepreload" crossorigin href="assets/SwervleEnvironment-BPssJwBZ.js">
+    <link rel="modulepreload" crossorigin href="assets/simulationTiming-Bdsi9iKe.js">
+    <link rel="modulepreload" crossorigin href="assets/CarContent-8jDxoLgy.js">
+    <link rel="modulepreload" crossorigin href="assets/SimulationBuildIdentityV1-Bz1MDauw.js">
+    <link rel="modulepreload" crossorigin href="assets/RaceRules-DtQzFpz3.js">
+    <link rel="modulepreload" crossorigin href="assets/rolldown-runtime-DK3Fl9T5.js">
+    <link rel="modulepreload" crossorigin href="assets/RaceModifiersV1-Bci5NLK_.js">
+    <link rel="modulepreload" crossorigin href="assets/Sha256-Ci9AQodu.js">
+    <link rel="modulepreload" crossorigin href="assets/TrackConstants-DgvjewmC.js">
+    <link rel="modulepreload" crossorigin href="assets/TrackGeneratorV2-ByYaxukx.js">
+    <link rel="modulepreload" crossorigin href="assets/replay-DRoePr8Y.js">
+    <link rel="modulepreload" crossorigin href="assets/TerrainView-ChUqoLq7.js">
+    <link rel="modulepreload" crossorigin href="assets/TopDownPreviewV1-CCZzHd2J.js">
+    <link rel="modulepreload" crossorigin href="assets/LiveryDesignV1-BK7SofGX.js">
+    <link rel="modulepreload" crossorigin href="assets/ModalDialog-7y2DvZE8.js">
+    <link rel="modulepreload" crossorigin href="assets/AccountSelectedVehicleV1-Cun8Og3L.js">
+    <link rel="modulepreload" crossorigin href="assets/VehiclePacksV1-Cx05q_Db.js">
+    <link rel="stylesheet" crossorigin href="assets/index-BWSR0RH8.css">
+  <link rel="canonical" href="index.html"><link rel="alternate" type="application/json+oembed" href="oembedf43a.html?url=https%3A%2F%2Fswervle.com%2F" title="Swervle - August 25th 2026"><meta property="og:site_name" content="Swervle"><meta property="og:type" content="website"><meta property="og:url" content="https://swervle.com/"><meta property="og:title" content="Swervle - August 25th 2026"><meta property="og:description" content="Race today&#39;s swervle"><meta property="og:image" content="https://swervle.com/link-previews/daily/r13/2026-08-25.png"><meta property="og:image:secure_url" content="https://swervle.com/link-previews/daily/r13/2026-08-25.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Swervle daily map for 2026-08-25."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Swervle - August 25th 2026"><meta name="twitter:description" content="Race today&#39;s swervle"><meta name="twitter:image" content="https://swervle.com/link-previews/daily/r13/2026-08-25.png"><meta name="twitter:image:alt" content="Swervle daily map for 2026-08-25."><script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","applicationCategory":"Game","author":{"@type":"Organization","name":"Swervle"},"datePublished":"2026-08-25","description":"New racing map every day","gamePlatform":"Web browser","genre":"Racing","inLanguage":"en","name":"Swervle - Daily Racing Game","operatingSystem":"Any","playMode":"SinglePlayer","url":"https://swervle.com/"}</script></head>
+  <body>
+    <main id="app"></main>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"10cdc989689244fea4d5576909d6fde6","r":1}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from swervle.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Aug 2026 03:04:41 GMT -->
+</html>

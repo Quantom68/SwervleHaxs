@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": { "extensionPath": "/patched-bundle.js" }
+    },
+    "condition": {
+      "urlFilter": "||swervle.com/assets/index-DOtL5588.js",
+      "resourceTypes": ["script"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": { "extensionPath": "/patched-replay.js" }
+    },
+    "condition": {
+      "urlFilter": "||swervle.com/assets/replay-*.js",
+      "resourceTypes": ["script"]
+    }
+  }
+]
