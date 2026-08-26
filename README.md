@@ -2,6 +2,20 @@
 
 description tba
 
+# tools
+
+## patch-bundle.mjs
+
+From "Swervle Utils" extension. Patches a downloaded `index.js` and `replay.js` with added code to expose and add new properties and methods. Further documentation is in the file.
+
+### Usage
+
+```bash
+node tools/patch-bundle.mjs <main.js> <replay-chunk.js> <out-main.js> <out-replay.js>
+```
+
+Usually `<out-main.js>` is `patched-bundle.js` and `<out-replay>` is `patched-replay.js`.
+
 # Downloaded Website
 
 ## swervle.com

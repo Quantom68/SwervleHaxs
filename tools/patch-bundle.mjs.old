@@ -1,0 +1,389 @@
+#!/usr/bin/env node
+// Patches swervle.com's client bundle(s) to expose a handful of hooks needed
+// by the Swervle Replay Viewer extension:
+//   - window.__srv.ready    : the ingredients needed to construct a live ghost
+//                             (RV/GL/VD classes, asset factory, live scene
+//                             parent, track, physics modifiers, camera, the
+//                             livery module's URL) — captured fresh every
+//                             time a race is (re)booted.
+//   - window.__srv.onRaceBoot: called right after `ready` is (re)assigned, so
+//                             the extension can clear out ghosts from a
+//                             previous race context instead of leaving them
+//                             referencing a stale scene.
+//   - window.__srv.onTick   : called once per fixed physics tick with the
+//                             player's live {tick, nextGateIndex, gateCount,
+//                             speed, position, phase, gear, shiftTimer} —
+//                             used for the live split/checkpoint tracker, the
+//                             gear HUD, gating ghost movement to the real
+//                             race clock, and (via a backwards tick jump)
+//                             detecting a Retry.
+//   - window.__srv.onRender : called once per rendered frame with the game's
+//                             own interpolation-alpha object and *live*
+//                             camera reference — used to drive ghost visuals
+//                             and nameplate billboarding in lockstep with the
+//                             game's own render loop.
+//   - RV.prototype gets a `raceTelemetry` getter exposing the *replayed*
+//     ghost's own live {nextGateIndex, position, speed, tick} — lets us
+//     fast-forward a PB's ghost through the real physics sim (silently, far
+//     faster than real time) to compute its exact checkpoint splits. RV now
+//     lives in a separate code-split chunk (see TERRAINVIEW_CHUNK below), so
+//     this patch is applied to that chunk file, not the main bundle.
+//
+// There used to be a 5th patch (and a CarAppearance-*.js chunk in this
+// pipeline) making the player's own car color dynamic for a settings-menu
+// color picker. Removed: once the site shipped its own livery editor, that
+// flat single-color override started fighting with it — livery-covered
+// panels looked right, but anywhere the livery *didn't* cover (bumpers,
+// interior trim, etc.) rendered the picker's old saved color instead of the
+// game's own default material for that region, a visibly "wrong texture"
+// mismatch. The site's livery editor is strictly more capable for
+// customizing car appearance now anyway, so the picker (and the
+// CarAppearance chunk patching it required) was retired rather than fixed.
+//
+// This is intentionally NOT a general-purpose deobfuscator: it does precise,
+// anchor-verified string insertions against ONE exact build of the site's
+// bundles, using the NAMES.* mapping table below (their real, minified
+// identifiers in that build — re-derive this whole table from scratch
+// against a fresh bundle whenever swervle redeploys; minified names are
+// reassigned per-build and won't carry over). Each patch fails independently
+// (see makePatcher below) rather than one stale anchor taking the whole
+// build down.
+//
+// Usage:
+//   node tools/patch-bundle.mjs <main.js> <terrainview-chunk.js> <out-main.js> <out-terrainview.js>
+//
+// As of the 2026-08-18 build (index-CffxJc2Q.js) the site code-splits RV
+// (the ghost/replay physics-sim wrapper) into a TerrainView-*.js chunk,
+// imported into the main bundle. Find its current chunk filename from the
+// main bundle's `import{...}from"./TerrainView-XXXX.js"` line: search the
+// main bundle for `new <X>({modifiers:` at the opponent-ghost construction
+// site (right after `t.opponent?.states!==void 0`) to get RV's current
+// local alias `<X>`, then find `<X> as <Y>` in that import statement to
+// get the real exported name `<Y>` on the far side of it.
+//
+// To re-derive NAMES for a new build, search the fresh bundle(s) for these
+// stable (non-minified) strings and read off the surrounding minified
+// identifiers — this is exactly how the current table was built:
+//   MAIN BUNDLE:
+//   "t.opponent?.states!==void 0"     -> per-race-boot opponent-ghost
+//                                        construction block; patch #1 anchor
+//                                        is the statement ending that whole
+//                                        try block (right before `}catch(t){`)
+//   "this.#_e?.update({boostActive:"  -> per-tick HUD-update call; patch #2
+//                                        anchor is the statement just before
+//                                        it (`l=<physicsModifiers-fn>(this.#
+//                                        <physicsModifiers>);`)
+//   ".updateNameplate("/".updateNameplates(" -> the per-render nameplate
+//                                        -update calls; patch #3 anchor is
+//                                        the full statement containing all
+//                                        of them (2 singular + 1 plural)
+//   "swervle-recorded-rival"          -> GL class (local to main bundle)
+//   TERRAINVIEW CHUNK (RV):
+//   "get finished(){return this.#"    -> inside RV, the anchor for the
+//                                        raceTelemetry getter (patch #4)
+
+import { readFileSync, writeFileSync } from "node:fs";
+
+const [, , mainIn, terrainViewIn, mainOut, terrainViewOut] = process.argv;
+if (!mainIn || !terrainViewIn || !mainOut || !terrainViewOut) {
+  console.error("Usage: node patch-bundle.mjs <main.js> <terrainview-chunk.js> <out-main.js> <out-terrainview.js>");
+  process.exit(1);
+}
+
+// ---- minified identifier mapping for the CURRENT bundles ----
+// main bundle: index-CffxJc2Q.js
+// TerrainView chunk (RV lives here): TerrainView-BMKBqDQD.js
+//
+// Re-derived 2026-08-18 against a large site update that added an
+// account-vehicle-body system (VehiclePacksV1/CarBodyPickerV1/
+// DressAccountVehicleV1/etc — a whole new "pick your car body" feature
+// alongside the existing livery/paint one). Not yet integrated into our own
+// ghost spawning (see spawnGhostOnce in srv-main.js) — ghosts will still
+// spawn and look correct on the *default* body, just won't reflect a
+// driver's chosen custom body the way they already do for livery. Worth
+// adding later; scoped out of this pass to get the extension working again
+// first. The site's own opponent-ghost construction now calls
+// dressAccountVehicleV1(carView.root, vehicleId, {designText}) via a lazy
+// import of DressAccountVehicleV1-*.js, positioned right before the
+// existing livery-wear step — that's the pattern to mirror.
+const NAMES = {
+  RV: "Ge", // import alias for the ghost/replay physics-sim wrapper class (inside TerrainView chunk)
+  GL: "pr", // ghost mesh+nameplate wrapper class (local to main bundle)
+  VD: "ce", // import alias for the car view (mesh) class
+  buildNameplate: "er", // top-level function in main bundle
+  ghostAppearance: "se", // local var at the opponent-ghost construction site (main bundle)
+  ghostColorOverrides: "ae", // local var at the opponent-ghost construction site (main bundle)
+  carDefinition: "ue", // local var at the opponent-ghost construction site (main bundle)
+  carContentId: "b", // local var at the opponent-ghost construction site (main bundle)
+  // private fields on the main game-controller class (main bundle)
+  playerSceneManager: "#Ie",
+  cameraController: "#be",
+  assetFactory: "#ye",
+  physicsModifiers: "#bt",
+  raceManifest: "#Fe",
+};
+
+// The livery chunk swervle's own code lazy-imports via `import("./RaceLiveryV1-XXXX.js")`
+// (see the async private method whose body contains `createRaceLiveryV1`).
+// Re-derive by searching the main bundle for "createRaceLiveryV1({designText:".
+//
+// Must be an ABSOLUTE URL, not root-relative. This gets `import()`-ed from
+// srv-main.js, which — despite running in the page's own JS world for
+// DOM/global access — is still itself a file loaded from the extension
+// package, so ITS OWN `import()` calls resolve against ITS OWN origin
+// (chrome-extension://<id>/), not the page's. A root-relative "/assets/…"
+// value resolved to chrome-extension://<id>/assets/RaceLiveryV1-*.js, which
+// doesn't exist there and always failed silently (caught by wearLivery's
+// try/catch, so ghosts still spawned — just always without a livery).
+const LIVERY_CHUNK_URL = "https://swervle.com/assets/RaceLiveryV1-CP85uaZ8.js";
+
+// Every patch's success/failure, in call order, across all three files —
+// printed as a summary at the end and used for the process's exit code, so
+// a site update that breaks one anchor is loud and specific ("patch X needs
+// regenerating") instead of silent or all-or-nothing.
+const results = [];
+
+// Each patch is independent and best-effort: a single stale anchor (the
+// site changed the one bit of code that patch targets) logs a clear warning
+// and skips *only* that insertion/replacement — every other patch, and the
+// output file itself, still get written. The alternative (throwing,
+// aborting the whole script before writeFileSync) meant one small site
+// change broke every feature at once, including ones the change had
+// nothing to do with, and produced no output to even partially test
+// against. This can't make anchor-based patching immune to the site
+// changing — that's not achievable without the site publishing a stable
+// extension API — but it keeps a redeploy's *blast radius* down to exactly
+// the features whose specific anchors actually moved.
+function makePatcher(fileLabel, getSrc, setSrc) {
+  function run(kind, name, anchor, apply) {
+    const src = getSrc();
+    const count = src.split(anchor).length - 1;
+    if (count !== 1) {
+      console.warn(
+        `⚠ [${fileLabel}] patch "${name}" anchor matched ${count} times (expected exactly 1) — ` +
+          `skipping. The site's bundle has likely changed; this patch needs regenerating.\nAnchor: ${anchor}`
+      );
+      results.push({ file: fileLabel, name, ok: false });
+      return;
+    }
+    setSrc(apply(src));
+    results.push({ file: fileLabel, name, ok: true });
+  }
+  return {
+    insertAfter(name, anchor, insertion) {
+      run("insertAfter", name, anchor, (src) => {
+        const idx = src.indexOf(anchor) + anchor.length;
+        return src.slice(0, idx) + insertion + src.slice(idx);
+      });
+    },
+    replaceOnce(name, anchor, replacement) {
+      run("replaceOnce", name, anchor, (src) => src.split(anchor).join(replacement));
+    },
+  };
+}
+
+// Rewrites every chunk-relative *import specifier* in `src`
+// (`from"./Name-hash.js"`, and `import("./Name-hash.js")`) to an absolute
+// swervle.com URL. Necessary because rules.json redirects requests for each
+// of these three files' own URLs to a chrome-extension:// resource — which
+// changes what the *browser* resolves each file's own relative imports
+// against (a redirected response's URL becomes the new base for its module
+// graph). This applies to ALL THREE patched files, not just the main
+// bundle: TerrainView and CarAppearance each have their own relative
+// imports to sibling chunks (RaceRules, Sha256, FlatPlaneLevel,
+// ProtectedAssetManifest, SwervleEnvironment, and each other), and since
+// they're *also* served from a chrome-extension:// origin once redirected,
+// they need the same treatment. Without this, those sibling chunks 404/get
+// denied ("Resources must be listed in web_accessible_resources") and the
+// entire module graph breaks — the site never gets past its initial loading
+// screen.
+//
+// Deliberately does NOT touch the site's own `__vite__mapDeps` preload
+// table (bare `"assets/Name-hash.js"` strings, no `./` prefix) — that table
+// only feeds a `<link rel=modulepreload>` performance-hint helper which
+// prepends its own "/" before resolving against `import.meta.url` (see the
+// site's own `jt`/`Nt` helpers). Rewriting those entries to absolute URLs
+// doesn't compose with that prepend and produces garbage double-prefixed
+// URLs (`chrome-extension://id/https://swervle.com/...`); left alone, that
+// helper instead resolves to a clean (if still wrong-origin) URL, so the
+// resulting 404 is quiet console noise instead of visible garbage — and
+// either way it's a non-blocking preload hint, not the actual import, so
+// real module loading is unaffected.
+function rewriteRelativeChunkRefs(name, src) {
+  const before = src;
+  // Chunk name portion allows dots now too — "three.core-B23Xfibg.js"
+  // (chunked out separately as of the 2026-08-18 update) wasn't matching
+  // the old [A-Za-z0-9_]+ character class, so it was silently skipped:
+  // still relative, still resolving against the wrong (extension) origin
+  // once redirected, still denied. `[A-Za-z0-9_.]+` covers it without
+  // getting greedy into the hash/extension part, since that's still
+  // anchored by the trailing `-<hash>.(js|css)` shape.
+  const out = src.replace(
+    /([\"'`])\.\/([A-Za-z0-9_.]+-[A-Za-z0-9_-]{6,}\.(?:js|css))\1/g,
+    `$1https://swervle.com/assets/$2$1`
+  );
+  const count = before === out ? 0 : (out.match(/https:\/\/swervle\.com\/assets\//g) || []).length;
+  console.log(`${name}: rewrote ${count} relative chunk references to absolute swervle.com URLs.`);
+  return out;
+}
+
+// ---- main bundle ----
+let mainSrc = rewriteRelativeChunkRefs("main bundle", readFileSync(mainIn, "utf8"));
+
+const mainPatcher = makePatcher(
+  "main bundle",
+  () => mainSrc,
+  (s) => (mainSrc = s)
+);
+
+// 1. Expose the ghost-spawning ingredients, unconditionally, every time a
+//    race is (re)booted — right after the native opponent-ghost setup block
+//    (whether or not it actually ran; this sits right after that block's
+//    closing brace, so it fires regardless of whether `?ghost=` was set).
+//    Also fires window.__srv.onRaceBoot so stale ghosts get cleared.
+mainPatcher.insertAfter(
+  "expose-ready-ingredients",
+  "this.#et=new Eu(t.track.routeLine)}catch(t){throw n?.dispose(),e.dispose(),t}}",
+  "window.__srv=window.__srv||{};" +
+    `window.__srv.ready={RV:${NAMES.RV},GL:${NAMES.GL},VD:${NAMES.VD},appearance:${NAMES.ghostAppearance},` +
+    `carDef:${NAMES.carContentId},definition:${NAMES.carDefinition},materialColorOverrides:${NAMES.ghostColorOverrides},` +
+    `buildNameplate:${NAMES.buildNameplate},viewParent:this.${NAMES.playerSceneManager}.viewParent,` +
+    `materialRegistrar:this.${NAMES.playerSceneManager}.materialRegistrar,` +
+    `modifiers:this.${NAMES.physicsModifiers},track:t.track,assetFactory:this.${NAMES.assetFactory},` +
+    `liveryModuleUrl:${JSON.stringify(LIVERY_CHUNK_URL)},` +
+    `camera:this.${NAMES.cameraController}?.camera};` +
+    "window.__srv.onRaceBoot?.();"
+);
+
+// 2. Per fixed-tick telemetry hook (checkpoint/"gate" progress, live speed,
+//    live position, gear, shift-cooldown timer) — inserted right before the
+//    existing HUD update call that already consumes the same values, so we
+//    key off the statement just before it instead (insertAfter needs a
+//    stable anchor to sit after). `s` here is already the player car's own
+//    captureTelemetry() result (same shape as the site's own HUD update call
+//    right after this one reads from — includes gear/shiftTimer even though
+//    this particular call site doesn't consume them itself).
+mainPatcher.insertAfter(
+  "onTick",
+  `l=we(this.${NAMES.physicsModifiers});`,
+  "window.__srv?.onTick?.({tick:o,nextGateIndex:i.nextGateIndex," +
+    `gateCount:this.${NAMES.raceManifest}?.track.gates.length??0,speed:s.speed,position:s.position,phase:i.phase,` +
+    "gear:s.gear,shiftTimer:s.shiftTimer});"
+);
+
+// 3. Per-render-frame hook, inserted right after the game updates its own
+//    ghost visuals and nameplates (i.e. after camera-orbit update, so a
+//    camera override we apply here won't just get immediately overwritten
+//    a moment later in the same frame) — fires with the player's live
+//    position (the same reference point the native ghosts are updated
+//    against, for correct near/far LOD) plus the render alpha and the live,
+//    current camera reference (read fresh every call, never cached).
+mainPatcher.insertAfter(
+  "onRender",
+  `this.#Ze?.updateNameplate(this.${NAMES.cameraController}.camera),this.#tt?.updateNameplate(this.${NAMES.cameraController}.camera),this.#ft?.updateNameplates(this.${NAMES.cameraController}.camera);`,
+  `window.__srv?.onRender?.({alpha:e.alpha,playerPosition:n.position,camera:this.${NAMES.cameraController}.camera});`
+);
+
+// 6. Disable vite's own modulepreload-hint helper (`Nt`, the function
+//    behind `__vite__mapDeps(...)` call sites — see LIVERY_CHUNK_URL comment
+//    above). It always resolves its dependency list's bare "assets/X.js"
+//    entries against `import.meta.url` via a root-relative "/"+dep join
+//    (see the `jt`/`s` helpers a few statements before this one) — since
+//    our main-bundle redirect changes `import.meta.url` to a
+//    chrome-extension:// URL, that always resolves to the wrong origin and
+//    spams "Denying load..." console errors. This is *purely* a
+//    `<link rel=modulepreload>` performance hint though (see the `t&&
+//    t.length>0` guard below) — it has no bearing on whether the actual
+//    lazy `import()` a moment later succeeds (those specifiers were already
+//    rewritten to absolute swervle.com URLs above and resolve correctly on
+//    their own). Forcing the guard false skips straight to `return
+//    e().catch(i)`, i.e. just performs the real import with no preload step.
+mainPatcher.replaceOnce(
+  "disable-vite-preload-hints",
+  "D=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){",
+  "D=function(e,t,n){let r=Promise.resolve();if(!1){"
+);
+
+// 7. Optional pointer-lock bypass, gated behind window.__srvNoPointerLock
+//    (an opt-in settings toggle — see content.js's injectPointerLockSetting
+//    and srv-main.js, which reads the same localStorage key and sets this
+//    flag before the patched bundle's own module code runs). When on: the
+//    cursor is never grabbed, and — since the site's own pointerlockchange
+//    handler treats *losing* a lock it never held as a no-op — clicking
+//    onto the leaderboard/splits overlays while driving no longer costs it
+//    pointer lock and no longer opens the pause menu. Off by default
+//    (undefined/false), so nothing about stock behavior changes unless a
+//    player explicitly turns it on.
+mainPatcher.replaceOnce(
+  "pointerLockToggle",
+  "n.requestPointerLock().catch(()=>void 0)",
+  "(window.__srvNoPointerLock??!1)||n.requestPointerLock().catch(()=>void 0)"
+);
+
+// 8. Pause-suppression flag, window.__srvSuppressPause — set briefly by
+//    content.js (via srv-main.js, which shares the real page `window`)
+//    around its own DOM updates (leaderboard/splits). Confirmed via the
+//    bundle itself that TWO separate paths open the pause menu: window
+//    `blur` (#Pi, reason "focus-lost") and losing pointer lock (#Hi, via
+//    #Un()) — both patched here rather than picking one, since which one
+//    actually fires from our DOM churn isn't something we can observe from
+//    outside the page, and previous attempts guessing at *when* to avoid
+//    mutating the DOM (deferring while pointer-locked, deferring during
+//    "racing"/"countdown") didn't reliably prevent it and, worse, blocked
+//    live updates during a run entirely — a regression from how this used
+//    to behave. This instead leaves updates free to happen live and simply
+//    tells the site's own pause logic to ignore whatever it is about that
+//    DOM churn for the specific window content.js says it's mutating
+//    things, which is correct regardless of which of the two paths (or
+//    both) is actually responsible.
+mainPatcher.replaceOnce(
+  "suppressPauseOnBlur",
+  "#la=()=>{this.#He=!1,!(this.#Ee?.isSettingsOpen()??!1)&&this.#$n(`focus-lost`)};",
+  "#la=()=>{this.#He=!1,!(this.#Ee?.isSettingsOpen()??!1)&&!window.__srvSuppressPause&&this.#$n(`focus-lost`)};"
+);
+mainPatcher.replaceOnce(
+  "suppressPauseOnPointerLockLoss",
+  "!(r||!t||!n||this.#ie!==null||(this.#Ee?.isSettingsOpen()??!1))&&this.#sr()};",
+  "!(r||!t||!n||this.#ie!==null||(this.#Ee?.isSettingsOpen()??!1)||window.__srvSuppressPause)&&this.#sr()};"
+);
+
+writeFileSync(mainOut, mainSrc, "utf8");
+console.log(`Patched main bundle written to ${mainOut} (${mainSrc.length} bytes).`);
+
+// ---- TerrainView chunk (RV lives here) ----
+let tvSrc = rewriteRelativeChunkRefs("TerrainView chunk", readFileSync(terrainViewIn, "utf8"));
+const tvPatcher = makePatcher(
+  "TerrainView chunk",
+  () => tvSrc,
+  (s) => (tvSrc = s)
+);
+
+// 4. RV (the ghost/replay physics-sim wrapper) gets a `raceTelemetry` getter
+//    so we can silently fast-forward any ghost (e.g. your PB) through the
+//    real physics via repeated .step() calls and read its exact checkpoint
+//    ("gate") crossing ticks/speeds/positions — not an approximation.
+tvPatcher.insertAfter(
+  "raceTelemetry",
+  "get finished(){return this.#s===`finished`||this.#s===`exhausted`}",
+  "get raceTelemetry(){if(this.#o==null)return null;" +
+    "let e=this.#o.model.base.requireCar(this.#o.model.carEntityId).captureTelemetry();" +
+    "return{nextGateIndex:this.#o.model.raceState.nextGateIndex,position:e.position,speed:e.speed,tick:this.#c}}"
+);
+
+writeFileSync(terrainViewOut, tvSrc, "utf8");
+console.log(`Patched TerrainView chunk written to ${terrainViewOut} (${tvSrc.length} bytes).`);
+
+// ---- summary ----
+const failed = results.filter((r) => !r.ok);
+console.log(`\n${results.length - failed.length}/${results.length} patches applied.`);
+if (failed.length > 0) {
+  console.log("Needs re-deriving:");
+  for (const r of failed) console.log(`  - [${r.file}] ${r.name}`);
+  console.log(
+    "\nBoth output files were still written with every OTHER patch applied — " +
+      "only the features tied to the anchors above are affected. Re-derive those " +
+      "specific anchors against the current bundle (see the comments above each " +
+      "patch call for what stable string to search for) and re-run."
+  );
+  process.exitCode = 1;
+}
