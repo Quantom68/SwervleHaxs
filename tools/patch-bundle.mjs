@@ -11,10 +11,21 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 }
 
 // ---- minified identifier mapping for the CURRENT bundles ----
-// main bundle: index-DCv2kVM3.js
+// main bundle: index-vFd6W4pL.js
 // replay chunk: replay-DRoePr8Y.js
-// Updated: 2026-08-25
+// Updated: 2026-08-27
+// v - variable
+// f - function
+// p - property
+// m - method
 const NAMES = {
+  mRunPoster: "#f",
+  mServerAccesser: "#p",
+  pTimeoutMs: "#i",
+  fResponseChecker: "_l",
+  fServerAccessErrorClassifier: "vl",
+  mCheckIfLocalBaseOnHostname: "#gr",
+  fCheckIfLocal: "$c"
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -132,10 +143,20 @@ const mainPatcher = makePatcher(
 //    "OFFICIAL VERIFIER UNREACHABLE", never retries automatically.
 //
 //    TL:DR: Instead of posting, returns "server unreachable".
+//    This is backup code incase `forceLocalVerifier` fails.
 mainPatcher.replaceOnce(
   "disableRunSubmission",
-  "async#f(e,t){try{let n=await this.#p(`POST`,e,{body:t,csrf:!0,timeoutMs:this.#i});return Object.freeze({body:await sl(n),httpStatus:n.status,kind:`response`})}catch(e){return Object.freeze({classification:cl(e)?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0?e.message:null})}}",
-  "async#f(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
+  "async"+NAMES.mRunPoster+"(e,t){try{let n=await this."+NAMES.mServerAccesser+"(`POST`,e,{body:t,csrf:!0,timeoutMs:this."+NAMES.pTimeoutMs+"});return Object.freeze({body:await "+NAMES.fResponseChecker+"(n),httpStatus:n.status,kind:`response`})}catch(e){return Object.freeze({classification:"+NAMES.fServerAccessErrorClassifier+"(e)?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0?e.message:null})}}",
+  "async"+NAMES.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
+);
+
+// 2. Forces local verification instead of submiting to servers.
+//    Suppose to prevent "OFFICIAL VERIFIER UNREACHABLE" screen
+//    from appearing and shows the time.
+mainPatcher.replaceOnce(
+  "forceLocalVerifier",
+  NAMES.mCheckIfLocalBaseOnHostname+"(){return "+NAMES.fCheckIfLocal+"(globalThis.location.hostname)}",
+  NAMES.mCheckIfLocalBaseOnHostname+"(){return!1}"
 );
 
 writeFileSync(mainOut, mainSrc, "utf8");
