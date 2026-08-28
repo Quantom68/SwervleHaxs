@@ -1,6 +1,9 @@
 # Swervle Tas
 
-description tba
+## Features
+
+- Prevents sending runs to server. **Remeber to disable this extension when you do actual runs.**
+- Shows the leaderboard rank a run would get based on it's time.
 
 ## rules.json
 
@@ -10,7 +13,7 @@ The redirect to the patched bundle filters for the exact hash, so when the websi
 
 ## patch-bundle.mjs
 
-From "Swervle Utils" extension. Patches a downloaded `index.js` and `replay.js` with added code to expose and add new properties and methods. Further documentation is in the file.
+From "Swervle Utils" extension. Patches a downloaded `index.js` and `replay.js` with added code to expose and add new properties and methods. Unlike Swervle Utils, there are a few important patches so it is unrecommened to use the patched-bundle if any patches fail. Further documentation is in the file.
 
 ### Usage
 

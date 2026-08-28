@@ -16,6 +16,7 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 // Updated: 2026-08-27
 // v - variable
 // f - function
+// c - class
 // p - property
 // m - method
 const NAMES = {
@@ -25,7 +26,16 @@ const NAMES = {
   fResponseChecker: "_l",
   fServerAccessErrorClassifier: "vl",
   mCheckIfLocalBaseOnHostname: "#gr",
-  fCheckIfLocal: "$c"
+  fCheckIfLocal: "$c",
+  fValidateDate: "Ss",
+  fValidateDayRunsAndFindRank: "Za",
+  cServerCommunicationManager: "qc",
+  pDailyManagerObject: "#n",
+  cMainGame: "zv",
+  mCheckIfDisposed: "#Fr",
+  pRunsMap: "#R", // needs better documentaion
+  mRepaintCalendarAccountRows: "Co", // needs better documentaion
+  fRankTimes: "#V"
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -158,6 +168,67 @@ mainPatcher.replaceOnce(
   NAMES.mCheckIfLocalBaseOnHostname+"(){return "+NAMES.fCheckIfLocal+"(globalThis.location.hostname)}",
   NAMES.mCheckIfLocalBaseOnHostname+"(){return!1}"
 );
+
+// 3. Force dailyRank() to call fetchStanding() to get rank.
+mainPatcher.replaceOnce(
+  "forceFetchStanding",
+  "dailyRank(e,t,n){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let r=[];return r.push(Object.freeze({competitorId:`local-player`,contestId:e,contestKind:`daily`,durationTicks:t,participantKind:`human`,publicDisplayName:`YOU`,publicRunId:n,verifiedAtIso:new Date(`${e}T23:59:59.999Z`).toISOString()})),"+NAMES.fValidateDayRunsAndFindRank+"({dailyId:e,results:r}).rankedEntries.find(e=>e.competitorId===`local-player`)?.rank??null}",
+  "async dailyRank(e,t,n,r){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let g=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});const standing=await g.fetchStanding(e,t,undefined,r).catch(()=>null);return standing?.rank??null;}"
+)
+
+// 4. Add a gateway field and a rank cache/in-flight tracker
+//    to the main game class.
+mainPatcher.insertAfter(
+  "addFieldsToMainClass",
+  "zv=class{",
+  "#dailyRankGateway=null;#dailyRankPending=new Map();"
+)
+/*
+#dailyRankGateway = null;
+#dailyRankPending = new Map();
+*/
+
+// 5. Add background daily rank fetch.
+mainPatcher.insertBefore(
+  "AsyncRankFetchFunc",
+  "create(){",
+  "async #fetchDailyRankInBackground(e,t,n,r){if(this.#dailyRankPending.has(e))return;if(!Number.isSafeInteger(t)||t<1)return;let p=(async()=>{this.#dailyRankGateway??=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});let s=await this.#dailyRankGateway.fetchStanding(e,t,undefined,r).catch(()=>null);if(s?.rank==null||this."+NAMES.mCheckIfDisposed+"())return;this."+NAMES.pRunsMap+".delete(e);this."+NAMES.mRepaintCalendarAccountRows+"([e]);})();this.#dailyRankPending.set(e,p);try{await p}finally{this.#dailyRankPending.delete(e)}}"
+)
+/*
+async #fetchDailyRankInBackground(dailyId, durationTicks, publicRunId, displayTimeMs) {
+  if (this.#dailyRankPending.has(dailyId)) return;
+  if (!Number.isSafeInteger(durationTicks) || durationTicks < 1) return;
+
+  let pending = (async () => {
+    this.#dailyRankGateway ??= new qc({ apiBase: `https://swervle.com/api/v1` });
+    let standing = await this.#dailyRankGateway
+      .fetchStanding(dailyId, durationTicks, undefined, displayTimeMs)
+      .catch(() => null);
+    if (standing?.rank == null || this.#Fr()) return;
+
+    // Same pattern #po uses: drop the cached thumbnail result for this day
+    // so the next #mo() call recomputes with the real rank, then repaint
+    // any currently-open calendar/account rows for it.
+    this.#R.delete(dailyId);
+    this.#Co([dailyId]);
+  })();
+
+  this.#dailyRankPending.set(dailyId, pending);
+  try {
+    await pending
+  } finally {
+    this.#dailyRankPending.delete(dailyId)
+  }
+}
+*/
+
+// 6. Set rank to null then call
+//    fetchDailyRankInBackground()
+mainPatcher.replaceOnce(
+  "makeRankUseAsyncFetch",
+  "let c=o===null||this."+NAMES.mCheckIfLocalBaseOnHostname+"()?null:this."+NAMES.pDailyManagerObject+".dailyRank(e,o.durationTicks,o.publicRunId),l=this.#V.get(e);",
+  "let c=null;if(o!==null&&!this."+NAMES.mCheckIfLocalBaseOnHostname+"()){this.#fetchDailyRankInBackground(e,o.durationTicks,o.publicRunId,o.displayTimeMs)}let l=this."+NAMES.fRankTimes+".get(e);"
+)
 
 writeFileSync(mainOut, mainSrc, "utf8");
 console.log(`Patched main bundle written to ${mainOut} (${mainSrc.length} bytes).`);
