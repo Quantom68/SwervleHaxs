@@ -11,9 +11,9 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 }
 
 // ---- minified identifier mapping for the CURRENT bundles ----
-// main bundle: index-vFd6W4pL.js
-// replay chunk: replay-DRoePr8Y.js
-// Updated: 2026-08-27
+// main bundle: index-g58yFkXG.js
+// replay chunk: replay-BymKJeTp.js
+// Updated: 2026-08-29
 // v - variable
 // f - function
 // c - class
@@ -21,21 +21,134 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 // m - method
 const NAMES = {
   mRunPoster: "#f",
+  /* ln. 5419:
+  async #f(e, t) {
+    try {
+      let n = await this.#p(`POST`, e, {
+        body: t,
+        csrf: !0,
+        timeoutMs: this.#i
+      });
+      return Object.freeze({
+        body: await _l(n),
+        httpStatus: n.status,
+        kind: `response`
+      })
+    } catch (e) {
+      return Object.freeze({
+        classification: vl(e) ? `server-timeout` : `server-unreachable`,
+        kind: `transport-failure`,
+        message: e instanceof Error && e.message.length > 0 ? e.message : null
+      })
+    }
+  }*/
   mServerAccesser: "#p",
+  /* ln. 5439
+  #p(e, t, n = {}) {
+    let r = {
+        accept: `application/json`
+      },
+      i = {
+        credentials: `same-origin`,
+        headers: r,
+        method: e
+      };
+    if (n.body !== void 0 && (r[`content-type`] = `application/json`, i.body = JSON.stringify(n.body)), n.csrf === !0) {
+      let e = kl(this.#n());
+      e !== null && (r[`x-csrf-token`] = e)
+    }
+    return this.#m(wl(this.#t, `${this.#e}${t}`, i, n.timeoutMs ?? this.#r))
+  }*/
   pTimeoutMs: "#i",
-  fResponseChecker: "_l",
-  fServerAccessErrorClassifier: "vl",
-  mCheckIfLocalBaseOnHostname: "#gr",
-  fCheckIfLocal: "$c",
-  fValidateDate: "Ss",
-  fValidateDayRunsAndFindRank: "Za",
-  cServerCommunicationManager: "qc",
+  /* ln. 5194, 5201
+  this.#i = e.submissionTimeoutMs ?? Gc
+  */
+  fResponseChecker: "El",
+  /* ln. 5754
+  async function El(e) {
+    try {
+      let t = await e.json();
+      return Ol(t) ? t : null
+    } catch {
+      return null
+    }
+  }*/
+  fServerAccessErrorClassifier: "Dl",
+  /* ln. 5763
+  function Dl(e) {
+    return Ol(e) && e.name === `AbortError`
+  }*/
+  mCheckIfLocalBaseOnHostname: "#vr",
+  /* ln. 14421
+  #gr() {
+    return cl(globalThis.location.hostname)
+  }*/
+  fCheckIfLocal: "cl",
+  /* ln. 5483
+  function cl(e, t = Ml()) {
+    return sl(t) || rl(e)
+  }*/
+  fValidateDate: "xs",
+  /* ln. 4515
+  function xs(e) {
+    let t = Date.parse(`${e}T00:00:00Z`);
+    if (!/^\d{4}-\d{2}-\d{2}$/u.test(e) || Number.isNaN(t) || new Date(t).toISOString().slice(0, 10) !== e) throw TypeError(`Daily ID must be a UTC calendar date.`)
+  }*/
+  fValidateDayRunsAndFindRank: "Xa",
+  /* ln. 3227
+  function Xa(e) {
+    return to(e.dailyId), Ya({
+      contestId: e.dailyId,
+      contestKind: `daily`,
+      results: e.results,
+      ...e.realRacerIds === void 0 ? {} : {
+        realRacerIds: e.realRacerIds
+      }
+    })
+  }*/
+  cServerCommunicationManager: "nl",
+  /* ln. 5189
+  var nl = class {
+    #e;
+    #t;
+    #n;
+    #r;
+    #i;
+    #a = null;
+    #o = `normal`;
+    constructor(e = {}) {
+      this.#e = e.apiBase ?? jl();
+      let t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null);
+      if (t === null) throw TypeError(`A fetch implementation is required for server mode.`);
+      this.#t = t, this.#n = e.cookieSource ?? Al, this.#r = e.requestTimeoutMs ?? $c, this.#i = e.submissionTimeoutMs ?? el
+    }*/
   pDailyManagerObject: "#n",
-  cMainGame: "zv",
-  mCheckIfDisposed: "#Fr",
+  /* ln. 13314, 13528
+  this.#n = e.service ?? new hs
+  */
+  cMainGame: "Zv",
+  /* ln. 13311
+  It's the one with all the methods and manages everything.
+  */
+  mCheckIfDisposed: "#Lr",
+  /* ln. 14815
+  #Fr() {
+    return this.#st === `disposed`
+  }*/
   pRunsMap: "#R", // needs better documentaion
-  mRepaintCalendarAccountRows: "Co", // needs better documentaion
+  /* ln. 13354, 17045
+  return this.#R.set(e, n), n
+  */
+  mRepaintCalendarAccountRows: "#jo", // needs better documentaion
+  /* ln. 17237
+  #wo(e) {
+    let t = this.#we;
+    for (let n of e) this.#R.delete(n), t !== null && P_(t.element, n, this.#So(n))
+  }*/
   fRankTimes: "#V"
+  /* ln. 13357, 17248
+  for (let [n, r] of Xp(e)) t.add(n), this.#V.set(n, r);
+  */
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -143,6 +256,14 @@ const mainPatcher = makePatcher(
   (s) => (mainSrc = s)
 );
 
+// 0. Replace the title text to confirm that the extension loaded
+//    successfully.
+mainPatcher.replaceOnce(
+  "replaceTitleText",
+  "title:n.mode===`challenge`?`BEAT THIS RUN.`:`LET'S SWERVE`",
+  "title:n.mode===`challenge`?`DESTROY THIS RUN.`:`LET'S TAS`",
+)
+
 // 1. Kill the run-submission network call. submitRunOutcome's only side
 //    effect is POSTing to /runs via #f; making #f return a graceful
 //    transport-failure without ever calling #p means the run is never
@@ -173,14 +294,14 @@ mainPatcher.replaceOnce(
 mainPatcher.replaceOnce(
   "forceFetchStanding",
   "dailyRank(e,t,n){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let r=[];return r.push(Object.freeze({competitorId:`local-player`,contestId:e,contestKind:`daily`,durationTicks:t,participantKind:`human`,publicDisplayName:`YOU`,publicRunId:n,verifiedAtIso:new Date(`${e}T23:59:59.999Z`).toISOString()})),"+NAMES.fValidateDayRunsAndFindRank+"({dailyId:e,results:r}).rankedEntries.find(e=>e.competitorId===`local-player`)?.rank??null}",
-  "async dailyRank(e,t,n,r){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let g=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});const standing=await g.fetchStanding(e,t,undefined,r).catch(()=>null);return standing?.rank??null;}"
+  "async dailyRank(e,t,n,r){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let g=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});const standing=await g.fetchStanding(e,t,undefined,r).catch(()=>null);console.log(standing?.rank??null);return standing?.rank??null;}"
 )
 
 // 4. Add a gateway field and a rank cache/in-flight tracker
 //    to the main game class.
 mainPatcher.insertAfter(
   "addFieldsToMainClass",
-  "zv=class{",
+  NAMES.cMainGame+"=class{",
   "#dailyRankGateway=null;#dailyRankPending=new Map();"
 )
 /*
@@ -192,7 +313,7 @@ mainPatcher.insertAfter(
 mainPatcher.insertBefore(
   "AsyncRankFetchFunc",
   "create(){",
-  "async #fetchDailyRankInBackground(e,t,n,r){if(this.#dailyRankPending.has(e))return;if(!Number.isSafeInteger(t)||t<1)return;let p=(async()=>{this.#dailyRankGateway??=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});let s=await this.#dailyRankGateway.fetchStanding(e,t,undefined,r).catch(()=>null);if(s?.rank==null||this."+NAMES.mCheckIfDisposed+"())return;this."+NAMES.pRunsMap+".delete(e);this."+NAMES.mRepaintCalendarAccountRows+"([e]);})();this.#dailyRankPending.set(e,p);try{await p}finally{this.#dailyRankPending.delete(e)}}"
+  "async #fetchDailyRankInBackground(e,t,n,r){console.log(`asdf`);if(this.#dailyRankPending.has(e))return;if(!Number.isSafeInteger(t)||t<1)return;let p=(async()=>{this.#dailyRankGateway??=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});let s=await this.#dailyRankGateway.fetchStanding(e,t,undefined,r).catch(()=>null);if(s?.rank==null||this."+NAMES.mCheckIfDisposed+"())return;this."+NAMES.pRunsMap+".delete(e);this."+NAMES.mRepaintCalendarAccountRows+"([e]);})();this.#dailyRankPending.set(e,p);try{await p}finally{this.#dailyRankPending.delete(e)}}"
 )
 /*
 async #fetchDailyRankInBackground(dailyId, durationTicks, publicRunId, displayTimeMs) {
@@ -226,8 +347,15 @@ async #fetchDailyRankInBackground(dailyId, durationTicks, publicRunId, displayTi
 //    fetchDailyRankInBackground()
 mainPatcher.replaceOnce(
   "makeRankUseAsyncFetch",
-  "let c=o===null||this."+NAMES.mCheckIfLocalBaseOnHostname+"()?null:this."+NAMES.pDailyManagerObject+".dailyRank(e,o.durationTicks,o.publicRunId),l=this.#V.get(e);",
-  "let c=null;if(o!==null&&!this."+NAMES.mCheckIfLocalBaseOnHostname+"()){this.#fetchDailyRankInBackground(e,o.durationTicks,o.publicRunId,o.displayTimeMs)}let l=this."+NAMES.fRankTimes+".get(e);"
+  "let c=o===null||this."+NAMES.mCheckIfLocalBaseOnHostname+"()?null:this."+NAMES.pDailyManagerObject+".dailyRank(e,o.durationTicks,o.publicRunId),l=this."+NAMES.fRankTimes+".get(e);",
+  "let c=null;console.log(o);console.log(this."+NAMES.mCheckIfLocalBaseOnHostname+"());if(o!==null&&!this."+NAMES.mCheckIfLocalBaseOnHostname+"()){console.log(`dfgh`);this.#fetchDailyRankInBackground(e,o.durationTicks,o.publicRunId,o.displayTimeMs);console.log(`sdfg`);}let l=this."+NAMES.fRankTimes+".get(e);"
+)
+
+// temp
+mainPatcher.replaceOnce(
+  "temp",
+  "svg:a}}catch{return null}",
+  "svg:a}}catch(e){console.log(e);return null}"
 )
 
 writeFileSync(mainOut, mainSrc, "utf8");
