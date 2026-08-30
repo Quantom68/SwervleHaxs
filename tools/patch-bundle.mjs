@@ -20,7 +20,6 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 // p - property
 // m - method
 const NAMES = {
-  mRunPoster: "#f",
   /* ln. 5472:
   async #f(e, t) {
     try {
@@ -42,7 +41,7 @@ const NAMES = {
       })
     }
   }*/
-  mServerAccesser: "#p",
+  mRunPoster: "#f",
   /* ln. 5439
   #p(e, t, n = {}) {
     let r = {
@@ -59,11 +58,11 @@ const NAMES = {
     }
     return this.#m(wl(this.#t, `${this.#e}${t}`, i, n.timeoutMs ?? this.#r))
   }*/
-  pTimeoutMs: "#i",
+  mServerAccesser: "#p",
   /* ln. 5194, 5201
   this.#i = e.submissionTimeoutMs ?? Gc
   */
-  fResponseChecker: "Dl",
+  pTimeoutMs: "#i",
   /* ln. 5754
   async function El(e) {
     try {
@@ -73,28 +72,28 @@ const NAMES = {
       return null
     }
   }*/
-  fServerAccessErrorClassifier: "Ol",
+  fResponseChecker: "Dl",
   /* ln. 5763
   function Dl(e) {
     return Ol(e) && e.name === `AbortError`
   }*/
-  mCheckIfLocalBaseOnHostname: "#vr",
+  fServerAccessErrorClassifier: "Ol",
   /* ln. 14475
   #gr() {
     return cl(globalThis.location.hostname)
   }*/
-  fCheckIfLocal: "ll",
+  mCheckIfLocalBaseOnHostname: "#vr",
   /* ln. 5483
   function cl(e, t = Ml()) {
     return sl(t) || rl(e)
   }*/
-  fValidateDate: "xs",
+  fCheckIfLocal: "ll",
   /* ln. 4553
   function xs(e) {
     let t = Date.parse(`${e}T00:00:00Z`);
     if (!/^\d{4}-\d{2}-\d{2}$/u.test(e) || Number.isNaN(t) || new Date(t).toISOString().slice(0, 10) !== e) throw TypeError(`Daily ID must be a UTC calendar date.`)
   }*/
-  fValidateDayRunsAndFindRank: "Xa",
+  fValidateDate: "xs",
   /* ln. 3265
   function Xa(e) {
     return to(e.dailyId), Ya({
@@ -106,7 +105,7 @@ const NAMES = {
       }
     })
   }*/
-  cServerCommunicationManager: "rl",
+  fValidateDayRunsAndFindRank: "Xa",
   /* ln. 5242
   var nl = class {
     #e;
@@ -122,34 +121,34 @@ const NAMES = {
       if (t === null) throw TypeError(`A fetch implementation is required for server mode.`);
       this.#t = t, this.#n = e.cookieSource ?? Al, this.#r = e.requestTimeoutMs ?? $c, this.#i = e.submissionTimeoutMs ?? el
     }*/
-  pDailyManagerObject: "#n",
+  cServerCommunicationManager: "rl",
   /* ln. 13368, 13582
   this.#n = e.service ?? new hs
   */
-  cMainGame: "Qv",
+  pDailyManagerObject: "#n",
   /* ln. 13365
   It's the one with all the methods and manages everything.
   */
-  mCheckIfDisposed: "#Lr",
+  cMainGame: "Qv",
   /* ln. 14869
   #Fr() {
     return this.#st === `disposed`
   }*/
-  pRunsMap: "#R", // needs better documentaion
+  mCheckIfDisposed: "#Lr",
   /* ln. 13408, 17098
   return this.#R.set(e, n), n
   */
-  mRepaintCalendarAccountRows: "#jo", // needs better documentaion
+  pRunsMap: "#R", // needs better documentaion
   /* ln. 17290
   #jo(e) {
     let t = this.#we;
     for (let n of e) this.#R.delete(n), t !== null && F_(t.element, n, this.#So(n))
   }*/
-  fRankTimes: "#V",
+  mRepaintCalendarAccountRows: "#jo", // needs better documentaion
   /* ln. 13411, 17301
   for (let [n, r] of Zp(e)) t.add(n), this.#V.set(n, r);
   */
-  fRenderLeaderboard: "Uu",
+  fRankTimes: "#V",
   /* ln. 6965
   function Uu(e) {
     let t = Tu[e.surface],
@@ -190,7 +189,16 @@ const NAMES = {
           </aside>`
   }
   */
-  hideTheAboveCommentBecauseVscodeIsntLettingMeWithoutSomethingBelow: null
+  fRenderLeaderboard: "Uu",
+  /* ln. 13007
+  var bv = Object.freeze({
+    boost: !1,
+    handbrake: !1,
+    reverse: !1,
+    steerTarget: 0,
+    throttle: !1
+  }),*/
+  vDefaultActionsSample: "bv",
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -376,6 +384,8 @@ mainPatcher.replaceOnce(
   "</li>`;return`",
   "</li>`;try{fetchDailyRankInBackground(`2026-08-30`, e.entries[0].durationTicks);}catch(e){console.log(`[Swervle TAS Tool]: ` + e)}return`"
 )
+
+// == 6-? TAS ==
 
 writeFileSync(mainOut, mainSrc, "utf8");
 console.log(`Patched main bundle written to ${mainOut} (${mainSrc.length} bytes).`);
