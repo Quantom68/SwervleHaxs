@@ -298,6 +298,8 @@ const mainPatcher = makePatcher(
   (s) => (mainSrc = s)
 );
 
+// == 0-5 Make Game Local ==
+
 // 0. Replace the title text to confirm that the extension loaded
 //    successfully.
 mainPatcher.replaceOnce(
