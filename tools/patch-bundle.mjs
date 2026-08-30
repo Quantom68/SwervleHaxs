@@ -145,10 +145,52 @@ const NAMES = {
     let t = this.#we;
     for (let n of e) this.#R.delete(n), t !== null && F_(t.element, n, this.#So(n))
   }*/
-  fRankTimes: "#V"
+  fRankTimes: "#V",
   /* ln. 13411, 17301
   for (let [n, r] of Zp(e)) t.add(n), this.#V.set(n, r);
   */
+  fRenderLeaderboard: "Uu",
+  /* ln. 6965
+  function Uu(e) {
+    let t = Tu[e.surface],
+      n = Eu[e.surface],
+      r = e.scopeControl,
+      i = vu();
+    if (e.state === `offline` && !i) return Xu(e.surface, t, n, r);
+    if (e.state === `pending` && !i) return Ju(t, n, r);
+    let a = vc(e.viewerTeamTag),
+      o = rd(e.entries).map(t => `
+            <li${t.isPlayer?` data-player="true"`:``}>
+              <span class="leaderboard-rank" aria-label="Rank ${String(t.rank)}">${String(t.rank)}</span>
+              ${$u(t.isPlayer?e.viewerIsSupporter===!0||t.isSupporter===!0:t.isSupporter)}
+              <span class="leaderboard-name">${Qu(t.isPlayer?e.viewerTeamTag??t.teamTag:t.teamTag,a)}<strong>${t.isPlayer?`YOU`:J(t.displayName)}</strong>${ed(t.creatorLinks)}</span>
+              <time>${D(t.displayTimeMs??T(t.durationTicks))}</time>
+              ${ad(t.carPaint??null,t.isPlayer?`your car`:`${t.displayName}'s car`,t.isPlayer?`YOU`:t.displayName,D(t.displayTimeMs??T(t.durationTicks)),t.isPlayer,t.publicRunId,t.rank,t.joinedAtIso??null)}${e.offerSignIn?`
+              ${t.isPlayer?od():`<span class="leaderboard-signin-slot" aria-hidden="true"></span>`}`:``}
+            </li>`).join(``),
+      s = e.viewerRow,
+      c = s !== null && s.durationTicks === null,
+      l = c ? wu : D(s?.displayTimeMs ?? T(s?.durationTicks ?? 0)),
+      u = Wu(e, a),
+      d = e.entries.length > 0 || u !== ``,
+      f = s === null ? `` : `${d?`
+            <li class="leaderboard-separator" role="presentation" aria-hidden="true"></li>`:``}
+            <li class="leaderboard-you-outside" data-player="true"${c?` data-untimed="true"`:``}>
+              <span class="leaderboard-rank" aria-label="${c?`No time yet`:s.rank===null?`Unranked`:`Rank ${String(s.rank)}`}">${c||s.rank===null?`&mdash;`:String(s.rank)}</span>
+              ${$u(s.isSupporter===!0||e.viewerIsSupporter===!0)}
+              <span class="leaderboard-name">${Qu(s.teamTag??e.viewerTeamTag,a)}<strong>YOU</strong>${ed(s.creatorLinks)}</span>
+              <time>${l}</time>
+              ${ad(s.carPaint??null,`your car`,`YOU`,l,!0,void 0,s.rank,s.joinedAtIso??null)}${e.offerSignIn?`
+              ${od()}`:``}
+            </li>`;
+    return `
+          <aside class="result-leaderboard panel" data-slot="${t}"${Gu(r)} data-board-state="ready" aria-labelledby="${n}">
+            ${qu(n,r)}
+            <ol${e.offerSignIn?` data-sign-in="true"`:``}${Zt()?``:` data-chips="off"`}>${o}${u}${f}</ol>
+          </aside>`
+  }
+  */
+  hideTheAboveCommentBecauseVscodeIsntLettingMeWithoutSomethingBelow: null
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -297,65 +339,40 @@ mainPatcher.replaceOnce(
   "async dailyRank(e,t,n,r){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let g=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});const standing=await g.fetchStanding(e,t,undefined,r).catch(()=>null);console.log(standing?.rank??null);return standing?.rank??null;}"
 )
 
-// 4. Add a gateway field and a rank cache/in-flight tracker
-//    to the main game class.
-mainPatcher.insertAfter(
-  "4addFieldsToMainClass",
-  NAMES.cMainGame+"=class{",
-  "#dailyRankGateway=null;#dailyRankPending=new Map();"
-)
-/*
-#dailyRankGateway = null;
-#dailyRankPending = new Map();
-*/
-
-// 5. Add background daily rank fetch.
+// 4. Add background daily rank fetch.
 mainPatcher.insertBefore(
   "5AsyncRankFetchFunc",
-  "create(){",
-  "async #fetchDailyRankInBackground(e,t,n,r){console.log(`asdf`);if(this.#dailyRankPending.has(e))return;if(!Number.isSafeInteger(t)||t<1)return;let p=(async()=>{this.#dailyRankGateway??=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});let s=await this.#dailyRankGateway.fetchStanding(e,t,undefined,r).catch(()=>null);if(s?.rank==null||this."+NAMES.mCheckIfDisposed+"())return;this."+NAMES.pRunsMap+".delete(e);this."+NAMES.mRepaintCalendarAccountRows+"([e]);})();this.#dailyRankPending.set(e,p);try{await p}finally{this.#dailyRankPending.delete(e)}}"
+  "function "+NAMES.fRenderLeaderboard+"(e){",
+  "async function fetchDailyRankInBackground(dailyId, durationTicks) {let dailyRankGateway = new "+NAMES.cServerCommunicationManager+"({ apiBase: `https://swervle.com/api/v1` }); let standing = await dailyRankGateway.fetchStanding(dailyId, durationTicks); const nameElements = document.querySelectorAll('.leaderboard-name'); const myNameElement = Array.from(nameElements).find(el => el.textContent.trim() === 'YOU'); if (myNameElement) { const rankElement = myNameElement.closest('li').querySelector('.leaderboard-rank'); rankElement.textContent = String(standing.rank); } else { console.log(`[Swervle TAS Tool] Rank Element Not Found.`)}}"
 )
 /*
-async #fetchDailyRankInBackground(dailyId, durationTicks, publicRunId, displayTimeMs) {
-  if (this.#dailyRankPending.has(dailyId)) return;
-  if (!Number.isSafeInteger(durationTicks) || durationTicks < 1) return;
+async function fetchDailyRankInBackground(dailyId, durationTicks) {
+  // there prob should be failsafes, but I want this feature so I'm letting it fail to find the error.
+  let dailyRankGateway = new "+NAMES.cServerCommunicationManager+"({ apiBase: `https://swervle.com/api/v1` });
+  let standing = await dailyRankGateway.fetchStanding(dailyId, durationTicks);
 
-  let pending = (async () => {
-    this.#dailyRankGateway ??= new qc({ apiBase: `https://swervle.com/api/v1` });
-    let standing = await this.#dailyRankGateway
-      .fetchStanding(dailyId, durationTicks, undefined, displayTimeMs)
-      .catch(() => null);
-    if (standing?.rank == null || this.#Fr()) return;
+  // 1. Find all .leaderboard-name elements
+  const nameElements = document.querySelectorAll('.leaderboard-name');
 
-    // Same pattern #po uses: drop the cached thumbnail result for this day
-    // so the next #mo() call recomputes with the real rank, then repaint
-    // any currently-open calendar/account rows for it.
-    this.#R.delete(dailyId);
-    this.#Co([dailyId]);
-  })();
+  // 2. Find the one containing "YOU"
+  const myNameElement = Array.from(nameElements).find(
+    el => el.textContent.trim() === 'YOU'
+  );
 
-  this.#dailyRankPending.set(dailyId, pending);
-  try {
-    await pending
-  } finally {
-    this.#dailyRankPending.delete(dailyId)
+  if (myNameElement) {
+    const rankElement = myNameElement.closest('li').querySelector('.leaderboard-rank');
+    rankElement.textContent = String(standing.rank);
+  } else {
+    console.log(`[Swervle TAS Tool] Rank Element Not Found.`)
   }
 }
 */
 
-// 6. Set rank to null then call
-//    fetchDailyRankInBackground()
+// 5. call fetchDailyRankInBackground()
 mainPatcher.replaceOnce(
   "6makeRankUseAsyncFetch",
-  "let c=o===null||this."+NAMES.mCheckIfLocalBaseOnHostname+"()?null:this."+NAMES.pDailyManagerObject+".dailyRank(e,o.durationTicks,o.publicRunId),l=this."+NAMES.fRankTimes+".get(e);",
-  "let c=null;throw `ahh`;console.log(o);console.log(this."+NAMES.mCheckIfLocalBaseOnHostname+"());if(o!==null&&!this."+NAMES.mCheckIfLocalBaseOnHostname+"()){console.log(`dfgh`);this.#fetchDailyRankInBackground(e,o.durationTicks,o.publicRunId,o.displayTimeMs);console.log(`sdfg`);}let l=this."+NAMES.fRankTimes+".get(e);"
-)
-
-// temp
-mainPatcher.replaceOnce(
-  "temp",
-  "svg:a}}catch{return null}",
-  "svg:a}}catch(e){console.log(e);return null}"
+  "</li>`;return`",
+  "</li>`;try{fetchDailyRankInBackground(`2026-08-30`, e.entries[0].durationTicks);}catch(e){console.log(`[Swervle TAS Tool]: ` + e)}return`"
 )
 
 writeFileSync(mainOut, mainSrc, "utf8");
