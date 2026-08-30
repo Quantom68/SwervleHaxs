@@ -3,6 +3,7 @@
 ## Features
 
 - Prevents sending runs to server. **Remeber to disable this extension when you do actual runs.**
+    - Doesn't prevent saving the personal best to local storage.
 - Shows the leaderboard rank a run would get based on it's time.
 
 ## rules.json
