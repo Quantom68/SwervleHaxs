@@ -1,4 +1,4 @@
-const __vite__mapDeps = (i, m = __vite__mapDeps, d = (m.f || (m.f = ["assets/CarChipViewV1-m1jCnvGu.js", "assets/rolldown-runtime-DK3Fl9T5.js", "assets/CarChipV1-BQhJZ3ac.js", "assets/CarBackgroundPickerV1-6CqaklY5.js", "assets/LiveryDesignV1-BK7SofGX.js", "assets/ModalDialog-7y2DvZE8.js", "assets/EditorUiV1-DFHKfO1t.js", "assets/three.core-DdTcUFtD.js", "assets/LiveryLibraryV1-Di05I7yd.js", "assets/CarTopologyV1-Ca-BNIm8.js", "assets/LiveryAtlasV1-C42cSEfm.js", "assets/DressAccountVehicleV1-BpMqeSyL.js", "assets/VehicleLiveryDesignV1-BRTG82dp.js", "assets/preload-helper-Czpn1I53.js", "assets/VehicleLiveryCodecV1-tqCfmAFk.js", "assets/AccountSelectedVehicleV1-Cun8Og3L.js", "assets/CarBodyVariantV1-DWvZEx3q.js", "assets/VehicleLiverySurfaceV1-C4am4kPX.js", "assets/VehicleRaceLiveryV1-BKmJrbb7.js", "assets/ReportSubjectDialogV1-DEnqoDYK.js", "assets/SwervleBackControlV1-Df3V36ms.js", "assets/LiveryEditorScreenV1-DnJrfq5G.js", "assets/ProtectedAssetManifest-BjhYKyPB.js", "assets/boxman.gameplay-0VV8A6OD.js", "assets/FlatPlaneLevel-4C-U-2ow.js", "assets/EntityId-CmKS15sT.js", "assets/LevelDefinition-H34olgHU.js", "assets/PendingLiveryV1-Ccumovf-.js", "assets/CarModelV1-46ljjjfI.js", "assets/GLTFLoader-Dux7Zhmq.js", "assets/LiveryEditorScreenV1-B8xf-fQW.css", "assets/VehicleOfferDialogV1-BR-6XWLa.js", "assets/VehiclePacksV1-CtXVkS_l.js", "assets/RaceLiveryV1-DcOPHg6e.js", "assets/VehiclePackPhotoV1-DVN3hwAu.js", "assets/CarBodyPickerV1-BSEVlycg.js", "assets/DiagnosticOverlayV1-BawRrFxg.js", "assets/simulationTiming-Bdsi9iKe.js", "assets/DiagnosticOverlayV1-CDgMQvez.css", "assets/BootCarLayerRenderV1-B4iAT_lq.js", "assets/SwervleEnvironment-BPssJwBZ.js", "assets/TerrainPalette-DJLfdme6.js", "assets/CarContent-yom83xgq.js", "assets/BootHostedAdminDashboardV1-CUt6osyp.js", "assets/replay-BymKJeTp.js", "assets/RaceRules-DtQzFpz3.js", "assets/SimulationBuildIdentityV1-Bz1MDauw.js", "assets/RaceModifiersV1-Bci5NLK_.js", "assets/Sha256-Ci9AQodu.js", "assets/TrackGeneratorV2-ByYaxukx.js", "assets/TrackConstants-DgvjewmC.js", "assets/TerrainView-DB1epZv9.js", "assets/admin-surface-CtF5XfM7.js", "assets/admin-surface-QLESPL1s.css", "assets/AdminOperatorTimeV1-CqBA7WM0.js", "assets/AdminSignalsV1-BM-hr6lw.js", "assets/AdminActivityModelV1-BYikhFGv.js", "assets/AdminDashboard-Ce14tdGo.js", "assets/AdminAnalyticsSurfaceV1-DNTMm3m7.js", "assets/BootHostedAdminDashboardV1-C1zG-TWS.css"]))) => i.map(i => d[i]);
+const __vite__mapDeps = (i, m = __vite__mapDeps, d = (m.f || (m.f = ["assets/CarChipViewV1-m1jCnvGu.js", "assets/rolldown-runtime-DK3Fl9T5.js", "assets/CarChipV1-BQhJZ3ac.js", "assets/CarBackgroundPickerV1-6CqaklY5.js", "assets/LiveryDesignV1-BK7SofGX.js", "assets/ModalDialog-7y2DvZE8.js", "assets/EditorUiV1-DFHKfO1t.js", "assets/three.core-DdTcUFtD.js", "assets/LiveryLibraryV1-Di05I7yd.js", "assets/CarTopologyV1-Ca-BNIm8.js", "assets/LiveryAtlasV1-C42cSEfm.js", "assets/DressAccountVehicleV1-DwUEgMuR.js", "assets/VehicleLiveryDesignV1-BRTG82dp.js", "assets/preload-helper-Czpn1I53.js", "assets/VehicleLiveryCodecV1-tqCfmAFk.js", "assets/AccountSelectedVehicleV1-Cun8Og3L.js", "assets/CarBodyVariantV1-DWvZEx3q.js", "assets/VehicleLiverySurfaceV1-C4am4kPX.js", "assets/VehicleRaceLiveryV1-BKmJrbb7.js", "assets/ReportSubjectDialogV1-DEnqoDYK.js", "assets/SwervleBackControlV1-Df3V36ms.js", "assets/LiveryEditorScreenV1-BTv2tb0v.js", "assets/ProtectedAssetManifest-BjhYKyPB.js", "assets/boxman.gameplay-0VV8A6OD.js", "assets/FlatPlaneLevel-4C-U-2ow.js", "assets/EntityId-CmKS15sT.js", "assets/LevelDefinition-H34olgHU.js", "assets/PendingLiveryV1-Ccumovf-.js", "assets/CarModelV1-46ljjjfI.js", "assets/GLTFLoader-Dux7Zhmq.js", "assets/LiveryEditorScreenV1-B8xf-fQW.css", "assets/VehicleOfferDialogV1-DHxf6ITb.js", "assets/VehiclePacksV1-CtXVkS_l.js", "assets/RaceLiveryV1-DxbCj5KF.js", "assets/VehiclePackPhotoV1-CIudnM0R.js", "assets/CarBodyPickerV1-B0p5RZ-Q.js", "assets/DiagnosticOverlayV1-BawRrFxg.js", "assets/simulationTiming-Bdsi9iKe.js", "assets/DiagnosticOverlayV1-CDgMQvez.css", "assets/BootCarLayerRenderV1-BFb27hRY.js", "assets/SwervleEnvironment-BPssJwBZ.js", "assets/TerrainPalette-DJLfdme6.js", "assets/CarContent-yom83xgq.js", "assets/BootHostedAdminDashboardV1-C1bsFHEX.js", "assets/replay-C4CGFH_K.js", "assets/RaceRules-DtQzFpz3.js", "assets/SimulationBuildIdentityV1-Bz1MDauw.js", "assets/RaceModifiersV1-Bci5NLK_.js", "assets/Sha256-Ci9AQodu.js", "assets/TrackGeneratorV2-ByYaxukx.js", "assets/TrackConstants-DgvjewmC.js", "assets/TerrainView-B4tvy4JZ.js", "assets/admin-surface-CtF5XfM7.js", "assets/admin-surface-QLESPL1s.css", "assets/AdminOperatorTimeV1-Cmgo7WEj.js", "assets/AdminSignalsV1-Bh66RKyy.js", "assets/AdminActivityModelV1-DhNbAyvT.js", "assets/AdminDashboard-D0237pLJ.js", "assets/AdminAnalyticsSurfaceV1-DNTMm3m7.js", "assets/BootHostedAdminDashboardV1-C1zG-TWS.css"]))) => i.map(i => d[i]);
 import {
   t as e
 } from "./rolldown-runtime-DK3Fl9T5.js";
@@ -39,28 +39,28 @@ import {
 } from "./simulationTiming-Bdsi9iKe.js";
 import {
   C as x,
-  S,
-  _ as ae,
+  S as ae,
+  _ as S,
   a as C,
   b as oe,
   c as se,
   f as ce,
   g as le,
-  h as ue,
-  i as de,
-  l as fe,
-  m as pe,
-  n as me,
-  o as he,
-  p as ge,
-  r as _e,
-  s as ve,
-  t as ye,
-  u as be,
-  v as xe,
+  i as ue,
+  l as de,
+  m as fe,
+  n as pe,
+  o as me,
+  p as he,
+  r as ge,
+  s as _e,
+  t as ve,
+  u as ye,
+  v as be,
+  w as xe,
   x as Se,
   y as Ce
-} from "./replay-BymKJeTp.js";
+} from "./replay-C4CGFH_K.js";
 import {
   _ as we,
   a as Te,
@@ -72,7 +72,7 @@ import {
   u as je,
   v as Me,
   y as Ne
-} from "./TerrainView-DB1epZv9.js";
+} from "./TerrainView-B4tvy4JZ.js";
 import {
   R as Pe,
   f as Fe,
@@ -122,7 +122,7 @@ import {
   l as rt,
   u as it
 } from "./TrackConstants-DgvjewmC.js";
-import "./TopDownPreviewV1-C8LV9tzp.js";
+import "./TopDownPreviewV1-BHxiMAPt.js";
 import {
   w as at,
   x as ot,
@@ -221,7 +221,7 @@ var Ot = .25,
     #x = 0;
     #S = 0;
     constructor(e) {
-      this.#e = e.callbacks, this.#t = e.frameDriver, this.clock = e.clock ?? new x, this.timeScale = e.timeScale ?? new oe
+      this.#e = e.callbacks, this.#t = e.frameDriver, this.clock = e.clock ?? new xe, this.timeScale = e.timeScale ?? new Se
     }
     get lifecycleState() {
       return this.#a
@@ -246,7 +246,7 @@ var Ot = .25,
       }
     }
     start() {
-      if (S(this.#a, `GameLoop`), this.#a !== `running`) {
+      if (x(this.#a, `GameLoop`), this.#a !== `running`) {
         if (this.#t === void 0) throw Error(`GameLoop.start requires an injected frame driver.`);
         this.#a = `running`, this.#i = void 0, this.#m = 0, this.#h = 0, this.#g = 0, this.#_ = Mt, this.#v = !1, this.#y = !1, this.#b = 0, this.#x = 0, this.#j()
       }
@@ -255,23 +255,23 @@ var Ot = .25,
       this.#a === `disposed` || this.#a !== `running` || (this.#r !== void 0 && this.#t?.cancel(this.#r), this.#r = void 0, this.#i = void 0, this.#m = 0, this.#h = 0, this.#g = 0, this.#_ = 0, this.#v = !1, this.#y = !1, this.#b = 0, this.#x = 0, this.#a = `stopped`)
     }
     reset() {
-      S(this.#a, `GameLoop`), this.#n = 0, this.#i = void 0, this.#o = null, this.#s = 0, this.#c = 0, this.#l = 0, this.#u = 0, this.#d = 0, this.#f = 0, this.#p = 0, this.#m = 0, this.#h = 0, this.#g = 0, this.#_ = 0, this.#v = !1, this.#y = !1, this.#b = 0, this.#x = 0, this.#S = 0, this.clock.reset(), this.timeScale.reset()
+      x(this.#a, `GameLoop`), this.#n = 0, this.#i = void 0, this.#o = null, this.#s = 0, this.#c = 0, this.#l = 0, this.#u = 0, this.#d = 0, this.#f = 0, this.#p = 0, this.#m = 0, this.#h = 0, this.#g = 0, this.#_ = 0, this.#v = !1, this.#y = !1, this.#b = 0, this.#x = 0, this.#S = 0, this.clock.reset(), this.timeScale.reset()
     }
     dispose() {
       this.#a !== `disposed` && (this.stop(), this.#a = `disposed`)
     }
     invalidate(e) {
-      return S(this.#a, `GameLoop`), this.#k(e, null, null)
+      return x(this.#a, `GameLoop`), this.#k(e, null, null)
     }
     accountForSynchronousWork(e) {
-      if (S(this.#a, `GameLoop`), !Number.isFinite(e) || e < 0) throw TypeError(`Synchronous work duration must be finite and non-negative.`);
+      if (x(this.#a, `GameLoop`), !Number.isFinite(e) || e < 0) throw TypeError(`Synchronous work duration must be finite and non-negative.`);
       if (this.#a !== `running` || this.#o !== null || e === 0) return;
       this.#h += e, this.#_ = Math.max(this.#_, Mt), this.#f += e;
       let t = e * this.timeScale.current;
       this.#n += t, this.#g += t, this.#p = Math.max(this.#p, this.#n), this.timeScale.update(e)
     }
     advanceFrame(e) {
-      if (S(this.#a, `GameLoop`), !Number.isFinite(e) || e < 0) throw TypeError(`Real frame delta must be finite and non-negative.`);
+      if (x(this.#a, `GameLoop`), !Number.isFinite(e) || e < 0) throw TypeError(`Real frame delta must be finite and non-negative.`);
       this.#s += 1, this.#f += e, this.#x += e;
       let t = e > Ot,
         n = this.#O(e) || this.#v,
@@ -1064,26 +1064,56 @@ function Gn(e) {
       let e = f === 0 || f === Rn ? null : m[f - 1] ?? null;
       e === null ? Wn(n, a, o, c) : (n.clearRect(0, 0, P, F), n.drawImage(e, 0, 0, P, F)), b.needsUpdate = !0
     },
-    S = a.map(() => 0),
-    ae = a.map(() => null),
-    C = (e, t) => {
-      let n = ae[t];
-      n != null && (n.onload = null, n.onerror = null);
-      let r = (S[t] ?? 0) + 1;
-      if (S[t] = r, a[t] = e, o[t] = null, e.renderAssetUrl.length === 0) {
-        ae[t] = null, c[t] = `unavailable`, x();
+    ae = a.map(() => 0),
+    S = a.map(() => null),
+    C = a.map(() => null),
+    oe = (t, n) => {
+      let r = S[n];
+      r != null && (r.onload = null, r.onerror = null);
+      let i = C[n] ?? null;
+      i !== null && URL.revokeObjectURL(i), C[n] = null;
+      let s = (ae[n] ?? 0) + 1;
+      if (ae[n] = s, a[n] = t, o[n] = null, t.renderAssetUrl.length === 0) {
+        S[n] = null, c[n] = `unavailable`, x();
         return
       }
-      c[t] = `loading`, x();
-      let i = new Image;
-      ae[t] = i, i.decoding = `async`, i.onload = () => {
-        !y || S[t] !== r || ae[t] !== i || (ae[t] = null, a[t] = e, o[t] = i, c[t] = `loaded`, x())
-      }, i.onerror = () => {
-        !y || S[t] !== r || ae[t] !== i || (ae[t] = null, c[t] = `unavailable`, x())
-      }, i.src = e.renderAssetUrl
+      c[n] = `loading`, x();
+      let l = new Image;
+      S[n] = l, l.decoding = `async`;
+      let u = () => {
+        let e = C[n] ?? null;
+        e !== null && (C[n] = null, URL.revokeObjectURL(e))
+      };
+      l.onload = () => {
+        !y || ae[n] !== s || S[n] !== l || (S[n] = null, a[n] = t, o[n] = l, c[n] = `loaded`, u(), x())
+      };
+      let d = () => {
+        !y || ae[n] !== s || S[n] !== l || (S[n] = null, c[n] = `unavailable`, u(), x())
+      };
+      l.onerror = d;
+      let f = e.imageFetchImpl;
+      if (f == null || !t.renderAssetUrl.startsWith(`/api/v1/terrain-v25/signs/cards/`)) {
+        l.src = t.renderAssetUrl;
+        return
+      }
+      f(t.renderAssetUrl, {
+        credentials: `same-origin`,
+        headers: {
+          accept: `image/png`
+        },
+        method: `GET`
+      }).then(async e => {
+        if (!e.ok) throw Error(`Live sign card returned ${String(e.status)}.`);
+        let t = await e.blob();
+        if (!y || ae[n] !== s || S[n] !== l) return;
+        let r = URL.createObjectURL(t);
+        C[n] = r, l.src = r
+      }).catch(() => {
+        d()
+      })
     };
   a.forEach((e, t) => {
-    C(e, t)
+    oe(e, t)
   }), In.forEach((e, t) => {
     let n = new Image;
     h[t] = n, n.decoding = `async`, n.onload = () => {
@@ -1101,30 +1131,38 @@ function Gn(e) {
       !y || v[t] !== n || (v[t] = null)
     }, n.src = e
   }), x();
-  let oe = null,
-    se = () => f === Rn && ie() ? 500 : Fn,
-    ce = () => {
-      y && (f === Rn && ie() && p + 1 < 6 ? p += 1 : (f = (f + 1) % u, p = 0), x(), oe = setTimeout(ce, se()))
+  let se = null,
+    ce = () => f === Rn && ie() ? 500 : Fn,
+    le = () => {
+      y && (f === Rn && ie() && p + 1 < 6 ? p += 1 : (f = (f + 1) % u, p = 0), x(), se = setTimeout(le, ce()))
     };
-  oe = setTimeout(ce, se());
-  let le = e.entries === void 0 && e.signDataPromise === void 0 ? e.fetchImpl === void 0 ? Yn() : e.fetchImpl : null,
-    ue = e.signDataPromise === void 0 ? le === null ? null : Vn(le, r) : e.signDataPromise.then(e => e === null ? null : Bn(e, r));
-  ue !== null && ue.then(e => {
-    !y || e === null || de(e)
+  se = setTimeout(le, ce());
+  let ue = e.entries === void 0 && e.signDataPromise === void 0 ? e.fetchImpl === void 0 ? Yn() : e.fetchImpl : null,
+    de = e.signDataPromise === void 0 ? ue === null ? null : Vn(ue, r) : e.signDataPromise.then(e => e === null ? null : Bn(e, r));
+  de !== null && de.then(e => {
+    !y || e === null || fe(e)
   });
-  let de = e => {
+  let fe = e => {
     if (y)
       for (let t of e) {
         let e = a.findIndex(({
           heading: e
         }) => e === t.heading);
-        e < 0 || C(t, e)
+        if (!(e < 0)) {
+          if (a[e]?.renderAssetUrl === t.renderAssetUrl && c[e] !== `unavailable`) {
+            a[e] = t, x();
+            continue
+          }
+          oe(t, e)
+        }
       }
   };
   return Object.freeze({
     cancelLoads: () => {
-      y = !1, te = null, oe !== null && clearTimeout(oe), oe = null;
-      for (let e of [...ae, ...h, ...v]) e !== null && (e.onload = null, e.onerror = null);
+      y = !1, te = null, se !== null && clearTimeout(se), se = null;
+      for (let e of [...S, ...h, ...v]) e !== null && (e.onload = null, e.onerror = null);
+      for (let e of C) e !== null && URL.revokeObjectURL(e);
+      C.fill(null);
       for (let e of _) e?.dispose();
       _.fill(null)
     },
@@ -1136,7 +1174,7 @@ function Gn(e) {
       let t = [...Kn(r)];
       Jn(t, Bn({
         entries: e
-      }, r)), de(t)
+      }, r)), fe(t)
     }
   })
 }
@@ -1187,7 +1225,7 @@ var Xn = class {
   #l = !1;
   constructor(e, t = {}) {
     if (e.kind !== `leaderboard-wall`) throw Error(`LeaderboardSignViewV3 requires a leaderboard-wall placement.`);
-    let n = ue;
+    let n = le;
     this.#e = new _(n.plaqueWidth, n.plaqueHeight, n.plaqueDepth), this.#t = new _(n.postWidth, n.postHeight, n.postDepth), this.#n = new o(n.plaqueWidth - .5, n.plaqueHeight - .42), this.#r = new y({
       color: new m(`#172326`),
       metalness: .18,
@@ -1398,7 +1436,7 @@ var dr = class {
   #s = !1;
   constructor(e, t = I) {
     if (e.kind !== `supporter-wall`) throw Error(`SupporterWallViewV3 requires a supporter-wall placement.`);
-    let n = le;
+    let n = S;
     this.#e = new _(n.plaqueWidth, n.plaqueHeight, n.plaqueDepth), this.#t = new _(n.postWidth, n.postHeight, n.postDepth), this.#n = new o(n.plaqueWidth - .5, n.plaqueHeight - .42), this.#r = new y({
       color: new m(`#24383c`),
       metalness: .18,
@@ -1805,7 +1843,7 @@ var Vr = class {
           maximumLength: Lr
         }),
         r = e.settleTailTicks ?? 0;
-      this.#n !== null && this.#r !== r && (this.#n.dispose(), this.#n = null), this.#n === null && (this.#n = new ye({
+      this.#n !== null && this.#r !== r && (this.#n.dispose(), this.#n = null), this.#n === null && (this.#n = new ve({
         capturePresentationData: !0,
         modifiers: this.#t,
         settleTailTicks: r,
@@ -2640,7 +2678,7 @@ var Wi = .12;
 
 function Gi(e, t, n) {
   if (![e, t].every(Number.isFinite)) throw TypeError(`Crest camera offsets must be finite.`);
-  let r = Se(Wi, n);
+  let r = ae(Wi, n);
   return e + (t - e) * r
 }
 
@@ -2974,7 +3012,7 @@ var wa = 64,
   });
 
 function Oa(e) {
-  let t = ae(e.model),
+  let t = be(e.model),
     n = t === null ? e.model.base : Object.freeze({
       ...e.model.base,
       cars: Object.freeze(e.model.base.cars.map(e => e.entityId === t.entityId ? ka(t) : e))
@@ -4317,7 +4355,7 @@ var fs = 1398230102,
         }),
         n = O(t.revision.rulesetVersion);
       if (e.result.trackDigest !== t.revision.trackDigest || e.result.rulesetVersion !== n.version) throw RangeError(`Verified run provenance does not match this Terrain V2 track.`);
-      let r = de(e.submission, {
+      let r = ue(e.submission, {
         expectedRulesetVersion: n.version,
         maximumRaceTicks: n.maximumRaceTicks,
         verificationTailTicks: 0
@@ -4339,7 +4377,7 @@ var fs = 1398230102,
           seed: e.seed >>> 0,
           shareId: a,
           stateEncoding: `car-state-byte-v1`,
-          statesBase64: he(i),
+          statesBase64: me(i),
           rulesetVersion: t.revision.rulesetVersion,
           trackDigest: t.revision.trackDigest
         }),
@@ -4540,7 +4578,7 @@ function Ts(e, t) {
       expectedLength: e.durationTicks,
       maximumLength: O(e.rulesetVersion).maximumRaceTicks
     });
-    for (let e of t) be(e);
+    for (let e of t) ye(e);
     return !0
   } catch {
     return !1
@@ -4798,6 +4836,20 @@ function nc(e) {
 }
 
 function rc(e) {
+  if (!nc(e)) return null;
+  let {
+    vehicleId: t,
+    chip: n,
+    background: r
+  } = e;
+  return typeof t != `string` || !/^[a-z][a-z0-9-]{0,31}$/u.test(t) ? null : Object.freeze({
+    background: typeof r == `string` && /^#[0-9a-f]{6}$/u.test(r) ? r : null,
+    chip: typeof n == `string` ? n : ``,
+    vehicleId: t
+  })
+}
+
+function ic(e) {
   if (!Array.isArray(e) || e.length === 0) return tc;
   let t = [],
     n = new Set;
@@ -4820,6 +4872,7 @@ function rc(e) {
       f = u(r.durationTicks),
       p = d !== null && f !== null;
     if (t.push(Object.freeze({
+        carPaint: rc(r.carPaint),
         displayName: i.slice(0, $s),
         displayTimeMs: p ? u(r.displayTimeMs) : null,
         durationTicks: p ? f : null,
@@ -4833,44 +4886,44 @@ function rc(e) {
   }
   return t.length === 0 ? tc : Object.freeze(t)
 }
-var ic = tc,
-  ac = 0;
+var ac = tc,
+  oc = 0;
 
-function oc(e, t = Date.now()) {
-  ic = e, ac = t
+function sc(e, t = Date.now()) {
+  ac = e, oc = t
 }
 
-function sc(e = Date.now()) {
-  return ic.length === 0 || e - ac > 18e4 ? tc : ic
+function cc(e = Date.now()) {
+  return ac.length === 0 || e - oc > 18e4 ? tc : ac
 }
 Object.freeze([`king-of-hill-dethroned`, `personal-best-beaten`, `personal-streak`, `team-streak`]);
-var cc = /^[A-Z0-9]{4}$/u,
-  lc = /^[A-Z0-9]{4}-[A-Z0-9]{4}$/u,
-  uc = new Intl.Segmenter(void 0, {
+var lc = /^[A-Z0-9]{4}$/u,
+  uc = /^[A-Z0-9]{4}-[A-Z0-9]{4}$/u,
+  dc = new Intl.Segmenter(void 0, {
     granularity: `grapheme`
   }),
-  dc = /[\p{Cc}\p{Cf}\p{Cs}]/gu,
-  fc = 24,
-  pc = 12;
+  fc = /[\p{Cc}\p{Cf}\p{Cs}]/gu,
+  pc = 24,
+  mc = 12;
 
-function mc(e) {
+function hc(e) {
   if (typeof e != `string`) return Object.freeze({
     reason: `empty`,
     status: `rejected`
   });
-  let t = vc(e);
+  let t = yc(e);
   if (t.length === 0) return Object.freeze({
     reason: `empty`,
     status: `rejected`
   });
-  let n = yc(t);
+  let n = bc(t);
   return n.length < 2 ? Object.freeze({
     reason: `too-short`,
     status: `rejected`
   }) : n.length > 40 ? Object.freeze({
     reason: `too-long`,
     status: `rejected`
-  }) : bc(n) ? Object.freeze({
+  }) : xc(n) ? Object.freeze({
     reason: `moderated`,
     status: `rejected`
   }) : Object.freeze({
@@ -4879,16 +4932,16 @@ function mc(e) {
   })
 }
 
-function hc(e) {
+function gc(e) {
   if (typeof e != `string`) return Object.freeze({
     reason: `empty`,
     status: `rejected`
   });
-  let t = vc(e).replaceAll(/\s+/gu, ``).toUpperCase();
+  let t = yc(e).replaceAll(/\s+/gu, ``).toUpperCase();
   return t.length === 0 ? Object.freeze({
     reason: `empty`,
     status: `rejected`
-  }) : cc.test(t) ? bc([t]) ? Object.freeze({
+  }) : lc.test(t) ? xc([t]) ? Object.freeze({
     reason: `moderated`,
     status: `rejected`
   }) : Object.freeze({
@@ -4900,16 +4953,16 @@ function hc(e) {
   })
 }
 
-function gc(e) {
+function _c(e) {
   if (typeof e != `string`) return Object.freeze({
     reason: `empty`,
     status: `rejected`
   });
-  let t = e.normalize(`NFKC`).replaceAll(dc, ``).trim().replaceAll(/\s+/gu, ``).toUpperCase();
+  let t = e.normalize(`NFKC`).replaceAll(fc, ``).trim().replaceAll(/\s+/gu, ``).toUpperCase();
   return t.length === 0 ? Object.freeze({
     reason: `empty`,
     status: `rejected`
-  }) : lc.test(t) ? Object.freeze({
+  }) : uc.test(t) ? Object.freeze({
     inviteCode: t,
     status: `ok`
   }) : Object.freeze({
@@ -4918,46 +4971,46 @@ function gc(e) {
   })
 }
 
-function _c(e) {
-  return typeof e == `string` && cc.test(e) ? e : null
-}
-
 function vc(e) {
-  return e.normalize(`NFKC`).replaceAll(dc, ``).trim().replaceAll(/\s+/gu, ` `)
+  return typeof e == `string` && lc.test(e) ? e : null
 }
 
 function yc(e) {
-  return Array.from(uc.segment(e), ({
+  return e.normalize(`NFKC`).replaceAll(fc, ``).trim().replaceAll(/\s+/gu, ` `)
+}
+
+function bc(e) {
+  return Array.from(dc.segment(e), ({
     segment: e
   }) => e)
 }
 
-function bc(e) {
-  for (let t = 0; t < Math.max(e.length, 1); t += pc) {
-    let n = e.slice(t, t + fc).join(``);
+function xc(e) {
+  for (let t = 0; t < Math.max(e.length, 1); t += mc) {
+    let n = e.slice(t, t + pc).join(``);
     if (n.length === 0) break;
     if (Vo(n).status === `blocked`) return !0;
-    if (t + fc >= e.length) break
+    if (t + pc >= e.length) break
   }
   return !1
 }
-var xc = new Set([`build-mismatch`, `simulation-build-mismatch`, `track-ruleset-mismatch`, `ruleset-mismatch`, `unsupported-ruleset`, `verifier-build-mismatch`]),
-  Sc = new Set([`envelope-too-large`, `invalid-field`, `invalid-json`, `invalid-metadata`, `invalid-request`, `invalid-submission`, `invalid-verification-tail`, `length-mismatch`, `malformed-base64`, `malformed-envelope`, `malformed-replay`, `payload-too-large`, `race-context-mismatch`, `replay-over-budget`, `reserved-bits`, `unsupported-encoding`, `unsupported-schema`]),
-  Cc = new Set([`gateway-timeout`, `request-timeout`, `timeout`, `verification-timeout`]),
-  wc = new Set([`dead-letter`, `internal-error`, `permanent-verification-failure`, `transient-verification-failure`, `unavailable`, `verification-error`, `verification-unavailable`, `verifier-error`]);
+var Sc = new Set([`build-mismatch`, `simulation-build-mismatch`, `track-ruleset-mismatch`, `ruleset-mismatch`, `unsupported-ruleset`, `verifier-build-mismatch`]),
+  Cc = new Set([`envelope-too-large`, `invalid-field`, `invalid-json`, `invalid-metadata`, `invalid-request`, `invalid-submission`, `invalid-verification-tail`, `length-mismatch`, `malformed-base64`, `malformed-envelope`, `malformed-replay`, `payload-too-large`, `race-context-mismatch`, `replay-over-budget`, `reserved-bits`, `unsupported-encoding`, `unsupported-schema`]),
+  wc = new Set([`gateway-timeout`, `request-timeout`, `timeout`, `verification-timeout`]),
+  Tc = new Set([`dead-letter`, `internal-error`, `permanent-verification-failure`, `transient-verification-failure`, `unavailable`, `verification-error`, `verification-unavailable`, `verifier-error`]);
 
-function Tc(e) {
+function Ec(e) {
   let {
     body: t,
     httpStatus: n
   } = e;
-  if (t === null) return Mc(`malformed-response`, null, n, null, !1);
-  let r = Oc(t);
-  if (r !== null) return Mc(Dc(r.code, n), r.code, n, r.message, !1);
-  let i = kc(t.status);
+  if (t === null) return Nc(`malformed-response`, null, n, null, !1);
+  let r = kc(t);
+  if (r !== null) return Nc(Oc(r.code, n), r.code, n, r.message, !1);
+  let i = Ac(t.status);
   if (i !== null) {
     let e = K(t.raceId);
-    return e === null ? Mc(`malformed-response`, null, n, `Pending submission response is missing its stable race ID.`, !1) : Object.freeze({
+    return e === null ? Nc(`malformed-response`, null, n, `Pending submission response is missing its stable race ID.`, !1) : Object.freeze({
       classification: `queued`,
       httpStatus: n,
       kind: `pending`,
@@ -4965,9 +5018,9 @@ function Tc(e) {
       state: i
     })
   }
-  let a = Ac(t);
-  return a === null ? Mc(`malformed-response`, null, n, `Submission response is neither a pending state nor a terminal verifier verdict.`, !1) : Object.freeze({
-    classification: jc(a),
+  let a = jc(t);
+  return a === null ? Nc(`malformed-response`, null, n, `Submission response is neither a pending state nor a terminal verifier verdict.`, !1) : Object.freeze({
+    classification: Mc(a),
     httpStatus: n,
     kind: `terminal`,
     raceId: K(t.raceId),
@@ -4975,18 +5028,18 @@ function Tc(e) {
   })
 }
 
-function Ec(e, t = null) {
-  return Mc(e, null, null, t, !0)
-}
-
 function Dc(e, t = null) {
-  let n = Nc(e);
-  return xc.has(n) ? `build-mismatch` : n === `attempt-token-expired` || n === `attempt-expired` ? `attempt-expired` : n === `attempt-reused` ? `attempt-reused` : Sc.has(n) ? `malformed-replay` : Cc.has(n) || t === 408 || t === 504 ? `server-timeout` : wc.has(n) || t !== null && t >= 500 && t <= 599 ? `verifier-error` : `api-error`
+  return Nc(e, null, null, t, !0)
 }
 
-function Oc(e) {
+function Oc(e, t = null) {
+  let n = Pc(e);
+  return Sc.has(n) ? `build-mismatch` : n === `attempt-token-expired` || n === `attempt-expired` ? `attempt-expired` : n === `attempt-reused` ? `attempt-reused` : Cc.has(n) ? `malformed-replay` : wc.has(n) || t === 408 || t === 504 ? `server-timeout` : Tc.has(n) || t !== null && t >= 500 && t <= 599 ? `verifier-error` : `api-error`
+}
+
+function kc(e) {
   let t = e.error;
-  if (!Fc(t)) return null;
+  if (!Ic(t)) return null;
   let n = K(t.code);
   return n === null ? null : Object.freeze({
     code: n,
@@ -4994,15 +5047,15 @@ function Oc(e) {
   })
 }
 
-function kc(e) {
+function Ac(e) {
   return e === `accepted` || e === `queued` || e === `verifying` ? e : e === `retry-scheduled` ? `queued` : null
 }
 
-function Ac(e) {
+function jc(e) {
   let t = e.status;
   return t !== `verified` && t !== `rejected` && t !== `dnf` && t !== `error` ? null : Object.freeze({
-    displayTimeMs: Pc(e.displayTimeMs),
-    durationTicks: Pc(e.durationTicks),
+    displayTimeMs: Fc(e.displayTimeMs),
+    durationTicks: Fc(e.durationTicks),
     leaderboardEligible: e.leaderboardEligible === !0,
     publicRunId: K(e.publicRunId),
     reasonCode: K(e.reasonCode),
@@ -5014,16 +5067,16 @@ function Ac(e) {
   })
 }
 
-function jc(e) {
+function Mc(e) {
   if (e.status === `verified`) return `verified`;
   if (e.status === `error`) return `verifier-error`;
   let t = e.reasonCode;
   if (t === null) return `rejected`;
-  let n = Dc(t);
-  return n === `build-mismatch` || n === `malformed-replay` || n === `verifier-error` ? n : Nc(t) === `client-server-divergence` ? `simulation-divergence` : `rejected`
+  let n = Oc(t);
+  return n === `build-mismatch` || n === `malformed-replay` || n === `verifier-error` ? n : Pc(t) === `client-server-divergence` ? `simulation-divergence` : `rejected`
 }
 
-function Mc(e, t, n, r, i) {
+function Nc(e, t, n, r, i) {
   return Object.freeze({
     classification: e,
     code: t,
@@ -5034,7 +5087,7 @@ function Mc(e, t, n, r, i) {
   })
 }
 
-function Nc(e) {
+function Pc(e) {
   return e.trim().toLowerCase()
 }
 
@@ -5042,33 +5095,33 @@ function K(e) {
   return typeof e == `string` && e.length > 0 ? e : null
 }
 
-function Pc(e) {
+function Fc(e) {
   return typeof e == `number` && Number.isFinite(e) ? e : null
 }
 
-function Fc(e) {
+function Ic(e) {
   return typeof e == `object` && !!e && !Array.isArray(e)
 }
-var Ic = `attested`,
-  Lc = Object.freeze([`attested`, `claimed`, `sampled-pending`, `sample-failed`]);
-
-function Rc(e) {
-  return typeof e == `string` && Lc.includes(e)
-}
+var Lc = `attested`,
+  Rc = Object.freeze([`attested`, `claimed`, `sampled-pending`, `sample-failed`]);
 
 function zc(e) {
-  return Rc(e) ? e : Ic
+  return typeof e == `string` && Rc.includes(e)
 }
 
 function Bc(e) {
-  if (!Gc(e)) return null;
+  return zc(e) ? e : Lc
+}
+
+function Vc(e) {
+  if (!Kc(e)) return null;
   let {
     raceId: t,
     state: n,
     updatedAtIso: r
   } = e;
   try {
-    Uc(t, `Verification race ID`), Wc(r, `Verification status update time`)
+    Wc(t, `Verification race ID`), Gc(r, `Verification status update time`)
   } catch {
     return null
   }
@@ -5078,10 +5131,10 @@ function Bc(e) {
     updatedAtIso: r
   });
   if (n !== `terminal` || typeof e.leaderboardEligible != `boolean`) return null;
-  let i = Hc(e.verdict);
+  let i = Uc(e.verdict);
   if (i === null) return null;
   try {
-    Vc({
+    Hc({
       leaderboardEligible: e.leaderboardEligible,
       result: i
     })
@@ -5089,7 +5142,7 @@ function Bc(e) {
     return null
   }
   return Object.freeze({
-    attestation: zc(e.attestation),
+    attestation: Bc(e.attestation),
     leaderboardEligible: e.leaderboardEligible,
     raceId: t,
     state: n,
@@ -5098,17 +5151,17 @@ function Bc(e) {
   })
 }
 
-function Vc(e) {
-  if (!Gc(e) || typeof e.leaderboardEligible != `boolean` || !Gc(e.result)) throw TypeError(`Terminal verification result is malformed.`);
+function Hc(e) {
+  if (!Kc(e) || typeof e.leaderboardEligible != `boolean` || !Kc(e.result)) throw TypeError(`Terminal verification result is malformed.`);
   let t = e.result;
   if (t.status !== `verified` && t.status !== `rejected` && t.status !== `dnf` && t.status !== `error`) throw TypeError(`Terminal verifier status is unsupported.`);
   if (typeof t.trackDigest != `string` || typeof t.rulesetVersion != `string` || typeof t.verifierBuild != `string`) throw TypeError(`Terminal verifier provenance is malformed.`);
   if (e.leaderboardEligible && t.status !== `verified`) throw TypeError(`Only a verified result can be leaderboard eligible.`)
 }
 
-function Hc(e) {
-  let t = Gc(e) && e.displayTimeMs === void 0 ? null : Gc(e) ? e.displayTimeMs : null;
-  return !Gc(e) || e.status !== `verified` && e.status !== `rejected` && e.status !== `dnf` && e.status !== `error` || !Kc(e.publicRunId) || !qc(e.durationTicks) || !qc(t) || !Kc(e.replayHash) || typeof e.trackDigest != `string` || typeof e.rulesetVersion != `string` || typeof e.verifierBuild != `string` || !Kc(e.reasonCode) || e.status === `verified` && e.durationTicks !== null && e.rulesetVersion === `swervle-rules-v2.4` && t === null ? null : Object.freeze({
+function Uc(e) {
+  let t = Kc(e) && e.displayTimeMs === void 0 ? null : Kc(e) ? e.displayTimeMs : null;
+  return !Kc(e) || e.status !== `verified` && e.status !== `rejected` && e.status !== `dnf` && e.status !== `error` || !qc(e.publicRunId) || !Jc(e.durationTicks) || !Jc(t) || !qc(e.replayHash) || typeof e.trackDigest != `string` || typeof e.rulesetVersion != `string` || typeof e.verifierBuild != `string` || !qc(e.reasonCode) || e.status === `verified` && e.durationTicks !== null && e.rulesetVersion === `swervle-rules-v2.4` && t === null ? null : Object.freeze({
     displayTimeMs: e.status === `verified` && e.durationTicks !== null ? H(e.durationTicks, t) : t,
     durationTicks: e.durationTicks,
     publicRunId: e.publicRunId,
@@ -5121,42 +5174,42 @@ function Hc(e) {
   })
 }
 
-function Uc(e, t) {
+function Wc(e, t) {
   if (typeof e != `string` || e.length < 1 || e.length > 256 || !/^[A-Za-z0-9._:-]+$/u.test(e)) throw TypeError(`${t} is malformed.`)
 }
 
-function Wc(e, t) {
+function Gc(e, t) {
   if (typeof e != `string` || !Number.isFinite(Date.parse(e)) || new Date(e).toISOString() !== e) throw TypeError(`${t} must be a canonical ISO timestamp.`)
 }
 
-function Gc(e) {
-  return typeof e == `object` && !!e && !Array.isArray(e)
-}
-
 function Kc(e) {
-  return e === null || typeof e == `string`
+  return typeof e == `object` && !!e && !Array.isArray(e)
 }
 
 function qc(e) {
+  return e === null || typeof e == `string`
+}
+
+function Jc(e) {
   return e === null || typeof e == `number` && Number.isFinite(e)
 }
-var Jc = `heightsCmDelta`;
+var Yc = `heightsCmDelta`;
 
-function Yc(e) {
+function Xc(e) {
   return typeof e == `object` && !!e && !Array.isArray(e)
 }
 
-function Xc(e, t) {
+function Zc(e, t) {
   let n = {};
   for (let [r, i] of Object.entries(e)) r !== t && (n[r] = i);
   return n
 }
 
-function Zc(e) {
-  if (!Yc(e)) return e;
+function Qc(e) {
+  if (!Xc(e)) return e;
   let t = e.terrain;
-  if (!Yc(t)) return e;
-  let n = t[Jc];
+  if (!Xc(t)) return e;
+  let n = t[Yc];
   if (!Array.isArray(n)) return e;
   let r = Array(n.length),
     i = 0;
@@ -5168,16 +5221,16 @@ function Zc(e) {
   return {
     ...e,
     terrain: {
-      ...Xc(t, Jc),
+      ...Zc(t, Yc),
       heightsCm: r
     }
   }
 }
-var Qc = 2500,
-  $c = 8e3,
-  el = 6e4;
+var $c = 2500,
+  el = 8e3,
+  tl = 6e4;
 
-function tl(e) {
+function nl(e) {
   let t = e.mode;
   if (t !== `degraded` && t !== `normal`) return null;
   let n = q(e, `message`);
@@ -5186,7 +5239,7 @@ function tl(e) {
     mode: t
   })
 }
-var nl = class {
+var rl = class {
   #e;
   #t;
   #n;
@@ -5195,17 +5248,17 @@ var nl = class {
   #a = null;
   #o = `normal`;
   constructor(e = {}) {
-    this.#e = e.apiBase ?? jl();
+    this.#e = e.apiBase ?? Ml();
     let t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null);
     if (t === null) throw TypeError(`A fetch implementation is required for server mode.`);
-    this.#t = t, this.#n = e.cookieSource ?? Al, this.#r = e.requestTimeoutMs ?? $c, this.#i = e.submissionTimeoutMs ?? el
+    this.#t = t, this.#n = e.cookieSource ?? jl, this.#r = e.requestTimeoutMs ?? el, this.#i = e.submissionTimeoutMs ?? tl
   }
   ensureSession() {
     return this.#a ??= this.#s(), this.#a
   }
   async #s() {
     try {
-      if ((await El(await this.#p(`GET`, `/session`)))?.authenticated === !0) return
+      if ((await Dl(await this.#p(`GET`, `/session`)))?.authenticated === !0) return
     } catch {}
     try {
       await this.#p(`POST`, `/auth/guest`, {
@@ -5216,19 +5269,19 @@ var nl = class {
   async fetchDailyManifest(e) {
     let t = e === null ? `/daily?enc=d1` : `/daily?date=${encodeURIComponent(e)}&enc=d1`,
       n = await W(`daily-transfer`, async () => this.#u(t));
-    return n === null ? null : ul(n)
+    return n === null ? null : dl(n)
   }
   async fetchAdminTestDriveManifest(e, t) {
     let n = await this.#l(`/admin/days/${encodeURIComponent(e)}/test-drive?digest=${encodeURIComponent(t)}`);
-    return n === null ? null : ul(n)
+    return n === null ? null : dl(n)
   }
   async fetchChallengeManifest(e) {
     let t = await this.#l(`/challenges/${encodeURIComponent(e)}`);
-    return t === null ? null : dl(t)
+    return t === null ? null : fl(t)
   }
   async fetchRunGhost(e, t, n) {
     let r = await this.#l(`/runs/${encodeURIComponent(e)}/ghost`);
-    return r === null ? null : fl(r, t, n)
+    return r === null ? null : pl(r, t, n)
   }
   async startRace(e, t = null) {
     await this.ensureSession();
@@ -5250,7 +5303,7 @@ var nl = class {
   }
   async fetchRunStatus(e) {
     let t = await this.#l(`/races/${encodeURIComponent(e)}/status`);
-    return t === null ? null : Bc(t)
+    return t === null ? null : Vc(t)
   }
   heartbeat(e, t, n, r = 0) {
     this.#d(`/races/${encodeURIComponent(e)}/heartbeat`, {
@@ -5298,15 +5351,15 @@ var nl = class {
       if (e !== null) return e;
       i = !0, r = await this.#f(`/runs`, t)
     }
-    if (r.kind === `transport-failure`) return await this.#c(n) ?? Ec(r.classification, r.message);
-    let a = Tc({
+    if (r.kind === `transport-failure`) return await this.#c(n) ?? Dc(r.classification, r.message);
+    let a = Ec({
       body: r.body,
       httpStatus: r.httpStatus
     });
     if (!i && a.kind === `failed` && a.classification === `verifier-error` && a.httpStatus !== null && a.httpStatus >= 500) {
       let e = await this.#f(`/runs`, t);
-      if (e.kind === `transport-failure`) return Ec(e.classification, e.message);
-      a = Tc({
+      if (e.kind === `transport-failure`) return Dc(e.classification, e.message);
+      a = Ec({
         body: e.body,
         httpStatus: e.httpStatus
       })
@@ -5316,14 +5369,14 @@ var nl = class {
   async #c(e) {
     if (e === null) return null;
     let t = await this.fetchRunStatus(e);
-    return t === null ? null : t.state === `terminal` ? Tc({
+    return t === null ? null : t.state === `terminal` ? Ec({
       body: {
         ...t.verdict,
         leaderboardEligible: t.leaderboardEligible,
         raceId: t.raceId
       },
       httpStatus: 200
-    }) : Tc({
+    }) : Ec({
       body: {
         raceId: t.raceId,
         status: t.state
@@ -5334,19 +5387,19 @@ var nl = class {
   async fetchLeaderboard(e, t) {
     let n = t === void 0 || t === `all` ? `` : `?scope=${t}`,
       r = await this.#l(`/dailies/${encodeURIComponent(e)}/leaderboard${n}`);
-    return r === null ? null : (oc(rc(r.liveNow)), vl(r))
+    return r === null ? null : (sc(ic(r.liveNow)), yl(r))
   }
   async fetchStanding(e, t, n, r) {
     let i = n === void 0 || n === `all` ? `` : `&scope=${n}`,
       a = await this.#l(`/dailies/${encodeURIComponent(e)}/standing?ticks=${encodeURIComponent(String(t))}` + (r === void 0 ? `` : `&timeMs=${encodeURIComponent(String(r))}`) + i);
-    return a === null ? null : _l(a)
+    return a === null ? null : vl(a)
   }
   async fetchDailyRoutePreviews(e, t) {
     let n = (await this.#l(`/dailies/previews?from=${encodeURIComponent(e)}&to=${encodeURIComponent(t)}`))?.previews;
     if (!Array.isArray(n)) return null;
     let r = new Map;
     for (let e of n) {
-      if (!Ol(e)) continue;
+      if (!kl(e)) continue;
       let t = q(e, `dailyId`),
         n = zs(e);
       t !== null && n !== null && r.set(t, n)
@@ -5357,7 +5410,7 @@ var nl = class {
     let r = (await this.#l(`/account/runs`))?.runs;
     if (!Array.isArray(r)) return null;
     for (let i of r) {
-      if (!Ol(i) || i.dailyId !== e || i.durationTicks !== t || n !== void 0 && H(t, typeof i.displayTimeMs == `number` ? i.displayTimeMs : null) !== n || i.leaderboardEligible !== !0) continue;
+      if (!kl(i) || i.dailyId !== e || i.durationTicks !== t || n !== void 0 && H(t, typeof i.displayTimeMs == `number` ? i.displayTimeMs : null) !== n || i.leaderboardEligible !== !0) continue;
       let r = q(i, `publicRunId`);
       if (r !== null) return r
     }
@@ -5390,25 +5443,25 @@ var nl = class {
   }
   async #l(e) {
     try {
-      let t = Tl(e),
+      let t = El(e),
         n = t === null ? await this.#p(`GET`, e) : await t;
-      return n.ok ? await El(n) : null
+      return n.ok ? await Dl(n) : null
     } catch {
       return null
     }
   }
   async #u(e) {
     try {
-      let t = Tl(e),
+      let t = El(e),
         n = await W(`http-wait`, async () => t ?? this.#p(`GET`, e));
-      return n.ok ? await W(`json-parse`, async () => El(n)) : null
+      return n.ok ? await W(`json-parse`, async () => Dl(n)) : null
     } catch {
       return null
     }
   }
   async #d(e, t) {
     try {
-      return await El(await this.#p(`POST`, e, {
+      return await Dl(await this.#p(`POST`, e, {
         body: t,
         csrf: !0
       }))
@@ -5424,13 +5477,13 @@ var nl = class {
         timeoutMs: this.#i
       });
       return Object.freeze({
-        body: await El(n),
+        body: await Dl(n),
         httpStatus: n.status,
         kind: `response`
       })
     } catch (e) {
       return Object.freeze({
-        classification: Dl(e) ? `server-timeout` : `server-unreachable`,
+        classification: Ol(e) ? `server-timeout` : `server-unreachable`,
         kind: `transport-failure`,
         message: e instanceof Error && e.message.length > 0 ? e.message : null
       })
@@ -5446,10 +5499,10 @@ var nl = class {
         method: e
       };
     if (n.body !== void 0 && (r[`content-type`] = `application/json`, i.body = JSON.stringify(n.body)), n.csrf === !0) {
-      let e = kl(this.#n());
+      let e = Al(this.#n());
       e !== null && (r[`x-csrf-token`] = e)
     }
-    return this.#m(wl(this.#t, `${this.#e}${t}`, i, n.timeoutMs ?? this.#r))
+    return this.#m(Tl(this.#t, `${this.#e}${t}`, i, n.timeoutMs ?? this.#r))
   }
   async #m(e) {
     let t = await e;
@@ -5460,41 +5513,41 @@ var nl = class {
   }
   async fetchServiceStatus() {
     let e = await this.#l(`/status`),
-      t = e === null ? null : tl(e);
+      t = e === null ? null : nl(e);
     return t !== null && (this.#o = t.mode), t
   }
 };
 
-function rl(e) {
+function il(e) {
   let t = e.toLowerCase();
   return t !== `localhost` && t !== `127.0.0.1` && t !== `[::1]` && !t.endsWith(`.localhost`) && !t.startsWith(`192.168.`) && !t.startsWith(`10.`)
 }
-var il = 3e4,
-  al = 15e3;
+var al = 3e4,
+  ol = 15e3;
 
-function ol(e, t) {
+function sl(e, t) {
   return e === `restored` ? `restored` : e === `offline` ? t ? `restored` : `offline` : t ? `online` : `offline`
 }
 
-function sl(e = Ml()) {
+function cl(e = Nl()) {
   return e.toLowerCase() === `swervle-app:`
 }
 
-function cl(e, t = Ml()) {
-  return sl(t) || rl(e)
+function ll(e, t = Nl()) {
+  return cl(t) || il(e)
 }
-async function ll(e = {}) {
-  let t = e.runtime === `desktop` || e.runtime === void 0 && sl(),
-    n = e.apiBase ?? jl(),
+async function ul(e = {}) {
+  let t = e.runtime === `desktop` || e.runtime === void 0 && cl(),
+    n = e.apiBase ?? Ml(),
     r = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null);
   if (r === null) return Object.freeze({
     gateway: null,
     mode: t ? `connection-required` : `local`
   });
-  let i = e.probeTimeoutMs ?? Qc,
+  let i = e.probeTimeoutMs ?? $c,
     a = !1;
   for (let e = 0; e < 2 && !a; e += 1) try {
-    let e = await wl(r, `/healthz`, {
+    let e = await Tl(r, `/healthz`, {
       credentials: `same-origin`,
       headers: {
         accept: `application/json`
@@ -5509,7 +5562,7 @@ async function ll(e = {}) {
     gateway: null,
     mode: t ? `connection-required` : `local`
   });
-  let o = new nl({
+  let o = new rl({
     apiBase: n,
     fetchImpl: r,
     ...e.cookieSource === void 0 ? {} : {
@@ -5528,17 +5581,17 @@ async function ll(e = {}) {
   })
 }
 
-function ul(e) {
-  let t = G(`daily-decode`, () => yl(e));
-  return t === null ? null : G(`daily-adopt`, () => xl(`daily`, t, null))
-}
-
 function dl(e) {
-  let t = yl(e);
-  return t === null ? null : xl(`challenge`, t, bl(e))
+  let t = G(`daily-decode`, () => bl(e));
+  return t === null ? null : G(`daily-adopt`, () => Sl(`daily`, t, null))
 }
 
-function fl(e, t, n) {
+function fl(e) {
+  let t = bl(e);
+  return t === null ? null : Sl(`challenge`, t, xl(e))
+}
+
+function pl(e, t, n) {
   let r = e.publicDisplayName,
     i = e.durationTicks,
     a = typeof e.displayTimeMs == `number` ? e.displayTimeMs : null,
@@ -5567,7 +5620,7 @@ function fl(e, t, n) {
   })
 }
 
-function pl(e) {
+function ml(e) {
   let t = [...e].sort((e, t) => e.displayTimeMs - t.displayTimeMs),
     n = [],
     r = 1,
@@ -5579,7 +5632,7 @@ function pl(e) {
   return Object.freeze(n)
 }
 
-function ml(e) {
+function hl(e) {
   if (typeof e != `object` || !e) return null;
   let t = e;
   return typeof t.vehicleId != `string` || !/^[a-z][a-z0-9-]{0,31}$/u.test(t.vehicleId) ? null : {
@@ -5589,8 +5642,8 @@ function ml(e) {
   }
 }
 
-function hl(e, t, n = H(t, null)) {
-  return pl([...e.map(e => ({
+function gl(e, t, n = H(t, null)) {
+  return ml([...e.map(e => ({
     creatorLinks: e.creatorLinks,
     displayName: e.publicDisplayName,
     displayTimeMs: H(e.durationTicks, e.displayTimeMs),
@@ -5610,7 +5663,7 @@ function hl(e, t, n = H(t, null)) {
   }])
 }
 
-function gl(e) {
+function _l(e) {
   if (!Array.isArray(e) || e.length === 0) return Xs;
   let t = [];
   for (let n of e) {
@@ -5624,7 +5677,7 @@ function gl(e) {
   return Ys(t)
 }
 
-function _l(e) {
+function vl(e) {
   let {
     fieldSize: t,
     rank: n
@@ -5635,7 +5688,7 @@ function _l(e) {
   })
 }
 
-function vl(e) {
+function yl(e) {
   let t = e.entries;
   if (!Array.isArray(t)) return Object.freeze([]);
   let n = [];
@@ -5643,23 +5696,23 @@ function vl(e) {
     if (typeof e != `object` || !e) continue;
     let t = e;
     typeof t.rank == `number` && typeof t.publicDisplayName == `string` && typeof t.durationTicks == `number` && typeof t.publicRunId == `string` && n.push(Object.freeze({
-      creatorLinks: gl(t.creatorLinks),
+      creatorLinks: _l(t.creatorLinks),
       displayTimeMs: H(t.durationTicks, typeof t.displayTimeMs == `number` ? t.displayTimeMs : null),
       durationTicks: t.durationTicks,
       isSupporter: t.isSupporter === !0,
-      carPaint: ml(t.carPaint),
+      carPaint: hl(t.carPaint),
       joinedAtIso: typeof t.joinedAtIso == `string` ? t.joinedAtIso : null,
       isViewer: t.isViewer === !0,
       publicDisplayName: t.publicDisplayName,
       publicRunId: t.publicRunId,
       rank: t.rank,
-      teamTag: _c(t.teamTag)
+      teamTag: vc(t.teamTag)
     }))
   }
   return Object.freeze(n)
 }
 
-function yl(e) {
+function bl(e) {
   if (typeof e != `object` || !e) return null;
   let t = e,
     n = t.track;
@@ -5675,12 +5728,12 @@ function yl(e) {
     generatorVersion: a,
     raceContextId: t.raceContextId,
     seed: i,
-    servedTrack: Zc(n),
+    servedTrack: Qc(n),
     trackName: t.trackName
   }
 }
 
-function bl(e) {
+function xl(e) {
   if (typeof e != `object` || !e) return null;
   let t = e.opponent;
   if (typeof t != `object` || !t) return null;
@@ -5694,8 +5747,8 @@ function bl(e) {
   })
 }
 
-function xl(e, t, n) {
-  let r = Sl(t) ?? Cl(t);
+function Sl(e, t, n) {
+  let r = Cl(t) ?? wl(t);
   return r === null ? null : Object.freeze({
     dailyId: t.dailyId,
     mode: e,
@@ -5706,20 +5759,20 @@ function xl(e, t, n) {
   })
 }
 
-function Sl(e) {
+function Cl(e) {
   let t = e.servedTrack;
   try {
     G(`daily-digest`, () => {
-      xe(t)
+      Ce(t)
     });
     let n = t;
-    return n.revision.trackDigest !== e.expectedDigest || n.revision.seed !== e.seed || n.revision.generatorVersion !== e.generatorVersion ? null : Ce(n, rt)
+    return n.revision.trackDigest !== e.expectedDigest || n.revision.seed !== e.seed || n.revision.generatorVersion !== e.generatorVersion ? null : oe(n, rt)
   } catch {
     return null
   }
 }
 
-function Cl(e) {
+function wl(e) {
   let t;
   try {
     t = tt({
@@ -5731,7 +5784,7 @@ function Cl(e) {
   }
   return t.revision.trackDigest === e.expectedDigest ? t : null
 }
-async function wl(e, t, n, r) {
+async function Tl(e, t, n, r) {
   let i = new AbortController,
     a = globalThis.setTimeout(() => {
       i.abort()
@@ -5746,25 +5799,25 @@ async function wl(e, t, n, r) {
   }
 }
 
-function Tl(e) {
+function El(e) {
   let t = globalThis,
     n = t.__SWERVLE_RACE_PREFETCH__;
   return n === void 0 ? null : (delete t.__SWERVLE_RACE_PREFETCH__, n.path === e ? n.response : null)
 }
-async function El(e) {
+async function Dl(e) {
   try {
     let t = await e.json();
-    return Ol(t) ? t : null
+    return kl(t) ? t : null
   } catch {
     return null
   }
 }
 
-function Dl(e) {
-  return Ol(e) && e.name === `AbortError`
+function Ol(e) {
+  return kl(e) && e.name === `AbortError`
 }
 
-function Ol(e) {
+function kl(e) {
   return typeof e == `object` && !!e && !Array.isArray(e)
 }
 
@@ -5773,7 +5826,7 @@ function q(e, t) {
   return typeof n == `string` && n.length > 0 ? n : null
 }
 
-function kl(e) {
+function Al(e) {
   for (let t of e.split(`;`)) {
     let e = t.indexOf(`=`);
     if (e < 0) continue;
@@ -5783,7 +5836,7 @@ function kl(e) {
   return null
 }
 
-function Al() {
+function jl() {
   try {
     return globalThis.document.cookie
   } catch {
@@ -5791,7 +5844,7 @@ function Al() {
   }
 }
 
-function jl() {
+function Ml() {
   let e = `/`;
   try {
     e = `/`
@@ -5799,16 +5852,16 @@ function jl() {
   return `${e.endsWith(`/`)?e:`${e}/`}api/v1`
 }
 
-function Ml() {
+function Nl() {
   try {
     return globalThis.location.protocol
   } catch {
     return ``
   }
 }
-var Nl = `swervle:stranded-finish:v1`;
+var Pl = `swervle:stranded-finish:v1`;
 
-function Pl() {
+function Fl() {
   try {
     return globalThis.localStorage ?? null
   } catch {
@@ -5816,56 +5869,56 @@ function Pl() {
   }
 }
 
-function Fl(e) {
+function Il(e) {
   return typeof e == `object` && !!e
 }
 
-function Il(e) {
-  return Fl(e) && e.schemaVersion === 1 && typeof e.raceContextId == `string` && typeof e.rulesetVersion == `string` && e.encoding === `car-state-byte-v1` && Number.isSafeInteger(e.tickCount) && Number.isSafeInteger(e.verificationTailTicks) && typeof e.statesBase64 == `string`
-}
-
 function Ll(e) {
-  return Fl(e) && e.schemaVersion === 1 && typeof e.raceContextId == `string` && typeof e.dailyId == `string` && Number.isSafeInteger(e.durationTicks) && Number.isSafeInteger(e.displayTimeMs) && typeof e.savedAtIso == `string` && (e.raceId === void 0 || typeof e.raceId == `string`) && Il(e.submission) && e.submission.raceContextId === e.raceContextId
+  return Il(e) && e.schemaVersion === 1 && typeof e.raceContextId == `string` && typeof e.rulesetVersion == `string` && e.encoding === `car-state-byte-v1` && Number.isSafeInteger(e.tickCount) && Number.isSafeInteger(e.verificationTailTicks) && typeof e.statesBase64 == `string`
 }
 
-function Rl() {
-  let e = Pl();
+function Rl(e) {
+  return Il(e) && e.schemaVersion === 1 && typeof e.raceContextId == `string` && typeof e.dailyId == `string` && Number.isSafeInteger(e.durationTicks) && Number.isSafeInteger(e.displayTimeMs) && typeof e.savedAtIso == `string` && (e.raceId === void 0 || typeof e.raceId == `string`) && Ll(e.submission) && e.submission.raceContextId === e.raceContextId
+}
+
+function zl() {
+  let e = Fl();
   if (e === null) return null;
   try {
-    let t = e.getItem(Nl);
+    let t = e.getItem(Pl);
     if (t === null) return null;
     let n = JSON.parse(t);
-    return Ll(n) ? n : (e.removeItem(Nl), null)
+    return Rl(n) ? n : (e.removeItem(Pl), null)
   } catch {
     return null
   }
 }
 
-function zl(e) {
-  let t = Rl(),
+function Bl(e) {
+  let t = zl(),
     n = t !== null && t.raceContextId === e.raceContextId && t.durationTicks < e.durationTicks ? t : e,
-    r = Pl();
+    r = Fl();
   if (r !== null) try {
-    r.setItem(Nl, JSON.stringify(n))
+    r.setItem(Pl, JSON.stringify(n))
   } catch {}
   return n
 }
 
-function Bl(e) {
-  let t = Rl();
+function Vl(e) {
+  let t = zl();
   if (t !== null && !(t.raceContextId !== e.raceContextId || t.submission.statesBase64 !== e.submission.statesBase64)) try {
-    Pl()?.removeItem(Nl)
+    Fl()?.removeItem(Pl)
   } catch {}
 }
 
-function Vl(e, t, n) {
+function Hl(e, t, n) {
   let r = Date.parse(t);
   if (!Number.isFinite(r)) return 0;
   let i = (60 + e) / 60 * 1e3;
   return Math.max(0, r + i + 1500 - n)
 }
 
-function Hl(e) {
+function Ul(e) {
   let t = D(e.displayTimeMs).replaceAll(`:`, `-`);
   return Object.freeze({
     filename: `swervle-unverified-${e.dailyId}-${t}.json`,
@@ -5873,10 +5926,10 @@ function Hl(e) {
   })
 }
 
-function Ul(e) {
+function Wl(e) {
   let t = globalThis.document;
   if (t === void 0) return !1;
-  let n = Hl(e),
+  let n = Ul(e),
     r = URL.createObjectURL(new Blob([n.json], {
       type: `application/json`
     })),
@@ -5884,7 +5937,7 @@ function Ul(e) {
   return i.href = r, i.download = n.filename, t.body.append(i), i.click(), i.remove(), URL.revokeObjectURL(r), !0
 }
 
-function Wl(e, t, n) {
+function Gl(e, t, n) {
   try {
     if (new URLSearchParams(globalThis.location.search).has(`nochips`)) return
   } catch {}
@@ -5900,12 +5953,12 @@ function Wl(e, t, n) {
     }).catch(() => {}))
   }
 }
-var Gl = Object.freeze({
+var Kl = Object.freeze({
   chip: ``,
   vehicleId: `stock`
 });
 
-function Kl(e) {
+function ql(e) {
   let t = `/`;
   try {
     t = `/`
@@ -5913,19 +5966,19 @@ function Kl(e) {
   return `${t.endsWith(`/`)?t:`${t}/`}${e}`
 }
 
-function ql() {
-  return Kl(`legal/privacy.html`)
+function Jl() {
+  return ql(`legal/privacy.html`)
 }
 
-function Jl() {
-  return Kl(`legal/terms.html`)
+function Yl() {
+  return ql(`legal/terms.html`)
 }
-var Yl = `https://discord.gg/sSP8ZEJ9Pn`,
-  Xl = `https://www.patreon.com/swervle`,
-  Zl = Object.freeze([Object.freeze({
+var Xl = `https://discord.gg/sSP8ZEJ9Pn`,
+  Zl = `https://www.patreon.com/swervle`,
+  Ql = Object.freeze([Object.freeze({
     iconPath: `M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z`,
     label: `Swervle on Discord`,
-    url: Yl
+    url: Xl
   }), Object.freeze({
     iconPath: `M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z`,
     label: `Swervle on TikTok`,
@@ -5939,18 +5992,18 @@ var Yl = `https://discord.gg/sSP8ZEJ9Pn`,
     label: `Swervle on Facebook`,
     url: `https://www.facebook.com/Swervle/`
   })]),
-  Ql = Object.freeze(new Set([`Backspace`, `KeyF`]));
-
-function $l(e) {
-  let t = e.phase === `countdown` || e.phase === `racing`;
-  return e.code === `Escape` ? e.menuOpen ? null : `open-menu` : e.repeat || e.verifying ? null : Ql.has(e.code) ? `restart` : e.code === `KeyR` ? t ? e.resetRestartsRace ? `restart` : null : e.retryAvailable ? `retry` : null : null
-}
+  $l = Object.freeze(new Set([`Backspace`, `KeyF`]));
 
 function eu(e) {
-  return e.signedIn && (e.hasVerifiedRun || e.hasStoredPersonalBest || e.verdictSettling)
+  let t = e.phase === `countdown` || e.phase === `racing`;
+  return e.code === `Escape` ? e.menuOpen ? null : `open-menu` : e.repeat || e.verifying ? null : $l.has(e.code) ? `restart` : e.code === `KeyR` ? t ? e.resetRestartsRace ? `restart` : null : e.retryAvailable ? `retry` : null : null
 }
 
 function tu(e) {
+  return e.signedIn && (e.hasVerifiedRun || e.hasStoredPersonalBest || e.verdictSettling)
+}
+
+function nu(e) {
   return Object.freeze([{
     action: `retry`,
     hint: `R`,
@@ -6009,27 +6062,27 @@ function tu(e) {
   }]])
 }
 
-function nu(e, t = null) {
-  let n = ru(e);
+function ru(e, t = null) {
+  let n = iu(e);
   return t === null ? n : `
       <div class="menu-layout">${n}
         ${t}
       </div>`
 }
 
-function ru(e) {
+function iu(e) {
   return `
       <div class="result-card game-menu panel" role="dialog" aria-modal="true" aria-labelledby="game-menu-title">
         <h2 id="game-menu-title">MENU</h2>
         <div class="game-menu-options" role="group" aria-label="Menu options">${e.map(e=>{let t=e.hint===null?``:` <kbd aria-hidden="true">${j(e.hint)}</kbd>`;return`
           <button class="${e.primary?`primary-button`:`secondary-button`}" type="button" data-menu-action="${e.action}">${j(e.label)}${t}</button>`}).join(`
   `)}
-          <a class="secondary-button game-menu-discord" href="${j(Yl)}" target="_blank" rel="noopener noreferrer" aria-label="DISCORD (opens in a new tab)">DISCORD</a>
+          <a class="secondary-button game-menu-discord" href="${j(Xl)}" target="_blank" rel="noopener noreferrer" aria-label="DISCORD (opens in a new tab)">DISCORD</a>
         </div>
       </div>`
 }
 
-function iu(e) {
+function au(e) {
   switch (e.setting) {
     case `sound`:
     case `volume`:
@@ -6068,10 +6121,10 @@ function iu(e) {
   }
 }
 
-function au(e) {
+function ou(e) {
   return e === `settings` ? `close-settings` : `close-menu`
 }
-var ou = Object.freeze([
+var su = Object.freeze([
   [`auto`, `Automatic`],
   [`best`, `Best`],
   [`high`, `High`],
@@ -6081,8 +6134,8 @@ var ou = Object.freeze([
   [`bare`, `Bare`]
 ]);
 
-function su(e) {
-  let t = ou.map(([t, n]) => `<option value="${t}"${t===e.qualityPreference?` selected`:``}>${j(n)}</option>`).join(``);
+function cu(e) {
+  let t = su.map(([t, n]) => `<option value="${t}"${t===e.qualityPreference?` selected`:``}>${j(n)}</option>`).join(``);
   return `
       <div class="result-card game-menu panel" role="dialog" aria-modal="true" aria-labelledby="game-menu-settings-title">
         <h2 id="game-menu-settings-title">SETTINGS</h2>
@@ -6099,24 +6152,24 @@ function su(e) {
           <button class="secondary-button" type="button" data-menu-view="options">BACK <kbd aria-hidden="true">ESC</kbd></button>
         </div>
         <div class="settings-footer">
-          <a data-slot="privacy-link" href="${ql()}" target="_blank" rel="noopener noreferrer">Privacy &amp; data</a>
-          <a data-slot="terms-link" href="${Jl()}" target="_blank" rel="noopener noreferrer">Terms</a>
+          <a data-slot="privacy-link" href="${Jl()}" target="_blank" rel="noopener noreferrer">Privacy &amp; data</a>
+          <a data-slot="terms-link" href="${Yl()}" target="_blank" rel="noopener noreferrer">Terms</a>
         </div>
       </div>`
 }
 
-function cu(e) {
+function lu(e) {
   let t = Number.parseInt(e ?? ``, 10);
   return Number.isSafeInteger(t) && t > 0 ? t : null
 }
 
-function lu(e) {
+function uu(e) {
   if (e.closest(`a[href], button, input, select, textarea`) !== null) return null;
   let t = e.closest(`li`);
   return t === null ? null : t.querySelector(`.board-row-car[data-action='board-car']`)
 }
 
-function uu(e) {
+function du(e) {
   if (e.boardAction === `board-scope`) return e.scope === `all` || e.scope === `day` ? Object.freeze({
     kind: `board-scope`,
     scope: e.scope
@@ -6143,7 +6196,7 @@ function uu(e) {
       joinedAtIso: (e.car?.joined ?? ``) === `` ? null : e.car?.joined ?? null,
       kind: `profile-card`,
       publicRunId: e.publicRunId ?? null,
-      rank: cu(e.car?.rank),
+      rank: lu(e.car?.rank),
       time: e.car?.time ?? ``
     })
   }
@@ -6153,8 +6206,8 @@ function uu(e) {
   })
 }
 
-function du(e) {
-  let t = tu({
+function fu(e) {
+  let t = nu({
       accountAvailable: e.accountAvailable ?? !0,
       canRaceYourself: e.canRaceYourself,
       canShare: e.canShare,
@@ -6170,28 +6223,28 @@ function du(e) {
     r = e.settings,
     i = `options`,
     a = A({
-      content: nu(t, n),
+      content: ru(t, n),
       mount: e.mount,
       onClose: e.onClose,
       onDismiss: e.onDismiss,
       scrimClassName: `menu-scrim`
     }),
     o = () => {
-      Wl(a.element, `/`, null)
+      Gl(a.element, `/`, null)
     };
   o();
   let s = e => {
-    e === `settings` && r === void 0 || (i = e, a.element.innerHTML = e === `settings` && r !== void 0 ? su(r) : nu(t, n), o(), dt(a.element)[0]?.focus())
+    e === `settings` && r === void 0 || (i = e, a.element.innerHTML = e === `settings` && r !== void 0 ? cu(r) : ru(t, n), o(), dt(a.element)[0]?.focus())
   };
   return a.element.addEventListener(`keydown`, e => {
-    e.key === `Escape` && au(i) === `close-settings` && (e.stopPropagation(), e.preventDefault(), s(`options`))
+    e.key === `Escape` && ou(i) === `close-settings` && (e.stopPropagation(), e.preventDefault(), s(`options`))
   }, !0), a.element.addEventListener(`input`, t => {
     if (i !== `settings`) return;
     let n = t.target;
     if (!(n instanceof HTMLInputElement) && !(n instanceof HTMLSelectElement)) return;
     let r = a.element.querySelector(`[data-setting='sound']`),
       o = a.element.querySelector(`[data-setting='volume']`),
-      s = iu({
+      s = au({
         audio: {
           muted: !(r?.checked ?? !0),
           volume: o === null ? NaN : Number(o.value)
@@ -6210,8 +6263,8 @@ function du(e) {
       s(n);
       return
     }
-    let r = t.target.closest(`[data-action]`) ?? lu(t.target),
-      i = uu({
+    let r = t.target.closest(`[data-action]`) ?? uu(t.target),
+      i = du({
         boardAction: r?.dataset.action,
         car: {
           displayName: r?.dataset.name,
@@ -6269,15 +6322,15 @@ function du(e) {
   })
 }
 
-function fu() {
+function pu() {
   return `<button type="button" class="signin-save-button" data-action="sign-in" title="Sign in to save your time" aria-label="Sign in to save your time"><span class="signin-save-long">SIGN IN TO SAVE</span><span class="signin-save-short" aria-hidden="true">SIGN IN</span></button>`
 }
-var pu = `WWMMWWMMWWMMWWMM`,
-  mu = `12:05.200`,
-  hu = 10456,
-  gu = `WWMM`;
+var mu = `WWMMWWMMWWMMWWMM`,
+  hu = `12:05.200`,
+  gu = 10456,
+  _u = `WWMM`;
 
-function _u(e) {
+function vu(e) {
   try {
     let t = e ?? globalThis.location.search;
     return new URLSearchParams(t).get(`worstcase`) === `1`
@@ -6286,7 +6339,7 @@ function _u(e) {
   }
 }
 
-function vu() {
+function yu() {
   return [{
     handle: `swervleworstcase`,
     label: `YouTube`,
@@ -6308,33 +6361,33 @@ function vu() {
   })
 }
 
-function yu(e) {
+function bu(e) {
   if (e === void 0 || !Number.isFinite(e)) return null;
   let t = Math.floor(e);
   return t < 1 ? null : `${String(t)} DAY STREAK`
 }
 
-function bu(e) {
+function xu(e) {
   return e.officialDisplayTimeMs === null ? Ve(Math.max(0, e.durationTicks)) : D(Math.max(0, e.officialDisplayTimeMs))
 }
-var xu = `Servers are catching up — your race will still count`;
+var Su = `Servers are catching up — your race will still count`;
 
-function Su(e, t) {
+function Cu(e, t) {
   if (e === `offline`) return `OFFLINE — leaderboard unavailable`;
   if (e === `restored`) return `Connection restored — reload to go online`;
   let n = t?.trim() ?? ``;
-  return n.length > 0 ? n : xu
+  return n.length > 0 ? n : Su
 }
-var Cu = `0:00.000`,
-  wu = Object.freeze({
+var wu = `0:00.000`,
+  Tu = Object.freeze({
     menu: `menu-board`,
     result: `result-board`
   }),
-  Tu = Object.freeze({
+  Eu = Object.freeze({
     menu: `menu-leaderboard-title`,
     result: `leaderboard-title`
   }),
-  Eu = class {
+  Du = class {
     element;
     #e;
     #t;
@@ -6374,8 +6427,8 @@ var Cu = `0:00.000`,
       <header class="race-topbar">
         <div class="connection-chip" data-slot="connection" role="status" aria-live="polite" hidden></div>
         <div class="topbar-actions">
-          <a class="discord-button" href="${J(Yl)}" target="_blank" rel="noopener noreferrer" aria-label="Join us on Discord (opens in a new tab)">
-            <img class="discord-mark" src="${J(Kl(`assets/discord-mark.svg`))}" alt="">
+          <a class="discord-button" href="${J(Xl)}" target="_blank" rel="noopener noreferrer" aria-label="Join us on Discord (opens in a new tab)">
+            <img class="discord-mark" src="${J(ql(`assets/discord-mark.svg`))}" alt="">
             <span class="discord-button-label">JOIN US ON DISCORD</span>
           </a>
           <button class="icon-button" type="button" data-action="settings" aria-haspopup="dialog" aria-label="Settings">
@@ -6515,7 +6568,7 @@ var Cu = `0:00.000`,
     }
     #F(e) {
       let t = this.#B(`[data-slot='streak']`),
-        n = yu(e);
+        n = bu(e);
       t.textContent = n ?? ``, t.hidden = n === null, n === null ? delete this.#n.dataset.streak : this.#n.dataset.streak = `on`
     }
     updateStreakDays(e) {
@@ -6540,13 +6593,13 @@ var Cu = `0:00.000`,
       let n = e.gateCount === 0 ? 0 : e.nextGateIndex / e.gateCount * 100,
         r = `${String(n)}%`;
       r !== this.#b && (this.#_.style.width = r, this.#b = r);
-      let i = bu(e);
+      let i = xu(e);
       i !== this.#x && (this.#u.textContent = i, this.#x = i);
       let a = String(Math.max(0, Math.round(Math.abs(e.speed) * 3.6)));
       a !== this.#S && (this.#p.textContent = a, this.#S = a);
       let o = String(Math.min(3, a.length));
       o !== this.#C && (this.#v.dataset.digits = o, this.#C = o);
-      let s = e.opponentDeltaTicks === null ? `—` : e.opponentDeltaTicks === 0 ? `EVEN` : `${e.opponentDeltaTicks<0?`−`:`+`}${Du(Math.abs(e.opponentDeltaTicks))}`;
+      let s = e.opponentDeltaTicks === null ? `—` : e.opponentDeltaTicks === 0 ? `EVEN` : `${e.opponentDeltaTicks<0?`−`:`+`}${Ou(Math.abs(e.opponentDeltaTicks))}`;
       s !== this.#w && (this.#d.textContent = s, this.#w = s);
       let c = String((e.opponentDeltaTicks ?? 0) < 0);
       c !== this.#T && (this.#d.dataset.ahead = c, this.#T = c), this.#I(e)
@@ -6558,7 +6611,7 @@ var Cu = `0:00.000`,
       let t = e > 0;
       if (this.#m.hidden = !t, this.#B(`[data-slot='boost-legend']`).hidden = !t, this.#B(`[data-slot='boost-legend-mini']`).hidden = !t, this.#B(`[data-slot='boost-legend-mini-divider']`).hidden = !t, !t) return;
       this.#h.style.width = `100%`, this.#E = `100%`;
-      let n = Mu(e);
+      let n = Nu(e);
       this.#g.textContent = n, this.#D = n
     }
     #I(e) {
@@ -6570,7 +6623,7 @@ var Cu = `0:00.000`,
       let t = Math.max(0, Math.min(e.boostTicksRemaining, e.boostBudgetTicks)),
         n = `${String(t/e.boostBudgetTicks*100)}%`;
       n !== this.#E && (this.#h.style.width = n, this.#E = n);
-      let r = Mu(t);
+      let r = Nu(t);
       r !== this.#D && (this.#g.textContent = r, this.#D = r);
       let i = e.boostActive ? `active` : t === 0 ? `empty` : `ready`;
       i !== this.#O && (this.#m.dataset.state = i, this.#O = i)
@@ -6583,11 +6636,11 @@ var Cu = `0:00.000`,
     showResult(e) {
       this.#A = e;
       let t = this.#L(e);
-      this.#i.hidden = !0, this.#a.hidden = !1, this.#a.innerHTML = Iu(Lu(t, this.#e)), Wl(this.#a, `/`, null), queueMicrotask(() => this.#a.querySelector(`[data-action='retry']`)?.focus()), this.#R(`${od(t.comparison)} Official time ${ju(t)}.`)
+      this.#i.hidden = !0, this.#a.hidden = !1, this.#a.innerHTML = Lu(Ru(t, this.#e)), Gl(this.#a, `/`, null), queueMicrotask(() => this.#a.querySelector(`[data-action='retry']`)?.focus()), this.#R(`${sd(t.comparison)} Official time ${Mu(t)}.`)
     }
     updateResultBoard(e) {
       let t = this.#a.querySelector(`[data-slot='result-board']`);
-      t === null || t.dataset.boardState === `offline` || (this.#A = e, t.outerHTML = Ru(this.#L(e)), Wl(this.#a, `/`, null))
+      t === null || t.dataset.boardState === `offline` || (this.#A = e, t.outerHTML = zu(this.#L(e)), Gl(this.#a, `/`, null))
     }
     setViewerCarPaint(e) {
       if (this.#j?.vehicleId === e?.vehicleId && this.#j?.chip === e?.chip) return;
@@ -6602,7 +6655,7 @@ var Cu = `0:00.000`,
       }
     }
     showFailure(e, t, n = {}) {
-      this.#A = null, this.#n.hidden = !0, this.#i.hidden = !0, this.#a.hidden = !1, this.#a.innerHTML = Fu(e, t, n), this.#R(t.length === 0 ? e : `${e}. ${t}`)
+      this.#A = null, this.#n.hidden = !0, this.#i.hidden = !0, this.#a.hidden = !1, this.#a.innerHTML = Iu(e, t, n), this.#R(t.length === 0 ? e : `${e}. ${t}`)
     }
     hideResult() {
       this.#a.hidden = !0, this.#i.hidden = !0
@@ -6631,7 +6684,7 @@ var Cu = `0:00.000`,
       return t
     }
     #V = e => {
-      let t = e.target instanceof Element ? e.target.closest(`[data-action]`) ?? rd(e.target) : null,
+      let t = e.target instanceof Element ? e.target.closest(`[data-action]`) ?? id(e.target) : null,
         n = t?.dataset.action;
       if (n === `race`) this.#e.onRace(e);
       else if (n === `retry`) this.#e.onRetry(e);
@@ -6666,7 +6719,7 @@ var Cu = `0:00.000`,
             isViewer: t?.dataset.viewer === `true`,
             joinedAtIso: n === `` ? null : n,
             publicRunId: t?.dataset.runId ?? null,
-            rank: td(t?.dataset.rank),
+            rank: nd(t?.dataset.rank),
             time: t?.dataset.time ?? ``
           })
         }
@@ -6703,7 +6756,7 @@ var Cu = `0:00.000`,
         this.#s.hidden = !0, this.#s.textContent = ``, this.#s.removeAttribute(`data-state`);
         return
       }
-      this.#s.hidden = !1, this.#s.dataset.state = e, this.#s.textContent = Su(e, t)
+      this.#s.hidden = !1, this.#s.dataset.state = e, this.#s.textContent = Cu(e, t)
     }
     #H(e) {
       let t = this.#c.querySelector(`[data-action='${e}']`);
@@ -6715,36 +6768,36 @@ var Cu = `0:00.000`,
     }
   };
 
-function Du(e) {
+function Ou(e) {
   return `${(e/60).toFixed(2)}s`
 }
 
-function Ou(e) {
+function ku(e) {
   return `${(e/1e3).toFixed(3)}s`
 }
 
-function ku(e) {
+function Au(e) {
   return e.displayTimeMs ?? T(e.durationTicks)
 }
 
-function Au(e) {
+function ju(e) {
   return e.opponentTicks === null ? 0 : e.opponentDisplayTimeMs ?? T(e.opponentTicks)
 }
 
-function ju(e) {
-  return D(ku(e))
-}
-
 function Mu(e) {
-  return (Math.max(0, e) / 60).toFixed(1)
+  return D(Au(e))
 }
 
 function Nu(e) {
+  return (Math.max(0, e) / 60).toFixed(1)
+}
+
+function Pu(e) {
   return e === !0 ? `SIGN IN TO SHARE` : `SHARE MY RACE`
 }
-var Pu = `<button class="text-button result-free-drive" type="button" data-action="free-drive">FREE DRIVE <span class="result-free-drive-hint">no timer &middot; <kbd aria-hidden="true">R</kbd> to restart</span></button>`;
+var Fu = `<button class="text-button result-free-drive" type="button" data-action="free-drive">FREE DRIVE <span class="result-free-drive-hint">no timer &middot; <kbd aria-hidden="true">R</kbd> to restart</span></button>`;
 
-function Fu(e, t, n = {}) {
+function Iu(e, t, n = {}) {
   let r = n.canRetry ?? !0,
     i = n.resubmitRun === !0,
     a = (e, t, n) => `<button class="${e}-button result-action-${t}" type="button" data-action="${t}">${n}</button>`,
@@ -6760,33 +6813,33 @@ function Fu(e, t, n = {}) {
           ${l.filter(e=>e.length>0).join(`
           `)}
         </div>
-        ${n.freeDrive===!0?Pu:``}
+        ${n.freeDrive===!0?Fu:``}
       </div>`
 }
 
-function Iu(e) {
-  let t = od(e.comparison),
-    n = e.opponentTicks === null ? null : Math.abs(ku(e) - Au(e)),
-    r = e.opponentTicks === null ? null : e.comparison === `tie` ? `Exactly tied with ${e.opponentName??`your rival`}, to the millisecond.` : `${Ou(n??0)} ${e.comparison===`win`?`faster than`:`behind`} ${e.opponentName??`your rival`}.`;
-  return e.offline === !0 ? Xu(e, t, r) : `
+function Lu(e) {
+  let t = sd(e.comparison),
+    n = e.opponentTicks === null ? null : Math.abs(Au(e) - ju(e)),
+    r = e.opponentTicks === null ? null : e.comparison === `tie` ? `Exactly tied with ${e.opponentName??`your rival`}, to the millisecond.` : `${ku(n??0)} ${e.comparison===`win`?`faster than`:`behind`} ${e.opponentName??`your rival`}.`;
+  return e.offline === !0 ? Zu(e, t, r) : `
       <div class="result-layout" role="dialog" aria-modal="true" aria-labelledby="result-title">
         <article class="result-card panel">
           <div class="result-stamp" data-result="${e.comparison}">COMPLETE</div>
           <h2 id="result-title">${t}</h2>
-          <div class="result-time">${ju(e)}</div>
+          <div class="result-time">${Mu(e)}</div>
           ${r===null?``:`<p class="result-comparison">${J(r)}</p>`}
           <div class="result-actions">
             <button class="primary-button" type="button" data-action="retry">RETRY <kbd aria-hidden="true">R</kbd></button>
             <button class="secondary-button" type="button" data-action="past-races">PAST RACES</button>
             <button class="secondary-button result-action-edit-vehicle" type="button" data-action="edit-vehicle">EDIT VEHICLE</button>
-            ${e.sharingAvailable===!1?``:`<button class="secondary-button result-action-share" type="button" data-action="race-me">${Nu(e.shareRequiresSignIn)} <span aria-hidden="true">↗</span></button>`}
+            ${e.sharingAvailable===!1?``:`<button class="secondary-button result-action-share" type="button" data-action="race-me">${Pu(e.shareRequiresSignIn)} <span aria-hidden="true">↗</span></button>`}
           </div>
         </article>
-        ${Ru(e)}
+        ${zu(e)}
       </div>`
 }
 
-function Lu(e, t) {
+function Ru(e, t) {
   return t.accountAvailable === !1 ? {
     ...e,
     shareRequiresSignIn: !1,
@@ -6795,21 +6848,21 @@ function Lu(e, t) {
   } : e
 }
 
-function Ru(e) {
-  return Hu(zu(e))
+function zu(e) {
+  return Uu(Bu(e))
 }
 
-function zu(e) {
+function Bu(e) {
   let t = e.boardScope ?? null,
     n = t?.active === `day`;
-  return Vu({
+  return Hu({
     offerSignIn: !n && e.showSignInCta === !0,
     rankedBoard: e.leaderboard,
     scopeControl: t,
     state: e.offline === !0 ? `offline` : e.boardPending === !0 ? `pending` : `ready`,
     surface: `result`,
     viewerDurationTicks: n ? null : e.youDurationTicks ?? e.durationTicks,
-    viewerDisplayTimeMs: n ? null : e.youDisplayTimeMs ?? (e.youDurationTicks === void 0 ? ku(e) : T(e.youDurationTicks)),
+    viewerDisplayTimeMs: n ? null : e.youDisplayTimeMs ?? (e.youDurationTicks === void 0 ? Au(e) : T(e.youDurationTicks)),
     viewerIsSupporter: e.viewerIsSupporter === !0,
     viewerCarPaint: e.viewerCarPaint ?? null,
     viewerRank: n ? null : e.rank,
@@ -6817,7 +6870,7 @@ function zu(e) {
   })
 }
 
-function Bu(e, t, n, r, i) {
+function Vu(e, t, n, r, i) {
   if (e.length === 0) return Object.freeze([]);
   let a = new Map;
   for (let e of t)
@@ -6829,6 +6882,7 @@ function Bu(e, t, n, r, i) {
   return Object.freeze(e.map(e => {
     let t = a.get(e.handle.toLowerCase());
     return Object.freeze(t === void 0 ? {
+      carPaint: e.carPaint ?? null,
       displayName: e.displayName,
       ...e.displayTimeMs === null ? {} : {
         displayTimeMs: e.displayTimeMs
@@ -6841,7 +6895,7 @@ function Bu(e, t, n, r, i) {
       url: e.url,
       viewerCount: e.viewerCount
     } : {
-      carPaint: (t.isPlayer ? i : null) ?? t.carPaint ?? null,
+      carPaint: (t.isPlayer ? i : null) ?? t.carPaint ?? e.carPaint ?? null,
       displayName: t.isPlayer ? e.displayName : t.displayName,
       ...t.displayTimeMs === void 0 ? {} : {
         displayTimeMs: t.displayTimeMs
@@ -6863,7 +6917,7 @@ function Bu(e, t, n, r, i) {
   }))
 }
 
-function Vu(e) {
+function Hu(e) {
   let t = e.viewerCarPaint ?? e.rankedBoard.find(e => e.isPlayer)?.carPaint ?? null,
     n = e.rankedBoard.slice(0, 5).map(e => e.isPlayer && t !== null ? Object.freeze({
       ...e,
@@ -6875,7 +6929,7 @@ function Vu(e) {
     o = e.rankedBoard.find(e => e.isPlayer)?.joinedAtIso ?? null,
     s = e.viewerTeamTag ?? null,
     c = e.viewerIsSupporter === !0,
-    l = Bu(e.liveNow ?? sc(), e.rankedBoard, c, s, t);
+    l = Vu(e.liveNow ?? cc(), e.rankedBoard, c, s, t);
   return Object.freeze({
     entries: n,
     ...l.length === 0 ? {} : {
@@ -6908,46 +6962,46 @@ function Vu(e) {
   })
 }
 
-function Hu(e) {
-  let t = wu[e.surface],
-    n = Tu[e.surface],
+function Uu(e) {
+  let t = Tu[e.surface],
+    n = Eu[e.surface],
     r = e.scopeControl,
-    i = _u();
-  if (e.state === `offline` && !i) return Yu(e.surface, t, n, r);
-  if (e.state === `pending` && !i) return qu(t, n, r);
-  let a = _c(e.viewerTeamTag),
-    o = nd(e.entries).map(t => `
+    i = vu();
+  if (e.state === `offline` && !i) return Xu(e.surface, t, n, r);
+  if (e.state === `pending` && !i) return Ju(t, n, r);
+  let a = vc(e.viewerTeamTag),
+    o = rd(e.entries).map(t => `
           <li${t.isPlayer?` data-player="true"`:``}>
             <span class="leaderboard-rank" aria-label="Rank ${String(t.rank)}">${String(t.rank)}</span>
-            ${Qu(t.isPlayer?e.viewerIsSupporter===!0||t.isSupporter===!0:t.isSupporter)}
-            <span class="leaderboard-name">${Zu(t.isPlayer?e.viewerTeamTag??t.teamTag:t.teamTag,a)}<strong>${t.isPlayer?`YOU`:J(t.displayName)}</strong>${$u(t.creatorLinks)}</span>
+            ${$u(t.isPlayer?e.viewerIsSupporter===!0||t.isSupporter===!0:t.isSupporter)}
+            <span class="leaderboard-name">${Qu(t.isPlayer?e.viewerTeamTag??t.teamTag:t.teamTag,a)}<strong>${t.isPlayer?`YOU`:J(t.displayName)}</strong>${ed(t.creatorLinks)}</span>
             <time>${D(t.displayTimeMs??T(t.durationTicks))}</time>
-            ${id(t.carPaint??null,t.isPlayer?`your car`:`${t.displayName}'s car`,t.isPlayer?`YOU`:t.displayName,D(t.displayTimeMs??T(t.durationTicks)),t.isPlayer,t.publicRunId,t.rank,t.joinedAtIso??null)}${e.offerSignIn?`
-            ${t.isPlayer?ad():`<span class="leaderboard-signin-slot" aria-hidden="true"></span>`}`:``}
+            ${ad(t.carPaint??null,t.isPlayer?`your car`:`${t.displayName}'s car`,t.isPlayer?`YOU`:t.displayName,D(t.displayTimeMs??T(t.durationTicks)),t.isPlayer,t.publicRunId,t.rank,t.joinedAtIso??null)}${e.offerSignIn?`
+            ${t.isPlayer?od():`<span class="leaderboard-signin-slot" aria-hidden="true"></span>`}`:``}
           </li>`).join(``),
     s = e.viewerRow,
     c = s !== null && s.durationTicks === null,
-    l = c ? Cu : D(s?.displayTimeMs ?? T(s?.durationTicks ?? 0)),
-    u = Uu(e, a),
+    l = c ? wu : D(s?.displayTimeMs ?? T(s?.durationTicks ?? 0)),
+    u = Wu(e, a),
     d = e.entries.length > 0 || u !== ``,
     f = s === null ? `` : `${d?`
           <li class="leaderboard-separator" role="presentation" aria-hidden="true"></li>`:``}
           <li class="leaderboard-you-outside" data-player="true"${c?` data-untimed="true"`:``}>
             <span class="leaderboard-rank" aria-label="${c?`No time yet`:s.rank===null?`Unranked`:`Rank ${String(s.rank)}`}">${c||s.rank===null?`&mdash;`:String(s.rank)}</span>
-            ${Qu(s.isSupporter===!0||e.viewerIsSupporter===!0)}
-            <span class="leaderboard-name">${Zu(s.teamTag??e.viewerTeamTag,a)}<strong>YOU</strong>${$u(s.creatorLinks)}</span>
+            ${$u(s.isSupporter===!0||e.viewerIsSupporter===!0)}
+            <span class="leaderboard-name">${Qu(s.teamTag??e.viewerTeamTag,a)}<strong>YOU</strong>${ed(s.creatorLinks)}</span>
             <time>${l}</time>
-            ${id(s.carPaint??null,`your car`,`YOU`,l,!0,void 0,s.rank,s.joinedAtIso??null)}${e.offerSignIn?`
-            ${ad()}`:``}
+            ${ad(s.carPaint??null,`your car`,`YOU`,l,!0,void 0,s.rank,s.joinedAtIso??null)}${e.offerSignIn?`
+            ${od()}`:``}
           </li>`;
   return `
-        <aside class="result-leaderboard panel" data-slot="${t}"${Wu(r)} data-board-state="ready" aria-labelledby="${n}">
-          ${Ku(n,r)}
+        <aside class="result-leaderboard panel" data-slot="${t}"${Gu(r)} data-board-state="ready" aria-labelledby="${n}">
+          ${qu(n,r)}
           <ol${e.offerSignIn?` data-sign-in="true"`:``}${Zt()?``:` data-chips="off"`}>${o}${u}${f}</ol>
         </aside>`
 }
 
-function Uu(e, t) {
+function Wu(e, t) {
   let n = e.liveNow ?? [];
   if (n.length === 0) return ``;
   let r = n.map(n => {
@@ -6960,10 +7014,10 @@ function Uu(e, t) {
     return `
           <li class="leaderboard-live-now" data-live-now="true"${n.isPlayer?` data-player="true"`:``}>
             <span class="leaderboard-rank" aria-label="${n.rank===null?`No time yet`:`Rank ${String(n.rank)}`}">${n.rank===null?`&mdash;`:String(n.rank)}</span>
-            ${Qu(n.isSupporter)}
-            <span class="leaderboard-name">${Zu(n.teamTag,t)}<strong>${o}</strong>${$u([r],!0)}<span class="leaderboard-live-watching" title="${J(n.title)}">${s}</span></span>
+            ${$u(n.isSupporter)}
+            <span class="leaderboard-name">${Qu(n.teamTag,t)}<strong>${o}</strong>${ed([r],!0)}<span class="leaderboard-live-watching" title="${J(n.title)}">${s}</span></span>
             <time>${a}</time>
-            ${id(n.carPaint??null,n.isPlayer?`your car`:`${n.displayName}'s car`,n.isPlayer?`YOU`:n.displayName,i?a:Cu,n.isPlayer,n.publicRunId,n.rank,n.joinedAtIso??null)}${e.offerSignIn?`
+            ${ad(n.carPaint??null,n.isPlayer?`your car`:`${n.displayName}'s car`,n.isPlayer?`YOU`:n.displayName,i?a:wu,n.isPlayer,n.publicRunId,n.rank,n.joinedAtIso??null)}${e.offerSignIn?`
             <span class="leaderboard-signin-slot" aria-hidden="true"></span>`:``}
           </li>`
   }).join(``);
@@ -6972,24 +7026,24 @@ function Uu(e, t) {
           <li class="leaderboard-live-now-heading" data-live-now-heading="true"><span class="live-now-dot" aria-hidden="true"></span><span class="live-now-label">LIVE NOW</span></li>${r}`
 }
 
-function Wu(e) {
+function Gu(e) {
   return e === null ? `` : ` data-board-scope="${e.active}"`
 }
 
-function Gu(e) {
+function Ku(e) {
   if (e === null) return ``;
   let t = (t, n) => `<button class="board-scope-option" type="button" data-action="board-scope" data-scope="${t}" aria-pressed="${String(e.active===t)}">${J(n)}</button>`;
   return `
             <div class="board-scope" role="group" aria-label="Board view">${t(`day`,e.dayLabel)}${t(`all`,`ALL TIME`)}</div>`
 }
 
-function Ku(e, t = null) {
+function qu(e, t = null) {
   return `<div class="result-leaderboard-head">
-            <h3 id="${e}">LEADERBOARD</h3>${Gu(t)}
+            <h3 id="${e}">LEADERBOARD</h3>${Ku(t)}
           </div>`
 }
 
-function qu(e, t, n = null) {
+function Ju(e, t, n = null) {
   let r = Array.from({
     length: 5
   }, () => `
@@ -6998,100 +7052,100 @@ function qu(e, t, n = null) {
             <span class="leaderboard-placeholder-bar"></span>
           </li>`).join(``);
   return `
-        <aside class="result-leaderboard panel" data-slot="${e}"${Wu(n)} data-board-state="pending" aria-labelledby="${t}" aria-busy="true">
-          ${Ku(t,n)}
+        <aside class="result-leaderboard panel" data-slot="${e}"${Gu(n)} data-board-state="pending" aria-labelledby="${t}" aria-busy="true">
+          ${qu(t,n)}
           <ol>${r}</ol>
         </aside>`
 }
 
-function Ju() {
-  return Yu(`result`, wu.result, Tu.result)
+function Yu() {
+  return Xu(`result`, Tu.result, Eu.result)
 }
 
-function Yu(e, t, n, r = null) {
+function Xu(e, t, n, r = null) {
   let i = e === `result` ? `OFFLINE RESULT — NOT ON THE LEADERBOARD.<br>Your time wasn't recorded to the public board. Check your connection and try again.` : `LEADERBOARD UNAVAILABLE.<br>The board couldn't be reached. Check your connection and try again.`;
   return `
-        <aside class="result-leaderboard panel result-leaderboard-offline" data-slot="${t}"${Wu(r)} data-board-state="offline" aria-labelledby="${n}">
-          ${Ku(n,r)}
+        <aside class="result-leaderboard panel result-leaderboard-offline" data-slot="${t}"${Gu(r)} data-board-state="offline" aria-labelledby="${n}">
+          ${qu(n,r)}
           <p class="leaderboard-offline-note" role="note">${i}</p>
         </aside>`
 }
 
-function Xu(e, t, n) {
+function Zu(e, t, n) {
   return `
       <div class="result-layout" role="dialog" aria-modal="true" aria-labelledby="result-title">
         <article class="result-card panel">
           <div class="result-stamp" data-result="offline">OFFLINE</div>
           <h2 id="result-title">${t}</h2>
-          <div class="result-time">${ju(e)}</div>
+          <div class="result-time">${Mu(e)}</div>
           ${n===null?``:`<p class="result-comparison">${J(n)}</p>`}
           <div class="result-actions">
             <button class="primary-button" type="button" data-action="retry">RETRY <kbd aria-hidden="true">R</kbd></button>
             <button class="secondary-button" type="button" data-action="past-races">PAST RACES</button>
           </div>
         </article>
-        ${Ju()}
+        ${Yu()}
       </div>`
 }
 
-function Zu(e, t) {
-  let n = _c(e);
+function Qu(e, t) {
+  let n = vc(e);
   return n === null ? `` : `<span class="leaderboard-team-tag" data-own-team="${String(t!==null&&n===t)}" title="Team ${J(n)}">${J(n)}</span>`
 }
 
-function Qu(e) {
+function $u(e) {
   return e === !0 ? `<span class="leaderboard-supporter" title="SWERVLE SUPPORTER" aria-label="Swervle supporter">&#9733;</span>` : `<span class="leaderboard-supporter" aria-hidden="true"></span>`
 }
 
-function $u(e, t = !1) {
+function ed(e, t = !1) {
   let n = e ?? [];
-  return n.length === 0 ? `` : `<span class="leaderboard-creator-links">${n.flatMap(e=>{if(qs(e.platform,e.handle)!==e.url)return[];let n=J(e.handle),r=t&&e.platform===`twitch`;return[`<a class="creator-link-button" data-creator-platform="${J(e.platform)}"${r?` data-creator-live="true"`:``} href="${J(e.url)}" target="_blank" rel="noopener noreferrer nofollow" title="${J(e.label)} — ${n}${r?` — live now`:``}" aria-label="${J(e.label)} channel ${n}${r?`, live now`:``} (opens in a new tab)">${ed(e.platform)}</a>${r?`<span class="creator-live-now" aria-hidden="true">LIVE</span>`:``}`]}).join(`
+  return n.length === 0 ? `` : `<span class="leaderboard-creator-links">${n.flatMap(e=>{if(qs(e.platform,e.handle)!==e.url)return[];let n=J(e.handle),r=t&&e.platform===`twitch`;return[`<a class="creator-link-button" data-creator-platform="${J(e.platform)}"${r?` data-creator-live="true"`:``} href="${J(e.url)}" target="_blank" rel="noopener noreferrer nofollow" title="${J(e.label)} — ${n}${r?` — live now`:``}" aria-label="${J(e.label)} channel ${n}${r?`, live now`:``} (opens in a new tab)">${td(e.platform)}</a>${r?`<span class="creator-live-now" aria-hidden="true">LIVE</span>`:``}`]}).join(`
   `)}</span>`
 }
 
-function ed(e) {
+function td(e) {
   return e === `tiktok` ? `<svg class="creator-link-mark" viewBox="0 0 32 32" aria-hidden="true"><path fill="#EE1D52" d="M8.45095 19.7926C8.60723 18.4987 9.1379 17.7743 10.1379 17.0317C11.5688 16.0259 13.3561 16.5948 13.3561 16.5948V13.2197C13.7907 13.2085 14.2254 13.2343 14.6551 13.2966V17.6401C14.6551 17.6401 12.8683 17.0712 11.4375 18.0775C10.438 18.8196 9.90623 19.5446 9.7505 20.8385C9.74562 21.5411 9.87747 22.4595 10.4847 23.2536C10.3345 23.1766 10.1815 23.0889 10.0256 22.9905C8.68807 22.0923 8.44444 20.7449 8.45095 19.7926ZM22.0352 6.97898C21.0509 5.90039 20.6786 4.81139 20.5441 4.04639H21.7823C21.7823 4.04639 21.5354 6.05224 23.3347 8.02482L23.3597 8.05134C22.8747 7.7463 22.43 7.38624 22.0352 6.97898ZM28 10.0369V14.293C28 14.293 26.42 14.2312 25.2507 13.9337C23.6179 13.5176 22.5685 12.8795 22.5685 12.8795C22.5685 12.8795 21.8436 12.4245 21.785 12.3928V21.1817C21.785 21.6711 21.651 22.8932 21.2424 23.9125C20.709 25.246 19.8859 26.1212 19.7345 26.3001C19.7345 26.3001 18.7334 27.4832 16.9672 28.28C15.3752 28.9987 13.9774 28.9805 13.5596 28.9987C13.5596 28.9987 11.1434 29.0944 8.96915 27.6814C8.49898 27.3699 8.06011 27.0172 7.6582 26.6277L7.66906 26.6355C9.84383 28.0485 12.2595 27.9528 12.2595 27.9528C12.6779 27.9346 14.0756 27.9528 15.6671 27.2341C17.4317 26.4374 18.4344 25.2543 18.4344 25.2543C18.5842 25.0754 19.4111 24.2001 19.9423 22.8662C20.3498 21.8474 20.4849 20.6247 20.4849 20.1354V11.3475C20.5435 11.3797 21.2679 11.8347 21.2679 11.8347C21.2679 11.8347 22.3179 12.4734 23.9506 12.8889C25.1204 13.1864 26.7 13.2483 26.7 13.2483V9.91314C27.2404 10.0343 27.7011 10.0671 28 10.0369Z"></path><path fill="#000000" d="M26.7009 9.91314V13.2472C26.7009 13.2472 25.1213 13.1853 23.9515 12.8879C22.3188 12.4718 21.2688 11.8337 21.2688 11.8337C21.2688 11.8337 20.5444 11.3787 20.4858 11.3464V20.1364C20.4858 20.6258 20.3518 21.8484 19.9432 22.8672C19.4098 24.2012 18.5867 25.0764 18.4353 25.2553C18.4353 25.2553 17.4337 26.4384 15.668 27.2352C14.0765 27.9539 12.6788 27.9357 12.2604 27.9539C12.2604 27.9539 9.84473 28.0496 7.66995 26.6366L7.6591 26.6288C7.42949 26.4064 7.21336 26.1717 7.01177 25.9257C6.31777 25.0795 5.89237 24.0789 5.78547 23.7934C5.78529 23.7922 5.78529 23.791 5.78547 23.7898C5.61347 23.2937 5.25209 22.1022 5.30147 20.9482C5.38883 18.9122 6.10507 17.6625 6.29444 17.3494C6.79597 16.4957 7.44828 15.7318 8.22233 15.0919C8.90538 14.5396 9.6796 14.1002 10.5132 13.7917C11.4144 13.4295 12.3794 13.2353 13.3565 13.2197V16.5948C13.3565 16.5948 11.5691 16.028 10.1388 17.0317C9.13879 17.7743 8.60812 18.4987 8.45185 19.7926C8.44534 20.7449 8.68897 22.0923 10.0254 22.991C10.1813 23.0898 10.3343 23.1775 10.4845 23.2541C10.7179 23.5576 11.0021 23.8221 11.3255 24.0368C12.631 24.8632 13.7249 24.9209 15.1238 24.3842C16.0565 24.0254 16.7586 23.2167 17.0842 22.3206C17.2888 21.7611 17.2861 21.1978 17.2861 20.6154V4.04639H20.5417C20.6763 4.81139 21.0485 5.90039 22.0328 6.97898C22.4276 7.38624 22.8724 7.7463 23.3573 8.05134C23.5006 8.19955 24.2331 8.93231 25.1734 9.38216C25.6596 9.61469 26.1722 9.79285 26.7009 9.91314Z"></path><path fill="#69C9D0" d="M4.48926 22.7568V22.7594L4.57004 22.9784C4.56076 22.9529 4.53074 22.8754 4.48926 22.7568Z"></path><path fill="#69C9D0" d="M10.5128 13.7916C9.67919 14.1002 8.90498 14.5396 8.22192 15.0918C7.44763 15.7332 6.79548 16.4987 6.29458 17.354C6.10521 17.6661 5.38897 18.9168 5.30161 20.9528C5.25223 22.1068 5.61361 23.2983 5.78561 23.7944C5.78543 23.7956 5.78543 23.7968 5.78561 23.798C5.89413 24.081 6.31791 25.0815 7.01191 25.9303C7.2135 26.1763 7.42963 26.4111 7.65924 26.6334C6.92357 26.1457 6.26746 25.5562 5.71236 24.8839C5.02433 24.0451 4.60001 23.0549 4.48932 22.7626C4.48919 22.7605 4.48919 22.7584 4.48932 22.7564V22.7527C4.31677 22.2571 3.95431 21.0651 4.00477 19.9096C4.09213 17.8736 4.80838 16.6239 4.99775 16.3108C5.4985 15.4553 6.15067 14.6898 6.92509 14.0486C7.608 13.4961 8.38225 13.0567 9.21598 12.7484C9.73602 12.5416 10.2778 12.3891 10.8319 12.2934C11.6669 12.1537 12.5198 12.1415 13.3588 12.2575V13.2196C12.3808 13.2349 11.4148 13.4291 10.5128 13.7916Z"></path><path fill="#69C9D0" d="M20.5438 4.04635H17.2881V20.6159C17.2881 21.1983 17.2881 21.76 17.0863 22.3211C16.7575 23.2167 16.058 24.0253 15.1258 24.3842C13.7265 24.923 12.6326 24.8632 11.3276 24.0368C11.0036 23.823 10.7187 23.5594 10.4844 23.2567C11.5962 23.8251 12.5913 23.8152 13.8241 23.341C14.7558 22.9821 15.4563 22.1734 15.784 21.2774C15.9891 20.7178 15.9864 20.1546 15.9864 19.5726V3H20.4819C20.4819 3 20.4315 3.41188 20.5438 4.04635ZM26.7002 8.99104V9.9131C26.1725 9.79263 25.6609 9.61447 25.1755 9.38213C24.2352 8.93228 23.5026 8.19952 23.3594 8.0513C23.5256 8.1559 23.6981 8.25106 23.8759 8.33629C25.0192 8.88339 26.1451 9.04669 26.7002 8.99104Z"></path></svg>` : e === `twitch` ? `<svg class="creator-link-mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="#9146FF" d="M6 0 1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0Zm14.571 11.143-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"></path><path fill="#9146FF" d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714z"></path></svg>` : `<svg class="creator-link-mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814Z"></path><path fill="#fff" d="M9.545 15.568V8.432L15.818 12z"></path></svg>`
 }
 
-function td(e) {
+function nd(e) {
   let t = Number.parseInt(e ?? ``, 10);
   return Number.isSafeInteger(t) && t > 0 ? t : null
 }
 
-function nd(e) {
-  return _u() ? [Object.freeze({
+function rd(e) {
+  return vu() ? [Object.freeze({
     carPaint: {
       chip: ``,
       vehicleId: `firetruck`
     },
-    creatorLinks: vu(),
-    displayName: pu,
+    creatorLinks: yu(),
+    displayName: mu,
     displayTimeMs: 725200,
     durationTicks: 0,
     isPlayer: !1,
     isSupporter: !0,
-    rank: hu,
-    teamTag: gu
+    rank: gu,
+    teamTag: _u
   }), ...e] : e
 }
 
-function rd(e) {
+function id(e) {
   if (e.closest(`a[href], button, input, select, textarea`) !== null) return null;
   let t = e.closest(`li`);
   return t === null ? null : t.querySelector(`.board-row-car[data-action='board-car']`)
 }
 
-function id(e, t, n, r, i, a, o, s) {
+function ad(e, t, n, r, i, a, o, s) {
   if (!Zt()) return ``;
-  let c = e ?? Gl;
+  let c = e ?? Kl;
   return `<button class="board-row-car" type="button" data-action="board-car" data-vehicle-id="${J(c.vehicleId)}" data-chip="${J(c.chip)}" data-name="${J(n)}"${typeof c.background==`string`&&c.background!==``?` style="background:${J(c.background)}" data-background="${J(c.background)}"`:``} data-time="${J(r)}"${i?` data-viewer="true"`:``}${(a??``)===``?``:` data-run-id="${J(a??``)}"`}${typeof o==`number`?` data-rank="${String(o)}"`:``}${(s??``)===``?``:` data-joined="${J(s??``)}"`} title="${J(t)}" aria-label="Open ${J(t)}"><canvas data-car-chip width="96" height="60"></canvas></button>`
 }
 
-function ad() {
-  return fu()
+function od() {
+  return pu()
 }
 
-function od(e) {
+function sd(e) {
   return e === `win` ? `YOU GOT ’EM.` : e === `loss` ? `SO CLOSE. AGAIN?` : e === `tie` ? `DEAD EVEN.` : `NICE JOB.`
 }
 
@@ -7099,14 +7153,14 @@ function J(e) {
   return e.replaceAll(`&`, `&amp;`).replaceAll(`<`, `&lt;`).replaceAll(`>`, `&gt;`).replaceAll(`"`, `&quot;`).replaceAll(`'`, `&#39;`)
 }
 
-function sd(e) {
+function cd(e) {
   return e === null ? `No race ID was issued.` : `Race ID: ${e}.`
 }
 
-function cd(e, t) {
+function ld(e, t) {
   return e === null ? Object.freeze({
     kind: `failure`,
-    message: `No browser-produced rank was created. Reconnect and retry. ` + sd(t),
+    message: `No browser-produced rank was created. Reconnect and retry. ` + cd(t),
     reason: `server-unreachable`,
     telemetry: `verification_failed`,
     title: `OFFICIAL VERIFIER UNREACHABLE`
@@ -7115,23 +7169,23 @@ function cd(e, t) {
     verdict: e
   }) : Object.freeze({
     kind: `failure`,
-    message: `The official verifier rejected this finish (${e.reasonCode??`rejected`}). ` + sd(t),
+    message: `The official verifier rejected this finish (${e.reasonCode??`rejected`}). ` + cd(t),
     reason: e.reasonCode,
     telemetry: `verification_rejected`,
     title: `RUN NOT VERIFIED`
   })
 }
 
-function ld(e, t) {
+function ud(e, t) {
   return e.isViewer || t !== null && e.publicRunId === t
 }
 
-function ud(e, t, n, r = Xs, i = null, a = H(t, null)) {
-  let o = e.find(e => ld(e, n));
+function dd(e, t, n, r = Xs, i = null, a = H(t, null)) {
+  let o = e.find(e => ud(e, n));
   if (o !== void 0) {
     let n = H(o.durationTicks, o.displayTimeMs);
     if (a < n) {
-      let n = pl(e.map(e => ({
+      let n = ml(e.map(e => ({
         carPaint: e.carPaint ?? null,
         joinedAtIso: e.joinedAtIso ?? null,
         creatorLinks: e.creatorLinks,
@@ -7144,7 +7198,7 @@ function ud(e, t, n, r = Xs, i = null, a = H(t, null)) {
         teamTag: e.teamTag
       })));
       return Object.freeze({
-        leaderboard: dd(n, i),
+        leaderboard: fd(n, i),
         onPublicBoard: !0,
         rank: i ?? n.find(e => e.isPlayer)?.rank ?? o.rank,
         youDurationTicks: t,
@@ -7172,8 +7226,8 @@ function ud(e, t, n, r = Xs, i = null, a = H(t, null)) {
       youDisplayTimeMs: n
     })
   }
-  let s = hl(e, t, a),
-    c = dd(r.length === 0 ? s : s.map(e => e.isPlayer ? Object.freeze({
+  let s = gl(e, t, a),
+    c = fd(r.length === 0 ? s : s.map(e => e.isPlayer ? Object.freeze({
       ...e,
       creatorLinks: r
     }) : e), i);
@@ -7186,17 +7240,17 @@ function ud(e, t, n, r = Xs, i = null, a = H(t, null)) {
   })
 }
 
-function dd(e, t) {
+function fd(e, t) {
   return t === null ? e : Object.freeze(e.map(e => e.isPlayer ? Object.freeze({
     ...e,
     rank: t
   }) : e))
 }
 
-function fd(e) {
+function pd(e) {
   let t = Object.freeze([]),
     n = e.scopeControl ?? null;
-  if (e.pending === !0) return Vu({
+  if (e.pending === !0) return Hu({
     offerSignIn: !1,
     rankedBoard: t,
     scopeControl: n,
@@ -7207,7 +7261,7 @@ function fd(e) {
     viewerIsSupporter: e.viewerIsSupporter === !0,
     viewerTeamTag: e.viewerTeamTag ?? null
   });
-  if (e.board === null) return Vu({
+  if (e.board === null) return Hu({
     offerSignIn: !1,
     rankedBoard: t,
     scopeControl: n,
@@ -7218,7 +7272,7 @@ function fd(e) {
     viewerIsSupporter: e.viewerIsSupporter === !0,
     viewerTeamTag: e.viewerTeamTag ?? null
   });
-  if (e.viewerBestTicks === null) return Vu({
+  if (e.viewerBestTicks === null) return Hu({
     offerSignIn: !1,
     rankedBoard: e.board.map(t => Object.freeze({
       carPaint: t.carPaint ?? null,
@@ -7227,7 +7281,7 @@ function fd(e) {
       displayName: t.publicDisplayName,
       displayTimeMs: H(t.durationTicks, t.displayTimeMs),
       durationTicks: t.durationTicks,
-      isPlayer: ld(t, e.ownPublicRunId),
+      isPlayer: ud(t, e.ownPublicRunId),
       isSupporter: t.isSupporter === !0,
       publicRunId: t.publicRunId,
       rank: t.rank,
@@ -7243,8 +7297,8 @@ function fd(e) {
     viewerTeamTag: e.viewerTeamTag ?? null,
     viewerUntimedRow: e.viewerUntimedRow === !0
   });
-  let r = ud(e.board, e.viewerBestTicks, e.ownPublicRunId, e.viewerCreatorLinks ?? Xs, e.standingRank ?? null, e.viewerBestDisplayTimeMs ?? H(e.viewerBestTicks, null));
-  return Vu({
+  let r = dd(e.board, e.viewerBestTicks, e.ownPublicRunId, e.viewerCreatorLinks ?? Xs, e.standingRank ?? null, e.viewerBestDisplayTimeMs ?? H(e.viewerBestTicks, null));
+  return Hu({
     offerSignIn: !1,
     rankedBoard: r.leaderboard,
     scopeControl: n,
@@ -7259,27 +7313,27 @@ function fd(e) {
   })
 }
 
-function pd(e) {
+function md(e) {
   return Object.freeze({
     boardPending: !0,
     boardScope: e.boardScope ?? null,
-    comparison: gd(e.durationTicks, e.displayTimeMs, e.opponentTicks, e.opponentDisplayTimeMs),
+    comparison: _d(e.durationTicks, e.displayTimeMs, e.opponentTicks, e.opponentDisplayTimeMs),
     diagnosticId: e.diagnosticId,
     durationTicks: e.durationTicks,
     displayTimeMs: H(e.durationTicks, e.displayTimeMs),
     leaderboard: Object.freeze([]),
     opponentName: e.opponentName,
     opponentTicks: e.opponentTicks,
-    opponentDisplayTimeMs: hd(e.opponentTicks, e.opponentDisplayTimeMs),
+    opponentDisplayTimeMs: gd(e.opponentTicks, e.opponentDisplayTimeMs),
     rank: null,
     verified: !0
   })
 }
 
-function md(e) {
+function hd(e) {
   let t = H(e.durationTicks, e.displayTimeMs),
-    n = hd(e.opponentTicks, e.opponentDisplayTimeMs),
-    r = gd(e.durationTicks, t, e.opponentTicks, n);
+    n = gd(e.opponentTicks, e.opponentDisplayTimeMs),
+    r = _d(e.durationTicks, t, e.opponentTicks, n);
   if (e.board === null) return Object.freeze({
     boardScope: e.boardScope ?? null,
     comparison: r,
@@ -7305,7 +7359,7 @@ function md(e) {
       displayName: t.publicDisplayName,
       displayTimeMs: H(t.durationTicks, t.displayTimeMs),
       durationTicks: t.durationTicks,
-      isPlayer: ld(t, e.ownPublicRunId),
+      isPlayer: ud(t, e.ownPublicRunId),
       isSupporter: t.isSupporter === !0,
       publicRunId: t.publicRunId,
       rank: t.rank,
@@ -7327,7 +7381,7 @@ function md(e) {
       viewerTeamTag: e.viewerTeamTag ?? null
     })
   }
-  let a = ud(e.board, e.youBestTicks, e.ownPublicRunId, e.viewerCreatorLinks ?? Xs, e.standingRank ?? null, e.youBestDisplayTimeMs ?? H(e.youBestTicks, null));
+  let a = dd(e.board, e.youBestTicks, e.ownPublicRunId, e.viewerCreatorLinks ?? Xs, e.standingRank ?? null, e.youBestDisplayTimeMs ?? H(e.youBestTicks, null));
   return Object.freeze({
     boardScope: i,
     comparison: r,
@@ -7348,32 +7402,32 @@ function md(e) {
   })
 }
 
-function hd(e, t) {
+function gd(e, t) {
   return e === null ? null : H(e, t)
 }
 
-function gd(e, t, n, r) {
+function _d(e, t, n, r) {
   if (n === null) return `solo`;
   let i = H(e, t),
     a = H(n, r);
   return i < a ? `win` : i > a ? `loss` : `tie`
 }
-var _d = new Set([`excessive-frame-stall`, `presentation-stall`, `simulation-overrun`]);
+var vd = new Set([`excessive-frame-stall`, `presentation-stall`, `simulation-overrun`]);
 
-function vd(e) {
-  return _d.has(e)
+function yd(e) {
+  return vd.has(e)
 }
 
-function yd(e, t) {
-  return t === `countdown` && vd(e)
+function bd(e, t) {
+  return t === `countdown` && yd(e)
 }
-var bd = `full`;
+var xd = `full`;
 
-function xd(e) {
+function Sd(e) {
   return e === `full` || e === `short`
 }
 
-function Sd(e, t) {
+function Cd(e, t) {
   let n = t.warmupTicks + t.countdownTicks,
     r = e === `full` ? n : Math.min(60, n),
     i = n - r;
@@ -7385,14 +7439,14 @@ function Sd(e, t) {
   })
 }
 
-function Cd(e, t) {
+function wd(e, t) {
   return e * 60 <= t
 }
-var wd = 16,
-  Td = 96,
-  Ed = 30,
-  Dd = Ed * Ed,
-  Od = class {
+var Td = 16,
+  Ed = 96,
+  Dd = 30,
+  Od = Dd * Dd,
+  kd = class {
     #e;
     #t;
     #n;
@@ -7415,10 +7469,10 @@ var wd = 16,
     }
     advance(e) {
       let t = this.#e.length - 1,
-        n = Math.max(0, this.#r - wd),
-        r = Math.min(t - 1, this.#r + Td),
+        n = Math.max(0, this.#r - Td),
+        r = Math.min(t - 1, this.#r + Ed),
         i = this.#a(e, n, r);
-      return i.distanceSquared > Dd && (i = this.#a(e, 0, t - 1)), this.#r = i.segment, this.#i = Math.max(this.#i, i.progressMetres), this.#i
+      return i.distanceSquared > Od && (i = this.#a(e, 0, t - 1)), this.#r = i.segment, this.#i = Math.max(this.#i, i.progressMetres), this.#i
     }
     reset() {
       this.#r = 0, this.#i = 0
@@ -7452,7 +7506,7 @@ var wd = 16,
     }
   };
 
-function kd(e, t) {
+function Ad(e, t) {
   let n = e.length - 1;
   if (n < 0) return null;
   if (t <= (e[0] ?? 0)) return 0;
@@ -7469,32 +7523,32 @@ function kd(e, t) {
   return o <= a ? r : r - 1 + (t - a) / (o - a)
 }
 
-function Ad(e, t) {
+function jd(e, t) {
   let n = Math.min(e.length, t.length) - 1;
   if (n < 0) return null;
   let r = e[n],
     i = t[n];
   if (r === void 0 || i === void 0) return null;
   if (i >= r) {
-    let e = kd(t, r);
+    let e = Ad(t, r);
     return e === null ? null : n - e
   }
-  let a = kd(e, i);
+  let a = Ad(e, i);
   return a === null ? null : a - n
 }
-var jd = class {
+var Md = class {
     #e;
     #t;
     #n = [];
     #r = [];
     constructor(e) {
-      this.#e = new Od(e), this.#t = new Od(e)
+      this.#e = new kd(e), this.#t = new kd(e)
     }
     get sampleCount() {
       return this.#n.length
     }
     get gapTicks() {
-      return Ad(this.#n, this.#r)
+      return jd(this.#n, this.#r)
     }
     sample(e, t) {
       this.#n.push(this.#e.advance(e)), this.#r.push(this.#t.advance(t))
@@ -7503,8 +7557,8 @@ var jd = class {
       this.#e.reset(), this.#t.reset(), this.#n = [], this.#r = []
     }
   },
-  Md = Object.freeze([`all`, `day`]),
-  Nd = class {
+  Nd = Object.freeze([`all`, `day`]),
+  Pd = class {
     #e = new Map;
     #t = new Map;
     #n;
@@ -7513,16 +7567,16 @@ var jd = class {
       this.#n = e
     }
     peek(e, t) {
-      return this.#e.get(Pd(e, t))
+      return this.#e.get(Fd(e, t))
     }
     has(e, t) {
-      return this.#e.has(Pd(e, t))
+      return this.#e.has(Fd(e, t))
     }
     beginRead() {
       return this.#r
     }
     revalidate(e, t) {
-      let n = Pd(e, t),
+      let n = Fd(e, t),
         r = this.#t.get(n);
       if (r !== void 0) return r;
       let i = this.#r,
@@ -7533,12 +7587,12 @@ var jd = class {
       r === this.#r && this.publish(e, t, n)
     }
     publish(e, t, n) {
-      this.#e.set(Pd(e, t), n), this.#n.onPublish?.(e, t, n)
+      this.#e.set(Fd(e, t), n), this.#n.onPublish?.(e, t, n)
     }
     invalidate(e) {
       this.#r += 1;
-      for (let t of Md) {
-        let n = Pd(e, t);
+      for (let t of Nd) {
+        let n = Fd(e, t);
         this.#e.delete(n), this.#t.delete(n)
       }
     }
@@ -7547,16 +7601,16 @@ var jd = class {
     }
   };
 
-function Pd(e, t) {
+function Fd(e, t) {
   return `${e}:${t}`
 }
 
-function Fd(e, t, n) {
+function Id(e, t, n) {
   let r = n.durationTicks,
     i = He(e.track.revision.rulesetVersion);
   if (i === null || n.status !== `verified` || n.publicRunId === null || r === null || !Number.isSafeInteger(r) || r < 1 || n.displayTimeMs !== null && !Number.isSafeInteger(n.displayTimeMs) || i.version === `swervle-rules-v2.4` && n.displayTimeMs === null || n.replayHash === null || n.replayHash.length === 0 || n.rulesetVersion !== i.version || n.trackDigest !== e.track.revision.trackDigest || n.verifierBuild === null || n.verifierBuild.length === 0) return null;
   try {
-    let a = de(t, {
+    let a = ue(t, {
       expectedRaceContextId: e.raceContextId,
       expectedRulesetVersion: i.version,
       maximumRaceTicks: i.maximumRaceTicks,
@@ -7566,7 +7620,7 @@ function Fd(e, t, n) {
     let o = a.states.slice(0, r),
       s = Object.freeze({
         ...a.submission,
-        statesBase64: he(o),
+        statesBase64: me(o),
         tickCount: o.length,
         verificationTailTicks: 0
       });
@@ -7588,8 +7642,8 @@ function Fd(e, t, n) {
     return null
   }
 }
-var Id = /^[a-z0-9][a-z0-9-]{0,31}$/u,
-  Ld = Object.freeze({
+var Ld = /^[a-z0-9][a-z0-9-]{0,31}$/u,
+  Rd = Object.freeze({
     bs: `bluesky`,
     bsky: `bluesky`,
     ds: `discord`,
@@ -7614,86 +7668,86 @@ var Id = /^[a-z0-9][a-z0-9-]{0,31}$/u,
     youtube: `youtube`
   });
 
-function Rd(e) {
+function zd(e) {
   if (e == null) return null;
   let t = e.trim().toLowerCase().replaceAll(/[\s_.]+/gu, `-`);
-  return Id.test(t) ? t : null
+  return Ld.test(t) ? t : null
 }
 
-function zd(e) {
-  return Ld[e.split(`-`, 1)[0] ?? ``] ?? null
+function Bd(e) {
+  return Rd[e.split(`-`, 1)[0] ?? ``] ?? null
 }
-var Bd = new Set([`bing`, `duckduckgo`, `google`, `yahoo`]),
-  Vd = new Set([`bluesky`, `discord`, `facebook`, `instagram`, `linkedin`, `reddit`, `threads`, `tiktok`, `x`, `youtube`]),
-  Hd = new Set([`cpc`, `cpa`, `cpm`, `display`, `paid`, `paid-search`, `paid-social`, `paid_search`, `paid_social`, `ppc`, `retargeting`]);
+var Vd = new Set([`bing`, `duckduckgo`, `google`, `yahoo`]),
+  Hd = new Set([`bluesky`, `discord`, `facebook`, `instagram`, `linkedin`, `reddit`, `threads`, `tiktok`, `x`, `youtube`]),
+  Ud = new Set([`cpc`, `cpa`, `cpm`, `display`, `paid`, `paid-search`, `paid-social`, `paid_search`, `paid_social`, `ppc`, `retargeting`]);
 
-function Ud(e, t) {
-  let n = $d(e),
+function Wd(e, t) {
+  let n = ef(e),
     r = n?.searchParams ?? new URLSearchParams,
-    i = Rd(r.get(`utm_campaign`) ?? r.get(`c`)),
-    a = t.trim() === `` ? null : $d(t),
-    o = a === null || n !== null && ef(a) === ef(n) ? null : ef(a) || null,
-    s = Wd(r.get(`utm_source`)),
-    c = Kd(r.get(`utm_medium`)),
-    l = qd(r),
+    i = zd(r.get(`utm_campaign`) ?? r.get(`c`)),
+    a = t.trim() === `` ? null : ef(t),
+    o = a === null || n !== null && tf(a) === tf(n) ? null : tf(a) || null,
+    s = Gd(r.get(`utm_source`)),
+    c = qd(r.get(`utm_medium`)),
+    l = Jd(r),
     u = {
       campaign: i,
       referrerHost: o
     };
-  if (l !== null) return Qd(l, `paid`, u);
+  if (l !== null) return $d(l, `paid`, u);
   if (s !== null || c !== null) {
-    let e = s ?? Xd(c);
-    return Qd(e, c ?? Zd(e), u)
+    let e = s ?? Zd(c);
+    return $d(e, c ?? Qd(e), u)
   }
-  let d = Yd(r);
-  if (d !== null) return Qd(d, Zd(d), u);
+  let d = Xd(r);
+  if (d !== null) return $d(d, Qd(d), u);
   if (i !== null) {
-    let e = zd(i);
-    if (e !== null) return Qd(e, Zd(e), u)
+    let e = Bd(i);
+    if (e !== null) return $d(e, Qd(e), u)
   }
-  if (t.trim() === ``) return Qd(`direct`, `none`, u);
-  if (a === null) return Qd(`unknown`, `unknown`, u);
-  if (o === null) return Qd(`direct`, `none`, u);
-  let f = Gd(o);
-  return Qd(f, Zd(f), u)
-}
-
-function Wd(e) {
-  if (e === null) return null;
-  let t = tf(e);
-  return t === `` ? null : t === `google` || t === `googleads` || t === `adwords` ? `google` : t === `bing` || t === `microsoft` ? `bing` : t === `duckduckgo` || t === `ddg` ? `duckduckgo` : t === `yahoo` ? `yahoo` : t === `twitter` || t === `x` || t === `t-co` ? `x` : t === `reddit` ? `reddit` : t === `threads` || t === `threads-net` ? `threads` : t === `facebook` || t === `fb` ? `facebook` : t === `instagram` || t === `ig` ? `instagram` : t === `tiktok` ? `tiktok` : t === `youtube` || t === `yt` ? `youtube` : t === `linkedin` ? `linkedin` : t === `discord` ? `discord` : t === `bluesky` || t === `bsky` ? `bluesky` : t === `product-hunt` || t === `producthunt` ? `product-hunt` : t === `email` || t === `newsletter` ? `email` : t === `direct` || t === `none` ? `direct` : `other`
+  if (t.trim() === ``) return $d(`direct`, `none`, u);
+  if (a === null) return $d(`unknown`, `unknown`, u);
+  if (o === null) return $d(`direct`, `none`, u);
+  let f = Kd(o);
+  return $d(f, Qd(f), u)
 }
 
 function Gd(e) {
-  return e === `` ? `unknown` : e === `google.com` || e.startsWith(`google.`) || e.includes(`.google.`) ? `google` : e === `bing.com` || e.endsWith(`.bing.com`) ? `bing` : e === `duckduckgo.com` || e.endsWith(`.duckduckgo.com`) ? `duckduckgo` : e === `yahoo.com` || e.endsWith(`.yahoo.com`) ? `yahoo` : Y(e, [`t.co`, `twitter.com`, `x.com`]) ? `x` : Y(e, [`redd.it`, `reddit.com`]) ? `reddit` : Y(e, [`threads.net`]) ? `threads` : Y(e, [`facebook.com`, `fb.com`]) ? `facebook` : Y(e, [`instagram.com`]) ? `instagram` : Y(e, [`tiktok.com`]) ? `tiktok` : Y(e, [`youtu.be`, `youtube.com`]) ? `youtube` : Y(e, [`linkedin.com`, `lnkd.in`]) ? `linkedin` : Y(e, [`discord.com`, `discord.gg`]) ? `discord` : Y(e, [`bsky.app`]) ? `bluesky` : Y(e, [`producthunt.com`]) ? `product-hunt` : `other`
+  if (e === null) return null;
+  let t = nf(e);
+  return t === `` ? null : t === `google` || t === `googleads` || t === `adwords` ? `google` : t === `bing` || t === `microsoft` ? `bing` : t === `duckduckgo` || t === `ddg` ? `duckduckgo` : t === `yahoo` ? `yahoo` : t === `twitter` || t === `x` || t === `t-co` ? `x` : t === `reddit` ? `reddit` : t === `threads` || t === `threads-net` ? `threads` : t === `facebook` || t === `fb` ? `facebook` : t === `instagram` || t === `ig` ? `instagram` : t === `tiktok` ? `tiktok` : t === `youtube` || t === `yt` ? `youtube` : t === `linkedin` ? `linkedin` : t === `discord` ? `discord` : t === `bluesky` || t === `bsky` ? `bluesky` : t === `product-hunt` || t === `producthunt` ? `product-hunt` : t === `email` || t === `newsletter` ? `email` : t === `direct` || t === `none` ? `direct` : `other`
 }
 
 function Kd(e) {
-  if (e === null) return null;
-  let t = tf(e);
-  return t === `` ? null : Hd.has(t) ? `paid` : t === `organic` || t === `search` ? `organic` : t === `social` || t === `social-organic` || t === `social_organic` ? `social` : t === `email` || t === `newsletter` ? `email` : t === `referral` || t === `affiliate` ? `referral` : t === `none` || t === `direct` ? `none` : `other`
+  return e === `` ? `unknown` : e === `google.com` || e.startsWith(`google.`) || e.includes(`.google.`) ? `google` : e === `bing.com` || e.endsWith(`.bing.com`) ? `bing` : e === `duckduckgo.com` || e.endsWith(`.duckduckgo.com`) ? `duckduckgo` : e === `yahoo.com` || e.endsWith(`.yahoo.com`) ? `yahoo` : Y(e, [`t.co`, `twitter.com`, `x.com`]) ? `x` : Y(e, [`redd.it`, `reddit.com`]) ? `reddit` : Y(e, [`threads.net`]) ? `threads` : Y(e, [`facebook.com`, `fb.com`]) ? `facebook` : Y(e, [`instagram.com`]) ? `instagram` : Y(e, [`tiktok.com`]) ? `tiktok` : Y(e, [`youtu.be`, `youtube.com`]) ? `youtube` : Y(e, [`linkedin.com`, `lnkd.in`]) ? `linkedin` : Y(e, [`discord.com`, `discord.gg`]) ? `discord` : Y(e, [`bsky.app`]) ? `bluesky` : Y(e, [`producthunt.com`]) ? `product-hunt` : `other`
 }
 
 function qd(e) {
-  return nf(e, [`gclid`, `dclid`, `gad_source`]) ? `google` : nf(e, [`msclkid`]) ? `bing` : nf(e, [`ttclid`]) ? `tiktok` : nf(e, [`twclid`]) ? `x` : nf(e, [`rdt_cid`]) ? `reddit` : nf(e, [`li_fat_id`]) ? `linkedin` : null
+  if (e === null) return null;
+  let t = nf(e);
+  return t === `` ? null : Ud.has(t) ? `paid` : t === `organic` || t === `search` ? `organic` : t === `social` || t === `social-organic` || t === `social_organic` ? `social` : t === `email` || t === `newsletter` ? `email` : t === `referral` || t === `affiliate` ? `referral` : t === `none` || t === `direct` ? `none` : `other`
 }
-var Jd = Object.freeze([Object.freeze([`facebook`, Object.freeze([`fbclid`])])]);
 
-function Yd(e) {
-  for (let [t, n] of Jd)
-    if (nf(e, n)) return t;
+function Jd(e) {
+  return rf(e, [`gclid`, `dclid`, `gad_source`]) ? `google` : rf(e, [`msclkid`]) ? `bing` : rf(e, [`ttclid`]) ? `tiktok` : rf(e, [`twclid`]) ? `x` : rf(e, [`rdt_cid`]) ? `reddit` : rf(e, [`li_fat_id`]) ? `linkedin` : null
+}
+var Yd = Object.freeze([Object.freeze([`facebook`, Object.freeze([`fbclid`])])]);
+
+function Xd(e) {
+  for (let [t, n] of Yd)
+    if (rf(e, n)) return t;
   return null
 }
 
-function Xd(e) {
+function Zd(e) {
   return e === `email` ? `email` : e === `none` ? `direct` : `other`
 }
 
-function Zd(e) {
-  return e === `direct` ? `none` : e === `email` ? `email` : Bd.has(e) ? `organic` : Vd.has(e) || e === `product-hunt` ? `social` : e === `other` ? `referral` : `unknown`
+function Qd(e) {
+  return e === `direct` ? `none` : e === `email` ? `email` : Vd.has(e) ? `organic` : Hd.has(e) || e === `product-hunt` ? `social` : e === `other` ? `referral` : `unknown`
 }
 
-function Qd(e, t, n = {
+function $d(e, t, n = {
   campaign: null,
   referrerHost: null
 }) {
@@ -7705,7 +7759,7 @@ function Qd(e, t, n = {
   })
 }
 
-function $d(e) {
+function ef(e) {
   try {
     return new URL(e)
   } catch {
@@ -7713,7 +7767,7 @@ function $d(e) {
   }
 }
 
-function ef(e) {
+function tf(e) {
   return e.hostname.toLowerCase().replace(/^www\./u, ``)
 }
 
@@ -7721,45 +7775,45 @@ function Y(e, t) {
   return t.some(t => e === t || e.endsWith(`.${t}`))
 }
 
-function tf(e) {
+function nf(e) {
   return e.trim().toLowerCase().replaceAll(/[\s_.]+/gu, `-`).slice(0, 64)
 }
 
-function nf(e, t) {
+function rf(e, t) {
   return t.some(t => {
     let n = e.get(t);
     return n !== null && n.trim() !== ``
   })
 }
-var rf = 4e3,
-  af = 24,
-  of = 4,
-  sf = .25,
-  cf = `swervle.analytics.funnel-sample.v1`,
-  lf = Object.freeze(new Set([`car_option`, `livery_sign_in_choice`, `livery_sign_in_prompted`, `menu_action`, `menu_open`, `vehicle_offer_close`, `vehicle_offer_open`, `vehicle_packs_close`, `vehicle_packs_open`])),
-  uf = new Set([`buy`, `sign-up`, `not-now`, `escape`, `scrim`]),
-  df = new Set([`buy`, `done`, `escape`, `menu`, `scrim`, `sign-in`]),
-  ff = new Set([`sign-in`, `keep-editing`, `leave`, `dismissed`]);
+var af = 4e3,
+  of = 24,
+  sf = 4,
+  cf = .25,
+  lf = `swervle.analytics.funnel-sample.v1`,
+  uf = Object.freeze(new Set([`car_option`, `livery_sign_in_choice`, `livery_sign_in_prompted`, `menu_action`, `menu_open`, `vehicle_offer_close`, `vehicle_offer_open`, `vehicle_packs_close`, `vehicle_packs_open`])),
+  df = new Set([`buy`, `sign-up`, `not-now`, `escape`, `scrim`]),
+  ff = new Set([`buy`, `done`, `escape`, `menu`, `scrim`, `sign-in`]),
+  pf = new Set([`sign-in`, `keep-editing`, `leave`, `dismissed`]);
 
-function pf(e = sf, t = Math.random) {
+function mf(e = cf, t = Math.random) {
   if (!(e > 0)) return !1;
   if (e >= 1) return !0;
   try {
     let n = globalThis.sessionStorage,
-      r = n.getItem(cf);
+      r = n.getItem(lf);
     if (r === `1`) return !0;
     if (r === `0`) return !1;
     let i = t() < e;
-    return n.setItem(cf, i ? `1` : `0`), i
+    return n.setItem(lf, i ? `1` : `0`), i
   } catch {
     return t() < e
   }
 }
 
-function mf(e) {
-  return wf(e) && typeof e.event == `string` && lf.has(e.event)
+function hf(e) {
+  return Tf(e) && typeof e.event == `string` && uf.has(e.event)
 }
-var hf = class {
+var gf = class {
   #e;
   #t;
   #n;
@@ -7773,7 +7827,7 @@ var hf = class {
   #u = !1;
   #d = !1;
   constructor(e = {}) {
-    this.#e = e.apiBase ?? jl(), this.#t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null), this.#n = e.cookieSource ?? Tf, this.#r = e.flushIntervalMs ?? rf, this.#i = Math.max(1, Math.min(af, e.batchLimit ?? af)), this.#a = e.eventTarget ?? globalThis, this.#o = e.acquisition ?? Ud(Ef(), Df()), this.#s = e.funnelSampled ?? pf()
+    this.#e = e.apiBase ?? Ml(), this.#t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null), this.#n = e.cookieSource ?? Ef, this.#r = e.flushIntervalMs ?? af, this.#i = Math.max(1, Math.min(of, e.batchLimit ?? of)), this.#a = e.eventTarget ?? globalThis, this.#o = e.acquisition ?? Wd(Df(), Of()), this.#s = e.funnelSampled ?? mf()
   }
   start() {
     this.#u || this.#t === null || (this.#u = !0, this.#a.addEventListener(`swervle:telemetry`, this.#f), this.#a.addEventListener(`visibilitychange`, this.#p), this.#a.addEventListener(`pagehide`, this.#m), this.#l = globalThis.setInterval(() => {
@@ -7785,12 +7839,12 @@ var hf = class {
   }
   #f = e => {
     let t = e.detail;
-    if (!this.#s && mf(t)) return;
-    for (let e of gf(t)) this.#c.push({
+    if (!this.#s && hf(t)) return;
+    for (let e of _f(t)) this.#c.push({
       event: e,
       retryCount: 0
     });
-    let n = this.#i * of;
+    let n = this.#i * sf;
     this.#c.length > n && this.#c.splice(0, this.#c.length - n), this.#c.length >= this.#i && this.#h(!1)
   };
   #p = () => {
@@ -7803,7 +7857,7 @@ var hf = class {
     if (this.#t === null || this.#c.length === 0 || this.#d) return;
     this.#d = !0;
     let t = this.#c.splice(0, this.#i),
-      n = kl(this.#n()),
+      n = Al(this.#n()),
       r = {
         "content-type": `application/json`
       };
@@ -7833,8 +7887,8 @@ var hf = class {
   }
 };
 
-function gf(e) {
-  if (!wf(e) || typeof e.event != `string` || typeof e.occurredAt != `string` || !wf(e.context)) return [];
+function _f(e) {
+  if (!Tf(e) || typeof e.event != `string` || typeof e.occurredAt != `string` || !Tf(e.context)) return [];
   let t = e.context,
     n = e.occurredAt,
     r = [];
@@ -7862,7 +7916,7 @@ function gf(e) {
       r.push({
         name: `race_cta_clicked`,
         properties: {
-          mode: _f(t)
+          mode: vf(t)
         }
       });
       break;
@@ -7870,7 +7924,7 @@ function gf(e) {
       r.push({
         name: `rendering_failed`,
         properties: {
-          reason: xf(t.reason)
+          reason: Sf(t.reason)
         }
       });
       break;
@@ -7878,7 +7932,7 @@ function gf(e) {
       r.push({
         name: `quality_changed`,
         properties: {
-          quality: vf(t)
+          quality: yf(t)
         }
       });
       break;
@@ -7886,7 +7940,7 @@ function gf(e) {
       r.push({
         name: `share_moment_selected`,
         properties: {
-          moment: xf(t.moment)
+          moment: Sf(t.moment)
         }
       });
       break;
@@ -7901,8 +7955,8 @@ function gf(e) {
         name: `client_error`,
         properties: {
           kind: t.kind === `unhandledrejection` ? `unhandledrejection` : `error`,
-          message: yf(t.message),
-          name: xf(t.name)
+          message: bf(t.message),
+          name: Sf(t.name)
         }
       });
       break;
@@ -7924,7 +7978,7 @@ function gf(e) {
       r.push({
         name: `menu_action_selected`,
         properties: {
-          action: xf(t.action)
+          action: Sf(t.action)
         }
       });
       break;
@@ -7940,7 +7994,7 @@ function gf(e) {
       r.push({
         name: `vehicle_offer_opened`,
         properties: {
-          pack: xf(t.packId),
+          pack: Sf(t.packId),
           signedIn: t.signedIn === !0
         }
       });
@@ -7949,8 +8003,8 @@ function gf(e) {
       r.push({
         name: `vehicle_offer_resolved`,
         properties: {
-          outcome: bf(t.outcome, uf, `escape`),
-          pack: xf(t.packId),
+          outcome: xf(t.outcome, df, `escape`),
+          pack: Sf(t.packId),
           signedIn: t.signedIn === !0
         }
       });
@@ -7967,7 +8021,7 @@ function gf(e) {
       r.push({
         name: `vehicle_screen_resolved`,
         properties: {
-          outcome: bf(t.outcome, df, `escape`),
+          outcome: xf(t.outcome, ff, `escape`),
           signedIn: t.signedIn === !0
         }
       });
@@ -7985,7 +8039,7 @@ function gf(e) {
       r.push({
         name: `signup_prompt_resolved`,
         properties: {
-          outcome: bf(t.outcome, ff, `dismissed`),
+          outcome: xf(t.outcome, pf, `dismissed`),
           surface: `garage`
         }
       });
@@ -8009,8 +8063,8 @@ function gf(e) {
       r.push({
         name: `verification_failed`,
         properties: {
-          classification: xf(t.reason),
-          code: typeof t.code == `string` ? xf(t.code) : null
+          classification: Sf(t.reason),
+          code: typeof t.code == `string` ? Sf(t.code) : null
         }
       });
       break;
@@ -8018,53 +8072,53 @@ function gf(e) {
       break
   }
   return Object.freeze(r.map(e => Object.freeze({
-    eventId: Cf(),
+    eventId: wf(),
     name: e.name,
-    occurredAtIso: Sf(n),
+    occurredAtIso: Cf(n),
     properties: Object.freeze(e.properties)
   })))
 }
 
-function _f(e) {
+function vf(e) {
   let t = e.raceContextId;
   return typeof t == `string` && t.startsWith(`challenge:`) ? `challenge` : `daily`
 }
 
-function vf(e) {
+function yf(e) {
   let t = e.preference;
   return t === `auto` || t === `best` || t === `high` || t === `medium` || t === `low` || t === `minimum` || t === `bare` ? t : `auto`
 }
 
-function yf(e) {
+function bf(e) {
   if (typeof e != `string`) return `unknown`;
   let t = e.replaceAll(/[a-z][a-z0-9+.-]*:\/\/\S*/giu, ` `).replaceAll(/\S+@\S+/gu, ` `).replaceAll(/[?&@]/gu, ` `).replaceAll(/\s+/gu, ` `).trim().slice(0, 300).trim();
   return t.length > 0 ? t : `unknown`
 }
 
-function bf(e, t, n) {
+function xf(e, t, n) {
   return typeof e == `string` && t.has(e) ? e : n
 }
 
-function xf(e) {
+function Sf(e) {
   if (typeof e != `string`) return `unknown`;
   let t = e.replaceAll(/[^A-Za-z0-9._:-]/gu, `-`).slice(0, 64);
   return /^[A-Za-z0-9]/u.test(t) ? t : `unknown`
 }
 
-function Sf(e) {
+function Cf(e) {
   let t = Date.parse(e);
   return Number.isFinite(t) && new Date(t).toISOString() === e ? e : new Date().toISOString()
 }
 
-function Cf() {
+function wf() {
   return `evt_${[...crypto.getRandomValues(new Uint8Array(16))].map(e=>e.toString(16).padStart(2,`0`)).join(``)}`
 }
 
-function wf(e) {
+function Tf(e) {
   return typeof e == `object` && !!e && !Array.isArray(e)
 }
 
-function Tf() {
+function Ef() {
   try {
     return globalThis.document.cookie
   } catch {
@@ -8072,7 +8126,7 @@ function Tf() {
   }
 }
 
-function Ef() {
+function Df() {
   try {
     return globalThis.location.href
   } catch {
@@ -8080,7 +8134,7 @@ function Ef() {
   }
 }
 
-function Df() {
+function Of() {
   try {
     return globalThis.document.referrer
   } catch {
@@ -8088,11 +8142,11 @@ function Df() {
   }
 }
 
-function Of(e, t) {
+function kf(e, t) {
   return t === k.version ? e : `${e}@${t}`
 }
 
-function kf(e) {
+function Af(e) {
   let t = e.indexOf(`@`),
     n = t === -1 ? e : e.slice(0, t);
   if (!/^[0-9a-f]{64}$/u.test(n)) return null;
@@ -8107,9 +8161,9 @@ function kf(e) {
   })
 }
 
-function Af(e) {
+function jf(e) {
   let t = O(e.track.revision.rulesetVersion),
-    n = _e({
+    n = ge({
       controllableStates: e.personalBest.states,
       maximumRaceTicks: t.maximumRaceTicks,
       raceContextId: e.raceContextId,
@@ -8132,7 +8186,7 @@ function Af(e) {
   }
 }
 
-function jf(e) {
+function Mf(e) {
   let t = new Map;
   for (let n of e.runs) n.trackDigest !== null && t.set(n.publicRunId, n.trackDigest);
   if (t.size === 0) return Object.freeze([]);
@@ -8144,13 +8198,13 @@ function jf(e) {
   return Object.freeze(n)
 }
 
-function Mf(e) {
+function Nf(e) {
   let t = e.modifiersVersion;
   if (e.ghost.trackDigest !== e.track.revision.trackDigest || Ye(e.ghost.dailyId).version !== t) return e.store.read(e.track, t);
   let n = e.store.read(e.track, t),
     r = H(e.ghost.durationTicks, e.ghost.displayTimeMs);
   if (n !== null && n.displayTimeMs <= r) return n.displayTimeMs === r && n.publicRunId === e.ghost.publicRunId ? (e.store.recordServerPublicRunId(e.track, e.ghost.publicRunId, t), e.store.read(e.track, t)) : n;
-  let i = _e({
+  let i = ge({
     controllableStates: e.ghost.states,
     maximumRaceTicks: O(e.track.revision.rulesetVersion).maximumRaceTicks,
     raceContextId: e.raceContextId,
@@ -8175,22 +8229,22 @@ function Mf(e) {
     track: e.track
   }), e.store.recordServerPublicRunId(e.track, e.ghost.publicRunId, t), e.store.read(e.track, t)
 }
-var Nf = `swervle:personal-best-ghosts:v1`,
-  Pf = class {
+var Pf = `swervle:personal-best-ghosts:v1`,
+  Ff = class {
     #e;
-    constructor(e = Ff()) {
+    constructor(e = If()) {
       this.#e = e
     }
     read(e, t = k.version) {
       let n = e.revision.trackDigest,
-        r = this.#t()[Of(n, t)];
+        r = this.#t()[kf(n, t)];
       if (r === void 0) return null;
       try {
         let e = C(r.statesBase64, {
           expectedLength: r.durationTicks,
           maximumLength: O(r.rulesetVersion).maximumRaceTicks
         });
-        for (let t of e) be(t);
+        for (let t of e) ye(t);
         return Object.freeze({
           createdAtIso: r.createdAtIso,
           displayTimeMs: H(r.durationTicks, r.displayTimeMs),
@@ -8206,7 +8260,7 @@ var Nf = `swervle:personal-best-ghosts:v1`,
       }
     }
     recordServerPublicRunId(e, t, n = k.version) {
-      let r = Of(e.revision.trackDigest, n),
+      let r = kf(e.revision.trackDigest, n),
         i = this.#t(),
         a = i[r];
       a === void 0 || a.serverPublicRunId === t || (i[r] = Object.freeze({
@@ -8215,7 +8269,7 @@ var Nf = `swervle:personal-best-ghosts:v1`,
       }), this.#n(i))
     }
     recordServerChallenge(e, t, n = k.version) {
-      let r = Of(e.revision.trackDigest, n),
+      let r = kf(e.revision.trackDigest, n),
         i = this.#t(),
         a = i[r];
       a === void 0 || a.serverChallenge?.shareId === t.shareId || (i[r] = Object.freeze({
@@ -8241,7 +8295,7 @@ var Nf = `swervle:personal-best-ghosts:v1`,
       if (t.trackDigest !== r.revision.trackDigest || t.rulesetVersion !== r.revision.rulesetVersion) throw RangeError(`Verified run provenance does not match this Terrain V2 track.`);
       if (t.displayTimeMs === null && t.rulesetVersion === `swervle-rules-v2.4`) throw RangeError(`Precise-timing runs must carry their verified display time.`);
       let i = O(r.revision.rulesetVersion),
-        a = de(n, {
+        a = ue(n, {
           expectedRulesetVersion: i.version,
           maximumRaceTicks: i.maximumRaceTicks,
           verificationTailTicks: 0
@@ -8249,7 +8303,7 @@ var Nf = `swervle:personal-best-ghosts:v1`,
       if (t.durationTicks !== a.controllableTickCount) throw RangeError(`Verified replay must end exactly at its authoritative finish tick.`);
       let o = t.durationTicks,
         s = r.revision.trackDigest,
-        c = Of(s, e.modifiersVersion),
+        c = kf(s, e.modifiersVersion),
         l = this.#t(),
         u = l[c],
         d = u?.durationTicks ?? null,
@@ -8274,7 +8328,7 @@ var Nf = `swervle:personal-best-ghosts:v1`,
         rulesetVersion: r.revision.rulesetVersion,
         schemaVersion: 1,
         stateEncoding: `car-state-byte-v1`,
-        statesBase64: he(a.states),
+        statesBase64: me(a.states),
         trackDigest: s
       }), this.#n(l), Object.freeze({
         beatPreviousBest: d !== null,
@@ -8292,7 +8346,7 @@ var Nf = `swervle:personal-best-ghosts:v1`,
         dailyId: t.dailyId ?? null,
         displayTimeMs: H(t.durationTicks, t.displayTimeMs),
         durationTicks: t.durationTicks,
-        modifiersVersion: Lf(t),
+        modifiersVersion: Rf(t),
         publicRunId: t.publicRunId,
         slotKey: e,
         trackDigest: t.trackDigest
@@ -8300,14 +8354,14 @@ var Nf = `swervle:personal-best-ghosts:v1`,
     }
     #t() {
       try {
-        let e = this.#e?.getItem(Nf);
+        let e = this.#e?.getItem(Pf);
         if (e == null) return {};
         let t = JSON.parse(e);
-        if (!If(t)) return {};
+        if (!Lf(t)) return {};
         let n = {};
         for (let [e, r] of Object.entries(t)) {
-          let t = kf(e);
-          t === null || !zf(r, t.trackDigest) || Lf(r) === t.modifiersVersion && (n[e] = r)
+          let t = Af(e);
+          t === null || !Bf(r, t.trackDigest) || Rf(r) === t.modifiersVersion && (n[e] = r)
         }
         return n
       } catch {
@@ -8316,12 +8370,12 @@ var Nf = `swervle:personal-best-ghosts:v1`,
     }
     #n(e) {
       try {
-        this.#e?.setItem(Nf, JSON.stringify(e))
+        this.#e?.setItem(Pf, JSON.stringify(e))
       } catch {}
     }
   };
 
-function Ff() {
+function If() {
   try {
     return globalThis.localStorage
   } catch {
@@ -8329,32 +8383,32 @@ function Ff() {
   }
 }
 
-function If(e) {
+function Lf(e) {
   return typeof e == `object` && !!e && !Array.isArray(e)
 }
 
-function Lf(e) {
+function Rf(e) {
   return e.modifiersVersion ?? Ye(e.dailyId ?? ``).version
 }
 
-function Rf(e) {
-  return If(e) && typeof e.shareId == `string` && e.shareId.length > 0 && typeof e.sharePath == `string` && e.sharePath.length > 0 && typeof e.shareUrl == `string` && e.shareUrl.length > 0
+function zf(e) {
+  return Lf(e) && typeof e.shareId == `string` && e.shareId.length > 0 && typeof e.sharePath == `string` && e.sharePath.length > 0 && typeof e.shareUrl == `string` && e.shareUrl.length > 0
 }
 
-function zf(e, t) {
-  if (!If(e) || e.schemaVersion !== 1 || e.trackDigest !== t || typeof e.generatorVersion != `string` || !nt(e.generatorVersion) || typeof e.rulesetVersion != `string` || He(e.rulesetVersion) === null || e.engineBuild !== Ue || typeof e.trackDigest != `string` || !/^[0-9a-f]{64}$/u.test(e.trackDigest) || typeof e.createdAtIso != `string` || Number.isNaN(Date.parse(e.createdAtIso)) || typeof e.publicRunId != `string` || !Number.isSafeInteger(e.durationTicks) || e.durationTicks < 1 || e.durationTicks > (He(e.rulesetVersion)?.maximumRaceTicks ?? 0) || e.displayTimeMs !== void 0 && (!Number.isSafeInteger(e.displayTimeMs) || e.displayTimeMs < 1) || e.rulesetVersion === `swervle-rules-v2.4` && e.displayTimeMs === void 0 || e.stateEncoding !== `car-state-byte-v1` || typeof e.statesBase64 != `string` || e.dailyId !== void 0 && (typeof e.dailyId != `string` || !/^\d{4}-\d{2}-\d{2}$/u.test(e.dailyId)) || e.modifiersVersion !== void 0 && (typeof e.modifiersVersion != `string` || e.modifiersVersion.length === 0) || e.serverPublicRunId !== void 0 && typeof e.serverPublicRunId != `string` || e.serverChallenge !== void 0 && !Rf(e.serverChallenge)) return !1;
+function Bf(e, t) {
+  if (!Lf(e) || e.schemaVersion !== 1 || e.trackDigest !== t || typeof e.generatorVersion != `string` || !nt(e.generatorVersion) || typeof e.rulesetVersion != `string` || He(e.rulesetVersion) === null || e.engineBuild !== Ue || typeof e.trackDigest != `string` || !/^[0-9a-f]{64}$/u.test(e.trackDigest) || typeof e.createdAtIso != `string` || Number.isNaN(Date.parse(e.createdAtIso)) || typeof e.publicRunId != `string` || !Number.isSafeInteger(e.durationTicks) || e.durationTicks < 1 || e.durationTicks > (He(e.rulesetVersion)?.maximumRaceTicks ?? 0) || e.displayTimeMs !== void 0 && (!Number.isSafeInteger(e.displayTimeMs) || e.displayTimeMs < 1) || e.rulesetVersion === `swervle-rules-v2.4` && e.displayTimeMs === void 0 || e.stateEncoding !== `car-state-byte-v1` || typeof e.statesBase64 != `string` || e.dailyId !== void 0 && (typeof e.dailyId != `string` || !/^\d{4}-\d{2}-\d{2}$/u.test(e.dailyId)) || e.modifiersVersion !== void 0 && (typeof e.modifiersVersion != `string` || e.modifiersVersion.length === 0) || e.serverPublicRunId !== void 0 && typeof e.serverPublicRunId != `string` || e.serverChallenge !== void 0 && !zf(e.serverChallenge)) return !1;
   try {
     let t = C(e.statesBase64, {
       expectedLength: e.durationTicks,
       maximumLength: O(e.rulesetVersion).maximumRaceTicks
     });
-    for (let e of t) be(e);
+    for (let e of t) ye(e);
     return !0
   } catch {
     return !1
   }
 }
-var Bf = class {
+var Vf = class {
     #e = [];
     record(e) {
       this.#e.push(e), this.#e.length > 200 && this.#e.splice(0, this.#e.length - 200), globalThis.dispatchEvent(new CustomEvent(`swervle:telemetry`, {
@@ -8365,13 +8419,13 @@ var Bf = class {
       return Object.freeze(structuredClone(this.#e))
     }
   },
-  Vf = class {
+  Hf = class {
     #e;
     #t;
     constructor(e = {}) {
       this.#e = Object.freeze({
         ...e.baseContext ?? {}
-      }), this.#t = e.sink ?? new Bf
+      }), this.#t = e.sink ?? new Vf
     }
     record(e, t = {}) {
       this.#t.record(Object.freeze({
@@ -8384,7 +8438,7 @@ var Bf = class {
       }))
     }
   },
-  Hf = Object.freeze([{
+  Uf = Object.freeze([{
     reason: `hate-or-harassment`,
     label: `Hate or harassment`
   }, {
@@ -8400,8 +8454,8 @@ var Bf = class {
     reason: `other`,
     label: `Something else`
   }]),
-  Uf = 1e3,
-  Wf = Object.freeze({
+  Wf = 1e3,
+  Gf = Object.freeze({
     "creator-link": Object.freeze({
       placeholder: `What's wrong with this channel link?`,
       title: `Report this channel link`,
@@ -8424,17 +8478,17 @@ var Bf = class {
     })
   });
 
-function Gf(e) {
-  return typeof e == `string` && Hf.some(t => t.reason === e)
+function Kf(e) {
+  return typeof e == `string` && Uf.some(t => t.reason === e)
 }
 
-function Kf(e) {
-  if (!Gf(e.reason)) throw TypeError(`Display-name report reason is invalid.`);
+function qf(e) {
+  if (!Kf(e.reason)) throw TypeError(`Display-name report reason is invalid.`);
   let t = e.reportedDisplayName.trim();
   if (t.length === 0) throw TypeError(`A reported display name is required.`);
   let n = e.subject ?? `display-name`,
     r = e.details === null ? `` : e.details.trim(),
-    i = r.length === 0 ? null : r.slice(0, Uf);
+    i = r.length === 0 ? null : r.slice(0, Wf);
   return Object.freeze({
     details: i,
     reason: e.reason,
@@ -8443,25 +8497,25 @@ function Kf(e) {
   })
 }
 
-function qf(e, t = `display-name`) {
-  let n = Zf(e),
-    r = Wf[t],
-    i = Hf.map((e, t) => `
+function Jf(e, t = `display-name`) {
+  let n = Qf(e),
+    r = Gf[t],
+    i = Uf.map((e, t) => `
         <label class="report-reason">
-          <input type="radio" name="report-reason" value="${Qf(e.reason)}"${t===0?` checked`:``}>
-          <span>${Zf(e.label)}</span>
+          <input type="radio" name="report-reason" value="${$f(e.reason)}"${t===0?` checked`:``}>
+          <span>${Qf(e.label)}</span>
         </label>`).join(``);
   return `
       <div class="result-card report-dialog panel" role="dialog" aria-modal="true" aria-labelledby="report-dialog-title" aria-describedby="report-dialog-copy">
-        <h2 id="report-dialog-title">${Zf(r.title)}</h2>
-        <p id="report-dialog-copy">You're reporting the ${Zf(r.what)} <strong>${n}</strong>. A moderator reviews every report.</p>
+        <h2 id="report-dialog-title">${Qf(r.title)}</h2>
+        <p id="report-dialog-copy">You're reporting the ${Qf(r.what)} <strong>${n}</strong>. A moderator reviews every report.</p>
         <form data-report-form novalidate>
           <fieldset>
             <legend>Why are you reporting it?</legend>${i}
           </fieldset>
           <label class="report-details-label">
             <span>Add detail (optional)</span>
-            <textarea data-report-details maxlength="${String(Uf)}" rows="3" placeholder="${Qf(r.placeholder)}"></textarea>
+            <textarea data-report-details maxlength="${String(Wf)}" rows="3" placeholder="${$f(r.placeholder)}"></textarea>
           </label>
           <div class="result-actions">
             <button class="primary-button" type="submit" data-report-submit>SEND REPORT</button>
@@ -8471,10 +8525,10 @@ function qf(e, t = `display-name`) {
       </div>`
 }
 
-function Jf(e) {
+function Yf(e) {
   let t = document.activeElement instanceof HTMLElement ? document.activeElement : null,
     n = document.createElement(`div`);
-  n.className = `modal-scrim report-scrim`, n.innerHTML = qf(e.displayName, e.subject ?? `display-name`), e.mount.append(n);
+  n.className = `modal-scrim report-scrim`, n.innerHTML = Jf(e.displayName, e.subject ?? `display-name`), e.mount.append(n);
   let r = !1,
     i = () => {
       r || (r = !0, n.removeEventListener(`keydown`, s), n.removeEventListener(`click`, c), a?.removeEventListener(`submit`, o), n.remove(), t?.focus(), e.onClose?.())
@@ -8485,7 +8539,7 @@ function Jf(e) {
       let r = n.querySelector(`input[name='report-reason']:checked`)?.value ?? ``,
         a = n.querySelector(`[data-report-details]`)?.value ?? null;
       try {
-        e.onSubmit(Kf({
+        e.onSubmit(qf({
           details: a,
           reason: r,
           reportedDisplayName: e.displayName,
@@ -8500,22 +8554,22 @@ function Jf(e) {
         e.stopPropagation(), e.preventDefault(), i();
         return
       }
-      e.key === `Tab` && Xf(n, e)
+      e.key === `Tab` && Zf(n, e)
     },
     c = e => {
       e.target === n && i()
     };
-  return n.addEventListener(`keydown`, s), n.addEventListener(`click`, c), a?.addEventListener(`submit`, o), n.querySelector(`[data-report-cancel]`)?.addEventListener(`click`, i), Yf(n)[0]?.focus(), Object.freeze({
+  return n.addEventListener(`keydown`, s), n.addEventListener(`click`, c), a?.addEventListener(`submit`, o), n.querySelector(`[data-report-cancel]`)?.addEventListener(`click`, i), Xf(n)[0]?.focus(), Object.freeze({
     close: i
   })
 }
 
-function Yf(e) {
+function Xf(e) {
   return Array.from(e.querySelectorAll(`button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])`)).filter(e => !e.hasAttribute(`disabled`))
 }
 
-function Xf(e, t) {
-  let n = Yf(e),
+function Zf(e, t) {
+  let n = Xf(e),
     r = n[0],
     i = n[n.length - 1];
   if (r === void 0 || i === void 0) return;
@@ -8523,29 +8577,29 @@ function Xf(e, t) {
   t.shiftKey && a === r ? (t.preventDefault(), i.focus()) : !t.shiftKey && a === i && (t.preventDefault(), r.focus())
 }
 
-function Zf(e) {
+function Qf(e) {
   return e.replaceAll(`&`, `&amp;`).replaceAll(`<`, `&lt;`).replaceAll(`>`, `&gt;`).replaceAll(`"`, `&quot;`).replaceAll(`'`, `&#39;`)
 }
 
-function Qf(e) {
-  return Zf(e)
+function $f(e) {
+  return Qf(e)
 }
-var $f = `swervle-share-moments-v1`;
+var ep = `swervle-share-moments-v1`;
 
-function ep(e) {
-  if (np(e), e.participantKind !== `human`) return Object.freeze([]);
+function tp(e) {
+  if (rp(e), e.participantKind !== `human`) return Object.freeze([]);
   let t = e.opponentName === null ? null : Ho(e.opponentName),
     n = `/r/${encodeURIComponent(e.challengeShareId)}`,
-    r = [tp(`share-run-clip`, `verified-finish`, `Share your run`, `Send the traced line and clip from that finish.`, `SHARE MY RUN`, `clean-line`, n)];
-  return e.dailyRank === 1 && r.unshift(tp(`daily-crown`, `crown-confirmed`, `You hold the daily crown`, `Put a target on it. Send a Dethrone me challenge.`, `DETHRONE ME`, `daily-crown`, n)), (e.priorPersonalBestTicks === null || H(e.durationTicks, e.displayTimeMs) < H(e.priorPersonalBestTicks, e.priorPersonalBestDisplayTimeMs)) && r.push(tp(`personal-best`, `verified-finish`, `Personal best`, `That line is worth keeping. Share the result card.`, `SHARE PB`, `personal-best`, n)), t !== null && e.opponentDurationTicks !== null && r.push(tp(`head-to-head`, `verified-finish`, `Head-to-head settled`, `Send the result back to ${t}.`, `SHARE RESULT`, `head-to-head`, n)), e.streakDays >= 2 && r.push(tp(`streak`, `verified-finish`, `${String(e.streakDays)} days running`, `Keep the streak visible—and make tomorrow harder to skip.`, `SHARE STREAK`, `streak`, n)), Object.freeze(r)
+    r = [np(`share-run-clip`, `verified-finish`, `Share your run`, `Send the traced line and clip from that finish.`, `SHARE MY RUN`, `clean-line`, n)];
+  return e.dailyRank === 1 && r.unshift(np(`daily-crown`, `crown-confirmed`, `You hold the daily crown`, `Put a target on it. Send a Dethrone me challenge.`, `DETHRONE ME`, `daily-crown`, n)), (e.priorPersonalBestTicks === null || H(e.durationTicks, e.displayTimeMs) < H(e.priorPersonalBestTicks, e.priorPersonalBestDisplayTimeMs)) && r.push(np(`personal-best`, `verified-finish`, `Personal best`, `That line is worth keeping. Share the result card.`, `SHARE PB`, `personal-best`, n)), t !== null && e.opponentDurationTicks !== null && r.push(np(`head-to-head`, `verified-finish`, `Head-to-head settled`, `Send the result back to ${t}.`, `SHARE RESULT`, `head-to-head`, n)), e.streakDays >= 2 && r.push(np(`streak`, `verified-finish`, `${String(e.streakDays)} days running`, `Keep the streak visible—and make tomorrow harder to skip.`, `SHARE STREAK`, `streak`, n)), Object.freeze(r)
 }
 
-function tp(e, t, n, r, i, a, o) {
+function np(e, t, n, r, i, a, o) {
   return Object.freeze({
     actionLabel: i,
     cardStatus: a,
     challengePath: o,
-    momentsVersion: $f,
+    momentsVersion: ep,
     prompt: r,
     schemaVersion: 1,
     title: n,
@@ -8554,10 +8608,10 @@ function tp(e, t, n, r, i, a, o) {
   })
 }
 
-function np(e) {
-  if (ip(e.publicRunId, `Share result run ID`), ip(e.challengeShareId, `Share challenge ID`), !/^\d{4}-\d{2}-\d{2}$/u.test(e.dailyId)) throw TypeError(`Share result daily ID is invalid.`);
+function rp(e) {
+  if (ap(e.publicRunId, `Share result run ID`), ap(e.challengeShareId, `Share challenge ID`), !/^\d{4}-\d{2}-\d{2}$/u.test(e.dailyId)) throw TypeError(`Share result daily ID is invalid.`);
   if (!Number.isSafeInteger(e.durationTicks) || e.durationTicks < 1) throw TypeError(`Share result duration is invalid.`);
-  if (H(e.durationTicks, e.displayTimeMs), !rp(e.participantKind)) throw TypeError(`Share result participant kind is unsupported.`);
+  if (H(e.durationTicks, e.displayTimeMs), !ip(e.participantKind)) throw TypeError(`Share result participant kind is unsupported.`);
   if (e.dailyRank !== null && (!Number.isSafeInteger(e.dailyRank) || e.dailyRank < 1)) throw TypeError(`Share result daily rank is invalid.`);
   if (!Number.isSafeInteger(e.streakDays) || e.streakDays < 0) throw TypeError(`Share result streak is invalid.`);
   if (e.priorPersonalBestTicks !== null && (!Number.isSafeInteger(e.priorPersonalBestTicks) || e.priorPersonalBestTicks < 1)) throw TypeError(`Share result prior personal best is invalid.`);
@@ -8565,17 +8619,17 @@ function np(e) {
   if (e.opponentDurationTicks !== null && (!Number.isSafeInteger(e.opponentDurationTicks) || e.opponentDurationTicks < 1)) throw TypeError(`Share result opponent duration is invalid.`)
 }
 
-function rp(e) {
+function ip(e) {
   return e === `human` || e === `offline-ai`
 }
 
-function ip(e, t) {
+function ap(e, t) {
   if (typeof e != `string` || e.length < 1 || e.length > 160 || !/^[A-Za-z0-9][A-Za-z0-9._:-]*$/u.test(e)) throw TypeError(`${t} is malformed.`)
 }
 
-function ap(e) {
-  return op(e), es({
-    canonicalUrl: sp(e.canonicalUrl)
+function op(e) {
+  return sp(e), es({
+    canonicalUrl: cp(e.canonicalUrl)
   })
 }
 Object.freeze({
@@ -8583,27 +8637,27 @@ Object.freeze({
   streak: `personal-streak`
 });
 
-function op(e) {
-  sp(e.canonicalUrl), cp(e.challengePath)
+function sp(e) {
+  cp(e.canonicalUrl), lp(e.challengePath)
 }
 
-function sp(e) {
+function cp(e) {
   let t = new URL(e);
   if (t.protocol !== `https:` && t.protocol !== `http:`) throw TypeError(`Share canonical URL must be HTTP(S).`);
   return t.href
 }
 
-function cp(e) {
+function lp(e) {
   if (typeof e != `string` || !e.startsWith(`/`) || e.startsWith(`//`) || e.length > 512) throw TypeError(`Share challenge path must be a bounded same-origin path.`);
   return e
 }
-var lp = `swervle.account.boot.v1`,
-  up = 128;
+var up = `swervle.account.boot.v1`,
+  dp = 128;
 
-function dp() {
+function fp() {
   let e;
   try {
-    e = globalThis.localStorage.getItem(lp)
+    e = globalThis.localStorage.getItem(up)
   } catch {
     return null
   }
@@ -8616,7 +8670,7 @@ function dp() {
   }
   if (typeof t != `object` || !t || Array.isArray(t)) return null;
   let n = t;
-  if (typeof n.username != `string` || n.username === `` || n.username.length > up) return null;
+  if (typeof n.username != `string` || n.username === `` || n.username.length > dp) return null;
   let r = typeof n.daysRaced == `number` && Number.isInteger(n.daysRaced) && n.daysRaced >= 0 ? n.daysRaced : null;
   return Object.freeze({
     daysRaced: r,
@@ -8625,9 +8679,9 @@ function dp() {
   })
 }
 
-function fp(e) {
-  if (!(e.username === `` || e.username.length > up)) try {
-    globalThis.localStorage.setItem(lp, JSON.stringify({
+function pp(e) {
+  if (!(e.username === `` || e.username.length > dp)) try {
+    globalThis.localStorage.setItem(up, JSON.stringify({
       daysRaced: e.daysRaced,
       isSupporter: e.isSupporter,
       username: e.username
@@ -8635,32 +8689,32 @@ function fp(e) {
   } catch {}
 }
 
-function pp() {
+function mp() {
   try {
-    globalThis.localStorage.removeItem(lp)
+    globalThis.localStorage.removeItem(up)
   } catch {}
 }
-var mp = /^\d{4}-\d{2}-\d{2}$/u,
-  hp = 1440 * 60 * 1e3,
-  gp = Object.freeze({
+var hp = /^\d{4}-\d{2}-\d{2}$/u,
+  gp = 1440 * 60 * 1e3,
+  _p = Object.freeze({
     atRisk: !1,
     currentDays: 0,
     lastDailyId: null,
     longestDays: 0
   });
 
-function _p(e, t) {
-  yp(t, `Today's daily ID`);
-  let n = [...new Set(e.filter(vp))].sort();
-  if (n.length === 0) return gp;
+function vp(e, t) {
+  bp(t, `Today's daily ID`);
+  let n = [...new Set(e.filter(yp))].sort();
+  if (n.length === 0) return _p;
   let r = 1,
     i = 1;
   for (let e = 1; e < n.length; e += 1) {
     let t = n[e - 1] ?? ``;
-    i = (n[e] ?? ``) === xp(t) ? i + 1 : 1, i > r && (r = i)
+    i = (n[e] ?? ``) === Sp(t) ? i + 1 : 1, i > r && (r = i)
   }
   let a = n[n.length - 1] ?? null,
-    o = bp(t),
+    o = xp(t),
     s = a === t ? t : a === o ? o : null;
   if (s === null) return Object.freeze({
     atRisk: !1,
@@ -8670,7 +8724,7 @@ function _p(e, t) {
   });
   let c = new Set(n),
     l = 0;
-  for (let e = s; c.has(e); e = bp(e)) l += 1;
+  for (let e = s; c.has(e); e = xp(e)) l += 1;
   return Object.freeze({
     atRisk: s === o,
     currentDays: l,
@@ -8679,74 +8733,74 @@ function _p(e, t) {
   })
 }
 
-function vp(e) {
-  if (!mp.test(e)) return !1;
+function yp(e) {
+  if (!hp.test(e)) return !1;
   let t = Date.parse(`${e}T00:00:00.000Z`);
   return !Number.isNaN(t) && new Date(t).toISOString().slice(0, 10) === e
 }
 
-function yp(e, t) {
-  if (!vp(e)) throw RangeError(`${t} must be a real calendar date.`)
-}
-
-function bp(e) {
-  return Sp(e, -864e5)
+function bp(e, t) {
+  if (!yp(e)) throw RangeError(`${t} must be a real calendar date.`)
 }
 
 function xp(e) {
-  return Sp(e, hp)
+  return Cp(e, -864e5)
 }
 
-function Sp(e, t) {
+function Sp(e) {
+  return Cp(e, gp)
+}
+
+function Cp(e, t) {
   return new Date(Date.parse(`${e}T00:00:00.000Z`) + t).toISOString().slice(0, 10)
 }
-var Cp = e({
+var wp = e({
   VEHICLE_LIVERY_SAVE_DEBOUNCE_MS_V1: () => 900,
-  createAccountVehicleLiveryStoreV1: () => Vp,
-  createLocalVehicleLiveryLibraryStoreV1: () => zp,
-  createLocalVehicleLiveryStoreV1: () => Rp,
-  hydrateAccountVehicleLiveryV1: () => Bp,
-  setVehicleLiveryGridWritesV1: () => Pp,
-  vehicleLiveryGridWritesV1: () => Fp,
-  vehicleLiveryHydratedV1: () => kp,
-  vehicleLiveryUnsentV1: () => Ip
+  createAccountVehicleLiveryStoreV1: () => Hp,
+  createLocalVehicleLiveryLibraryStoreV1: () => Bp,
+  createLocalVehicleLiveryStoreV1: () => zp,
+  hydrateAccountVehicleLiveryV1: () => Vp,
+  setVehicleLiveryGridWritesV1: () => Fp,
+  vehicleLiveryGridWritesV1: () => Ip,
+  vehicleLiveryHydratedV1: () => Ap,
+  vehicleLiveryUnsentV1: () => Lp
 });
 
-function wp(e) {
+function Tp(e) {
   return `swervle.beta.vehicle-livery.${e}.v1`
 }
 
-function Tp(e) {
+function Ep(e) {
   return `swervle.beta.vehicle-livery.library.${e}.v1`
 }
 
-function Ep(e) {
+function Dp(e) {
   return `swervle.beta.vehicle-livery.${e}.rev.v1`
 }
 
-function Dp(e) {
+function Op(e) {
   return `swervle.beta.vehicle-livery.${e}.sent.v1`
 }
 
-function Op(e) {
+function kp(e) {
   return `swervle.beta.vehicle-livery.${e}.hydrated.v1`
 }
 
-function kp(e) {
+function Ap(e) {
   try {
-    return globalThis.localStorage.getItem(Op(e)) === `1`
+    return globalThis.localStorage.getItem(kp(e)) === `1`
   } catch {
     return !1
   }
 }
 
-function Ap(e) {
+function jp(e) {
   try {
-    globalThis.localStorage.setItem(Op(e), `1`)
+    globalThis.localStorage.setItem(kp(e), `1`)
   } catch {}
 }
 
-function jp(e) {
+function Mp(e) {
   try {
     let t = Number.parseInt(globalThis.localStorage.getItem(e) ?? ``, 10);
     return Number.isSafeInteger(t) && t > 0 ? t : 0
@@ -8755,30 +8809,30 @@ function jp(e) {
   }
 }
 
-function Mp(e, t) {
+function Np(e, t) {
   try {
     globalThis.localStorage.setItem(e, String(t))
   } catch {}
 }
-var Np = {
+var Pp = {
   on: !1
 };
 
-function Pp(e) {
-  Np.on = e
+function Fp(e) {
+  Pp.on = e
 }
 
-function Fp() {
-  return Np.on
+function Ip() {
+  return Pp.on
 }
 
-function Ip(e) {
-  return jp(Ep(e)) > jp(Dp(e))
+function Lp(e) {
+  return Mp(Dp(e)) > Mp(Op(e))
 }
 
-function Lp(e, t, n) {
+function Rp(e, t, n) {
   try {
-    let r = globalThis.localStorage.getItem(Tp(e)),
+    let r = globalThis.localStorage.getItem(Ep(e)),
       i = r === null ? [] : JSON.parse(r),
       a = Array.isArray(i) ? i : [],
       o = `rescued-${String(a.length+1)}`;
@@ -8787,30 +8841,30 @@ function Lp(e, t, n) {
       design: JSON.parse(t),
       name: n,
       slotId: o
-    }), globalThis.localStorage.setItem(Tp(e), JSON.stringify(a))
+    }), globalThis.localStorage.setItem(Ep(e), JSON.stringify(a))
   } catch {}
 }
 
-function Rp(e) {
+function zp(e) {
   return {
     read: () => {
       try {
-        return globalThis.localStorage.getItem(wp(e))
+        return globalThis.localStorage.getItem(Tp(e))
       } catch {
         return null
       }
     },
     write: t => {
-      globalThis.localStorage.setItem(wp(e), JSON.stringify(t)), Mp(Ep(e), jp(Ep(e)) + 1)
+      globalThis.localStorage.setItem(Tp(e), JSON.stringify(t)), Np(Dp(e), Mp(Dp(e)) + 1)
     }
   }
 }
 
-function zp(e) {
+function Bp(e) {
   let t = () => {
       let t;
       try {
-        t = globalThis.localStorage.getItem(Tp(e))
+        t = globalThis.localStorage.getItem(Ep(e))
       } catch {
         return []
       }
@@ -8828,7 +8882,7 @@ function zp(e) {
     },
     n = t => {
       try {
-        return globalThis.localStorage.setItem(Tp(e), JSON.stringify(t)), !0
+        return globalThis.localStorage.setItem(Ep(e), JSON.stringify(t)), !0
       } catch {
         return !1
       }
@@ -8863,9 +8917,9 @@ function zp(e) {
     }
   }
 }
-async function Bp(e, t) {
-  let n = Rp(t).read(),
-    r = kp(t),
+async function Vp(e, t) {
+  let n = zp(t).read(),
+    r = Ap(t),
     i;
   for (let n = 0; n < 2; n += 1) {
     try {
@@ -8879,36 +8933,36 @@ async function Bp(e, t) {
     })
   }
   if (i === void 0) return;
-  if (Ap(t), n !== null && !r && i !== null && i !== n && Ip(t) && Lp(t, n, `THIS DEVICE`), n !== null && r && Ip(t)) {
-    let r = jp(Ep(t));
+  if (jp(t), n !== null && !r && i !== null && i !== n && Lp(t) && Rp(t, n, `THIS DEVICE`), n !== null && r && Lp(t)) {
+    let r = Mp(Dp(t));
     try {
       await e.saveMyVehicleLivery({
         design: n,
         vehicleId: t
-      }) && Mp(Dp(t), r)
+      }) && Np(Op(t), r)
     } catch {}
     return
   }
   if (i !== null) {
     try {
-      globalThis.localStorage.setItem(wp(t), i);
-      let e = jp(Ep(t));
-      Mp(Dp(t), e)
+      globalThis.localStorage.setItem(Tp(t), i);
+      let e = Mp(Dp(t));
+      Np(Op(t), e)
     } catch {}
     return
   }
   if (n === null) return;
-  let a = jp(Ep(t));
+  let a = Mp(Dp(t));
   try {
     await e.saveMyVehicleLivery({
       design: n,
       vehicleId: t
-    }) && Mp(Dp(t), a)
+    }) && Np(Op(t), a)
   } catch {}
 }
 
-function Vp(e) {
-  let t = Rp(e.vehicleId),
+function Hp(e) {
+  let t = zp(e.vehicleId),
     n = null,
     r = null;
   return {
@@ -8918,14 +8972,14 @@ function Vp(e) {
     flush: () => {
       let t = r;
       if (r = null, n !== null && (globalThis.clearTimeout(n), n = null), t === null) return;
-      let i = jp(Ep(e.vehicleId)),
+      let i = Mp(Dp(e.vehicleId)),
         a = n => {
           e.gateway.saveMyVehicleLivery({
             design: t,
             vehicleId: e.vehicleId
           }).then(t => {
             if (t) {
-              Mp(Dp(e.vehicleId), i), e.onSaved?.(!0);
+              Np(Op(e.vehicleId), i), e.onSaved?.(!0);
               return
             }
             if (n > 0) {
@@ -8949,34 +9003,34 @@ function Vp(e) {
     },
     read: () => t.read(),
     write: e => {
-      t.write(e), r = Np.on ? mt(e) ?? JSON.stringify(e) : JSON.stringify(e)
+      t.write(e), r = Pp.on ? mt(e) ?? JSON.stringify(e) : JSON.stringify(e)
     }
   }
 }
-var Hp = Object.freeze({
+var Up = Object.freeze({
   briefingArmed: !1,
   pending: null,
   showing: null
 });
 
-function Up(e, t) {
-  return t.kind === `screen` ? t.screen === `briefing` ? Wp({
+function Wp(e, t) {
+  return t.kind === `screen` ? t.screen === `briefing` ? Gp({
     ...e,
     briefingArmed: !0
-  }) : Wp({
+  }) : Gp({
     ...e,
     briefingArmed: !1
-  }) : t.kind === `pending` ? Wp({
+  }) : t.kind === `pending` ? Gp({
     ...e,
     pending: t.warning
-  }) : Wp({
+  }) : Gp({
     briefingArmed: !1,
     pending: t.next,
     showing: null
   })
 }
 
-function Wp(e) {
+function Gp(e) {
   let {
     pending: t
   } = e;
@@ -8993,7 +9047,7 @@ function Wp(e) {
   })
 }
 
-function Gp(e) {
+function Kp(e) {
   if (typeof e != `object` || !e) return null;
   let t = e,
     n = t.warningId,
@@ -9006,7 +9060,7 @@ function Gp(e) {
   })
 }
 
-function Kp(e) {
+function qp(e) {
   return `
       <div class="result-card warning-dialog panel" role="dialog" aria-modal="true" aria-labelledby="warning-dialog-title" aria-describedby="warning-dialog-message">
         <p class="eyebrow">A MESSAGE FROM SWERVLE</p>
@@ -9018,11 +9072,11 @@ function Kp(e) {
       </div>`
 }
 
-function qp(e) {
+function Jp(e) {
   let t = A({
     closeOnEscape: !1,
     closeOnScrimClick: !1,
-    content: Kp(e.warning),
+    content: qp(e.warning),
     initialFocusSelector: `[data-warning-acknowledge]`,
     mount: e.mount,
     scrimClassName: `warning-scrim`
@@ -9031,14 +9085,14 @@ function qp(e) {
     t.close(), e.onAcknowledge(e.warning)
   }), t
 }
-var Jp = Object.freeze({
+var Yp = Object.freeze({
     kind: `signed-out`
   }),
-  Yp = Object.freeze({
+  Xp = Object.freeze({
     kind: `unavailable`
   });
 
-function Xp(e) {
+function Zp(e) {
   let t = new Map;
   for (let n of e) {
     let e = t.get(n.dailyId),
@@ -9048,7 +9102,7 @@ function Xp(e) {
   }
   return t
 }
-var Zp = Object.freeze([Object.freeze({
+var Qp = Object.freeze([Object.freeze({
     eventKey: `new-race`,
     label: `New race at 6:00 AM Central`
   }), Object.freeze({
@@ -9067,18 +9121,18 @@ var Zp = Object.freeze([Object.freeze({
     eventKey: `final-recap`,
     label: `Final recap when the day closes`
   })]),
-  Qp = class {
+  $p = class {
     #e;
     #t;
     #n;
     #r;
     constructor(e = {}) {
-      this.#e = e.apiBase ?? Dm(), this.#t = e.navigate ?? (e => {
+      this.#e = e.apiBase ?? Om(), this.#t = e.navigate ?? (e => {
         globalThis.location.assign(e)
-      }), this.#n = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null), this.#r = e.cookieSource ?? Em
+      }), this.#n = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null), this.#r = e.cookieSource ?? Dm
     }
     async load() {
-      if (this.#n === null) return Yp;
+      if (this.#n === null) return Xp;
       try {
         let e = await this.#n(`${this.#e}/session`, {
           credentials: `same-origin`,
@@ -9086,9 +9140,9 @@ var Zp = Object.freeze([Object.freeze({
             accept: `application/json`
           }
         });
-        return !e.ok || !(e.headers.get(`content-type`) ?? ``).includes(`application/json`) ? Yp : $p(await e.json())
+        return !e.ok || !(e.headers.get(`content-type`) ?? ``).includes(`application/json`) ? Xp : em(await e.json())
       } catch {
-        return Yp
+        return Xp
       }
     }
     startGoogleSignIn(e) {
@@ -9131,16 +9185,16 @@ var Zp = Object.freeze([Object.freeze({
           method: `POST`
         });
         if (n.ok) {
-          let t = await Cm(n);
+          let t = await wm(n);
           return {
             status: `ok`,
-            username: bm([t?.publicDisplayName, t?.username]) ?? e
+            username: xm([t?.publicDisplayName, t?.username]) ?? e
           }
         }
         return n.status === 409 ? {
           status: `taken`
         } : n.status === 400 ? {
-          message: wm(),
+          message: Tm(),
           status: `rejected`
         } : {
           status: `unavailable`
@@ -9161,9 +9215,9 @@ var Zp = Object.freeze([Object.freeze({
           }
         });
         if (!e.ok) return null;
-        let t = (await Cm(e))?.runs;
+        let t = (await wm(e))?.runs;
         return Array.isArray(t) ? t.flatMap(e => {
-          let t = xm(e);
+          let t = Sm(e);
           return t === null ? [] : [t]
         }) : null
       } catch {
@@ -9184,10 +9238,10 @@ var Zp = Object.freeze([Object.freeze({
         if (!e.ok) return Object.freeze({
           kind: `unavailable`
         });
-        let t = await Cm(e);
+        let t = await wm(e);
         return Object.freeze({
           kind: `ready`,
-          links: Sm(t?.creatorLinks)
+          links: Cm(t?.creatorLinks)
         })
       } catch {
         return Object.freeze({
@@ -9215,7 +9269,7 @@ var Zp = Object.freeze([Object.freeze({
           method: `PUT`
         });
         return r.ok ? {
-          links: Sm((await Cm(r))?.creatorLinks),
+          links: Cm((await wm(r))?.creatorLinks),
           status: `ok`
         } : r.status === 400 ? {
           message: Hs(e).invalidMessage ?? `Enter just the channel username — no @, no link.`,
@@ -9248,7 +9302,7 @@ var Zp = Object.freeze([Object.freeze({
         if (!e.ok) return Object.freeze({
           kind: `unavailable`
         });
-        let n = await Cm(e);
+        let n = await wm(e);
         if (n?.connected !== !0) return Object.freeze({
           kind: `disconnected`
         });
@@ -9262,7 +9316,7 @@ var Zp = Object.freeze([Object.freeze({
             let t = e.displayLabel;
             return typeof t == `string` && t.length > 0 ? [t] : []
           }),
-          o = t.ok ? await Cm(t) : null,
+          o = t.ok ? await wm(t) : null,
           s = typeof o?.preferences == `object` && o.preferences !== null ? o.preferences : {};
         return Object.freeze({
           communities: Object.freeze(a),
@@ -9299,7 +9353,7 @@ var Zp = Object.freeze([Object.freeze({
             headers: t,
             method: `POST`
           }),
-          r = (await Cm(n))?.authorizationUrl;
+          r = (await wm(n))?.authorizationUrl;
         return !n.ok || typeof r != `string` || !r.startsWith(`https://discord.com/`) ? `unavailable` : (this.#t(r), `started`)
       } catch {
         return `unavailable`
@@ -9354,7 +9408,7 @@ var Zp = Object.freeze([Object.freeze({
           headers: t,
           method: `POST`
         });
-        return n.ok ? Gp((await Cm(n))?.warning) : null
+        return n.ok ? Kp((await wm(n))?.warning) : null
       } catch {
         return null
       }
@@ -9373,21 +9427,21 @@ var Zp = Object.freeze([Object.freeze({
       } catch {}
     }
     #i() {
-      return Tm(this.#r())
+      return Em(this.#r())
     }
   };
 
-function $p(e) {
-  if (typeof e != `object` || !e) return Yp;
+function em(e) {
+  if (typeof e != `object` || !e) return Xp;
   let t = e,
     n = t.principal,
     r = typeof n == `object` && n ? n : null,
     i = r?.kind ?? t.kind ?? t.principalKind,
-    a = bm([t.username, t.publicDisplayName, r?.publicDisplayName, typeof t.account == `object` && t.account !== null ? t.account.publicDisplayName : void 0]);
+    a = xm([t.username, t.publicDisplayName, r?.publicDisplayName, typeof t.account == `object` && t.account !== null ? t.account.publicDisplayName : void 0]);
   if (i === `account`) {
     if (a !== null) {
-      let e = _c(typeof t.team == `object` && t.team !== null ? t.team.tag : null),
-        n = Gp(t.warning),
+      let e = vc(typeof t.team == `object` && t.team !== null ? t.team.tag : null),
+        n = Kp(t.warning),
         r = n === null ? {} : {
           warning: n
         },
@@ -9406,7 +9460,7 @@ function $p(e) {
         l = t.carChips === !0 ? {
           carChips: !0
         } : {};
-      return St(t.packs), xt(t.vehicleId), Pp(t.liveryGridWrites === !0), Xt(t.carChips === !0), t.discordLinkingAvailable === !0 ? Object.freeze({
+      return St(t.packs), xt(t.vehicleId), Fp(t.liveryGridWrites === !0), Xt(t.carChips === !0), t.discordLinkingAvailable === !0 ? Object.freeze({
         discordLinkingAvailable: !0,
         kind: `signed-in`,
         teamTag: e,
@@ -9429,19 +9483,19 @@ function $p(e) {
         ...l
       })
     }
-    return St(void 0), wt(), Jp
+    return St(void 0), wt(), Yp
   }
-  return i === `guest` ? (St(void 0), wt(), Xt(t.carChips === !0), Jp) : t.authenticated === !1 ? (St(t.packs), wt(), Xt(t.carChips === !0), Jp) : Yp
+  return i === `guest` ? (St(void 0), wt(), Xt(t.carChips === !0), Yp) : t.authenticated === !1 ? (St(t.packs), wt(), Xt(t.carChips === !0), Yp) : Xp
 }
 
-function em(e, t = [], n = Object.freeze({
+function tm(e, t = [], n = Object.freeze({
   kind: `loading`
 }), r = Ua(new Date), i = Object.freeze({
   kind: `loading`
 })) {
   if (e.kind === `signed-in`) {
     let a = e.discordLinkingAvailable === !0 ? `<h3 class="account-pr-heading">DISCORD</h3>
-        <div data-account-discord-region>${sm(n)}</div>` : ``;
+        <div data-account-discord-region>${cm(n)}</div>` : ``;
     return `
       <div class="result-card account-dialog account-profile panel" role="dialog" aria-modal="true" aria-labelledby="account-dialog-title">
         <h2 id="account-dialog-title">ACCOUNT</h2>
@@ -9450,11 +9504,11 @@ function em(e, t = [], n = Object.freeze({
           <div class="account-actions account-actions--inline">
             <button class="secondary-button" type="button" data-account-action="username">CHANGE USERNAME</button>
           </div>
-          <div data-account-streak-region>${tm(t,r)}</div>
+          <div data-account-streak-region>${nm(t,r)}</div>
           <h3 class="account-pr-heading">YOUR RACES</h3>
-          <div data-account-pr-region>${um(t)}</div>
+          <div data-account-pr-region>${dm(t)}</div>
           <h3 class="account-pr-heading">CREATOR LINKS</h3>
-          <div data-account-creator-region>${nm(i)}</div>
+          <div data-account-creator-region>${rm(i)}</div>
           ${a}
         </div>
         <div class="account-actions">
@@ -9485,8 +9539,8 @@ function em(e, t = [], n = Object.freeze({
       </div>`
 }
 
-function tm(e, t) {
-  let n = _p(e.map(({
+function nm(e, t) {
+  let n = vp(e.map(({
     dailyId: e
   }) => e), t);
   if (n.currentDays < 2) return ``;
@@ -9494,7 +9548,7 @@ function tm(e, t) {
   return n.atRisk ? `<p class="account-copy account-streak account-streak--at-risk"><strong>${r}</strong> — race today to keep it.</p>` : `<p class="account-copy account-streak"><strong>${r}</strong>.${n.longestDays>n.currentDays?` Best: ${String(n.longestDays)}.`:``}</p>`
 }
 
-function nm(e) {
+function rm(e) {
   return e.kind === `ready` ? `<div class="account-creator-card">
       <p class="account-note account-creator-help">Show your channel beside your name on the leaderboard. Enter just your username. Leave a field blank and save to remove it.</p>
       ${Bs.map(t=>{let n=e.links.find(e=>e.platform===t.platform),r=`creator-handle-${t.platform}`;return`<div class="account-creator-row">
@@ -9503,7 +9557,7 @@ function nm(e) {
           <span class="account-creator-prefix" aria-hidden="true">${j(t.urlPrefix)}</span>
           <input id="${r}" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="${String(Gs(t))}" placeholder="${j(t.placeholder)}" value="${j(n?.handle??``)}" data-creator-handle="${t.platform}" aria-describedby="${r}-error">
           <button class="secondary-button" type="button" data-creator-save="${t.platform}">SAVE</button>
-          <span class="account-creator-test-slot" data-creator-test-slot="${t.platform}">${rm(t.platform,n)}</span>
+          <span class="account-creator-test-slot" data-creator-test-slot="${t.platform}">${im(t.platform,n)}</span>
         </div>
         <p class="account-note account-creator-error" id="${r}-error" role="alert" data-creator-error="${t.platform}" hidden></p>
       </div>`}).join(`
@@ -9511,29 +9565,29 @@ function nm(e) {
     </div>`: `<p class="account-note">${e.kind===`loading`?`Checking your creator links…`:`Creator links are unavailable.`}</p>`
 }
 
-function rm(e, t) {
+function im(e, t) {
   let n = j(Hs(e).label),
-    r = im(e, t);
+    r = am(e, t);
   if (r === null) return `<button class="secondary-button account-creator-test" type="button" disabled aria-disabled="true" data-creator-test="${e}" title="Save a ${n} username first — there is nothing to open yet.">TEST</button>`;
   let i = j(r);
   return `<a class="secondary-button account-creator-test" data-creator-test="${e}" href="${i}" target="_blank" rel="noopener noreferrer nofollow" title="${i}" aria-label="Test your ${n} link, ${i} (opens in a new tab)">TEST</a>`
 }
 
-function im(e, t) {
+function am(e, t) {
   return t === void 0 ? null : qs(e, t.handle) === t.url ? t.url : null
 }
 
-function am(e, t, n) {
+function om(e, t, n) {
   let r = e.querySelector(`[data-creator-test-slot="${t}"]`);
-  r !== null && (r.innerHTML = rm(t, n.find(e => e.platform === t)))
+  r !== null && (r.innerHTML = im(t, n.find(e => e.platform === t)))
 }
 
-function om(e, t) {
+function sm(e, t) {
   let n = e.querySelector(`[data-account-creator-region]`);
-  n !== null && (n.innerHTML = nm(t))
+  n !== null && (n.innerHTML = rm(t))
 }
 
-function sm(e) {
+function cm(e) {
   if (e.kind === `connected`) {
     let t = e.communities.length === 0 ? `No installed shared communities yet.` : `Racing in ${e.communities.map(j).join(`, `)}.`;
     return `<div class="account-discord-card">
@@ -9541,7 +9595,7 @@ function sm(e) {
       <p class="account-note">${t}</p>
       <fieldset class="account-discord-preferences">
         <legend>OPT-IN DISCORD DMS</legend>
-        ${Zp.map(({eventKey:t,label:n})=>cm(t,n,e.preferences[t])).join(`
+        ${Qp.map(({eventKey:t,label:n})=>lm(t,n,e.preferences[t])).join(`
     `)}
       </fieldset>
       <button class="secondary-button" type="button" data-account-action="discord-unlink">DISCONNECT DISCORD</button>
@@ -9553,28 +9607,28 @@ function sm(e) {
     </div>` : `<p class="account-note">${e.kind===`loading`?`Checking Discord connection…`:`Discord connection is unavailable.`}</p>`
 }
 
-function cm(e, t, n) {
+function lm(e, t, n) {
   return `<label><input type="checkbox" data-discord-preference="${e}"${n?` checked`:``}> <span>${t}</span></label>`
 }
 
-function lm(e, t) {
+function um(e, t) {
   let n = e.querySelector(`[data-account-discord-region]`);
-  n !== null && (n.innerHTML = sm(t))
+  n !== null && (n.innerHTML = cm(t))
 }
 
-function um(e) {
+function dm(e) {
   let t = e.filter(e => e.dailyId.length > 0);
-  return t.length === 0 ? `<p class="account-note account-pr-empty" role="note">No races recorded yet</p>` : `<div class="account-pr-list">${t.map(fm).join(``)}</div>`
+  return t.length === 0 ? `<p class="account-note account-pr-empty" role="note">No races recorded yet</p>` : `<div class="account-pr-list">${t.map(pm).join(``)}</div>`
 }
 
-function dm(e, t, n) {
+function fm(e, t, n) {
   let r = e.querySelector(`[data-account-pr-region]`);
-  r !== null && (r.innerHTML = um(t));
+  r !== null && (r.innerHTML = dm(t));
   let i = e.querySelector(`[data-account-streak-region]`);
-  i !== null && (i.innerHTML = tm(t, n))
+  i !== null && (i.innerHTML = nm(t, n))
 }
 
-function fm(e) {
+function pm(e) {
   let t = e.thumbnailSvg ?? `<span class="account-pr-thumb-empty" aria-hidden="true"></span>`,
     n = e.placementLabel === null ? `<span class="account-pr-position account-pr-position--none" aria-hidden="true">—</span>` : `<span class="account-pr-position">${j(e.placementLabel)}</span>`;
   return `
@@ -9590,9 +9644,9 @@ function fm(e) {
       </div>`
 }
 
-function pm(e) {
+function mm(e) {
   let t = A({
-      content: em(e.status, e.records ?? [], e.discord ?? Object.freeze({
+      content: tm(e.status, e.records ?? [], e.discord ?? Object.freeze({
         kind: `loading`
       }), void 0, e.creatorLinks ?? Object.freeze({
         kind: `loading`
@@ -9660,7 +9714,7 @@ function pm(e) {
     a(i, null), e.onCreatorLink(i, s).then(e => {
       if (r.isConnected) {
         if (e.status === `ok`) {
-          a(i, null), o !== null && (o.value = s), am(n, i, e.links);
+          a(i, null), o !== null && (o.value = s), om(n, i, e.links);
           return
         }
         a(i, e.status === `rejected` ? e.message : `Couldn't save that right now. Try again in a moment.`)
@@ -9669,7 +9723,7 @@ function pm(e) {
   }), n.addEventListener(`change`, t => {
     let n = t.target instanceof HTMLInputElement && t.target.matches(`[data-discord-preference]`) ? t.target : null,
       r = n?.dataset.discordPreference;
-    if (n === null || e.onDiscordPreference === void 0 || !mm(r)) return;
+    if (n === null || e.onDiscordPreference === void 0 || !hm(r)) return;
     let i = n.checked;
     e.onDiscordPreference(r, i).then(e => {
       !e && n.isConnected && (n.checked = !i)
@@ -9677,21 +9731,21 @@ function pm(e) {
   }), t
 }
 
-function mm(e) {
+function hm(e) {
   return e === `community-overtaken` || e === `new-race` || e === `world-overtaken`
 }
-var hm = 2,
-  gm = 24;
+var gm = 2,
+  _m = 24;
 
-function _m(e) {
+function vm(e) {
   let t = e.trim().replaceAll(/\s+/gu, ` `);
   return t.length === 0 ? {
     message: null,
     valid: !1
-  } : t.length < hm ? {
+  } : t.length < gm ? {
     message: `A little longer — at least 2 characters.`,
     valid: !1
-  } : Array.from(t).length > gm ? {
+  } : Array.from(t).length > _m ? {
     message: `Keep it to 24 characters or fewer.`,
     valid: !1
   } : {
@@ -9700,14 +9754,14 @@ function _m(e) {
   }
 }
 
-function vm() {
+function ym() {
   return `
       <div class="result-card account-dialog account-username panel" role="dialog" aria-modal="true" aria-labelledby="username-dialog-title" aria-describedby="username-dialog-copy">
         <h2 id="username-dialog-title">CHOOSE YOUR USERNAME</h2>
         <p id="username-dialog-copy" class="account-copy">This name will publically show on leaderboards</p>
         <form class="account-username-form" data-username-form novalidate>
           <label class="account-email-label" for="username-input">Username</label>
-          <input id="username-input" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="${String(gm)}" placeholder="e.g. SWERVE KING" data-username-input aria-describedby="username-error">
+          <input id="username-input" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="${String(_m)}" placeholder="e.g. SWERVE KING" data-username-input aria-describedby="username-error">
           <p class="account-note account-username-error" id="username-error" role="alert" data-username-error hidden></p>
           <div class="account-actions">
             <button class="primary-button" type="submit" data-username-submit disabled>SAVE USERNAME</button>
@@ -9719,9 +9773,9 @@ function vm() {
       </div>`
 }
 
-function ym(e) {
+function bm(e) {
   let t = A({
-      content: vm(),
+      content: ym(),
       initialFocusSelector: `[data-username-input]`,
       mount: e.mount,
       onClose: e.onClose,
@@ -9737,7 +9791,7 @@ function ym(e) {
       o !== null && (e === null || e.length === 0 ? (o.hidden = !0, o.textContent = ``) : (o.hidden = !1, o.textContent = e))
     },
     l = () => {
-      let e = _m(i?.value ?? ``);
+      let e = vm(i?.value ?? ``);
       return a !== null && (a.disabled = !e.valid || s), e.valid
     };
   return i?.addEventListener(`input`, () => {
@@ -9747,7 +9801,7 @@ function ym(e) {
   }), r?.addEventListener(`submit`, n => {
     if (n.preventDefault(), s) return;
     let r = i?.value ?? ``,
-      a = _m(r);
+      a = vm(r);
     if (!a.valid) {
       c(a.message);
       return
@@ -9762,13 +9816,13 @@ function ym(e) {
   }), t
 }
 
-function bm(e) {
+function xm(e) {
   for (let t of e)
     if (typeof t == `string` && t.trim().length > 0) return t;
   return null
 }
 
-function xm(e) {
+function Sm(e) {
   if (typeof e != `object` || !e) return null;
   let t = e,
     n = t.dailyId,
@@ -9786,7 +9840,7 @@ function xm(e) {
   })
 }
 
-function Sm(e) {
+function Cm(e) {
   if (!Array.isArray(e)) return Object.freeze([]);
   let t = [];
   for (let n of e) {
@@ -9798,7 +9852,7 @@ function Sm(e) {
   }
   return Object.freeze(t)
 }
-async function Cm(e) {
+async function wm(e) {
   try {
     let t = await e.json();
     return typeof t == `object` && t ? t : null
@@ -9807,11 +9861,11 @@ async function Cm(e) {
   }
 }
 
-function wm() {
+function Tm() {
   return `That username isn't allowed. Try another.`
 }
 
-function Tm(e) {
+function Em(e) {
   for (let t of e.split(`;`)) {
     let e = t.indexOf(`=`);
     if (e < 0) continue;
@@ -9821,7 +9875,7 @@ function Tm(e) {
   return null
 }
 
-function Em() {
+function Dm() {
   try {
     return globalThis.document.cookie
   } catch {
@@ -9829,17 +9883,17 @@ function Em() {
   }
 }
 
-function Dm() {
+function Om() {
   let e = `/`;
   try {
     e = `/`
   } catch {}
   return `${e.endsWith(`/`)?e:`${e}/`}api/v1`
 }
-var Om = `/assets/paint-garage-cover-rCosbK_-.png`,
-  km = `/assets/trucks-cover-D4WJJ3Uc.png`;
+var km = `/assets/paint-garage-cover-rCosbK_-.png`,
+  Am = `/assets/trucks-cover-D4WJJ3Uc.png`;
 
-function Am(e, t, n, r) {
+function jm(e, t, n, r) {
   return `
           <button class="car-menu-tile" type="button" data-car-menu-action="${e}">
             <span class="car-menu-tile-art">
@@ -9849,12 +9903,12 @@ function Am(e, t, n, r) {
           </button>`
 }
 
-function jm(e) {
-  let t = e.vehiclesAvailable ? Am(`vehicles`, `GET VEHICLES`, km, `The truck pack lined up on the road`) : ``;
+function Mm(e) {
+  let t = e.vehiclesAvailable ? jm(`vehicles`, `GET VEHICLES`, Am, `The truck pack lined up on the road`) : ``;
   return `
       <div class="result-card car-menu panel" role="dialog" aria-modal="true"
         aria-label="Edit vehicle" tabindex="-1">
-        <div class="car-menu-tiles" role="group" aria-label="Vehicle options">${Am(`livery-editor`,`PAINT/SELECT VEHICLE`,Om,`A Swervle car in custom number 42 paint on the garage turntable`)}${t}
+        <div class="car-menu-tiles" role="group" aria-label="Vehicle options">${jm(`livery-editor`,`PAINT/SELECT VEHICLE`,km,`A Swervle car in custom number 42 paint on the garage turntable`)}${t}
         </div>
         <div class="game-menu-options" role="group" aria-label="Vehicle navigation">
           ${M({attributes:`data-car-menu-action="close"`,row:!0})}
@@ -9862,9 +9916,9 @@ function jm(e) {
       </div>`
 }
 
-function Mm(e) {
+function Nm(e) {
   let t = A({
-    content: jm(e),
+    content: Mm(e),
     mount: e.mount,
     onClose: e.onClose,
     onDismiss: e.onDismiss,
@@ -9880,7 +9934,7 @@ function Mm(e) {
     r !== `livery-editor` && r !== `vehicles` || (t.close(), e.onSelect(r))
   }), t
 }
-var Nm = Object.freeze({
+var Pm = Object.freeze({
   account: `menu`,
   "edit-vehicle": `menu`,
   garage: `edit-vehicle`,
@@ -9893,26 +9947,26 @@ var Nm = Object.freeze({
   "vehicle-packs": `edit-vehicle`
 });
 
-function Pm(e) {
+function Fm(e) {
   let t = [],
     n = e;
-  for (; n !== null;) t.unshift(n), n = Nm[n];
+  for (; n !== null;) t.unshift(n), n = Pm[n];
   return Object.freeze(t)
 }
-var Fm = Object.freeze({
+var Im = Object.freeze({
   close: Object.freeze([]),
   open: null,
   resumeRace: !1
 });
 
-function Im(e, t, n) {
+function Lm(e, t, n) {
   return Object.freeze({
     close: Object.freeze([...e]),
     open: t,
     resumeRace: n
   })
 }
-var Lm = class {
+var Rm = class {
     #e = [];
     get entries() {
       return Object.freeze([...this.#e])
@@ -9935,74 +9989,74 @@ var Lm = class {
       return this.#e.some(t => t.surface === e)
     }
     open(e) {
-      if (this.current === e) return Fm;
+      if (this.current === e) return Im;
       let t = this.mounted.filter(t => t !== e);
-      return this.#e = Pm(e).map(e => Object.freeze({
+      return this.#e = Fm(e).map(e => Object.freeze({
         overlay: !1,
         surface: e
-      })), Im(t, e, !1)
+      })), Lm(t, e, !1)
     }
     openOver(e) {
-      return this.isEmpty ? this.open(e) : this.current === e ? Fm : (this.#e = [...this.#e, Object.freeze({
+      return this.isEmpty ? this.open(e) : this.current === e ? Im : (this.#e = [...this.#e, Object.freeze({
         overlay: !0,
         surface: e
-      })], Im([], e, !1))
+      })], Lm([], e, !1))
     }
     back() {
       let e = this.#e[this.#e.length - 1];
-      if (e === void 0) return Fm;
-      if (this.#e = this.#e.slice(0, -1), e.overlay) return Im([e.surface], null, !1);
+      if (e === void 0) return Im;
+      if (this.#e = this.#e.slice(0, -1), e.overlay) return Lm([e.surface], null, !1);
       let t = this.current;
-      return Im([e.surface], t, t === null)
+      return Lm([e.surface], t, t === null)
     }
     closeAll() {
       let e = this.mounted;
-      return this.#e = [], Im(e, null, !1)
+      return this.#e = [], Lm(e, null, !1)
     }
     clear() {
       this.#e = []
     }
   },
-  Rm = Object.freeze({
+  zm = Object.freeze({
     construction: `/assets/construction-cover-CKwy9GGf.png`,
     emergency: `/assets/emergency-cover-JoCSxbol.webp`,
-    trucks: km
+    trucks: Am
   });
 
-function zm(e) {
+function Bm(e) {
   return e === `owned` ? `OWNED` : e === `free` ? `FREE` : e === `subscription` ? `PATREON` : `$2.99`
 }
-var Bm = `$2.99`;
+var Vm = `$2.99`;
 
-function Vm(e, t, n) {
+function Hm(e, t, n) {
   return n === `owned` ? `` : n === `free` ? `
             <div class="vehicle-pack-actions vehicle-pack-actions-keep">
               <p class="vehicle-pack-hint">Free to drive while it is in testing.</p>
             </div>` : n === `subscription` ? `
             <div class="vehicle-pack-actions">
-              <button class="primary-button" type="button" data-vehicle-pack-buy="${e}">BUY ${Bm}</button>
+              <button class="primary-button" type="button" data-vehicle-pack-buy="${e}">BUY ${Vm}</button>
             </div>` : t ? `
             <div class="vehicle-pack-actions">
-              <button class="primary-button" type="button" data-vehicle-pack-buy="${e}">BUY ${Bm}</button>
-              <a class="secondary-button" href="${Xl}" target="_blank" rel="noopener noreferrer">SUPPORT ON PATREON</a>
+              <button class="primary-button" type="button" data-vehicle-pack-buy="${e}">BUY ${Vm}</button>
+              <a class="secondary-button" href="${Zl}" target="_blank" rel="noopener noreferrer">SUPPORT ON PATREON</a>
             </div>` : `
             <div class="vehicle-pack-actions">
               <button class="primary-button" type="button" data-vehicle-pack-sign-in>SIGN IN</button>
             </div>`
 }
 
-function Hm(e, t, n, r = !0) {
+function Um(e, t, n, r = !0) {
   let i = Ct.find(t => t.id === e);
   if (i === void 0) return ``;
   let a = i.vehicles.map(e => e.label).join(` · `),
     o = `
               <header class="vehicle-pack-head">
                 <h3 class="vehicle-pack-name">${j(i.label)}</h3>
-                <span class="vehicle-pack-state">${zm(t)}</span>
+                <span class="vehicle-pack-state">${Bm(t)}</span>
               </header>
               <p class="vehicle-pack-list">${j(a)}</p>
-              ${r?Vm(i.id,n,t):``}`,
-    s = Rm[i.id];
+              ${r?Hm(i.id,n,t):``}`,
+    s = zm[i.id];
   return `
           <article class="vehicle-pack" data-vehicle-pack="${i.id}" data-access="${t}">
             ${s===void 0?``:`<div class="vehicle-pack-cover-frame">
@@ -10015,8 +10069,8 @@ function Hm(e, t, n, r = !0) {
           </article>`
 }
 
-function Um(e, t) {
-  let n = Ct.map(n => Hm(n.id, e[n.id], t)).join(``);
+function Wm(e, t) {
+  let n = Ct.map(n => Um(n.id, e[n.id], t)).join(``);
   return `
       <div class="result-card vehicle-pack-screen panel" role="dialog" aria-modal="true" aria-labelledby="vehicle-pack-title">
         ${M({attributes:`data-vehicle-packs-menu`,corner:!0,hint:null,label:`MENU`})}
@@ -10035,14 +10089,14 @@ function Um(e, t) {
       </div>`
 }
 
-function Wm(e) {
+function Gm(e) {
   let t = _t(),
     n = !1,
     r = t => {
       n || (n = !0, e.onResolve?.(t))
     },
     i = A({
-      content: Um(t, e.signedIn),
+      content: Wm(t, e.signedIn),
       mount: e.mount,
       onClose: e.onClose,
       onDismiss: e => {
@@ -10069,21 +10123,21 @@ function Wm(e) {
     n === null || a === void 0 || !Et(a) || (r(`buy`), e.onBuy?.(a))
   }), i
 }
-var Gm = Object.freeze({
+var Km = Object.freeze({
     roster: Object.freeze([]),
     team: null
   }),
-  Km = class {
+  qm = class {
     #e;
     #t;
     #n;
     constructor(e = {}) {
-      this.#e = e.apiBase ?? ah(), this.#t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null), this.#n = e.cookieSource ?? ih
+      this.#e = e.apiBase ?? oh(), this.#t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null), this.#n = e.cookieSource ?? ah
     }
     async loadMyTeam() {
       let e = await this.#a(`GET`, `/teams/mine`, null);
       if (e?.ok !== !0) return X;
-      let t = Xm(await Jm(e));
+      let t = Zm(await Ym(e));
       return t === null ? X : Object.freeze({
         projection: t,
         status: `ok`
@@ -10100,9 +10154,9 @@ var Gm = Object.freeze({
         status: `already-in-team`
       });
       if (n.status === 400) {
-        let e = Ym(await Jm(n));
+        let e = Xm(await Ym(n));
         return Object.freeze({
-          message: qm(e),
+          message: Jm(e),
           status: `rejected`
         })
       }
@@ -10118,7 +10172,7 @@ var Gm = Object.freeze({
         status: `not-found`
       });
       if (t.status === 409) {
-        let e = Ym(await Jm(t));
+        let e = Xm(await Ym(t));
         return Object.freeze({
           status: e === `team-full` ? `team-full` : `already-in-team`
         })
@@ -10146,7 +10200,7 @@ var Gm = Object.freeze({
       }) : n.status === 409 ? Object.freeze({
         status: `tag-taken`
       }) : n.status === 400 ? Object.freeze({
-        message: qm(Ym(await Jm(n)), `Couldn't save that. Check the name and tag.`),
+        message: Jm(Xm(await Ym(n)), `Couldn't save that. Check the name and tag.`),
         status: `rejected`
       }) : X
     }
@@ -10156,7 +10210,7 @@ var Gm = Object.freeze({
     async loadDailyBoard(e) {
       let t = await this.#a(`GET`, `/teams/board?dailyId=${encodeURIComponent(e)}`, null);
       if (t?.ok !== !0) return X;
-      let n = $m(await Jm(t));
+      let n = eh(await Ym(t));
       return n === null ? X : Object.freeze({
         board: n,
         status: `ok`
@@ -10164,7 +10218,7 @@ var Gm = Object.freeze({
     }
     async loadDailyGhosts(e) {
       let t = await this.#a(`GET`, `/teams/ghosts?dailyId=${encodeURIComponent(e)}`, null);
-      return t?.ok === !0 ? eh(await Jm(t)) ?? X : X
+      return t?.ok === !0 ? th(await Ym(t)) ?? X : X
     }
     async #r(e, t, n) {
       let r = await this.#a(e, t, n);
@@ -10175,7 +10229,7 @@ var Gm = Object.freeze({
       }) : X
     }
     async #i(e) {
-      let t = Xm(await Jm(e));
+      let t = Zm(await Ym(e));
       return t === null ? X : Object.freeze({
         projection: t,
         status: `ok`
@@ -10187,7 +10241,7 @@ var Gm = Object.freeze({
         accept: `application/json`
       };
       if (n !== null && (r[`content-type`] = `application/json`), e !== `GET`) {
-        let e = Tm(this.#n());
+        let e = Em(this.#n());
         e !== null && (r[`x-csrf-token`] = e)
       }
       try {
@@ -10208,10 +10262,10 @@ var Gm = Object.freeze({
     status: `unavailable`
   });
 
-function qm(e, t = `Couldn't create that team. Check the name and tag.`) {
+function Jm(e, t = `Couldn't create that team. Check the name and tag.`) {
   return e === `team-name-moderated` ? `That team name isn't allowed. Try another.` : e === `team-tag-moderated` ? `That tag isn't allowed. Try another.` : e?.startsWith(`team-tag-`) === !0 ? `Tags are exactly 4 letters or numbers.` : e?.startsWith(`team-name-`) === !0 ? `Team names are 2 to 40 characters.` : t
 }
-async function Jm(e) {
+async function Ym(e) {
   try {
     let t = await e.json();
     return typeof t == `object` && t ? t : null
@@ -10220,25 +10274,25 @@ async function Jm(e) {
   }
 }
 
-function Ym(e) {
+function Xm(e) {
   let t = e?.error;
   if (typeof t != `object` || !t) return null;
   let n = t.code;
   return typeof n == `string` ? n : null
 }
 
-function Xm(e) {
+function Zm(e) {
   if (e === null) return null;
   let t = e.team;
-  if (t == null) return Array.isArray(e.roster) || e.roster === void 0 ? Gm : null;
-  let n = Zm(t);
+  if (t == null) return Array.isArray(e.roster) || e.roster === void 0 ? Km : null;
+  let n = Qm(t);
   return n === null ? null : Object.freeze({
-    roster: Qm(e.roster),
+    roster: $m(e.roster),
     team: n
   })
 }
 
-function Zm(e) {
+function Qm(e) {
   if (typeof e != `object` || !e) return null;
   let t = e,
     {
@@ -10248,7 +10302,7 @@ function Zm(e) {
       tag: a,
       teamId: o
     } = t,
-    s = nh(t.role);
+    s = rh(t.role);
   return typeof o != `string` || o.length === 0 || typeof i != `string` || typeof a != `string` || typeof n != `string` || s === null ? null : Object.freeze({
     inviteCode: n,
     memberCount: typeof r == `number` && Number.isFinite(r) && r > 0 ? Math.floor(r) : 1,
@@ -10259,13 +10313,13 @@ function Zm(e) {
   })
 }
 
-function Qm(e) {
+function $m(e) {
   if (!Array.isArray(e)) return Object.freeze([]);
   let t = [];
   for (let n of e) {
     if (typeof n != `object` || !n) continue;
     let e = n,
-      r = nh(e.role);
+      r = rh(e.role);
     typeof e.accountId != `string` || e.accountId.length === 0 || typeof e.publicDisplayName != `string` || r === null || t.push(Object.freeze({
       accountId: e.accountId,
       joinedAtIso: typeof e.joinedAtIso == `string` ? e.joinedAtIso : ``,
@@ -10276,19 +10330,19 @@ function Qm(e) {
   return Object.freeze(t)
 }
 
-function $m(e) {
+function eh(e) {
   if (e === null || typeof e.dailyId != `string`) return null;
   let t = Array.isArray(e.entries) ? e.entries : [],
     n = [];
   for (let e of t) {
     if (typeof e != `object` || !e) continue;
     let t = e,
-      r = nh(t.role);
+      r = rh(t.role);
     typeof t.accountId != `string` || t.accountId.length === 0 || typeof t.publicDisplayName != `string` || r === null || n.push(Object.freeze({
       accountId: t.accountId,
-      dailyRank: rh(t.dailyRank),
-      displayTimeMs: rh(t.displayTimeMs) ?? th(rh(t.durationTicks)),
-      durationTicks: rh(t.durationTicks),
+      dailyRank: ih(t.dailyRank),
+      displayTimeMs: ih(t.displayTimeMs) ?? nh(ih(t.durationTicks)),
+      durationTicks: ih(t.durationTicks),
       publicDisplayName: t.publicDisplayName,
       publicRunId: typeof t.publicRunId == `string` && t.publicRunId.length > 0 ? t.publicRunId : null,
       role: r
@@ -10300,13 +10354,13 @@ function $m(e) {
     entries: Object.freeze(n),
     streak: Object.freeze({
       atRisk: r.atRisk === !0,
-      currentDays: rh(r.currentDays) ?? 0,
-      longestDays: rh(r.longestDays) ?? 0
+      currentDays: ih(r.currentDays) ?? 0,
+      longestDays: ih(r.longestDays) ?? 0
     })
   })
 }
 
-function eh(e) {
+function th(e) {
   if (e === null || typeof e.dailyId != `string` || !Array.isArray(e.entries)) return null;
   let t = [];
   for (let n of e.entries) {
@@ -10347,19 +10401,19 @@ function eh(e) {
   })
 }
 
-function th(e) {
+function nh(e) {
   return e === null ? null : Math.round(e * 1e3 / 60)
 }
 
-function nh(e) {
+function rh(e) {
   return e === `owner` || e === `member` ? e : null
 }
 
-function rh(e) {
+function ih(e) {
   return typeof e == `number` && Number.isFinite(e) && e > 0 ? e : null
 }
 
-function ih() {
+function ah() {
   try {
     return globalThis.document.cookie
   } catch {
@@ -10367,23 +10421,23 @@ function ih() {
   }
 }
 
-function ah() {
+function oh() {
   let e = `/`;
   try {
     e = `/`
   } catch {}
   return `${e.endsWith(`/`)?e:`${e}/`}api/v1`
 }
-var oh = 25,
-  sh = class {
+var sh = 25,
+  ch = class {
     #e;
     #t;
     constructor(e = {}) {
-      this.#e = (e.apiBase ?? _h()).replace(/\/$/u, ``), this.#t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null)
+      this.#e = (e.apiBase ?? vh()).replace(/\/$/u, ``), this.#t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null)
     }
     async loadStandings(e) {
       let t = new URLSearchParams({
-        limit: String(oh),
+        limit: String(sh),
         offset: String(e.offset)
       });
       e.seasonId !== null && t.set(`season`, e.seasonId), e.search !== null && e.search.trim() !== `` && t.set(`q`, e.search.trim());
@@ -10394,20 +10448,20 @@ var oh = 25,
       return Object.freeze({
         hasNext: e.offset + r.length < i,
         nextCursor: null,
-        rows: Object.freeze(r.map(e => lh(e))),
+        rows: Object.freeze(r.map(e => uh(e))),
         total: i,
-        viewerRow: n.viewerEntry === null || n.viewerEntry === void 0 ? null : lh(n.viewerEntry)
+        viewerRow: n.viewerEntry === null || n.viewerEntry === void 0 ? null : uh(n.viewerEntry)
       })
     }
     async loadTimes(e) {
       let t = new URLSearchParams({
-        limit: String(oh),
+        limit: String(sh),
         scope: e.scope
       });
       e.cursor !== null && t.set(`cursor`, e.cursor), e.search !== null && e.search.trim() !== `` && t.set(`q`, e.search.trim());
       let n = await this.#r(`/dailies/${encodeURIComponent(e.dailyId)}/leaderboard?${t.toString()}`);
       if (n === null) return null;
-      oc(rc(n.liveNow));
+      sc(ic(n.liveNow));
       let r = Array.isArray(n.entries) ? n.entries : [],
         i = e.scope === `all`,
         a = typeof n.nextCursor == `string` ? n.nextCursor : null,
@@ -10415,11 +10469,11 @@ var oh = 25,
       return Object.freeze({
         hasNext: a !== null,
         nextCursor: a,
-        rows: Object.freeze(r.map(e => uh(e, {
+        rows: Object.freeze(r.map(e => dh(e, {
           dated: i
         }))),
         total: o,
-        viewerRow: n.viewerEntry === null || n.viewerEntry === void 0 ? null : uh(n.viewerEntry, {
+        viewerRow: n.viewerEntry === null || n.viewerEntry === void 0 ? null : dh(n.viewerEntry, {
           dated: i
         })
       })
@@ -10434,9 +10488,9 @@ var oh = 25,
         let t = e;
         typeof t.publicRunId != `string` || t.publicRunId === `` || r.push(Object.freeze({
           attemptRank: Z(t.attemptRank),
-          note: dh(t.verifiedAtIso),
+          note: fh(t.verifiedAtIso),
           publicRunId: t.publicRunId,
-          value: mh(Z(t.displayTimeMs))
+          value: hh(Z(t.displayTimeMs))
         }))
       }
       return Object.freeze(r)
@@ -10465,7 +10519,7 @@ var oh = 25,
     async saveMyVehicleLivery(e) {
       if (this.#t === null) return !1;
       try {
-        let t = hh();
+        let t = gh();
         return (await this.#t(`${this.#e}/me/vehicle-livery`, {
           body: JSON.stringify({
             design: e.design,
@@ -10488,7 +10542,7 @@ var oh = 25,
     async saveMyCarBackground(e) {
       if (this.#t === null) return !1;
       try {
-        let t = hh();
+        let t = gh();
         return (await this.#t(`${this.#e}/me/car-background`, {
           body: JSON.stringify({
             background: e
@@ -10510,7 +10564,7 @@ var oh = 25,
     async saveMyCarChip(e) {
       if (this.#t === null) return !1;
       try {
-        let t = hh();
+        let t = gh();
         return (await this.#t(`${this.#e}/me/car-chip`, {
           body: JSON.stringify({
             chip: e.chip,
@@ -10533,7 +10587,7 @@ var oh = 25,
     async saveMyVehicle(e) {
       if (this.#t === null) return !1;
       try {
-        let t = hh();
+        let t = gh();
         return (await this.#t(`${this.#e}/me/vehicle`, {
           body: JSON.stringify({
             vehicleId: e
@@ -10562,7 +10616,7 @@ var oh = 25,
         status: null
       };
       try {
-        let t = hh(),
+        let t = gh(),
           n = await this.#t(`${this.#e}/me/livery`, {
             body: JSON.stringify({
               design: e.design,
@@ -10623,7 +10677,7 @@ var oh = 25,
         status: null
       };
       try {
-        let r = hh(),
+        let r = gh(),
           i = await this.#t(`${this.#e}${e}`, {
             ...n === null ? {} : {
               body: JSON.stringify(n)
@@ -10670,7 +10724,7 @@ var oh = 25,
     }
   };
 
-function ch(e) {
+function lh(e) {
   if (typeof e != `object` || !e) return null;
   let t = e,
     n = typeof t.background == `string` && /^#[0-9a-f]{6}$/u.test(t.background) ? t.background : null;
@@ -10681,7 +10735,7 @@ function ch(e) {
   } : null
 }
 
-function lh(e) {
+function uh(e) {
   let t = e,
     n = Z(t.daysRaced),
     r = {
@@ -10691,7 +10745,7 @@ function lh(e) {
     };
   return Object.freeze({
     carPaint: null,
-    displayName: gh(t.publicDisplayName),
+    displayName: _h(t.publicDisplayName),
     isSupporter: t.isSupporter === !0,
     isViewer: t.isViewer === !0,
     medals: r,
@@ -10702,40 +10756,40 @@ function lh(e) {
   })
 }
 
-function uh(e, t) {
+function dh(e, t) {
   let n = e;
   return Object.freeze({
-    displayName: gh(n.displayName) || gh(n.publicDisplayName),
+    displayName: _h(n.displayName) || _h(n.publicDisplayName),
     isViewer: n.isViewer === !0,
     medals: null,
-    note: t.dated ? fh(n.verifiedAtIso) : null,
+    note: t.dated ? ph(n.verifiedAtIso) : null,
     attemptCount: Math.max(1, Z(n.attemptCount)),
-    carPaint: ch(n.carPaint),
+    carPaint: lh(n.carPaint),
     isSupporter: n.isSupporter === !0,
     joinedAtIso: typeof n.joinedAtIso == `string` ? n.joinedAtIso : null,
     publicRunId: typeof n.publicRunId == `string` ? n.publicRunId : null,
     rank: Z(n.rank),
     teamTag: typeof n.teamTag == `string` ? n.teamTag : null,
-    value: mh(Z(n.displayTimeMs))
+    value: hh(Z(n.displayTimeMs))
   })
 }
 
-function dh(e) {
+function fh(e) {
   if (typeof e != `string`) return null;
   let t = new Date(e);
   return Number.isNaN(t.getTime()) ? null : `${String(t.getHours()).padStart(2,`0`)}:${String(t.getMinutes()).padStart(2,`0`)}`
 }
 
-function fh(e) {
+function ph(e) {
   if (typeof e != `string`) return null;
   let t = /^(\d{4})-(\d{2})-(\d{2})/u.exec(e);
   if (t === null) return null;
-  let n = ph[Number(t[2]) - 1];
+  let n = mh[Number(t[2]) - 1];
   return n === void 0 ? null : `SET ${String(Number(t[3]))} ${n}`
 }
-var ph = Object.freeze([`JAN`, `FEB`, `MAR`, `APR`, `MAY`, `JUN`, `JUL`, `AUG`, `SEP`, `OCT`, `NOV`, `DEC`]);
+var mh = Object.freeze([`JAN`, `FEB`, `MAR`, `APR`, `MAY`, `JUN`, `JUL`, `AUG`, `SEP`, `OCT`, `NOV`, `DEC`]);
 
-function mh(e) {
+function hh(e) {
   if (!Number.isFinite(e) || e < 0) return `--`;
   let t = Math.round(e),
     n = Math.floor(t / 6e4),
@@ -10743,11 +10797,11 @@ function mh(e) {
   return `${String(n)}:${String(r).padStart(2,`0`)}.${String(t%1e3).padStart(3,`0`)}`
 }
 
-function hh() {
-  return typeof document > `u` ? null : Tm(document.cookie)
+function gh() {
+  return typeof document > `u` ? null : Em(document.cookie)
 }
 
-function gh(e) {
+function _h(e) {
   return typeof e == `string` ? e : ``
 }
 
@@ -10755,28 +10809,28 @@ function Z(e) {
   return typeof e == `number` && Number.isFinite(e) ? e : 0
 }
 
-function _h() {
+function vh() {
   let e = `/`;
   try {
     e = `/`
   } catch {}
   return `${e.endsWith(`/`)?e:`${e}/`}api/v1`
 }
-var vh = e({
+var yh = e({
   PROFILE_CARD_SKY_V1: () => ``,
-  openProfileCardDialogV1: () => Sh,
-  profileCardJoinedLabelV1: () => yh,
-  profileCardPackV1: () => bh,
-  renderProfileCardV1: () => xh
+  openProfileCardDialogV1: () => Ch,
+  profileCardJoinedLabelV1: () => bh,
+  profileCardPackV1: () => xh,
+  renderProfileCardV1: () => Sh
 });
 
-function yh(e) {
+function bh(e) {
   if (typeof e != `string` || e === ``) return null;
   let t = new Date(e);
   return Number.isNaN(t.getTime()) ? null : `JOINED ${[`JAN`,`FEB`,`MAR`,`APR`,`MAY`,`JUN`,`JUL`,`AUG`,`SEP`,`OCT`,`NOV`,`DEC`][t.getUTCMonth()]??``} ${String(t.getUTCDate())} ${String(t.getUTCFullYear())}`
 }
 
-function bh(e) {
+function xh(e) {
   for (let t of Ct) {
     let n = t.vehicles.find(t => t.id === e);
     if (n !== void 0) return {
@@ -10788,10 +10842,10 @@ function bh(e) {
   return null
 }
 
-function xh(e) {
-  let t = bh(e.chip.vehicleId),
-    n = Eh(e.displayName),
-    r = typeof e.chip.background == `string` && e.chip.background !== `` ? ` style="--card-sky:${Eh(e.chip.background)}"` : ``,
+function Sh(e) {
+  let t = xh(e.chip.vehicleId),
+    n = Dh(e.displayName),
+    r = typeof e.chip.background == `string` && e.chip.background !== `` ? ` style="--card-sky:${Dh(e.chip.background)}"` : ``,
     i = e.isViewer ? `<button type="button" class="profile-card__palette" data-profile-card-action="paint" title="Paint this car" aria-label="Paint this car"><span aria-hidden="true">&#127912;</span></button>` : ``,
     a = e.isViewer ? `<span class="profile-card__share-pair" data-shared="false">
             <button type="button" class="primary-button" data-profile-card-action="share">SHARE</button>
@@ -10799,9 +10853,9 @@ function xh(e) {
           </span>` : t === null ? `<button type="button" class="primary-button" data-profile-card-action="paint">PAINT YOURS</button>` : `<button type="button" class="primary-button" data-profile-card-action="get-vehicle">GET THIS VEHICLE</button>`,
     o = e.isViewer ? e.isSupporter === !0 ? `<button type="button" class="secondary-button profile-card__race" data-profile-card-action="background"><span>CHANGE BACKGROUND</span></button>` : `` : (e.publicRunId ?? ``) === `` ? `` : `<button type="button" class="secondary-button profile-card__race" data-profile-card-action="race"><span>RACE MY TIME</span></button>`,
     s = `<span class="profile-card__rank">${typeof e.rank==`number`?`#${String(e.rank)}`:`&mdash;`}</span>
-          <span class="profile-card__time">${Eh(e.time)}</span>
-          <span class="profile-card__day">${e.dayLabel===null?`&mdash;`:Eh(e.dayLabel)}</span>`,
-    c = yh(e.joinedAtIso);
+          <span class="profile-card__time">${Dh(e.time)}</span>
+          <span class="profile-card__day">${e.dayLabel===null?`&mdash;`:Dh(e.dayLabel)}</span>`,
+    c = bh(e.joinedAtIso);
   return `<div class="modal panel profile-card"${r} role="dialog" aria-modal="true" aria-labelledby="profile-card-title">
         <div class="profile-card__frame"><canvas data-profile-card-canvas width="384" height="240"></canvas>${i}</div>
         <h2 class="profile-card__name" id="profile-card-title"><span>${n}</span></h2>
@@ -10816,14 +10870,14 @@ function xh(e) {
         </div>
         <div class="profile-card__footer">
           ${e.isViewer?`<span class="profile-card__foot-spacer" aria-hidden="true"></span>`:`<button type="button" class="profile-card__report" data-profile-card-action="report">REPORT</button>`}
-          ${c===null?`<span class="profile-card__foot-spacer" aria-hidden="true"></span>`:`<span class="profile-card__joined">${Eh(c)}</span>`}
+          ${c===null?`<span class="profile-card__foot-spacer" aria-hidden="true"></span>`:`<span class="profile-card__joined">${Dh(c)}</span>`}
         </div>
       </div>`
 }
 
-function Sh(e) {
+function Ch(e) {
   let t = A({
-    content: xh(e.view),
+    content: Sh(e.view),
     initialFocusSelector: `[data-profile-card-action='close']`,
     mount: document.body,
     scrimClassName: `profile-card-scrim`
@@ -10856,21 +10910,21 @@ function Sh(e) {
       return
     }
     if (i === `background`) {
-      let n = Ch(t.element);
+      let n = wh(t.element);
       w(() => import(`./CarBackgroundPickerV1-6CqaklY5.js`).then(r => {
         r.openCarBackgroundPickerV1({
           mount: document.body,
           onCancel: () => {
-            wh(t.element, n)
+            Th(t.element, n)
           },
           onChoose: n => {
-            wh(t.element, n), e.onChooseBackground?.(n)
+            Th(t.element, n), e.onChooseBackground?.(n)
           },
           onPreview: e => {
-            wh(t.element, e)
+            Th(t.element, e)
           },
           onReset: () => {
-            wh(t.element, ``), e.onChooseBackground?.(null)
+            Th(t.element, ``), e.onChooseBackground?.(null)
           },
           value: e.view.chip.background ?? null
         })
@@ -10890,7 +10944,7 @@ function Sh(e) {
       if (i === null) return;
       let a = n?.textContent ?? `SAVE JPG`;
       n !== null && (n.textContent = `…`), w(() => import(`./ProfileCardShareV1-DgAoqbkg.js`).then(async n => await n.saveProfileCardJpgV1({
-        background: Ch(t.element),
+        background: wh(t.element),
         dayLabel: e.view.dayLabel,
         displayName: e.view.displayName,
         portrait: i,
@@ -10910,7 +10964,7 @@ function Sh(e) {
       if (i === null) return;
       let a = n?.textContent ?? `SHARE`;
       n !== null && (n.textContent = `…`), w(() => import(`./ProfileCardShareV1-DgAoqbkg.js`).then(async n => await n.shareProfileCardV1({
-        background: Ch(t.element),
+        background: wh(t.element),
         dayLabel: e.view.dayLabel,
         displayName: e.view.displayName,
         portrait: i,
@@ -10923,7 +10977,7 @@ function Sh(e) {
             }, 2600);
             return
           }
-          n.textContent = e === `shared` ? `SHARED` : e === `copied` ? `COPIED` : `SAVED`, Th(t.element)
+          n.textContent = e === `shared` ? `SHARED` : e === `copied` ? `COPIED` : `SAVED`, Eh(t.element)
         }
       }).catch(() => {
         n !== null && (n.textContent = a)
@@ -10936,16 +10990,16 @@ function Sh(e) {
   }
 }
 
-function Ch(e) {
+function wh(e) {
   return (e.querySelector(`.profile-card`) ?? e).style.getPropertyValue(`--card-sky`).trim()
 }
 
-function wh(e, t) {
+function Th(e, t) {
   let n = e.querySelector(`.profile-card`) ?? e;
   t === `` ? n.style.removeProperty(`--card-sky`) : n.style.setProperty(`--card-sky`, t)
 }
 
-function Th(e) {
+function Eh(e) {
   let t = e.querySelector(`.profile-card__share-pair`);
   if (t === null || t.dataset.shared === `true`) return;
   t.dataset.shared = `true`;
@@ -10953,30 +11007,30 @@ function Th(e) {
   n !== null && (n.removeAttribute(`aria-hidden`), n.removeAttribute(`tabindex`))
 }
 
-function Eh(e) {
+function Dh(e) {
   return e.replace(/&/gu, `&amp;`).replace(/</gu, `&lt;`).replace(/>/gu, `&gt;`).replace(/"/gu, `&quot;`)
 }
-var Dh = Object.freeze({
+var Oh = Object.freeze({
     standings: `STANDINGS`,
     times: `TIMES`
   }),
-  Oh = 10,
-  kh = Object.freeze([`gold`, `silver`, `bronze`]);
+  kh = 10,
+  Ah = Object.freeze([`gold`, `silver`, `bronze`]);
 
-function Ah(e) {
+function jh(e) {
   return `
       <div class="result-card board-screen panel" role="dialog" aria-modal="true" aria-labelledby="board-screen-title">
-        <div class="board-screen-body" data-board-body>${Mh(e)}</div>
+        <div class="board-screen-body" data-board-body>${Nh(e)}</div>
       </div>`
 }
 
-function jh(e, t) {
-  return _u() ? [Object.freeze({
+function Mh(e, t) {
+  return vu() ? [Object.freeze({
     carPaint: t === `times` ? {
       chip: ``,
       vehicleId: `firetruck`
     } : null,
-    displayName: pu,
+    displayName: mu,
     isSupporter: !0,
     isViewer: !1,
     medals: t === `standings` ? {
@@ -10985,21 +11039,21 @@ function jh(e, t) {
       silvers: 9
     } : null,
     note: null,
-    rank: hu,
-    teamTag: gu,
-    value: mu
+    rank: gu,
+    teamTag: _u,
+    value: hu
   }), ...e] : e
 }
 
-function Mh(e) {
-  return `${Nh(e)}
-          ${Ph(e)}
-          ${Rh(e)}
-          ${Xh(e)}`
+function Nh(e) {
+  return `${Ph(e)}
+          ${Fh(e)}
+          ${zh(e)}
+          ${Zh(e)}`
 }
 
-function Nh(e) {
-  let t = t => `<button class="board-family-option" type="button" data-action="board-family" data-family="${t}" aria-pressed="${String(e.family===t)}">${Dh[t]}</button>`;
+function Ph(e) {
+  let t = t => `<button class="board-family-option" type="button" data-action="board-family" data-family="${t}" aria-pressed="${String(e.family===t)}">${Oh[t]}</button>`;
   return `<div class="board-screen-head">
             <h2 id="board-screen-title">LEADERBOARD</h2>
             <div class="board-family" role="group" aria-label="Board">${t(`times`)}${t(`standings`)}</div>
@@ -11007,8 +11061,8 @@ function Nh(e) {
           </div>`
 }
 
-function Ph(e) {
-  let t = e.family === `times` && e.day !== null ? `${Lh(e.day)}${Ih(e)}` : Fh(e);
+function Fh(e) {
+  let t = e.family === `times` && e.day !== null ? `${Rh(e.day)}${Lh(e)}` : Ih(e);
   return `<div class="board-screen-controls" data-family="${e.family}">
             ${t}
             <label class="board-search">
@@ -11018,11 +11072,11 @@ function Ph(e) {
           </div>`
 }
 
-function Fh(e) {
+function Ih(e) {
   return `<div class="board-scope board-scope--strip" role="group" aria-label="Board view">${e.scopes.map(t=>`<button class="board-scope-option" type="button" data-action="board-scope" data-scope="${Q(t.id)}" aria-pressed="${String(t.id===e.activeScopeId)}">${Q(t.label)}</button>`).join(``)}</div>`
 }
 
-function Ih(e) {
+function Lh(e) {
   let t = e.scopes.map(t => {
       let n = t.id === e.activeScopeId;
       return `<button class="board-toggle-option" type="button" data-action="board-scope" data-scope="${Q(t.id)}" aria-pressed="${String(n)}">${Q(t.label)}</button>`
@@ -11031,7 +11085,7 @@ function Ih(e) {
   return `<div class="board-toggle" role="group" aria-label="Board view" style="--board-toggle-index:${String(n)};--board-toggle-count:${String(Math.max(1,e.scopes.length))}">${t}</div>`
 }
 
-function Lh(e) {
+function Rh(e) {
   let t = (t, n, r) => `<button class="board-day-step" type="button" data-action="board-day" data-day="${t}" aria-label="${r}"${(t===`earlier`?e.hasEarlier:e.hasLater)?``:` disabled`}>${n}</button>`;
   return `<div class="board-day" role="group" aria-label="Race day">
             ${t(`earlier`,`&lsaquo;`,`Earlier day`)}
@@ -11040,12 +11094,12 @@ function Lh(e) {
           </div>`
 }
 
-function Rh(e) {
-  let t = _u();
+function zh(e) {
+  let t = vu();
   if (e.state === `offline` && !t) return `<p class="board-screen-note" role="note">LEADERBOARD UNAVAILABLE.<br>The board couldn't be reached. Check your connection and try again.</p>`;
   if (e.state === `pending` && !t) {
     let t = Array.from({
-      length: Oh
+      length: kh
     }, () => `
               <li class="leaderboard-placeholder-row" role="presentation" aria-hidden="true">
                 <span class="leaderboard-placeholder-rank"></span>
@@ -11053,62 +11107,62 @@ function Rh(e) {
               </li>`).join(``);
     return `<ol class="board-screen-rows" data-family="${e.family}" aria-busy="true">${t}</ol>`
   }
-  if (e.rows.length === 0 && !_u()) return `<p class="board-screen-note" role="note">${e.search.trim()===``?`NOBODY HAS RACED THIS ONE YET.`:`NO RACER BY THAT NAME.`}</p>`;
+  if (e.rows.length === 0 && !vu()) return `<p class="board-screen-note" role="note">${e.search.trim()===``?`NOBODY HAS RACED THIS ONE YET.`:`NO RACER BY THAT NAME.`}</p>`;
   let n = e.viewerTeamTag,
     r = e.openAttempts,
-    i = jh(e.rows, e.family).map(t => {
+    i = Mh(e.rows, e.family).map(t => {
       let i = r !== null && t.publicRunId === r.publicRunId;
-      return `${zh(t,e.family,n,{open:i})}${i?Wh(r,t.displayName):``}`
+      return `${Bh(t,e.family,n,{open:i})}${i?Gh(r,t.displayName):``}`
     }).join(``),
     a = e.viewerRow === null ? `` : `
-              <li class="leaderboard-separator" role="presentation" aria-hidden="true"></li>${zh(e.viewerRow,e.family,n,{open:r!==null&&e.viewerRow.publicRunId===r.publicRunId,pinned:!0})}`;
+              <li class="leaderboard-separator" role="presentation" aria-hidden="true"></li>${Bh(e.viewerRow,e.family,n,{open:r!==null&&e.viewerRow.publicRunId===r.publicRunId,pinned:!0})}`;
   return `<ol class="board-screen-rows"${Zt()?``:` data-chips="off"`} data-family="${e.family}">${i}${a}</ol>`
 }
 
-function zh(e, t, n, r = {}) {
+function Bh(e, t, n, r = {}) {
   let i = e.rank === null ? `&mdash;` : String(e.rank),
     a = e.rank === null ? `Unranked` : `Rank ${String(e.rank)}`,
-    o = r.pinned === !0 || e.rank === null || e.rank > 3 ? `` : ` data-podium="${kh[e.rank-1]??``}"`,
+    o = r.pinned === !0 || e.rank === null || e.rank > 3 ? `` : ` data-podium="${Ah[e.rank-1]??``}"`,
     s = e.isViewer ? `YOU` : Q(e.displayName),
     c = e.publicRunId ?? null,
     l = c !== null && (e.attemptCount ?? 1) > 1,
-    u = Yh(e.isSupporter),
-    d = Jh(e.teamTag, n),
-    f = l ? `<button class="leaderboard-name board-row-expand" type="button" data-action="board-expand" data-run-id="${Q(c)}" aria-expanded="${String(r.open===!0)}" title="Every run this racer set">${d}<strong>${s}</strong>${Gh(e.note)}<span class="board-row-caret" aria-hidden="true">&#9662;</span></button>` : `<span class="leaderboard-name">${d}<strong>${s}</strong>${Gh(e.note)}</span>`;
+    u = Xh(e.isSupporter),
+    d = Yh(e.teamTag, n),
+    f = l ? `<button class="leaderboard-name board-row-expand" type="button" data-action="board-expand" data-run-id="${Q(c)}" aria-expanded="${String(r.open===!0)}" title="Every run this racer set">${d}<strong>${s}</strong>${Kh(e.note)}<span class="board-row-caret" aria-hidden="true">&#9662;</span></button>` : `<span class="leaderboard-name">${d}<strong>${s}</strong>${Kh(e.note)}</span>`;
   return `
               <li${e.isViewer?` data-player="true"`:``}${r.pinned===!0?` data-pinned="true"`:``}${r.open===!0?` data-open="true"`:``}>
                 <span class="leaderboard-rank"${o} aria-label="${a}">${i}</span>
-                ${u}${f}${t===`standings`?Kh(e.medals):``}
-                <span class="board-row-value">${Q(e.value)}</span>${t===`times`?Hh(e):``}
+                ${u}${f}${t===`standings`?qh(e.medals):``}
+                <span class="board-row-value">${Q(e.value)}</span>${t===`times`?Uh(e):``}
               </li>`
 }
 
-function Bh(e) {
+function Vh(e) {
   let t = Number.parseInt(e ?? ``, 10);
   return Number.isSafeInteger(t) && t > 0 ? t : null
 }
 
-function Vh(e) {
+function Hh(e) {
   if (e.closest(`a[href], button, input, select, textarea`) !== null) return null;
   let t = e.closest(`li`);
   return t === null ? null : t.querySelector(`.board-row-car[data-action='board-car']`)
 }
 
-function Hh(e) {
+function Uh(e) {
   if (!Zt()) return ``;
-  let t = e.carPaint ?? Gl,
+  let t = e.carPaint ?? Kl,
     n = e.isViewer ? `your car` : `${e.displayName}'s car`;
   return `<button class="board-row-car" type="button" data-action="board-car" data-vehicle-id="${Q(t.vehicleId)}" data-chip="${Q(t.chip)}" data-name="${Q(e.isViewer?`YOU`:e.displayName)}"${typeof t.background==`string`&&t.background!==``?` style="background:${Q(t.background)}" data-background="${Q(t.background)}"`:``} data-time="${Q(e.value)}"${e.isViewer?` data-viewer="true"`:``}${e.rank===null?``:` data-rank="${String(e.rank)}"`}${(e.publicRunId??``)===``?``:` data-run-id="${Q(e.publicRunId??``)}"`}${(e.joinedAtIso??``)===``?``:` data-joined="${Q(e.joinedAtIso??``)}"`}${e.note===null?``:` data-day="${Q(e.note)}"`} title="${Q(n)}" aria-label="Open ${Q(n)}"><canvas data-car-chip width="96" height="60"></canvas></button>`
 }
 
-function Uh(e, t, n) {
+function Wh(e, t, n) {
   if (e === null) return ``;
   let r = n ? `your run` : `the ghost of ${t}`;
   return `
                 <button class="race-ghost-button board-row-flag" type="button" data-action="race-ghost" data-run-id="${Q(e)}" title="Race this ghost" aria-label="Race ${Q(r)}"><span aria-hidden="true">&#127937;</span></button>`
 }
 
-function Wh(e, t) {
+function Gh(e, t) {
   if (e.state === `pending`) return `
               <li class="board-attempts" data-state="pending" role="presentation">
                 <span class="board-attempts-note">LOADING RUNS&hellip;</span>
@@ -11122,7 +11176,7 @@ function Wh(e, t) {
                   <li>
                     <span class="board-attempt-rank">${String(e.attemptRank)}</span>
                     <span class="board-attempt-value">${Q(e.value)}</span>
-                    ${e.note===null?``:`<span class="board-attempt-note">${Q(e.note)}</span>`}${Uh(e.publicRunId,t,!1)}
+                    ${e.note===null?``:`<span class="board-attempt-note">${Q(e.note)}</span>`}${Wh(e.publicRunId,t,!1)}
                   </li>`).join(``);
   return `
               <li class="board-attempts" data-state="ready">
@@ -11130,33 +11184,33 @@ function Wh(e, t) {
               </li>`
 }
 
-function Gh(e) {
+function Kh(e) {
   return e === null || e.trim() === `` ? `` : `<span class="board-row-note">${Q(e)}</span>`
 }
 
-function Kh(e) {
+function qh(e) {
   if (e === null) return ``;
   let t = (e, t) => t <= 0 ? `` : `<span class="board-medal" data-medal="${e}">${String(t)}</span>`,
     n = `${t(`gold`,e.golds)}${t(`silver`,e.silvers)}${t(`bronze`,e.bronzes)}`;
   return `
-                <span class="board-row-medals" aria-label="${qh(e)}">${n}</span>`
+                <span class="board-row-medals" aria-label="${Jh(e)}">${n}</span>`
 }
 
-function qh(e) {
+function Jh(e) {
   let t = [];
   return e.golds > 0 && t.push(`${String(e.golds)} gold`), e.silvers > 0 && t.push(`${String(e.silvers)} silver`), e.bronzes > 0 && t.push(`${String(e.bronzes)} bronze`), t.length === 0 ? `No medals` : t.join(`, `)
 }
 
-function Jh(e, t) {
-  let n = _c(e);
+function Yh(e, t) {
+  let n = vc(e);
   return n === null ? `` : `<span class="leaderboard-team-tag" data-own-team="${String(t!==null&&n===t)}" title="Team ${Q(n)}">${Q(n)}</span>`
 }
 
-function Yh(e) {
+function Xh(e) {
   return e === !0 ? `<span class="leaderboard-supporter" title="SWERVLE SUPPORTER" aria-label="Swervle supporter">&#9733;</span>` : `<span class="leaderboard-supporter" aria-hidden="true"></span>`
 }
 
-function Xh(e) {
+function Zh(e) {
   if (e.state !== `ready` || e.page.total === 0) return ``;
   let t = e.page.index > 0;
   if (e.page.total === null) {
@@ -11177,7 +11231,7 @@ function Xh(e) {
           </div>`
 }
 
-function Zh(e) {
+function Qh(e) {
   let t = `times`,
     n = `day`,
     r = ``,
@@ -11227,7 +11281,7 @@ function Zh(e) {
       viewerTeamTag: e.viewerTeamTag
     }),
     h = A({
-      content: Ah(m(`pending`, [], null, null, !1)),
+      content: jh(m(`pending`, [], null, null, !1)),
       mount: e.mount,
       onClose: e.onClose,
       scrimClassName: `menu-scrim`
@@ -11243,7 +11297,7 @@ function Zh(e) {
       let n = t.ownerDocument.activeElement,
         r = n instanceof HTMLInputElement && n.dataset.action === `board-search`,
         i = r ? n.selectionStart : null;
-      if (t.innerHTML = Mh(e), Wl(t, `/`, v), !r) return;
+      if (t.innerHTML = Nh(e), Gl(t, `/`, v), !r) return;
       let a = t.querySelector(`[data-action='board-search']`);
       if (a === null) return;
       a.focus();
@@ -11281,7 +11335,7 @@ function Zh(e) {
   return h.element.addEventListener(`click`, r => {
     let o = r.target;
     if (!(o instanceof HTMLElement)) return;
-    let s = o.closest(`[data-action]`) ?? Vh(o),
+    let s = o.closest(`[data-action]`) ?? Hh(o),
       c = s?.dataset.action;
     if (c === `board-back`) {
       _();
@@ -11301,7 +11355,7 @@ function Zh(e) {
     }
     if (c === `board-day`) {
       let t = s?.dataset.day,
-        n = t === `earlier` ? $h(a, -1) : t === `later` ? $h(a, 1) : null;
+        n = t === `earlier` ? eg(a, -1) : t === `later` ? eg(a, 1) : null;
       if (n === null || n < e.firstDailyId || n > e.dailyId) return;
       a = n, te(), b();
       return
@@ -11317,7 +11371,7 @@ function Zh(e) {
             background: n
           }
         };
-      Sh({
+      Ch({
         mount: h.element,
         onGetVehicle: t => {
           e.onGetVehicle?.(t)
@@ -11338,7 +11392,7 @@ function Zh(e) {
           isSupporter: e.viewerIsSupporter === !0,
           joinedAtIso: s?.dataset.viewer === `true` ? s?.dataset.joined ?? e.viewerJoinedAtIso ?? null : s?.dataset.joined ?? null,
           publicRunId: s?.dataset.runId ?? null,
-          rank: Bh(s?.dataset.rank),
+          rank: Vh(s?.dataset.rank),
           dayLabel: s?.dataset.day ?? p()?.label ?? null,
           displayName: s?.dataset.viewer === `true` ? e.viewerDisplayName ?? s?.dataset.name ?? `` : s?.dataset.name ?? ``,
           isViewer: s?.dataset.viewer === `true`,
@@ -11395,14 +11449,14 @@ function Zh(e) {
     let t = e.target;
     t instanceof HTMLInputElement && t.dataset.action === `board-search` && (r = t.value, te(), c !== null && clearTimeout(c), c = setTimeout(() => {
       c = null, b()
-    }, Qh))
+    }, $h))
   }), b(), {
     close: _
   }
 }
-var Qh = 250;
+var $h = 250;
 
-function $h(e, t) {
+function eg(e, t) {
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(e)) return null;
   let n = new Date(`${e}T12:00:00Z`);
   return Number.isNaN(n.getTime()) ? null : (n.setUTCDate(n.getUTCDate() + t), n.toISOString().slice(0, 10))
@@ -11411,18 +11465,18 @@ function $h(e, t) {
 function Q(e) {
   return e.replace(/&/gu, `&amp;`).replace(/</gu, `&lt;`).replace(/>/gu, `&gt;`).replace(/"/gu, `&quot;`).replace(/'/gu, `&#39;`)
 }
-var eg = 16,
-  tg = 512,
-  ng = 256,
-  rg = 4096;
+var tg = 16,
+  ng = 512,
+  rg = 256,
+  ig = 4096;
 
-function ig(e) {
-  let t = typeof e == `string` ? lg(e) : e;
-  if (!ug(t) || t.version !== 1) return null;
-  let n = ag(t.viewport),
-    r = og(t.camera),
-    i = sg(t.car);
-  return n === null || r === null || i === null || !dg(t.timeOfDayHours) || t.timeOfDayHours < 0 || t.timeOfDayHours >= 24 || !dg(t.exposure) || t.exposure <= 0 || t.exposure > 16 ? null : Object.freeze({
+function ag(e) {
+  let t = typeof e == `string` ? ug(e) : e;
+  if (!dg(t) || t.version !== 1) return null;
+  let n = og(t.viewport),
+    r = sg(t.camera),
+    i = cg(t.car);
+  return n === null || r === null || i === null || !fg(t.timeOfDayHours) || t.timeOfDayHours < 0 || t.timeOfDayHours >= 24 || !fg(t.exposure) || t.exposure <= 0 || t.exposure > 16 ? null : Object.freeze({
     camera: r,
     car: i,
     exposure: t.exposure,
@@ -11432,23 +11486,23 @@ function ig(e) {
   })
 }
 
-function ag(e) {
-  if (!ug(e)) return null;
+function og(e) {
+  if (!dg(e)) return null;
   let {
     width: t,
     height: n,
     pixelRatio: r
   } = e;
-  return !fg(t) || !fg(n) || !dg(r) || r <= 0 || r > 4 ? null : Object.freeze({
+  return !pg(t) || !pg(n) || !fg(r) || r <= 0 || r > 4 ? null : Object.freeze({
     height: n,
     pixelRatio: r,
     width: t
   })
 }
 
-function og(e) {
-  if (!ug(e)) return null;
-  let t = cg(e.matrixWorld);
+function sg(e) {
+  if (!dg(e)) return null;
+  let t = lg(e.matrixWorld);
   if (t === null) return null;
   let {
     fov: n,
@@ -11456,7 +11510,7 @@ function og(e) {
     near: i,
     far: a
   } = e;
-  return !dg(n) || n <= 0 || n >= 180 || !dg(r) || r <= 0 || !dg(i) || i <= 0 || !dg(a) || a <= i ? null : Object.freeze({
+  return !fg(n) || n <= 0 || n >= 180 || !fg(r) || r <= 0 || !fg(i) || i <= 0 || !fg(a) || a <= i ? null : Object.freeze({
     aspect: r,
     far: a,
     fov: n,
@@ -11465,19 +11519,19 @@ function og(e) {
   })
 }
 
-function sg(e) {
-  if (!ug(e)) return null;
-  let t = cg(e.rootMatrixWorld);
-  if (t === null || !Array.isArray(e.nodes) || e.nodes.length > tg) return null;
+function cg(e) {
+  if (!dg(e)) return null;
+  let t = lg(e.rootMatrixWorld);
+  if (t === null || !Array.isArray(e.nodes) || e.nodes.length > ng) return null;
   let n = [],
     r = new Set;
   for (let t of e.nodes) {
-    if (!ug(t)) return null;
+    if (!dg(t)) return null;
     let {
       path: e
     } = t;
-    if (typeof e != `string` || e.length === 0 || e.length > ng || r.has(e)) return null;
-    let i = cg(t.matrix);
+    if (typeof e != `string` || e.length === 0 || e.length > rg || r.has(e)) return null;
+    let i = lg(t.matrix);
     if (i === null) return null;
     r.add(e), n.push(Object.freeze({
       matrix: i,
@@ -11490,17 +11544,17 @@ function sg(e) {
   })
 }
 
-function cg(e) {
-  if (!Array.isArray(e) || e.length !== eg) return null;
+function lg(e) {
+  if (!Array.isArray(e) || e.length !== tg) return null;
   let t = [];
   for (let n of e) {
-    if (!dg(n)) return null;
+    if (!fg(n)) return null;
     t.push(n)
   }
   return Object.freeze(t)
 }
 
-function lg(e) {
+function ug(e) {
   try {
     return JSON.parse(e)
   } catch {
@@ -11508,26 +11562,26 @@ function lg(e) {
   }
 }
 
-function ug(e) {
+function dg(e) {
   return typeof e == `object` && !!e && !Array.isArray(e)
 }
 
-function dg(e) {
+function fg(e) {
   return typeof e == `number` && Number.isFinite(e)
 }
 
-function fg(e) {
-  return dg(e) && Number.isInteger(e) && e > 0 && e <= rg
-}
-
 function pg(e) {
-  let t = [];
-  return hg(e, ``, t), Object.freeze(t)
+  return fg(e) && Number.isInteger(e) && e > 0 && e <= ig
 }
 
-function mg(e, t) {
+function mg(e) {
+  let t = [];
+  return gg(e, ``, t), Object.freeze(t)
+}
+
+function hg(e, t) {
   let n = new Map;
-  gg(e, ``, n);
+  _g(e, ``, n);
   let r = 0;
   for (let e of t) {
     let t = n.get(e.path);
@@ -11540,76 +11594,76 @@ function mg(e, t) {
   return e.updateMatrixWorld(!0), r
 }
 
-function hg(e, t, n) {
+function gg(e, t, n) {
   e.children.forEach((e, r) => {
     let i = `${t}${String(r)}:${e.name}`;
     n.push(Object.freeze({
       matrix: Object.freeze([...e.matrix.toArray()]),
       path: i
-    })), hg(e, `${i}/`, n)
+    })), gg(e, `${i}/`, n)
   })
 }
 
-function gg(e, t, n) {
+function _g(e, t, n) {
   e.children.forEach((e, r) => {
     let i = `${t}${String(r)}:${e.name}`;
-    n.set(i, e), gg(e, `${i}/`, n)
+    n.set(i, e), _g(e, `${i}/`, n)
   })
 }
-var _g = /^\d{4}-\d{2}-\d{2}$/u,
-  vg = Object.freeze({
+var vg = /^\d{4}-\d{2}-\d{2}$/u,
+  yg = Object.freeze({
     fall: 9,
     spring: 3,
     summer: 6,
     winter: 12
   });
 
-function yg(e) {
-  Tg(e, `Daily ID`);
+function bg(e) {
+  Eg(e, `Daily ID`);
   let t = Number(e.slice(0, 4)),
     n = Number(e.slice(5, 7)),
-    r = bg(n);
-  return xg(r === `winter` && n !== 12 ? t - 1 : t, r)
+    r = xg(n);
+  return Sg(r === `winter` && n !== 12 ? t - 1 : t, r)
 }
 
-function bg(e) {
+function xg(e) {
   return e >= 3 && e <= 5 ? `spring` : e >= 6 && e <= 8 ? `summer` : e >= 9 && e <= 11 ? `fall` : `winter`
 }
 
-function xg(e, t) {
-  let n = vg[t],
-    r = `${wg(e)}-${Cg(n)}-01`,
+function Sg(e, t) {
+  let n = yg[t],
+    r = `${Tg(e)}-${wg(n)}-01`,
     i = t === `winter` ? e + 1 : e,
     a = t === `winter` ? 2 : n + 2,
-    o = `${wg(i)}-${Cg(a)}-${Cg(Sg(i,a))}`,
-    s = t === `winter` ? `WINTER ${wg(e)}-${wg(i).slice(2)}` : `${t.toUpperCase()} ${wg(e)}`;
+    o = `${Tg(i)}-${wg(a)}-${wg(Cg(i,a))}`,
+    s = t === `winter` ? `WINTER ${Tg(e)}-${Tg(i).slice(2)}` : `${t.toUpperCase()} ${Tg(e)}`;
   return Object.freeze({
     endDailyId: o,
     kind: t,
     label: s,
-    seasonId: `${wg(e)}-${t}`,
+    seasonId: `${Tg(e)}-${t}`,
     startDailyId: r
   })
 }
 
-function Sg(e, t) {
+function Cg(e, t) {
   return new Date(Date.UTC(e, t, 0)).getUTCDate()
 }
 
-function Cg(e) {
+function wg(e) {
   return String(e).padStart(2, `0`)
 }
 
-function wg(e) {
+function Tg(e) {
   return String(e).padStart(4, `0`)
 }
 
-function Tg(e, t) {
+function Eg(e, t) {
   let n = Date.parse(`${e}T00:00:00.000Z`);
-  if (!_g.test(e) || Number.isNaN(n) || new Date(n).toISOString().slice(0, 10) !== e) throw RangeError(`${t} must be a real calendar date.`)
+  if (!vg.test(e) || Number.isNaN(n) || new Date(n).toISOString().slice(0, 10) !== e) throw RangeError(`${t} must be a real calendar date.`)
 }
 Object.freeze([150, 100, 75, 50, 40]);
-var Eg = Object.freeze({
+var Dg = Object.freeze({
   bestRank: null,
   bronzes: 0,
   dailiesFinished: 0,
@@ -11622,29 +11676,29 @@ var Eg = Object.freeze({
   xp: 0
 });
 Object.freeze({
-  lifetime: Eg,
+  lifetime: Dg,
   seasons: Object.freeze([])
 });
-var Dg = Object.freeze({
+var Og = Object.freeze({
     label: `PIXEL LIVERY EDITOR`,
     placementUnlockRank: 5,
     priceXp: 150,
     unlockId: `pixel-livery-editor`
   }),
-  Og = Object.freeze({
+  kg = Object.freeze({
     label: `DIRECTOR MODE`,
     placementUnlockRank: null,
     priceXp: 5e3,
     unlockId: `director-mode`
   });
-Object.freeze([Dg, Og]);
+Object.freeze([Og, kg]);
 
-function kg(e) {
+function Ag(e) {
   return `<svg class="${e}" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 7l10 10M17 7L7 17"></path></svg>`
 }
-var Ag = `Couldn't reach the server. Try again in a moment.`;
+var jg = `Couldn't reach the server. Try again in a moment.`;
 
-function jg(e) {
+function Mg(e) {
   let t = new Map((e.board?.entries ?? []).map(e => [e.accountId, e])),
     n = (e.roster.length > 0 ? e.roster : [...t.values()]).map(n => {
       let r = t.get(n.accountId) ?? null,
@@ -11675,22 +11729,22 @@ function jg(e) {
   return Object.freeze(i)
 }
 
-function Mg(e) {
+function Ng(e) {
   return `
       <div class="result-card teams-dialog panel" role="dialog" aria-modal="true" aria-labelledby="teams-dialog-title">
-        <div class="teams-body" data-teams-body>${Ng(e)}</div>
+        <div class="teams-body" data-teams-body>${Pg(e)}</div>
       </div>`
 }
 
-function Ng(e) {
-  return e.kind === `loading` ? `${Xg(`TEAMS`)}
-          <p class="teams-note">Checking your team…</p>` : e.kind === `unavailable` ? `${Xg(`TEAMS`)}
-          <p class="teams-note">Teams are unavailable right now.</p>` : e.kind === `no-team` ? Pg(e) : e.kind === `create` ? Fg(e) : Ig(e)
+function Pg(e) {
+  return e.kind === `loading` ? `${Zg(`TEAMS`)}
+          <p class="teams-note">Checking your team…</p>` : e.kind === `unavailable` ? `${Zg(`TEAMS`)}
+          <p class="teams-note">Teams are unavailable right now.</p>` : e.kind === `no-team` ? Fg(e) : e.kind === `create` ? Ig(e) : Lg(e)
 }
 
-function Pg(e) {
+function Fg(e) {
   let t = e.busy ? ` disabled` : ``;
-  return `${Xg(`TEAMS`)}
+  return `${Zg(`TEAMS`)}
           <div class="teams-actions">
             <button class="primary-button" type="button" data-teams-action="create-open"${t}>CREATE A TEAM</button>
           </div>
@@ -11701,20 +11755,20 @@ function Pg(e) {
               <button class="secondary-button" type="submit" data-teams-action="join"${t}>JOIN</button>
             </div>
           </form>
-          ${Qg(e.error)}`
+          ${$g(e.error)}`
 }
 
-function Fg(e) {
-  let t = mc(e.name).status === `ok` && hc(e.tag).status === `ok`,
+function Ig(e) {
+  let t = hc(e.name).status === `ok` && gc(e.tag).status === `ok`,
     n = e.busy ? ` disabled` : ``;
-  return `${Xg(`CREATE A TEAM`)}
+  return `${Zg(`CREATE A TEAM`)}
           <p class="teams-copy">Pick a name and a 4 character tag. Tag will appear next to name on leaderboards</p>
           <form class="teams-form" data-teams-create novalidate>
             <label class="teams-field-label" for="teams-name-input">Team name</label>
             <input id="teams-name-input" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="40" placeholder="e.g. Night Shift" value="${j(e.name)}" data-teams-name aria-describedby="teams-error"${n}>
             <label class="teams-field-label" for="teams-tag-input">Tag</label>
             <input id="teams-tag-input" class="teams-tag-input" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="4" placeholder="NGHT" value="${j(e.tag)}" data-teams-tag aria-describedby="teams-error"${n}>
-            ${Qg(e.error)}
+            ${$g(e.error)}
             <div class="teams-actions teams-actions--split">
               <button class="text-button" type="button" data-teams-action="create-back"${n}>BACK</button>
               <button class="primary-button" type="submit" data-teams-action="create"${t&&!e.busy?``:` disabled`}>CREATE</button>
@@ -11722,41 +11776,41 @@ function Fg(e) {
           </form>`
 }
 
-function Ig(e) {
+function Lg(e) {
   let t = e.team,
-    n = _c(t.tag),
-    r = `${n===null?``:`<span class="teams-tag-chip">${j(n)}</span>`}${Gg(e.streakDays)}`,
+    n = vc(t.tag),
+    r = `${n===null?``:`<span class="teams-tag-chip">${j(n)}</span>`}${Kg(e.streakDays)}`,
     i = Math.max(t.memberCount, e.rows.length),
     a = e.canRaceTeam ? `
             <button class="primary-button" type="button" data-teams-action="race-team"${e.busy?` disabled`:``}>RACE THE TEAM</button>` : ``,
     o = e.team.role === `owner`;
-  return `${Xg(t.name,r,o?Lg(e):``)}
-          ${o?Rg(e):``}
+  return `${Zg(t.name,r,o?Rg(e):``)}
+          ${o?zg(e):``}
           <p class="teams-subline">${String(i)} RACER${i===1?``:`S`} · TODAY</p>
-          ${Bg(e)}
           ${Vg(e)}
-          ${Qg(e.error)}
+          ${Hg(e)}
+          ${$g(e.error)}
           <div class="teams-footer">${a}
-            ${o?``:Ug(e)}
+            ${o?``:Wg(e)}
           </div>`
 }
 
-function Lg(e) {
-  return `<button class="icon-button teams-settings-button${e.settingsOpen?` teams-settings-button--open`:``}" type="button" data-teams-action="settings-toggle" aria-expanded="${e.settingsOpen?`true`:`false`}" aria-controls="teams-settings" aria-label="Team settings"${e.busy?` disabled`:``}>${Zg()}</button>`
+function Rg(e) {
+  return `<button class="icon-button teams-settings-button${e.settingsOpen?` teams-settings-button--open`:``}" type="button" data-teams-action="settings-toggle" aria-expanded="${e.settingsOpen?`true`:`false`}" aria-controls="teams-settings" aria-label="Team settings"${e.busy?` disabled`:``}>${Qg()}</button>`
 }
 
-function Rg(e) {
+function zg(e) {
   return e.settingsOpen ? `
           <div class="teams-settings" id="teams-settings">
-            ${zg(e)}
-            ${Wg(e)}
+            ${Bg(e)}
+            ${Gg(e)}
             <p class="teams-settings-note">Ends the team for everyone. This cannot be undone.</p>
           </div>` : ``
 }
 
-function zg(e) {
-  let t = mc(e.rename.name),
-    n = hc(e.rename.tag),
+function Bg(e) {
+  let t = hc(e.rename.name),
+    n = gc(e.rename.tag),
     r = t.status === `ok` && n.status === `ok` && (t.teamName !== e.team.name || n.teamTag !== e.team.tag),
     i = e.busy ? ` disabled` : ``,
     a = e.rename.error,
@@ -11774,22 +11828,22 @@ function zg(e) {
             </form>`
 }
 
-function Bg(e) {
+function Vg(e) {
   if (e.rows.length === 0) return `<p class="teams-note">${e.boardState===`unavailable`?`Today’s standings are unavailable right now.`:`Loading today’s standings…`}</p>`;
   let t = e.team.role === `owner`;
   return `<ol class="teams-roster">${e.rows.map(n=>{let r=e.armed?.kind===`remove`&&e.armed.accountId===n.accountId;return`
             <li class="teams-roster-row"${n.isSelf?` data-player="true"`:``}>
               <span class="leaderboard-rank" aria-label="${n.teamRank===null?`No time yet`:`Team rank ${String(n.teamRank)}`}">${n.teamRank===null?`&mdash;`:String(n.teamRank)}</span>
               <span class="leaderboard-name"><strong>${n.isSelf?`YOU`:j(n.displayName)}</strong>${n.role===`owner`?`<span class="teams-role-mark" title="Team manager">MGR</span>`:``}</span>
-              ${Kg(n,e.boardState)}
-              ${qg(n)}
+              ${qg(n,e.boardState)}
               ${Jg(n)}
-              ${t&&!n.isSelf&&n.role!==`owner`?Yg(n,r):`<span class="teams-row-action-empty" aria-hidden="true"></span>`}
+              ${Yg(n)}
+              ${t&&!n.isSelf&&n.role!==`owner`?Xg(n,r):`<span class="teams-row-action-empty" aria-hidden="true"></span>`}
             </li>`}).join(`
   `)}</ol>`
 }
 
-function Vg(e) {
+function Hg(e) {
   let t = e.armed?.kind === `reset-invite`,
     n = e.team.role === `owner` ? `
             <button class="secondary-button${t?` teams-armed`:``}" type="button" data-teams-action="reset-invite"${e.busy?` disabled`:``}>${t?`RESET?`:`RESET`}</button>` : ``;
@@ -11797,11 +11851,11 @@ function Vg(e) {
           <div class="teams-invite">
             <span class="teams-field-label" id="teams-invite-label">INVITE CODE</span>
             <span class="teams-invite-code" data-teams-invite-code>${j(e.team.inviteCode)}</span>
-            <button class="secondary-button" type="button" data-teams-action="copy-invite" aria-describedby="teams-invite-label">COPY</button>${n}${Hg(e)}
+            <button class="secondary-button" type="button" data-teams-action="copy-invite" aria-describedby="teams-invite-label">COPY</button>${n}${Ug(e)}
           </div>`
 }
 
-function Hg(e) {
+function Ug(e) {
   let t = e.team.inviteCode.slice(0, 4);
   if (t.length < 4 || t === e.team.tag) return ``;
   let n = e.team.role === `owner` ? ` RESET makes one starting with ${e.team.tag}.` : ``;
@@ -11809,39 +11863,39 @@ function Hg(e) {
             <p class="teams-note teams-invite-note">This code still starts with ${j(t)}. It keeps working.${j(n)}</p>`
 }
 
-function Ug(e) {
+function Wg(e) {
   return `<button class="text-button" type="button" data-teams-action="leave"${e.busy?` disabled`:``}>LEAVE TEAM</button>`
 }
 
-function Wg(e) {
+function Gg(e) {
   let t = e.armed?.kind === `disband`;
   return `<button class="secondary-button teams-disband${t?` teams-armed`:``}" type="button" data-teams-action="disband"${e.busy?` disabled`:``}>${t?`DISBAND? EVERYONE IS OUT`:`DISBAND TEAM`}</button>`
 }
 
-function Gg(e) {
+function Kg(e) {
   return e < 2 ? `` : `<span class="teams-streak-chip">🔥 ${String(e)} DAY STREAK</span>`
 }
 
-function Kg(e, t) {
+function qg(e, t) {
   return e.displayTimeMs === null ? t === `ready` ? `<span class="teams-row-empty">NOT YET</span>` : `<span class="teams-row-empty" aria-hidden="true">&mdash;</span>` : `<time>${j(D(e.displayTimeMs))}</time>`
 }
 
-function qg(e) {
+function Jg(e) {
   return e.dailyRank === null ? `<span class="teams-row-place teams-row-place--none" aria-hidden="true"></span>` : `<span class="teams-row-place" aria-label="Global place ${String(e.dailyRank)}">#${String(e.dailyRank)}</span>`
 }
 
-function Jg(e) {
+function Yg(e) {
   if (e.publicRunId === null || e.isSelf) return `<span class="teams-row-action-empty" aria-hidden="true"></span>`;
   let t = j(e.displayName);
   return `<button type="button" class="race-ghost-button" data-teams-action="race-ghost" data-run-id="${j(e.publicRunId)}" title="Race this ghost" aria-label="Race the ghost of ${t}"><span aria-hidden="true">&#127937;</span></button>`
 }
 
-function Yg(e, t) {
+function Xg(e, t) {
   let n = j(e.displayName);
-  return `<button type="button" class="teams-remove-button${t?` teams-armed`:``}" data-teams-action="remove" data-account-id="${j(e.accountId)}" aria-label="${t?`Confirm removing ${n}`:`Remove ${n}`}">${t?`REMOVE?`:kg(`teams-remove-mark`)}</button>`
+  return `<button type="button" class="teams-remove-button${t?` teams-armed`:``}" data-teams-action="remove" data-account-id="${j(e.accountId)}" aria-label="${t?`Confirm removing ${n}`:`Remove ${n}`}">${t?`REMOVE?`:Ag(`teams-remove-mark`)}</button>`
 }
 
-function Xg(e, t = ``, n = ``) {
+function Zg(e, t = ``, n = ``) {
   return `
           <div class="teams-head">
             <div class="teams-title">
@@ -11853,7 +11907,7 @@ function Xg(e, t = ``, n = ``) {
           </div>`
 }
 
-function Zg() {
+function Qg() {
   let e = [];
   for (let t = 0; t < 8; t += 1) {
     let n = t * Math.PI / 4,
@@ -11866,12 +11920,12 @@ function Zg() {
   return `<svg class="teams-gear-mark" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="${e.join(``)}ZM12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5Z"/></svg>`
 }
 
-function Qg(e) {
+function $g(e) {
   let t = e === null || e.length === 0;
   return `<p class="teams-error" id="teams-error" role="alert" data-teams-error${t?` hidden`:``}>${t?``:j(e)}</p>`
 }
 
-function $g(e) {
+function e_(e) {
   let t = {
       armed: null,
       board: null,
@@ -11890,7 +11944,7 @@ function $g(e) {
       tag: ``
     },
     n = A({
-      content: Mg({
+      content: Ng({
         kind: `loading`
       }),
       mount: e.mount,
@@ -11930,7 +11984,7 @@ function $g(e) {
           tag: t.renameTag
         },
         settingsOpen: t.settingsOpen,
-        rows: jg({
+        rows: Mg({
           board: t.board,
           roster: t.projection?.roster ?? [],
           selfDisplayName: e.viewerDisplayName
@@ -11941,7 +11995,7 @@ function $g(e) {
     },
     a = () => {
       let e = r.querySelector(`[data-teams-body]`);
-      e !== null && (e.innerHTML = Ng(i()))
+      e !== null && (e.innerHTML = Pg(i()))
     },
     o = e => {
       t.error = e;
@@ -11970,18 +12024,18 @@ function $g(e) {
       let e = r.querySelector(`[data-teams-action="rename"]`),
         n = t.projection?.team ?? null;
       if (e === null || n === null) return;
-      let i = mc(t.renameName),
-        a = hc(t.renameTag);
+      let i = hc(t.renameName),
+        a = gc(t.renameTag);
       e.disabled = t.busy || i.status !== `ok` || a.status !== `ok` || i.teamName === n.name && a.teamTag === n.tag
     }, p = () => {
-      let n = mc(t.renameName),
-        i = hc(t.renameTag);
+      let n = hc(t.renameName),
+        i = gc(t.renameTag);
       if (n.status !== `ok`) {
-        u(r_(n.reason));
+        u(i_(n.reason));
         return
       }
       if (i.status !== `ok`) {
-        u(i_(i.reason));
+        u(a_(i.reason));
         return
       }
       t.busy = !0, t.renameError = null, a(), e.gateway.renameTeam(n.teamName, i.teamTag).then(e => {
@@ -11990,21 +12044,21 @@ function $g(e) {
             l(e.projection), d(), a();
             return
           }
-          t.busy = !1, t.armed = null, t.renameError = n_(e), a()
+          t.busy = !1, t.armed = null, t.renameError = r_(e), a()
         }
       })
     }, m = () => {
       let e = r.querySelector(`[data-teams-action="create"]`);
-      e !== null && (e.disabled = t.busy || mc(t.name).status !== `ok` || hc(t.tag).status !== `ok`)
+      e !== null && (e.disabled = t.busy || hc(t.name).status !== `ok` || gc(t.tag).status !== `ok`)
     }, h = () => {
-      let n = mc(t.name),
-        i = hc(t.tag);
+      let n = hc(t.name),
+        i = gc(t.tag);
       if (n.status !== `ok`) {
-        o(r_(n.reason));
+        o(i_(n.reason));
         return
       }
       if (i.status !== `ok`) {
-        o(i_(i.reason));
+        o(a_(i.reason));
         return
       }
       t.busy = !0, t.error = null, a(), e.gateway.createTeam(n.teamName, i.teamTag).then(e => {
@@ -12017,11 +12071,11 @@ function $g(e) {
             s(e.message);
             return
           }
-          s(e.status === `already-in-team` ? `You’re already on a team. Leave it first.` : Ag)
+          s(e.status === `already-in-team` ? `You’re already on a team. Leave it first.` : jg)
         }
       })
     }, g = () => {
-      let n = gc(t.code);
+      let n = _c(t.code);
       if (n.status !== `ok`) {
         o(`That code didn’t match a team.`);
         return
@@ -12032,7 +12086,7 @@ function $g(e) {
             l(e.projection);
             return
           }
-          s(t_(e.status))
+          s(n_(e.status))
         }
       })
     }, _ = (e, n) => {
@@ -12050,11 +12104,11 @@ function $g(e) {
             s(`That already changed. Close and reopen TEAMS for the latest.`);
             return
           }
-          s(Ag)
+          s(jg)
         }
       })
     }, v = (e, n) => {
-      if (e_(t.armed, e)) {
+      if (t_(t.armed, e)) {
         t.armed = null, n();
         return
       }
@@ -12167,100 +12221,100 @@ function $g(e) {
   }), n
 }
 
-function e_(e, t) {
+function t_(e, t) {
   return e?.kind === t.kind ? e.kind === `remove` && t.kind === `remove` ? e.accountId === t.accountId : !0 : !1
 }
 
-function t_(e) {
-  return e === `not-found` ? `That code didn’t match a team.` : e === `team-full` ? `That team is full.` : e === `already-in-team` ? `You’re already on a team. Leave it first.` : Ag
-}
-
 function n_(e) {
-  return e.status === `rejected` ? e.message : e.status === `tag-taken` ? `Another team already wears that tag.` : e.status === `throttled` ? `That has changed a few times just now. Try again in a little while.` : e.status === `forbidden` ? `Only the team manager can do that.` : Ag
+  return e === `not-found` ? `That code didn’t match a team.` : e === `team-full` ? `That team is full.` : e === `already-in-team` ? `You’re already on a team. Leave it first.` : jg
 }
 
 function r_(e) {
-  return e === `moderated` ? `That team name isn’t allowed. Try another.` : `Team names are 2 to 40 characters.`
+  return e.status === `rejected` ? e.message : e.status === `tag-taken` ? `Another team already wears that tag.` : e.status === `throttled` ? `That has changed a few times just now. Try again in a little while.` : e.status === `forbidden` ? `Only the team manager can do that.` : jg
 }
 
 function i_(e) {
+  return e === `moderated` ? `That team name isn’t allowed. Try another.` : `Team names are 2 to 40 characters.`
+}
+
+function a_(e) {
   return e === `moderated` ? `That tag isn’t allowed. Try another.` : `Tags are exactly 4 letters or numbers.`
 }
 
-function a_(e = 500) {
+function o_(e = 500) {
   return e % 100 == 0 ? `$${String(Math.trunc(e/100))}` : `$${(e/100).toFixed(2)}`
 }
-var o_ = a_(),
-  s_ = Object.freeze([`A supporter badge beside your name on every leaderboard`, `A supporter role and badge in the Swervle Discord`, `Future supporter perks as they land`]);
+var s_ = o_(),
+  c_ = Object.freeze([`A supporter badge beside your name on every leaderboard`, `A supporter role and badge in the Swervle Discord`, `Future supporter perks as they land`]);
 
-function c_(e) {
+function l_(e) {
   return `
       <section class="support-screen panel" role="document">
         <header class="support-head">
           <h2 class="support-title">${e.isSupporter?`YOU SUPPORT SWERVLE`:`SUPPORT SWERVLE`}</h2>
           ${M({attributes:`data-support-action="close"`})}
         </header>
-        ${e.isSupporter?d_():l_(e.signedIn)}
-        ${p_(e)}
-        ${h_(e)}
+        ${e.isSupporter?f_():u_(e.signedIn)}
+        ${m_(e)}
+        ${g_(e)}
       </section>`
 }
 
-function l_(e) {
+function u_(e) {
   return `
-        <p class="support-price"><strong>${o_}</strong> <span>/ MONTH</span></p>
+        <p class="support-price"><strong>${s_}</strong> <span>/ MONTH</span></p>
         <p class="support-copy">Swervle is a solo indie game. Your support helps cover development
           and hosting costs. As a thank you you will receive:</p>
-        <ul class="support-perks">${f_()}</ul>
-        ${e?``:u_()}
-        <a class="${e?`primary-button`:`secondary-button`} support-cta" href="${Xl}" target="_blank" rel="noopener noreferrer" data-support-action="patreon">SUPPORT ON PATREON</a>`
+        <ul class="support-perks">${p_()}</ul>
+        ${e?``:d_()}
+        <a class="${e?`primary-button`:`secondary-button`} support-cta" href="${Zl}" target="_blank" rel="noopener noreferrer" data-support-action="patreon">SUPPORT ON PATREON</a>`
 }
 
-function u_() {
+function d_() {
   return `
         <div class="support-signin">
           <button class="primary-button support-cta" type="button" data-support-action="sign-in">SIGN IN</button>
         </div>`
 }
 
-function d_() {
+function f_() {
   return `
         <p class="support-copy">Thank you! Your badge is live on every board, and your pledge
           is what keeps the races coming.</p>
-        <ul class="support-perks">${f_()}</ul>
-        <a class="secondary-button support-cta" href="${Xl}" target="_blank" rel="noopener noreferrer" data-support-action="patreon">MANAGE ON PATREON</a>`
+        <ul class="support-perks">${p_()}</ul>
+        <a class="secondary-button support-cta" href="${Zl}" target="_blank" rel="noopener noreferrer" data-support-action="patreon">MANAGE ON PATREON</a>`
 }
 
-function f_() {
-  return s_.map(e => `<li>${j(e)}</li>`).join(``)
-}
-
-function p_(e) {
-  return !e.signedIn || e.patreonLinkAvailable !== !0 ? `` : `
-        <div class="support-discord">
-          <h3 class="support-subhead">PATREON</h3>
-          <div data-support-patreon-region>${m_(e.patreon)}</div>
-        </div>`
+function p_() {
+  return c_.map(e => `<li>${j(e)}</li>`).join(``)
 }
 
 function m_(e) {
+  return !e.signedIn || e.patreonLinkAvailable !== !0 ? `` : `
+        <div class="support-discord">
+          <h3 class="support-subhead">PATREON</h3>
+          <div data-support-patreon-region>${h_(e.patreon)}</div>
+        </div>`
+}
+
+function h_(e) {
   return e === void 0 ? `<p class="support-copy">Checking Patreon connection…</p>` : e?.connected === !0 ? `<p class="support-copy">Connected${e.email===null?``:` as <strong>${j(e.email)}</strong>`}. Your pledge finds this account automatically.</p>
           <button class="secondary-button" type="button" data-support-action="patreon-unlink">DISCONNECT PATREON</button>` : `<p class="support-copy">Connect your Patreon account.</p>
           <button class="secondary-button" type="button" data-support-action="patreon-connect">CONNECT PATREON</button>`
 }
 
-function h_(e) {
+function g_(e) {
   return !e.signedIn || !e.discordAvailable ? `` : `
         <div class="support-discord">
           <h3 class="support-subhead">DISCORD</h3>
           <p class="support-copy">Connect your Discord account.</p>
-          <div data-account-discord-region>${sm(e.discord)}</div>
+          <div data-account-discord-region>${cm(e.discord)}</div>
         </div>`
 }
 
-function g_(e) {
+function __(e) {
   let t = A({
-      content: c_(e.view),
+      content: l_(e.view),
       mount: e.mount,
       onClose: e.onClose,
       scrimClassName: `support-scrim`
@@ -12294,25 +12348,25 @@ function g_(e) {
     },
     element: n,
     updateDiscord: e => {
-      lm(n, e)
+      um(n, e)
     },
     updatePatreon: e => {
       let t = n.querySelector(`[data-support-patreon-region]`);
-      t !== null && (t.innerHTML = m_(e))
+      t !== null && (t.innerHTML = h_(e))
     }
   })
 }
-var __ = 64,
-  v_ = 6;
-
-function y_(e) {
-  return b_(Ls(e))
-}
+var v_ = 64,
+  y_ = 6;
 
 function b_(e) {
-  let t = __,
-    n = v_,
-    r = x_(e.biomeId),
+  return x_(Ls(e))
+}
+
+function x_(e) {
+  let t = v_,
+    n = y_,
+    r = S_(e.biomeId),
     i = e.points;
   if (i.length < 2) return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${String(t)} ${String(t)}" width="${String(t)}" height="${String(t)}" role="img" aria-hidden="true"><rect width="${String(t)}" height="${String(t)}" rx="4" fill="${r.background}"/></svg>`;
   let a = 1 / 0,
@@ -12328,13 +12382,13 @@ function b_(e) {
     m = n + (d - u) * f / 2,
     h = e => p + (e - a) * f,
     g = e => m + (c - e) * f,
-    _ = i.map(e => `${S_(h(e.x))},${S_(g(e.z))}`).join(` `),
+    _ = i.map(e => `${C_(h(e.x))},${C_(g(e.z))}`).join(` `),
     v = i[0],
-    y = v === void 0 ? `` : `<circle cx="${S_(h(v.x))}" cy="${S_(g(v.z))}" r="2.6" fill="${r.start}"/>`;
+    y = v === void 0 ? `` : `<circle cx="${C_(h(v.x))}" cy="${C_(g(v.z))}" r="2.6" fill="${r.start}"/>`;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${String(t)} ${String(t)}" width="${String(t)}" height="${String(t)}" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><rect width="${String(t)}" height="${String(t)}" rx="4" fill="${r.background}"/><polyline points="${_}" fill="none" stroke="${r.route}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>` + y + `</svg>`
 }
 
-function x_(e) {
+function S_(e) {
   let t = `#28323a`,
     n = `#ffc84a`;
   return e === `highlands` ? {
@@ -12368,23 +12422,23 @@ function x_(e) {
   }
 }
 
-function S_(e) {
+function C_(e) {
   return String(Math.round(e * 100) / 100)
 }
-var C_ = /^\d{4}-\d{2}-\d{2}$/u,
-  w_ = 864e5,
-  T_ = 14,
-  E_ = 60;
+var w_ = /^\d{4}-\d{2}-\d{2}$/u,
+  T_ = 864e5,
+  E_ = 14,
+  D_ = 60;
 
-function D_(e) {
-  let t = H_(e.todayDailyId),
-    n = e.dayCount ?? T_;
-  if (!Number.isSafeInteger(n) || n < 1 || n > E_) throw RangeError(`Calendar day count must be between 1 and 60.`);
+function O_(e) {
+  let t = U_(e.todayDailyId),
+    n = e.dayCount ?? E_;
+  if (!Number.isSafeInteger(n) || n < 1 || n > D_) throw RangeError(`Calendar day count must be between 1 and 60.`);
   let r = e.earliestDailyId;
-  r !== void 0 && H_(r);
+  r !== void 0 && U_(r);
   let i = [];
   for (let e = 0; e < n; e += 1) {
-    let n = U_(t - e * w_);
+    let n = W_(t - e * T_);
     if (e > 0 && r !== void 0 && n < r) break;
     i.push(Object.freeze({
       dailyId: n,
@@ -12395,8 +12449,8 @@ function D_(e) {
   return Object.freeze(i)
 }
 
-function O_(e) {
-  let t = D_({
+function k_(e) {
+  let t = O_({
       ...e.dayCount === void 0 ? {} : {
         dayCount: e.dayCount
       },
@@ -12408,7 +12462,7 @@ function O_(e) {
     n = new Map(t.map(e => [e.dailyId, e])),
     r = null,
     i = A({
-      content: j_(t, e.signedIn ?? !0, e.accountAvailable ?? !0),
+      content: M_(t, e.signedIn ?? !0, e.accountAvailable ?? !0),
       initialFocusSelector: `[data-action='close-calendar']`,
       mount: e.mount,
       onClose: () => {
@@ -12437,11 +12491,11 @@ function O_(e) {
       o.add(t);
       let r = n.get(t),
         i = a.querySelector(`[data-daily-id="${t}"]`);
-      r === void 0 || i === null || N_(i, r, e.resolveThumbnail(t))
+      r === void 0 || i === null || P_(i, r, e.resolveThumbnail(t))
     },
     c = typeof IntersectionObserver < `u`;
   if (e.schedule !== void 0 || !c) {
-    let n = e.schedule ?? V_;
+    let n = e.schedule ?? H_;
     for (let e of t) n(() => {
       s(e.dailyId)
     });
@@ -12480,34 +12534,34 @@ function O_(e) {
   return i
 }
 
-function k_() {
+function A_() {
   return `
           <p class="calendar-signed-out" data-slot="signed-out">
             <span>Showing only times saved on this device.</span>
-            ${fu()}
+            ${pu()}
           </p>`
 }
 
-function A_() {
+function j_() {
   return `
           <p class="calendar-signed-out" data-slot="desktop-guest">
             <span>Guest times shown here are saved only on this PC and are not account-backed.</span>
           </p>`
 }
 
-function j_(e, t, n) {
-  let r = e.map(e => M_(e)).join(``);
+function M_(e, t, n) {
+  let r = e.map(e => N_(e)).join(``);
   return `
       <div class="past-races panel" role="dialog" aria-modal="true" aria-labelledby="past-races-title">
         <header class="past-races-head">
           <h2 id="past-races-title">PAST RACES</h2>
           ${M({attributes:`data-action="close-calendar"`})}
-        </header>${t?``:n?k_():A_()}
+        </header>${t?``:n?A_():j_()}
         <div class="calendar-grid" role="group" aria-label="Choose a day to race">${r}</div>
       </div>`
 }
 
-function M_(e) {
+function N_(e) {
   return `
           <button class="calendar-card" type="button" data-daily-id="${j(e.dailyId)}" data-loading="true" aria-label="${j(e.label)}, loading course preview">
             <span class="calendar-thumb" data-slot="thumb" aria-hidden="true"></span>
@@ -12516,7 +12570,7 @@ function M_(e) {
           </button>`
 }
 
-function N_(e, t, n) {
+function P_(e, t, n) {
   e.dataset.loading = `false`;
   let r = e.querySelector(`[data-slot='thumb']`),
     i = e.querySelector(`[data-slot='meta']`);
@@ -12532,28 +12586,28 @@ function N_(e, t, n) {
   e.setAttribute(`aria-label`, `Race ${t.label}.${s}`)
 }
 
-function P_(e, t, n) {
-  if (!C_.test(t)) return !1;
+function F_(e, t, n) {
+  if (!w_.test(t)) return !1;
   let r = e.querySelector(`[data-daily-id="${t}"]`);
-  return r?.dataset.loading === `false` ? (N_(r, {
+  return r?.dataset.loading === `false` ? (P_(r, {
     dailyId: t,
     isToday: t === Ua(new Date),
     label: bo(t)
   }, n), !0) : !1
 }
-var F_ = `swervle:calendar-preview:v1`,
-  I_ = 2e4,
-  L_ = `${it}|${E.version}|compact-3`;
+var I_ = `swervle:calendar-preview:v1`,
+  L_ = 2e4,
+  R_ = `${it}|${E.version}|compact-3`;
 
-function R_(e, t, n) {
+function z_(e, t, n) {
   if (e === null) return null;
   try {
-    let r = e.getItem(F_);
+    let r = e.getItem(I_);
     if (r === null) return null;
     let i = JSON.parse(r);
-    if (!B_(i)) return null;
+    if (!V_(i)) return null;
     let a = i[t];
-    return B_(a) && a.rev === n && typeof a.digest == `string` && a.digest.length > 0 && typeof a.svg == `string` && a.svg.length > 0 && a.svg.length <= I_ ? {
+    return V_(a) && a.rev === n && typeof a.digest == `string` && a.digest.length > 0 && typeof a.svg == `string` && a.svg.length > 0 && a.svg.length <= L_ ? {
       digest: a.digest,
       rev: n,
       svg: a.svg
@@ -12563,60 +12617,60 @@ function R_(e, t, n) {
   }
 }
 
-function z_(e, t, n) {
-  if (!(e === null || n.svg.length > I_)) try {
-    let r = e.getItem(F_),
+function B_(e, t, n) {
+  if (!(e === null || n.svg.length > L_)) try {
+    let r = e.getItem(I_),
       i = r === null ? {} : JSON.parse(r),
-      a = B_(i) ? {
+      a = V_(i) ? {
         ...i
       } : {};
     a[t] = {
       digest: n.digest,
       rev: n.rev,
       svg: n.svg
-    }, e.setItem(F_, JSON.stringify(a))
+    }, e.setItem(I_, JSON.stringify(a))
   } catch {}
 }
 
-function B_(e) {
+function V_(e) {
   return typeof e == `object` && !!e && !Array.isArray(e)
 }
 
-function V_(e) {
+function H_(e) {
   let t = globalThis.requestIdleCallback;
   typeof t == `function` ? t(e) : globalThis.setTimeout(e, 0)
 }
 
-function H_(e) {
-  if (!C_.test(e)) throw TypeError(`Calendar day id must be a UTC calendar date.`);
+function U_(e) {
+  if (!w_.test(e)) throw TypeError(`Calendar day id must be a UTC calendar date.`);
   let t = Date.parse(`${e}T00:00:00Z`);
-  if (Number.isNaN(t) || U_(t) !== e) throw TypeError(`Calendar day id must be a real UTC calendar date.`);
+  if (Number.isNaN(t) || W_(t) !== e) throw TypeError(`Calendar day id must be a real UTC calendar date.`);
   return t
 }
 
-function U_(e) {
+function W_(e) {
   return new Date(e).toISOString().slice(0, 10)
 }
-var W_ = `${Be}:local-verifier`,
-  G_ = Object.freeze([Ue, `swervle-beta-v2`, `swervle-sim-v1-b68e4e59dba9fce6b924033c`, `swervle-sim-v1-cdb066cadcf3b1a4fd855887`, `swervle-sim-v1-9abd0b585bc8d1f1ede66fd0`, `swervle-sim-v1-cb5407e1e04b707e6d67890c`, `swervle-sim-v1-47c164b5fddc82576a5c2888`, `swervle-sim-v1-fc98d2951b194a5c6abda990`, `swervle-sim-v1-0db96ba585585deac8d40cec`, `swervle-sim-v1-d7fc98d6a5895c9c64873fd3`, `swervle-sim-v1-b1b29701ed5e62e244c48061`, `swervle-sim-v1-0bc4264bf1730457d288890b`, `swervle-sim-v1-3d119bc1af6ae3bd1bac342e`, `swervle-sim-v1-2e288520fd2c9188de29d834`, `swervle-sim-v1-ed2491159896851a782b7607`, `swervle-sim-v1-322299614feb86e64a4f8643`, `swervle-sim-v1-f57c750d0dd7d4033d99c9a0`, `swervle-sim-v1-6f86b69660d5dd22f2f43100`, `swervle-sim-v1-e3e91700c32b3d075a7e16a4`, `swervle-sim-v1-6b7ad89fa9d1cee09f16ff08`, `swervle-sim-v1-507919f7d525c1bda11e4a15`, `swervle-sim-v1-67b5b3c8f4baacb49ba31fce`, `swervle-sim-v1-7b8ff026142ecf07459734b0`, `swervle-sim-v1-080bb1ab558c3fd0d658c2d2`, `swervle-sim-v1-6260f49474ecf89f8c9574ef`, `swervle-sim-v1-b04714f20775d6adb53c91b4`, `swervle-sim-v1-2d09ccd36869c4333a991dc1`, `swervle-sim-v1-aaa5dff084d22b8a4c7211de`, `swervle-sim-v1-db4a9522f534e4215d08165e`, `swervle-sim-v1-7deeb143677820906a954317`, `swervle-sim-v1-e21baa9506bc21fc5a521d69`]);
-async function K_(e) {
+var G_ = `${Be}:local-verifier`,
+  K_ = Object.freeze([Ue, `swervle-beta-v2`, `swervle-sim-v1-b68e4e59dba9fce6b924033c`, `swervle-sim-v1-cdb066cadcf3b1a4fd855887`, `swervle-sim-v1-9abd0b585bc8d1f1ede66fd0`, `swervle-sim-v1-cb5407e1e04b707e6d67890c`, `swervle-sim-v1-47c164b5fddc82576a5c2888`, `swervle-sim-v1-fc98d2951b194a5c6abda990`, `swervle-sim-v1-0db96ba585585deac8d40cec`, `swervle-sim-v1-d7fc98d6a5895c9c64873fd3`, `swervle-sim-v1-b1b29701ed5e62e244c48061`, `swervle-sim-v1-0bc4264bf1730457d288890b`, `swervle-sim-v1-3d119bc1af6ae3bd1bac342e`, `swervle-sim-v1-2e288520fd2c9188de29d834`, `swervle-sim-v1-ed2491159896851a782b7607`, `swervle-sim-v1-322299614feb86e64a4f8643`, `swervle-sim-v1-f57c750d0dd7d4033d99c9a0`, `swervle-sim-v1-6f86b69660d5dd22f2f43100`, `swervle-sim-v1-e3e91700c32b3d075a7e16a4`, `swervle-sim-v1-6b7ad89fa9d1cee09f16ff08`, `swervle-sim-v1-507919f7d525c1bda11e4a15`, `swervle-sim-v1-67b5b3c8f4baacb49ba31fce`, `swervle-sim-v1-7b8ff026142ecf07459734b0`, `swervle-sim-v1-080bb1ab558c3fd0d658c2d2`, `swervle-sim-v1-6260f49474ecf89f8c9574ef`, `swervle-sim-v1-b04714f20775d6adb53c91b4`, `swervle-sim-v1-2d09ccd36869c4333a991dc1`, `swervle-sim-v1-aaa5dff084d22b8a4c7211de`, `swervle-sim-v1-db4a9522f534e4215d08165e`, `swervle-sim-v1-7deeb143677820906a954317`, `swervle-sim-v1-e21baa9506bc21fc5a521d69`]);
+async function q_(e) {
   let t = e.ruleset ?? He(e.track.revision.rulesetVersion) ?? E,
     n = e.modifiers ?? Qe(e.expectedRaceContextId);
-  if (!X_(e.track)) return q_(e.track, t, `unsupported-track-schema`);
-  if (!Z_(e.track.revision.engineBuild)) return q_(e.track, t, `track-engine-mismatch`);
+  if (!Z_(e.track)) return J_(e.track, t, `unsupported-track-schema`);
+  if (!Q_(e.track.revision.engineBuild)) return J_(e.track, t, `track-engine-mismatch`);
   let r;
   try {
-    r = de(e.submission, {
+    r = ue(e.submission, {
       expectedRaceContextId: e.expectedRaceContextId,
       expectedRulesetVersion: t.version,
       maximumRaceTicks: t.maximumRaceTicks,
       verificationTailTicks: t.verificationTailTicks
     })
   } catch (n) {
-    return n instanceof me ? q_(e.track, t, n.reasonCode) : q_(e.track, t, n instanceof Error ? Y_(n.message) : `verification-error`, `error`)
+    return n instanceof pe ? J_(e.track, t, n.reasonCode) : J_(e.track, t, n instanceof Error ? X_(n.message) : `verification-error`, `error`)
   }
-  if (e.track.revision.rulesetVersion !== t.version) return q_(e.track, t, `track-ruleset-mismatch`);
-  let i = pe(e.track, t, n),
+  if (e.track.revision.rulesetVersion !== t.version) return J_(e.track, t, `track-ruleset-mismatch`);
+  let i = fe(e.track, t, n),
     {
       model: a,
       simulation: o
@@ -12628,7 +12682,7 @@ async function K_(e) {
       c = 0;
     for (let i = 0; i < r.states.length; i += 1) {
       let l = r.states[i] ?? 0,
-        u = ge(n, l);
+        u = he(n, l);
       if (u.length > 0) {
         let n = Pe({
             edges: u,
@@ -12636,7 +12690,7 @@ async function K_(e) {
             tick: o.tick + 1
           }),
           r = o.submitCommand(n, o.sourceContext);
-        if (!r.accepted) return q_(e.track, t, r.reason)
+        if (!r.accepted) return J_(e.track, t, r.reason)
       }
       o.step(), o.drainEvents(), n = l & 95, c = Math.max(c, a.raceState.nextGateIndex);
       let d = i + 1;
@@ -12644,7 +12698,7 @@ async function K_(e) {
         let n = a.durationTicks,
           i = a.displayTimeMs;
         if (n === null || i === null) throw Error(`Finished verifier race has no official time.`);
-        let o = await ve({
+        let o = await _e({
             authoritativeStateCount: d,
             raceContextId: e.submission.raceContextId,
             rulesetVersion: t.version,
@@ -12653,7 +12707,7 @@ async function K_(e) {
           s = r.states.slice(0, d),
           c = Object.freeze({
             ...r.submission,
-            statesBase64: he(s),
+            statesBase64: me(s),
             tickCount: s.length,
             verificationTailTicks: 0
           });
@@ -12662,13 +12716,13 @@ async function K_(e) {
           result: Object.freeze({
             displayTimeMs: i,
             durationTicks: n,
-            publicRunId: e.publicRunId ?? J_(`run`),
+            publicRunId: e.publicRunId ?? Y_(`run`),
             reasonCode: null,
             replayHash: o,
             rulesetVersion: t.version,
             status: `verified`,
             trackDigest: e.track.revision.trackDigest,
-            verifierBuild: W_
+            verifierBuild: G_
           })
         })
       }
@@ -12687,22 +12741,22 @@ async function K_(e) {
           rulesetVersion: t.version,
           status: `dnf`,
           trackDigest: e.track.revision.trackDigest,
-          verifierBuild: W_
+          verifierBuild: G_
         })
       })
     }
-    return q_(e.track, t, `client-server-divergence`, `rejected`, Object.freeze({
+    return J_(e.track, t, `client-server-divergence`, `rejected`, Object.freeze({
       gatesReached: c,
       totalGates: s
     }))
   } catch (n) {
-    return q_(e.track, t, n instanceof Error ? Y_(n.message) : `verification-error`, `error`)
+    return J_(e.track, t, n instanceof Error ? X_(n.message) : `verification-error`, `error`)
   } finally {
     i.dispose()
   }
 }
 
-function q_(e, t, n, r = `rejected`, i) {
+function J_(e, t, n, r = `rejected`, i) {
   return Object.freeze({
     canonicalSubmission: null,
     ...i === void 0 ? {} : {
@@ -12717,36 +12771,36 @@ function q_(e, t, n, r = `rejected`, i) {
       rulesetVersion: t.version,
       status: r,
       trackDigest: e.revision.trackDigest,
-      verifierBuild: W_
+      verifierBuild: G_
     })
   })
 }
 
-function J_(e) {
+function Y_(e) {
   return `${e}_${[...crypto.getRandomValues(new Uint8Array(16))].map(e=>e.toString(16).padStart(2,`0`)).join(``)}`
 }
 
-function Y_(e) {
+function X_(e) {
   let t = e.toLowerCase().replaceAll(/[^a-z0-9]+/gu, `-`).replaceAll(/^-|-$/gu, ``).slice(0, 64);
   return t.length > 0 ? t : `verification-error`
 }
 
-function X_(e) {
+function Z_(e) {
   if (typeof e != `object` || !e || !(`revision` in e)) return !1;
   let t = e.revision;
   return typeof t == `object` && !!t && `schemaVersion` in t && t.schemaVersion === 2
 }
 
-function Z_(e) {
-  return G_.includes(e)
+function Q_(e) {
+  return K_.includes(e)
 }
-var Q_ = Object.freeze([]),
-  $_ = 1e-6;
+var $_ = Object.freeze([]),
+  ev = 1e-6;
 
-function ev(e) {
+function tv(e) {
   return e < 0 ? `left` : e > 0 ? `right` : null
 }
-var tv = class {
+var nv = class {
     #e = 0;
     #t = 0;
     #n = null;
@@ -12759,23 +12813,23 @@ var tv = class {
     }
     setTarget(e) {
       let t = Number.isFinite(e) ? Math.max(-1, Math.min(1, e)) : 0,
-        n = ev(this.#e),
-        r = ev(t),
-        i = Q_;
+        n = tv(this.#e),
+        r = tv(t),
+        i = $_;
       return (r === null || r !== n) && (this.#t = 0, i = this.#i(null)), this.#e = t, i
     }
     tick() {
       if (this.#r.size > 0) return this.#i(null);
       let e = Math.abs(this.#e),
         t = !1;
-      return e >= 1 ? (this.#t = 0, t = !0) : e > 0 && (this.#t += e, this.#t + $_ >= 1 && (--this.#t, t = !0)), this.#i(t ? ev(this.#e) : null)
+      return e >= 1 ? (this.#t = 0, t = !0) : e > 0 && (this.#t += e, this.#t + ev >= 1 && (--this.#t, t = !0)), this.#i(t ? tv(this.#e) : null)
     }
     setPhysicalHeld(e, t) {
       if (t) {
         let t = !this.#r.has(e);
         return this.#r.add(e), t && this.#r.size === 1 && (this.#t = 0), this.#i(null)
       }
-      return this.#r.delete(e) && this.#r.size === 0 && (this.#t = 0), Q_
+      return this.#r.delete(e) && this.#r.size === 0 && (this.#t = 0), $_
     }
     release() {
       return this.#e = 0, this.#t = 0, this.#i(null)
@@ -12784,7 +12838,7 @@ var tv = class {
       return this.#r.clear(), this.release()
     }
     #i(e) {
-      if (e === this.#n) return Q_;
+      if (e === this.#n) return $_;
       let t = [],
         n = this.#n;
       return n !== null && !this.#r.has(n) && t.push(Object.freeze({
@@ -12796,14 +12850,14 @@ var tv = class {
       })), Object.freeze(t)
     }
   },
-  nv = Object.freeze({
+  rv = Object.freeze({
     boost: !1,
     handbrake: !1,
     reverse: !1,
     steerTarget: 0,
     throttle: !1
   }),
-  rv = class {
+  iv = class {
     #e = new Map;
     #t = 0;
     #n = `touch`;
@@ -12838,7 +12892,7 @@ var tv = class {
       return this.#t === 0 ? !1 : (this.#t = 0, !0)
     }
     sample() {
-      if (this.#e.size === 0 && this.#n === `touch`) return nv;
+      if (this.#e.size === 0 && this.#n === `touch`) return rv;
       let e = this.heldControls();
       return Object.freeze({
         boost: e.has(`boost`),
@@ -12857,21 +12911,21 @@ var tv = class {
       this.#e.clear(), this.#t = 0, this.#r = 0, this.#i = 0
     }
   },
-  iv = 760,
-  av = /Android|iPad|iPhone|iPod|Mobile/iu,
-  ov = /iPad|iPhone|iPod/iu,
-  sv = /Android/iu,
-  cv = /Macintosh/iu;
-
-function lv(e, t) {
-  return av.test(e.userAgent) || cv.test(e.userAgent) && e.maxTouchPoints > 1 ? !0 : e.coarsePointer && t < iv
-}
+  av = 760,
+  ov = /Android|iPad|iPhone|iPod|Mobile/iu,
+  sv = /iPad|iPhone|iPod/iu,
+  cv = /Android/iu,
+  lv = /Macintosh/iu;
 
 function uv(e, t) {
-  let n = cv.test(e.userAgent) && e.maxTouchPoints > 1,
-    r = ov.test(e.userAgent) || n,
-    i = sv.test(e.userAgent),
-    a = lv(e, t);
+  return ov.test(e.userAgent) || lv.test(e.userAgent) && e.maxTouchPoints > 1 ? !0 : e.coarsePointer && t < av
+}
+
+function dv(e, t) {
+  let n = lv.test(e.userAgent) && e.maxTouchPoints > 1,
+    r = sv.test(e.userAgent) || n,
+    i = cv.test(e.userAgent),
+    a = uv(e, t);
   return Object.freeze({
     canLockOrientation: a && e.hasOrientationLock,
     canRequestFullscreen: a && e.hasFullscreenApi && !r,
@@ -12884,46 +12938,46 @@ function uv(e, t) {
   })
 }
 
-function dv(e, t) {
+function fv(e, t) {
   return !Number.isFinite(e) || !Number.isFinite(t) ? `portrait` : e >= t ? `landscape` : `portrait`
 }
 
-function fv(e = navigator, t = document) {
+function pv(e = navigator, t = document) {
   let n = globalThis.screen?.orientation,
     r = globalThis.DeviceOrientationEvent,
     i = e;
   return Object.freeze({
-    coarsePointer: pv(`(pointer: coarse)`),
+    coarsePointer: mv(`(pointer: coarse)`),
     hasDeviceOrientationEvent: r !== void 0,
     hasFullscreenApi: typeof t.documentElement.requestFullscreen == `function`,
     hasOrientationLock: typeof n?.lock == `function`,
     maxTouchPoints: e.maxTouchPoints,
     requiresTiltPermission: typeof r?.requestPermission == `function`,
-    standalone: i.standalone === !0 || pv(`(display-mode: fullscreen)`) || pv(`(display-mode: standalone)`),
+    standalone: i.standalone === !0 || mv(`(display-mode: fullscreen)`) || mv(`(display-mode: standalone)`),
     userAgent: e.userAgent
   })
 }
 
-function pv(e) {
+function mv(e) {
   try {
     return globalThis.matchMedia(e).matches
   } catch {
     return !1
   }
 }
-var mv = 400,
-  hv = 36,
-  gv = class {
+var hv = 400,
+  gv = 36,
+  _v = class {
     #e = null;
     shouldSuppress(e) {
       if (!Number.isFinite(e.x) || !Number.isFinite(e.y) || !Number.isFinite(e.timeMs)) return this.#e = null, !1;
       let t = this.#e;
       if (this.#e = e, t === null) return !1;
       let n = e.timeMs - t.timeMs;
-      if (n < 0 || n > mv) return !1;
+      if (n < 0 || n > hv) return !1;
       let r = e.x - t.x,
         i = e.y - t.y;
-      return r * r + i * i > hv * hv ? !1 : (this.#e = null, !0)
+      return r * r + i * i > gv * gv ? !1 : (this.#e = null, !0)
     }
     noteTapEnd(e) {
       let t = this.#e;
@@ -12933,48 +12987,48 @@ var mv = 400,
         return
       }
       let n = e.timeMs - t.timeMs;
-      if (n < 0 || n > mv) {
+      if (n < 0 || n > hv) {
         this.#e = null;
         return
       }
       let r = e.x - t.x,
         i = e.y - t.y;
-      r * r + i * i > hv * hv && (this.#e = null)
+      r * r + i * i > gv * gv && (this.#e = null)
     }
     reset() {
       this.#e = null
     }
   },
-  _v = new Set([`boost`, `handbrake`, `recover`, `reverse`, `steer`, `steerLeft`, `steerRight`, `throttle`]);
+  vv = new Set([`boost`, `handbrake`, `recover`, `reverse`, `steer`, `steerLeft`, `steerRight`, `throttle`]);
 
-function vv(e) {
-  return e !== void 0 && _v.has(e)
+function yv(e) {
+  return e !== void 0 && vv.has(e)
 }
-var yv = Object.freeze({
+var bv = Object.freeze({
     boost: !1,
     handbrake: !1,
     reverse: !1,
     steerTarget: 0,
     throttle: !1
   }),
-  bv = -1,
-  xv = `input, textarea, select, option, [contenteditable=""], [contenteditable="true"]`,
-  Sv = `button, a[href], label, summary, [role="button"], [data-action]`,
-  Cv = 16,
-  wv = {
+  xv = -1,
+  Sv = `input, textarea, select, option, [contenteditable=""], [contenteditable="true"]`,
+  Cv = `button, a[href], label, summary, [role="button"], [data-action]`,
+  wv = 16,
+  Tv = {
     passive: !1
   },
-  Tv = class {
+  Ev = class {
     element;
     #e;
     #t;
-    #n = new rv;
+    #n = new iv;
     #r;
     #i;
     #a;
     #o;
     #s;
-    #c = new gv;
+    #c = new _v;
     #l = null;
     #u = new Map;
     #d = null;
@@ -12982,7 +13036,7 @@ var yv = Object.freeze({
     #p = !1;
     #m = null;
     constructor(e) {
-      this.#e = e.callbacks, this.#t = e.platform, this.#s = e.mount, this.element = document.createElement(`div`), this.element.className = `mobile-controls`, this.element.dataset.armed = `false`, this.element.hidden = !0, this.element.innerHTML = kv, this.#r = document.createElement(`div`), this.#r.className = `mc-utility-rail`, this.#r.innerHTML = Ov, this.#a = this.#B(this.#r, `reset-button`), this.#a.hidden = !0, this.#o = this.#B(this.element, `boost`), this.#i = document.createElement(`button`), this.#i.type = `button`, this.#i.className = `icon-button mc-fullscreen-button`, this.#i.dataset.action = `fullscreen`, this.#i.setAttribute(`aria-label`, `Toggle fullscreen`), this.#i.setAttribute(`aria-pressed`, `false`), this.#i.innerHTML = Ev, this.#i.hidden = !this.#h(), e.mount.append(this.element, this.#i);
+      this.#e = e.callbacks, this.#t = e.platform, this.#s = e.mount, this.element = document.createElement(`div`), this.element.className = `mobile-controls`, this.element.dataset.armed = `false`, this.element.hidden = !0, this.element.innerHTML = Av, this.#r = document.createElement(`div`), this.#r.className = `mc-utility-rail`, this.#r.innerHTML = kv, this.#a = this.#B(this.#r, `reset-button`), this.#a.hidden = !0, this.#o = this.#B(this.element, `boost`), this.#i = document.createElement(`button`), this.#i.type = `button`, this.#i.className = `icon-button mc-fullscreen-button`, this.#i.dataset.action = `fullscreen`, this.#i.setAttribute(`aria-label`, `Toggle fullscreen`), this.#i.setAttribute(`aria-pressed`, `false`), this.#i.innerHTML = Dv, this.#i.hidden = !this.#h(), e.mount.append(this.element, this.#i);
       let t = e.actionsHost ?? null;
       t === null ? this.element.prepend(this.#r) : t.prepend(this.#r), this.#_(), this.#I(), this.#R()
     }
@@ -12996,7 +13050,7 @@ var yv = Object.freeze({
       this.#o.hidden = !e
     }
     sample() {
-      return this.#f ? this.#n.sample() : yv
+      return this.#f ? this.#n.sample() : bv
     }
     consumeRecoverPulse() {
       return this.#n.consumeRecoverPulse()
@@ -13020,14 +13074,14 @@ var yv = Object.freeze({
       }
     }
     dispose() {
-      this.#p || (this.#p = !0, this.#f = !1, this.element.removeEventListener(`pointerdown`, this.#v), this.element.removeEventListener(`pointerup`, this.#y), this.element.removeEventListener(`pointercancel`, this.#y), this.element.removeEventListener(`lostpointercapture`, this.#y), this.element.removeEventListener(`contextmenu`, this.#b), this.#r.removeEventListener(`click`, this.#k), this.#i.removeEventListener(`click`, this.#k), document.removeEventListener(`fullscreenchange`, this.#A), globalThis.removeEventListener(`pointerup`, this.#y), globalThis.removeEventListener(`pointercancel`, this.#y), globalThis.removeEventListener(`blur`, this.#j), globalThis.removeEventListener(`resize`, this.#N), globalThis.removeEventListener(`orientationchange`, this.#N), document.removeEventListener(`visibilitychange`, this.#M), document.removeEventListener(`touchstart`, this.#x, wv), document.removeEventListener(`touchend`, this.#S, wv), document.removeEventListener(`touchcancel`, this.#S, wv), document.removeEventListener(`selectstart`, this.#w), document.removeEventListener(`dblclick`, this.#w), document.removeEventListener(`gesturestart`, this.#w), this.#u.clear(), this.#l = null, this.#n.releaseAll(), this.#d?.close(), this.element.remove(), this.#r.remove(), this.#i.remove())
+      this.#p || (this.#p = !0, this.#f = !1, this.element.removeEventListener(`pointerdown`, this.#v), this.element.removeEventListener(`pointerup`, this.#y), this.element.removeEventListener(`pointercancel`, this.#y), this.element.removeEventListener(`lostpointercapture`, this.#y), this.element.removeEventListener(`contextmenu`, this.#b), this.#r.removeEventListener(`click`, this.#k), this.#i.removeEventListener(`click`, this.#k), document.removeEventListener(`fullscreenchange`, this.#A), globalThis.removeEventListener(`pointerup`, this.#y), globalThis.removeEventListener(`pointercancel`, this.#y), globalThis.removeEventListener(`blur`, this.#j), globalThis.removeEventListener(`resize`, this.#N), globalThis.removeEventListener(`orientationchange`, this.#N), document.removeEventListener(`visibilitychange`, this.#M), document.removeEventListener(`touchstart`, this.#x, Tv), document.removeEventListener(`touchend`, this.#S, Tv), document.removeEventListener(`touchcancel`, this.#S, Tv), document.removeEventListener(`selectstart`, this.#w), document.removeEventListener(`dblclick`, this.#w), document.removeEventListener(`gesturestart`, this.#w), this.#u.clear(), this.#l = null, this.#n.releaseAll(), this.#d?.close(), this.element.remove(), this.#r.remove(), this.#i.remove())
     }
     #h() {
       return this.#t.isStandalone ? !1 : this.#t.canRequestFullscreen || this.#t.isIos
     }
     #g() {
       this.#d === null && (this.releaseAll(), this.#d = A({
-        content: Dv,
+        content: Ov,
         initialFocusSelector: `[data-install-action='close']`,
         mount: this.#s,
         onClose: () => {
@@ -13040,7 +13094,7 @@ var yv = Object.freeze({
       }))
     }
     #_() {
-      this.element.addEventListener(`pointerdown`, this.#v), this.element.addEventListener(`pointerup`, this.#y), this.element.addEventListener(`pointercancel`, this.#y), this.element.addEventListener(`lostpointercapture`, this.#y), this.element.addEventListener(`contextmenu`, this.#b), this.#r.addEventListener(`click`, this.#k), this.#i.addEventListener(`click`, this.#k), document.addEventListener(`fullscreenchange`, this.#A), globalThis.addEventListener(`pointerup`, this.#y), globalThis.addEventListener(`pointercancel`, this.#y), globalThis.addEventListener(`blur`, this.#j), globalThis.addEventListener(`resize`, this.#N), globalThis.addEventListener(`orientationchange`, this.#N), document.addEventListener(`visibilitychange`, this.#M), document.addEventListener(`touchstart`, this.#x, wv), document.addEventListener(`touchend`, this.#S, wv), document.addEventListener(`touchcancel`, this.#S, wv), document.addEventListener(`selectstart`, this.#w), document.addEventListener(`dblclick`, this.#w), document.addEventListener(`gesturestart`, this.#w)
+      this.element.addEventListener(`pointerdown`, this.#v), this.element.addEventListener(`pointerup`, this.#y), this.element.addEventListener(`pointercancel`, this.#y), this.element.addEventListener(`lostpointercapture`, this.#y), this.element.addEventListener(`contextmenu`, this.#b), this.#r.addEventListener(`click`, this.#k), this.#i.addEventListener(`click`, this.#k), document.addEventListener(`fullscreenchange`, this.#A), globalThis.addEventListener(`pointerup`, this.#y), globalThis.addEventListener(`pointercancel`, this.#y), globalThis.addEventListener(`blur`, this.#j), globalThis.addEventListener(`resize`, this.#N), globalThis.addEventListener(`orientationchange`, this.#N), document.addEventListener(`visibilitychange`, this.#M), document.addEventListener(`touchstart`, this.#x, Tv), document.addEventListener(`touchend`, this.#S, Tv), document.addEventListener(`touchcancel`, this.#S, Tv), document.addEventListener(`selectstart`, this.#w), document.addEventListener(`dblclick`, this.#w), document.addEventListener(`gesturestart`, this.#w)
     }
     #v = e => {
       let t = this.#P(e.target);
@@ -13084,11 +13138,11 @@ var yv = Object.freeze({
       if (this.#l = null, n === null || !n.element.isConnected) return;
       let r = e - n.x,
         i = t - n.y;
-      r * r + i * i > Cv * Cv || n.element.click()
+      r * r + i * i > wv * wv || n.element.click()
     }
     #w = e => {
       let t = e.target;
-      t instanceof Element && t.closest(xv) !== null || e.cancelable && e.preventDefault()
+      t instanceof Element && t.closest(Sv) !== null || e.cancelable && e.preventDefault()
     };
     #T(e) {
       if (e.changedTouches.length !== 1) {
@@ -13106,13 +13160,13 @@ var yv = Object.freeze({
       }) || !e.cancelable || (e.preventDefault(), this.#D(t))
     }
     #E(e) {
-      return !(e instanceof Element) || e.closest(`[data-control]`) !== null || e.closest(xv) === null
+      return !(e instanceof Element) || e.closest(`[data-control]`) !== null || e.closest(Sv) === null
     }
     #D(e) {
       this.#l = null;
       let t = e.target;
       if (!(t instanceof Element) || t.closest(`[data-control]`) !== null) return;
-      let n = t.closest(Sv);
+      let n = t.closest(Cv);
       n instanceof HTMLElement && (this.#l = {
         element: n,
         x: e.clientX,
@@ -13137,7 +13191,7 @@ var yv = Object.freeze({
           this.#F();
           return
         }
-        n === `reset` && (this.#n.pressPointer(bv, `recover`), this.#n.releasePointer(bv), this.#e.onRecover())
+        n === `reset` && (this.#n.pressPointer(xv, `recover`), this.#n.releasePointer(xv), this.#e.onRecover())
       }
     };
     #A = () => {
@@ -13157,7 +13211,7 @@ var yv = Object.freeze({
       let t = e.closest(`[data-control]`);
       if (t === null) return null;
       let n = t.dataset.control;
-      return vv(n) ? {
+      return yv(n) ? {
         element: t,
         id: n
       } : null
@@ -13184,14 +13238,14 @@ var yv = Object.freeze({
       t !== void 0 && t(`landscape`).catch(() => void 0)
     }
     #R() {
-      let e = dv(globalThis.innerWidth, globalThis.innerHeight);
+      let e = fv(globalThis.innerWidth, globalThis.innerHeight);
       this.element.dataset.orientation = e, e !== this.#m && (this.#m = e, this.releaseAll())
     }
     #z() {
       let e = this.#n.heldControls();
       for (let t of this.element.querySelectorAll(`[data-control]`)) {
         let n = t.dataset.control,
-          r = vv(n) && e.has(n);
+          r = yv(n) && e.has(n);
         t.classList.toggle(`is-pressed`, r)
       }
     }
@@ -13201,7 +13255,7 @@ var yv = Object.freeze({
       return n
     }
   },
-  Ev = `
+  Dv = `
   <svg class="mc-fullscreen-icon" viewBox="0 0 24 24" aria-hidden="true">
     <g class="mc-fullscreen-icon--enter">
       <path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/>
@@ -13211,7 +13265,7 @@ var yv = Object.freeze({
     </g>
   </svg>
 `,
-  Dv = `
+  Ov = `
   <div class="result-card game-menu panel mc-install" role="dialog" aria-modal="true" aria-labelledby="mc-install-title">
     <h2 id="mc-install-title">FULLSCREEN INSTRUCTIONS</h2>
     <ol class="mc-install-steps">
@@ -13230,10 +13284,10 @@ var yv = Object.freeze({
     </div>
   </div>
 `,
-  Ov = `
+  kv = `
   <button class="mc-utility-button" type="button" data-action="reset" data-slot="reset-button">RESET</button>
 `,
-  kv = `
+  Av = `
   <div class="mc-dock">
     <div class="mc-cluster mc-cluster--steer">
       <button class="mc-pad mc-pad--major mc-pad--steer" type="button" data-control="steerLeft" aria-label="Steer left">
@@ -13252,10 +13306,10 @@ var yv = Object.freeze({
   </div>
 `;
 
-function Av() {
+function jv() {
   return Zt()
 }
-var jv = Object.freeze([{
+var Mv = Object.freeze([{
     action: `throttle`,
     codes: [`KeyW`, `ArrowUp`]
   }, {
@@ -13277,40 +13331,40 @@ var jv = Object.freeze([{
     action: `recover`,
     codes: [`KeyR`]
   }]),
-  Mv = new Set([`ArrowDown`, `ArrowLeft`, `ArrowRight`, `ArrowUp`, `Space`]),
-  Nv = .3,
-  Pv = 85,
-  Fv = 12,
-  Iv = 700,
-  Lv = 6,
-  Rv = 2e3,
-  zv = 200,
-  Bv = 400,
-  Vv = 300,
-  Hv = 600,
-  Uv = 400,
-  Wv = /^\d{4}-\d{2}-\d{2}$/u,
-  Gv = 750,
-  Kv = 45e3,
-  qv = 6e4,
-  Jv = class extends Error {
+  Nv = new Set([`ArrowDown`, `ArrowLeft`, `ArrowRight`, `ArrowUp`, `Space`]),
+  Pv = .3,
+  Fv = 85,
+  Iv = 12,
+  Lv = 700,
+  Rv = 6,
+  zv = 2e3,
+  Bv = 200,
+  Vv = 400,
+  Hv = 300,
+  Uv = 600,
+  Wv = 400,
+  Gv = /^\d{4}-\d{2}-\d{2}$/u,
+  Kv = 750,
+  qv = 45e3,
+  Jv = 6e4,
+  Yv = class extends Error {
     constructor() {
       super(`Team ghost field build was superseded.`), this.name = `TeamFieldStaleError`
     }
   },
-  Yv = class extends Error {
+  Xv = class extends Error {
     constructor() {
       super(`Personal-best ghost build was superseded.`), this.name = `PersonalBestGhostStaleError`
     }
   },
-  Xv = class extends Error {
+  Zv = class extends Error {
     constructor() {
       super(`The official daily and guest session are unavailable. Check your connection and retry.`), this.name = `DesktopConnectionRequiredError`
     }
   },
-  Zv = class {
+  Qv = class {
     #e;
-    #t = sl();
+    #t = cl();
     #n;
     #r;
     #i;
@@ -13319,7 +13373,7 @@ var jv = Object.freeze([{
     #s;
     #c = new De;
     #l = new je;
-    #u = new Vf({
+    #u = new Hf({
       baseContext: {
         deploymentBuild: Ue
       }
@@ -13371,21 +13425,21 @@ var jv = Object.freeze([{
     #te = null;
     #ne = `normal`;
     #re = null;
-    #ie = Jp;
+    #ie = Yp;
     #ae = !1;
     #oe = !1;
     #se = null;
     #ce = !1;
-    #le = Hp;
+    #le = Up;
     #ue = null;
     #de = null;
     #fe = null;
     #pe = null;
     #me = null;
-    #he = new Lm;
+    #he = new Rm;
     #ge = !1;
     #_e = 0;
-    #ve = new Nd({
+    #ve = new Pd({
       onPublish: (e, t, n) => {
         this.#ki(e, t, n)
       },
@@ -13431,7 +13485,7 @@ var jv = Object.freeze([{
       let t = this.#mt;
       if (t === void 0 || this.#fe === null) return;
       let n = this.#ye;
-      this.#ve.has(t.dailyId, n) && this.#fe.updateBoard(Hu(this.#Di(t, this.#ve.peek(t.dailyId, n) ?? null)))
+      this.#ve.has(t.dailyId, n) && this.#fe.updateBoard(Uu(this.#Di(t, this.#ve.peek(t.dailyId, n) ?? null)))
     }
     #Qe() {
       return (this.#ie.kind === `signed-in` ? this.#ie.joinedAtIso ?? null : null) ?? this.#Xe
@@ -13440,7 +13494,7 @@ var jv = Object.freeze([{
     #et = null;
     #tt = null;
     #nt;
-    #rt = new tv;
+    #rt = new nv;
     #it;
     #at = 0;
     #ot = null;
@@ -13464,7 +13518,7 @@ var jv = Object.freeze([{
     #wt = !1;
     #Tt = 0;
     #Et = 0;
-    #Dt = new fe(E.maximumRaceTicks);
+    #Dt = new de(E.maximumRaceTicks);
     #Ot;
     #kt;
     #At;
@@ -13509,7 +13563,7 @@ var jv = Object.freeze([{
     #hn = 0;
     #gn = null;
     #_n = null;
-    #vn = Fv;
+    #vn = Iv;
     #yn;
     #bn = 0;
     #xn = null;
@@ -13525,7 +13579,7 @@ var jv = Object.freeze([{
     #jn = null;
     #Mn;
     constructor(e) {
-      this.#e = e.mount, this.#n = e.service ?? new hs, this.#i = e.preferenceStorage ?? Sy(), this.#r = e.personalBestGhostStore ?? new Pf(this.#i), this.#a = e.onPersonalBestBeat, this.#o = e.onDisplayNameReport, this.#d = e.accountGateway ?? new Qp, this.#f = e.teamsGateway ?? new Km, this.#p = e.boardGateway ?? new sh, this.#I = e.serverRaceSelection, this.#L = e.telemetryForwarder, this.#Rt = Cy(this.#i), this.#in = Dy(this.#i), this.#an = Ty(this.#i), this.#Ut = La(this.#i), this.#s = new Oe({
+      this.#e = e.mount, this.#n = e.service ?? new hs, this.#i = e.preferenceStorage ?? Cy(), this.#r = e.personalBestGhostStore ?? new Ff(this.#i), this.#a = e.onPersonalBestBeat, this.#o = e.onDisplayNameReport, this.#d = e.accountGateway ?? new $p, this.#f = e.teamsGateway ?? new qm, this.#p = e.boardGateway ?? new ch, this.#I = e.serverRaceSelection, this.#L = e.telemetryForwarder, this.#Rt = wy(this.#i), this.#in = Oy(this.#i), this.#an = Ey(this.#i), this.#Ut = La(this.#i), this.#s = new Oe({
         ...e.qualityStorage === void 0 ? {} : {
           storage: e.qualityStorage
         }
@@ -13535,7 +13589,7 @@ var jv = Object.freeze([{
       return this.#st
     }
     create() {
-      S(this.#st, `SwervleGame`), this.#st === `new` && (this.#e.replaceChildren(), this.#e.className = `swervle-root`, this.#e.dataset.gameState = `loading`, this.#Ke = new Eu(this.#e, {
+      x(this.#st, `SwervleGame`), this.#st === `new` && (this.#e.replaceChildren(), this.#e.className = `swervle-root`, this.#e.dataset.gameState = `loading`, this.#Ke = new Du(this.#e, {
         accountAvailable: !this.#t,
         onAccount: () => {
           this.#si(`account`)
@@ -13596,11 +13650,11 @@ var jv = Object.freeze([{
     #Nn() {
       let e;
       try {
-        e = uv(fv(), globalThis.innerWidth)
+        e = dv(pv(), globalThis.innerWidth)
       } catch {
         return
       }
-      this.#e.dataset.swervleInput = e.isMobile ? `touch` : `keyboard`, e.isMobile ? document.documentElement.dataset.swervleInput = `touch` : delete document.documentElement.dataset.swervleInput, e.isMobile && (this.#it = new Tv({
+      this.#e.dataset.swervleInput = e.isMobile ? `touch` : `keyboard`, e.isMobile ? document.documentElement.dataset.swervleInput = `touch` : delete document.documentElement.dataset.swervleInput, e.isMobile && (this.#it = new Ev({
         callbacks: {
           onRecover: () => {
             this.#in && this.#Qo()
@@ -13615,7 +13669,7 @@ var jv = Object.freeze([{
       this.#rt.resetSources(), this.#it?.setArmed(e)
     }
     start() {
-      return S(this.#st, `SwervleGame`), this.create(), this.#ct || this.#st === `running` ? Promise.resolve() : (this.#lt === void 0 && (this.#lt = this.#zn().finally(() => {
+      return x(this.#st, `SwervleGame`), this.create(), this.#ct || this.#st === `running` ? Promise.resolve() : (this.#lt === void 0 && (this.#lt = this.#zn().finally(() => {
         this.#lt = void 0
       })), this.#lt)
     }
@@ -13679,7 +13733,7 @@ var jv = Object.freeze([{
         rivalTimeGapTicks: this.#Nt?.gapTicks ?? null,
         routeStartForward: this.#mt?.track.routeLine[0]?.forward ?? null,
         rulesetVersion: this.#Be?.model.ruleset.version ?? E.version,
-        runtime: yy(),
+        runtime: by(),
         simulationBuildId: Ue,
         shadowIntensity: r?.lights.csm[0]?.shadowIntensity ?? null,
         startCameraFramingOffset: Object.freeze({
@@ -13779,7 +13833,7 @@ var jv = Object.freeze([{
       }
     }
     #Rn(e) {
-      let t = Sd(this.#an, e.model.ruleset);
+      let t = Cd(this.#an, e.model.ruleset);
       this.#on = t.realTimeTicks;
       let n = this.#dt;
       n === void 0 || t.fastForwardTicks === 0 || this.#Fn(e, n, t.fastForwardTicks)
@@ -13810,7 +13864,7 @@ var jv = Object.freeze([{
           previewUnreleasedRules: r
         }), this.#Ke?.setBoostBudget(Ze(this.#rn)), this.#it?.setBoostAvailable(Ze(this.#rn) > 0);
         let i = G(`simulation-build`, () => {
-          let e = G(`terrain-world`, () => pe(n.track, O(n.track.revision.rulesetVersion), this.#rn));
+          let e = G(`terrain-world`, () => fe(n.track, O(n.track.revision.rulesetVersion), this.#rn));
           return G(`physics-world`, () => {
             e.create()
           }), G(`ready-presentation`, () => {
@@ -13876,7 +13930,7 @@ var jv = Object.freeze([{
         let m = n.track.routeLine[0],
           h = n.track.respawns[0];
         if (m !== void 0 && h !== void 0 && (this.#Le.initializeVehicleOrbit(h.transform.position, m.forward), this.#gn = ya(m.forward), this.#Le.setOrbitPose(this.#gn.from), this.#vs(this.#gn, 1), this.#ys()), n.opponent?.states !== void 0 && this.#Ba() === null && this.#Or() > 0) {
-          let e = new ye({
+          let e = new ve({
               modifiers: this.#rn,
               states: n.opponent.states,
               track: n.track
@@ -13898,7 +13952,7 @@ var jv = Object.freeze([{
               } = await w(async () => {
                 let {
                   dressAccountVehicleV1: e
-                } = await import(`./DressAccountVehicleV1-BpMqeSyL.js`).then(e => e.t);
+                } = await import(`./DressAccountVehicleV1-DwUEgMuR.js`).then(e => e.t);
                 return {
                   dressAccountVehicleV1: e
                 }
@@ -13921,13 +13975,13 @@ var jv = Object.freeze([{
                 },
                 parent: this.#ht.viewParent
               });
-            o.setVisible(this.#Wt), this.#At = o, this.#jt = e, this.#Mt = t, this.#Nt = new jd(n.track.routeLine)
+            o.setVisible(this.#Wt), this.#At = o, this.#jt = e, this.#Mt = t, this.#Nt = new Md(n.track.routeLine)
           } catch (n) {
             throw t?.dispose(), e.dispose(), n
           }
         }
-        this.#nt = new zt(window, jv);
-        let g = new x;
+        this.#nt = new zt(window, Mv);
+        let g = new xe;
         g.restore(i.simulation.captureSnapshot().clock), this.#dt = new Nt({
           callbacks: {
             beforeTicks: e => {
@@ -13960,13 +14014,13 @@ var jv = Object.freeze([{
         G(`first-render`, () => {
           p.update(1), this.#ls(), s.render(_.camera)
         }), this.#Ke?.setResetRestartsRace(this.#in), this.#Ro(), this.#Ke?.showBriefing({
-          dailyId: ly(n.dailyId),
+          dailyId: uy(n.dailyId),
           kicker: n.mode === `challenge` ? `${n.opponent?.displayName??`A friend`} called you out` : ``,
           mode: n.mode,
           opponentGhost: n.opponent?.states !== void 0,
           opponentDisplayTimeMs: n.opponent?.displayTimeMs ?? null,
           opponentName: n.opponent?.displayName ?? null,
-          opponentPublicRunId: py(n.opponent),
+          opponentPublicRunId: my(n.opponent),
           opponentTicks: n.opponent?.durationTicks ?? null,
           isSupporter: this.#go(),
           streakDays: this.#Eo(),
@@ -13978,9 +14032,9 @@ var jv = Object.freeze([{
         }), globalThis.requestAnimationFrame(() => {
           let e = this.#Le;
           this.#Ot !== s || e === void 0 || this.#e.dataset.gameState !== `ready` || (this.#ht?.update(1), this.#ls(), s.render(e.camera), this.#e.dataset.cameraSettled = `true`, this.#Va())
-        }), this.#ct = !0, this.#st = `created`, this.#ut = this.#Ba() === null ? this.#Ir(t) : Promise.resolve(), dy() && this.#so(), this.#ta(), this.#na(), this.#ea()
+        }), this.#ct = !0, this.#st = `created`, this.#ut = this.#Ba() === null ? this.#Ir(t) : Promise.resolve(), fy() && this.#so(), this.#ta(), this.#na(), this.#ea()
       } catch (e) {
-        this.#e.dataset.gameState = `error`, e instanceof Xv ? this.#Ke?.showFailure(`CONNECTION REQUIRED`, e.message) : e instanceof _s ? this.#Ke?.showFailure(`CHALLENGE GONE`, e.message, {
+        this.#e.dataset.gameState = `error`, e instanceof Zv ? this.#Ke?.showFailure(`CONNECTION REQUIRED`, e.message) : e instanceof _s ? this.#Ke?.showFailure(`CHALLENGE GONE`, e.message, {
           canRetry: !1
         }) : (this.#Ke?.showFailure(`COULDN’T BUILD THE TRACK`, e instanceof Error ? e.message : String(e)), this.#u.record(`rendering_failure`, {
           reason: e instanceof Error ? e.name : `unknown`
@@ -13990,7 +14044,7 @@ var jv = Object.freeze([{
     async #Bn() {
       let e;
       try {
-        e = this.#I ?? await ll()
+        e = this.#I ?? await ul()
       } catch {
         e = {
           gateway: null,
@@ -14006,7 +14060,7 @@ var jv = Object.freeze([{
     #Vn() {
       this.#te === null && (this.#te = globalThis.setInterval(() => {
         this.#Un()
-      }, al))
+      }, ol))
     }
     #Hn() {
       this.#te !== null && (globalThis.clearInterval(this.#te), this.#te = null)
@@ -14023,13 +14077,13 @@ var jv = Object.freeze([{
     }
     #Wn() {
       if (this.#Q !== null) return;
-      let e = this.#L === void 0 ? new hf : this.#L;
+      let e = this.#L === void 0 ? new gf : this.#L;
       e !== null && (this.#Q = e, e.start())
     }
     #Gn() {
       this.#ee === null && (this.#ee = globalThis.setInterval(() => {
         this.#qn()
-      }, il))
+      }, al))
     }
     #Kn() {
       this.#ee !== null && (globalThis.clearInterval(this.#ee), this.#ee = null)
@@ -14037,16 +14091,16 @@ var jv = Object.freeze([{
     async #qn() {
       let e;
       try {
-        let t = this.#I ?? await ll();
+        let t = this.#I ?? await ul();
         e = t.mode === `server` && t.gateway !== null
       } catch {
         e = !1
       }
-      let t = ol(this.#$, e);
+      let t = sl(this.#$, e);
       t !== this.#$ && (this.#$ = t, t === `restored` && (this.#Kn(), this.#Ke?.setConnectionState(`restored`)))
     }
     async #Jn() {
-      if (this.#t && (!this.#U || this.#H === null)) throw new Xv;
+      if (this.#t && (!this.#U || this.#H === null)) throw new Zv;
       if (!this.#U || this.#H === null) return this.#n.resolve();
       let e = ys(globalThis.location.pathname);
       if (e.kind === `challenge`) {
@@ -14062,7 +14116,7 @@ var jv = Object.freeze([{
         }
         return t
       }
-      let t = my();
+      let t = hy();
       if (t !== null) {
         if (e.id === null) throw Error(`A staged test drive requires a dated daily route.`);
         let n = await this.#H.fetchAdminTestDriveManifest(e.id, t);
@@ -14073,13 +14127,13 @@ var jv = Object.freeze([{
       if (n !== null) return this.#Yn(n);
       if (this.#u.record(`rendering_failure`, {
           reason: `server-daily-unavailable`
-        }), this.#t) throw new Xv;
+        }), this.#t) throw new Zv;
       return this.#n.resolve()
     }
     async #Yn(e) {
       let t = this.#H;
       if (t === null) return e;
-      let n = fy();
+      let n = py();
       if (n === null) return e;
       let r = await t.fetchRunGhost(n, e.dailyId, e.track.revision.trackDigest);
       return r === null ? e : (this.#u.record(`ghost_race_open`, {
@@ -14097,7 +14151,7 @@ var jv = Object.freeze([{
       !/^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/u.test(e) || !Ge(t) || (this.#u.record(`ghost_race_cta`, {
         dailyId: t,
         publicRunId: e
-      }), globalThis.location.assign(`${uy()}daily/${t}?ghost=${encodeURIComponent(e)}`))
+      }), globalThis.location.assign(`${dy()}daily/${t}?ghost=${encodeURIComponent(e)}`))
     }
     #Qn() {
       if (!this.#U || this.#W) return;
@@ -14125,7 +14179,7 @@ var jv = Object.freeze([{
       if (t === null || n === void 0) return;
       let r = this.#ve.beginRead(),
         i = this.#wn;
-      if (i !== null && i.dailyId === n.dailyId && Date.now() - i.readAtMs < Kv) {
+      if (i !== null && i.dailyId === n.dailyId && Date.now() - i.readAtMs < qv) {
         this.#Sn = {
           board: i.board
         }, this.#xn = Promise.resolve(i.board), this.#ve.publishRead(n.dailyId, `all`, i.board, r);
@@ -14185,7 +14239,7 @@ var jv = Object.freeze([{
     #ir() {
       let e = this.#mt,
         t = this.#Dt.captureStates();
-      return e === void 0 || t.length === 0 ? null : _e({
+      return e === void 0 || t.length === 0 ? null : ge({
         controllableStates: t,
         maximumRaceTicks: O(e.track.revision.rulesetVersion).maximumRaceTicks,
         raceContextId: e.raceContextId,
@@ -14204,7 +14258,7 @@ var jv = Object.freeze([{
       this.#kn = l.raceId;
       let u = {
           attemptToken: l.attemptToken,
-          idempotencyKey: Qv(),
+          idempotencyKey: $v(),
           raceId: l.raceId,
           retryOfRaceId: o.retryOf,
           submission: t
@@ -14229,7 +14283,7 @@ var jv = Object.freeze([{
             reason: s.classification
           });
           let a = this.#cr(i);
-          return a !== null && this.#lr(a) && (ty(s.classification) ? this.#Hi(e, t, u, n, r, a, s.classification) : this.#Ke?.showFailure($v(s.classification), ey(s.classification, this.#kn))), !0
+          return a !== null && this.#lr(a) && (ny(s.classification) ? this.#Hi(e, t, u, n, r, a, s.classification) : this.#Ke?.showFailure(ey(s.classification), ty(s.classification, this.#kn))), !0
         }
         d = s.verdict
       } else d = await a.submitRun(u);
@@ -14237,18 +14291,18 @@ var jv = Object.freeze([{
     }
     async #or(e, t, n, r, i) {
       let a = this.#cr(i),
-        o = cd(n, this.#kn);
+        o = ld(n, this.#kn);
       if (o.kind === `failure`) return this.#u.record(o.telemetry, {
         reason: o.reason
       }), this.#lr(a) && this.#Ke?.showFailure(o.title, o.message), !0;
-      let s = Fd(e, t, o.verdict);
+      let s = Id(e, t, o.verdict);
       if (s === null) return this.#u.record(`verification_rejected`, {
         reason: `invalid-server-verdict`
-      }), this.#lr(a) && this.#Ke?.showFailure(`INVALID VERIFIER RESPONSE`, sd(this.#kn)), !0;
+      }), this.#lr(a) && this.#Ke?.showFailure(`INVALID VERIFIER RESPONSE`, cd(this.#kn)), !0;
       let c = s.result.durationTicks;
       if (c === null || s.result.displayTimeMs === null) return this.#u.record(`verification_rejected`, {
         reason: `invalid-server-verdict`
-      }), this.#lr(a) && this.#Ke?.showFailure(`INVALID VERIFIER RESPONSE`, sd(this.#kn)), !0;
+      }), this.#lr(a) && this.#Ke?.showFailure(`INVALID VERIFIER RESPONSE`, cd(this.#kn)), !0;
       let l = s.result.displayTimeMs;
       this.#ot = s, this.#u.record(`verification_accepted`, {
         durationTicks: c,
@@ -14265,7 +14319,7 @@ var jv = Object.freeze([{
       let g = this.#Pi(),
         _ = d;
       return this.#lr(a) && this.#Ke?.showResult({
-        ...md({
+        ...hd({
           board: p,
           boardScope: this.#Ei(),
           diagnosticId: this.#kn,
@@ -14307,7 +14361,7 @@ var jv = Object.freeze([{
       }
       let i = this.#Pi();
       this.#Ke?.showResult({
-        ...pd({
+        ...md({
           boardScope: this.#Ei(),
           diagnosticId: this.#kn,
           displayTimeMs: n,
@@ -14361,7 +14415,7 @@ var jv = Object.freeze([{
       let i = this.#Pi(),
         a = this.#r.read(e.track, this.#rn.version),
         o = a === null || n < a.displayTimeMs;
-      return md({
+      return hd({
         board: r,
         boardScope: this.#Ei(),
         diagnosticId: this.#kn,
@@ -14396,12 +14450,12 @@ var jv = Object.freeze([{
             }), a, i);
             return
           }
-          await xy()
+          await Sy()
         }
     }
     #_r(e, t, n = null) {
       let r = this.#Pi();
-      this.#Ke?.showResult(md({
+      this.#Ke?.showResult(hd({
         board: null,
         boardScope: this.#Ei(),
         diagnosticId: n,
@@ -14419,7 +14473,7 @@ var jv = Object.freeze([{
       })
     }
     #vr() {
-      return cl(globalThis.location.hostname)
+      return ll(globalThis.location.hostname)
     }
     #yr() {
       return !this.#t && this.#ie.kind !== `signed-in` && (this.#U || this.#vr())
@@ -14529,7 +14583,7 @@ var jv = Object.freeze([{
           let f = d.recoveryLockUntilTick !== null && e <= d.recoveryLockUntilTick,
             p = a || f ? u & se : u;
           this.#Dt.recordByte(p);
-          let m = ge(this.#at, p);
+          let m = he(this.#at, p);
           if (m.length > 0) {
             let n = Pe({
               edges: m,
@@ -14555,7 +14609,7 @@ var jv = Object.freeze([{
             throttle: n.held.throttle === !0
           });
         if (r === this.#yt) return;
-        let i = ge(this.#yt, r);
+        let i = he(this.#yt, r);
         if (this.#yt = r, i.length === 0) return;
         this.#bt += 1, e.model.base.requireCar(e.model.carEntityId).applyCommand(Pe({
           edges: i,
@@ -14623,12 +14677,12 @@ var jv = Object.freeze([{
     }
     #jr(e, t) {
       if (e === `race-countdown-cue`) {
-        let e = sy(t, `value`);
-        if (!Cd(e, this.#on)) return;
+        let e = cy(t, `value`);
+        if (!wd(e, this.#on)) return;
         this.#Ke?.showCountdown(String(e)), this.#l.play(`countdown`)
       } else if (e === `race-go`) this.#at = 0, this.#Ke?.showCountdown(`GO`), this.#l.play(`go`), this.#u.record(`race_go`), globalThis.setTimeout(() => this.#Ke?.showCountdown(null), 650);
       else if (e === `race-checkpoint`) {
-        let e = sy(t, `nextGateIndex`);
+        let e = cy(t, `nextGateIndex`);
         this.#yn?.setNextGate(e), this.#l.play(`checkpoint`), this.#u.record(`checkpoint`, {
           gateIndex: e - 1
         }), this.#rr()
@@ -14650,7 +14704,7 @@ var jv = Object.freeze([{
       let a = Math.max(1, this.#s.profile.cameraObstructionFrameInterval);
       if (this.#Ge += 1, this.#Ge % a === 0 && this.#Nr(this.#gn !== null || i, this.#s.profile.cameraObstructionProbesStructures), t !== void 0 && n !== void 0) {
         if (this.#yn?.updatePerformanceCulling(n.position), !i) {
-          let t = n.groundedWheelCount === 0 && Math.abs(n.speed) > 4 ? Pv : 80,
+          let t = n.groundedWheelCount === 0 && Math.abs(n.speed) > 4 ? Fv : 80,
             r = 1 - Math.exp(-8 * e.realDeltaSeconds);
           this.#Le.camera.fov += (t - this.#Le.camera.fov) * r, this.#Le.camera.updateProjectionMatrix()
         }
@@ -14712,7 +14766,7 @@ var jv = Object.freeze([{
       this.#ss(), this.#l.stopVehicle(), this.#dt?.stop(), this.#nt?.stop(), this.#Pn(!1), e.simulation.stop(), this.#st = `stopped`, this.#On = !0;
       let i = this.#bn;
       this.#u.record(`verification_started`);
-      let a = _e({
+      let a = ge({
         controllableStates: this.#Dt.captureStates(),
         maximumRaceTicks: e.model.ruleset.maximumRaceTicks,
         raceContextId: t.raceContextId,
@@ -14734,7 +14788,7 @@ var jv = Object.freeze([{
           return
         }
         await new Promise(e => globalThis.setTimeout(e, 0));
-        let e = await K_({
+        let e = await q_({
           expectedRaceContextId: t.raceContextId,
           modifiers: this.#rn,
           submission: a,
@@ -14761,7 +14815,7 @@ var jv = Object.freeze([{
       let n = this.#Be,
         r = this.#mt;
       if (this.#t && (n === void 0 || r === void 0)) {
-        globalThis.location.assign(`${uy()}desktop-retry`);
+        globalThis.location.assign(`${dy()}desktop-retry`);
         return
       }
       if (!(n === void 0 || r === void 0 || this.#On)) {
@@ -14773,19 +14827,19 @@ var jv = Object.freeze([{
           let a = Oa(n.simulation.captureSnapshot());
           this.#ht?.reset(a), this.#bs(), this.#ht?.update(1);
           let o = n.model.base.requireCar(n.model.carEntityId).captureTelemetry();
-          if (this.#ms(this.#hs(o)), i !== void 0 && this.#At?.update(1, o.position), this.#st = `created`, this.#e.dataset.gameState = `ready`, this.#Ke?.showCountdown(null), this.#u.record(`retry`), e) this.#Br(), this.#Ot?.render(jy(this.#Le).camera), await this.#Cr();
+          if (this.#ms(this.#hs(o)), i !== void 0 && this.#At?.update(1, o.position), this.#st = `created`, this.#e.dataset.gameState = `ready`, this.#Ke?.showCountdown(null), this.#u.record(`retry`), e) this.#Br(), this.#Ot?.render(My(this.#Le).camera), await this.#Cr();
           else {
-            await this.#Br(), this.#Ot?.render(jy(this.#Le).camera);
+            await this.#Br(), this.#Ot?.render(My(this.#Le).camera);
             let e = this.#Pi();
             this.#Ke?.showBriefing({
-              dailyId: ly(r.dailyId),
+              dailyId: uy(r.dailyId),
               kicker: `Ready for another bad idea?`,
               mode: this.#Fe ? `daily` : r.mode,
               opponentGhost: e?.states !== void 0,
               opponentDisplayTimeMs: e?.displayTimeMs ?? null,
               opponentName: e?.displayName ?? null,
               isSupporter: this.#go(),
-              opponentPublicRunId: py(e),
+              opponentPublicRunId: my(e),
               opponentTicks: e?.durationTicks ?? null,
               streakDays: this.#Eo(),
               title: `RUN IT BACK.`,
@@ -14835,7 +14889,7 @@ var jv = Object.freeze([{
         let n = t.track.revision.trackDigest,
           r = await o.fetchRunGhost(a.publicRunId, t.dailyId, n);
         if (e !== this.#zt) return;
-        r?.states !== void 0 && (i = Mf({
+        r?.states !== void 0 && (i = Nf({
           ghost: {
             dailyId: t.dailyId,
             displayTimeMs: r.displayTimeMs,
@@ -14855,7 +14909,7 @@ var jv = Object.freeze([{
         c = this.#Bt !== void 0 && this.#Vt === s;
       c || this.#zr();
       let l, u;
-      c && this.#Bt !== void 0 ? (l = this.#Bt, u = l.restart(i.states)) : (l = new ye({
+      c && this.#Bt !== void 0 ? (l = this.#Bt, u = l.restart(i.states)) : (l = new ve({
         modifiers: this.#rn,
         states: i.states,
         track: t.track
@@ -14864,7 +14918,7 @@ var jv = Object.freeze([{
         f = null;
       try {
         let t = await r.instantiate(ze);
-        if (e !== this.#zt) throw t.dispose(), new Yv;
+        if (e !== this.#zt) throw t.dispose(), new Xv;
         let i = new Ie({
             appearance: Hi,
             assetInstance: t,
@@ -14874,7 +14928,7 @@ var jv = Object.freeze([{
             materialRegistrar: n.materialRegistrar
           }),
           a = await this.#Ua(i.root);
-        if (e !== this.#zt) throw a?.dispose(), i.dispose(), new Yv;
+        if (e !== this.#zt) throw a?.dispose(), i.dispose(), new Xv;
         d = this.#_?.wear(i.root) ?? null;
         let o = _r({
           displayName: `You`,
@@ -14890,10 +14944,10 @@ var jv = Object.freeze([{
           parent: n.viewParent
         }), f.root.name = `swervle-personal-best-ghost`, f.setVisible(this.#Wt);
         let s = this.#Be?.model.base.requireCar(this.#Be.model.carEntityId).captureTelemetry().position;
-        if (s !== void 0 && f.update(1, s), e !== this.#zt) throw new Yv;
+        if (s !== void 0 && f.update(1, s), e !== this.#zt) throw new Xv;
         this.#Pt = f, this.#Ft = l, this.#It = d, this.#Lt = a, this.#Ht = N(), this.#Ja()
       } catch (e) {
-        if (d?.dispose(), f?.dispose(), this.#zr(), e instanceof Yv) return;
+        if (d?.dispose(), f?.dispose(), this.#zr(), e instanceof Xv) return;
         this.#u.record(`pb_ghost_unavailable`, {
           reason: e instanceof Error ? e.name : `unknown`
         })
@@ -14935,7 +14989,7 @@ var jv = Object.freeze([{
     }
     setPersonalBestGhostEnabled(e) {
       if (this.#Rt !== e) {
-        if (this.#Rt = e, wy(this.#i, e), !e) {
+        if (this.#Rt = e, Ty(this.#i, e), !e) {
           this.#Rr(), this.#Ja();
           return
         }
@@ -14952,13 +15006,13 @@ var jv = Object.freeze([{
       e !== void 0 && t !== void 0 && e.render(t.camera)
     }
     setResetRestartsRace(e) {
-      this.#in !== e && (this.#in = e, Oy(this.#i, e), this.#Ke?.setResetRestartsRace(e))
+      this.#in !== e && (this.#in = e, ky(this.#i, e), this.#Ke?.setResetRestartsRace(e))
     }
     get resetRestartsRace() {
       return this.#in
     }
     setCountdownLength(e) {
-      this.#an !== e && (this.#an = e, Ey(this.#i, e))
+      this.#an !== e && (this.#an = e, Dy(this.#i, e))
     }
     get countdownLength() {
       return this.#an
@@ -15020,7 +15074,7 @@ var jv = Object.freeze([{
       if (this.#vt) return !1;
       let t = this.#Be,
         n = this.#dt;
-      if (t === void 0 || n === void 0 || n.diagnostics.valid || !yd(e, t.model.raceState.phase)) return !1;
+      if (t === void 0 || n === void 0 || n.diagnostics.valid || !bd(e, t.model.raceState.phase)) return !1;
       let r = n.clock.capture();
       return n.reset(), n.clock.restore(r), this.#pt += 1, this.#u.record(`countdown_lag_forgiven`, {
         reason: e
@@ -15039,7 +15093,7 @@ var jv = Object.freeze([{
         this.#Ke?.toast(`RESULT STILL SETTLING — TRY SHARING AGAIN IN A MOMENT`, `warning`);
         return
       }
-      let n = ky(),
+      let n = Ay(),
         r = t.serverRunId,
         i = t.serverChallenge;
       if (i === null) {
@@ -15060,9 +15114,9 @@ var jv = Object.freeze([{
         result: t.result,
         seed: e.track.revision.seed,
         submission: t.submission
-      }), o = new URL(`${uy()}r/${encodeURIComponent(a)}`, globalThis.location.href).href) : (a = i.shareId, o = i.shareUrl), this.#u.record(`challenge_publish`, {
+      }), o = new URL(`${dy()}r/${encodeURIComponent(a)}`, globalThis.location.href).href) : (a = i.shareId, o = i.shareUrl), this.#u.record(`challenge_publish`, {
         publicRunId: t.publicRunId
-      }), await this.#Zr(e, t.publicRunId, t.durationTicks, t.displayTimeMs, n, a, o) === `copied-link` ? (this.#Ke?.toast(`RACE LINK COPIED TO CLIPBOARD — SHARE WITH YOUR FRIENDS`, `good`), this.#u.record(`link_copy`)) : (await Ay(o), this.#Ke?.toast(`RACE LINK COPIED TO CLIPBOARD — SHARE WITH YOUR FRIENDS`, `good`), this.#u.record(`link_copy`))
+      }), await this.#Zr(e, t.publicRunId, t.durationTicks, t.displayTimeMs, n, a, o) === `copied-link` ? (this.#Ke?.toast(`RACE LINK COPIED TO CLIPBOARD — SHARE WITH YOUR FRIENDS`, `good`), this.#u.record(`link_copy`)) : (await jy(o), this.#Ke?.toast(`RACE LINK COPIED TO CLIPBOARD — SHARE WITH YOUR FRIENDS`, `good`), this.#u.record(`link_copy`))
     }
     #Xr(e, t, n, r, i) {
       let a = this.#ue ?? [],
@@ -15071,7 +15125,7 @@ var jv = Object.freeze([{
         c = s !== null && s.publicRunId !== t ? s.durationTicks : null,
         l = s !== null && s.publicRunId !== t ? s.displayTimeMs : null,
         u = e.opponent;
-      return ep({
+      return tp({
         challengeShareId: i,
         dailyId: e.dailyId,
         dailyRank: o?.rank ?? null,
@@ -15084,7 +15138,7 @@ var jv = Object.freeze([{
         priorPersonalBestTicks: c,
         priorPersonalBestDisplayTimeMs: l,
         publicRunId: t,
-        streakDays: _p(a.map(e => e.dailyId), Ua(new Date)).currentDays
+        streakDays: vp(a.map(e => e.dailyId), Ua(new Date)).currentDays
       })[0] ?? null
     }
     async #Zr(e, t, n, r, i, a, o) {
@@ -15108,7 +15162,7 @@ var jv = Object.freeze([{
           c = this.#Xr(e, t, n, r, a);
         return c !== null && this.#u.record(`share_moment`, {
           moment: c.type
-        }), await ap(s)
+        }), await op(s)
       } catch {
         return `unavailable`
       }
@@ -15116,7 +15170,7 @@ var jv = Object.freeze([{
     #Qr(e, t) {
       let n = this.#H,
         r = n === null ? void 0 : n.reportLivery?.bind(n);
-      r !== void 0 && Jf({
+      r !== void 0 && Yf({
         displayName: e.trim().length === 0 ? `RACER` : e,
         mount: this.#e,
         onSubmit: e => {
@@ -15182,7 +15236,7 @@ var jv = Object.freeze([{
       this.#Ke?.toast(r, `good`)
     }
     #ti(e, t = `display-name`) {
-      Jf({
+      Yf({
         displayName: e,
         mount: this.#e,
         subject: t,
@@ -15202,7 +15256,7 @@ var jv = Object.freeze([{
       this.#ri(vs())
     }
     #ri(e) {
-      globalThis.location.assign(`${uy()}daily/${e}`)
+      globalThis.location.assign(`${dy()}daily/${e}`)
     }
     #ii() {
       this.#oi(`scrim`)
@@ -15243,17 +15297,16 @@ var jv = Object.freeze([{
     #ui(e) {
       this.#di(this.#he.back(), void 0, void 0, e)
     }
-    #di(e, t, n, r) {
+    #di(e, t, n, r, i = !1) {
       this.#_e += 1, this.#fi(e.close);
-      let i = e.open,
-        a = e.resumeRace,
-        o = t;
-      for (; i !== null;) {
-        if (this.#_i(i, o, n), this.#pi(i)) return;
+      let a = e.open,
+        o = e.resumeRace,
+        s = t;
+      for (; a !== null;) {
+        if (this.#_i(a, s, n), this.#pi(a)) return;
         let e = this.#he.back();
-        this.#fi(e.close), i = e.open, a = e.resumeRace, o = void 0
-      }
-      a && (r === void 0 ? this.#ia() : this.#Qi(r))
+        this.#fi(e.close), a = e.open, o = e.resumeRace, s = void 0
+      }!o && !i || (r === void 0 ? this.#ia() : this.#Qi(r))
     }
     #fi(e) {
       this.#ge = !0;
@@ -15270,7 +15323,7 @@ var jv = Object.freeze([{
       if (this.#ge || this.#he.current !== `garage`) return;
       let e = this.#_e;
       globalThis.setTimeout(() => {
-        e === this.#_e && this.#he.current === `garage` && (this.#di(this.#he.closeAll()), this.#ia())
+        e === this.#_e && this.#he.current === `garage` && this.#di(this.#he.closeAll(), void 0, void 0, void 0, !0)
       }, 0)
     }
     #hi(e) {
@@ -15409,13 +15462,13 @@ var jv = Object.freeze([{
       this.#u.record(`menu_open`, {
         trigger: e
       }), this.#ss();
-      let t = eu({
+      let t = tu({
         hasStoredPersonalBest: !this.#W && this.#Ii(),
         hasVerifiedRun: !this.#W && this.#ot !== null && this.#ot.result.publicRunId !== null,
         signedIn: this.#ie.kind === `signed-in`,
         verdictSettling: !this.#W && this.#jn !== null
       });
-      this.#ye = `all`, this.#fe = du({
+      this.#ye = `all`, this.#fe = fu({
         accountAvailable: !this.#t,
         onSettingsChange: e => {
           this.#bi(e)
@@ -15456,10 +15509,10 @@ var jv = Object.freeze([{
       let e = this.#mt;
       if (this.#H === null || e === void 0 || this.#W) return null;
       let t = this.#ye;
-      return this.#ve.has(e.dailyId, t) ? Hu(this.#Di(e, this.#ve.peek(e.dailyId, t) ?? null)) : this.#Ci(e)
+      return this.#ve.has(e.dailyId, t) ? Uu(this.#Di(e, this.#ve.peek(e.dailyId, t) ?? null)) : this.#Ci(e)
     }
     #Ci(e) {
-      return Hu(fd({
+      return Uu(pd({
         board: null,
         ownPublicRunId: null,
         pending: !0,
@@ -15470,7 +15523,7 @@ var jv = Object.freeze([{
     #wi(e, t) {
       return e.mode !== `daily` || e.dailyId >= Ua(new Date) ? null : Object.freeze({
         active: t,
-        dayLabel: ly(e.dailyId)
+        dayLabel: uy(e.dailyId)
       })
     }
     #Ti(e) {
@@ -15483,7 +15536,7 @@ var jv = Object.freeze([{
     #Di(e, t) {
       let n = this.#r.read(e.track, this.#rn.version),
         r = this.#ye === `day`;
-      return this.#ba(t), fd({
+      return this.#ba(t), pd({
         board: t,
         ownPublicRunId: this.#Z ?? n?.serverPublicRunId ?? null,
         scopeControl: this.#Ti(e),
@@ -15510,7 +15563,7 @@ var jv = Object.freeze([{
           this.#Ke?.updateResultBoard(this.#hr(t, r, i, this.#ve.peek(t.dailyId, e) ?? null)), this.#ve.revalidate(t.dailyId, e);
           return
         }
-        this.#Ke?.updateResultBoard(pd({
+        this.#Ke?.updateResultBoard(md({
           boardScope: this.#Ei(),
           diagnosticId: this.#kn,
           displayTimeMs: i,
@@ -15526,13 +15579,13 @@ var jv = Object.freeze([{
     #ki(e, t, n) {
       let r = this.#mt,
         i = this.#fe;
-      i === null || r?.dailyId !== e || this.#ye !== t || $(this.#st) || i.updateBoard(Hu(this.#Di(r, n)))
+      i === null || r?.dailyId !== e || this.#ye !== t || $(this.#st) || i.updateBoard(Uu(this.#Di(r, n)))
     }
     #Ai(e) {
       if (e === this.#ye) return;
       this.#ye = e;
       let t = this.#mt;
-      t !== void 0 && (this.#fe?.updateBoard(this.#ve.has(t.dailyId, e) ? Hu(this.#Di(t, this.#ve.peek(t.dailyId, e) ?? null)) : this.#Ci(t)), this.#Mi())
+      t !== void 0 && (this.#fe?.updateBoard(this.#ve.has(t.dailyId, e) ? Uu(this.#Di(t, this.#ve.peek(t.dailyId, e) ?? null)) : this.#Ci(t)), this.#Mi())
     }
     #ji(e) {
       this.#fe = null, this.#vi(), this.#Xn(e)
@@ -15569,8 +15622,8 @@ var jv = Object.freeze([{
       let e = this.#Ri();
       if (e !== null) return e;
       let t = this.#jn;
-      return t === null ? null : (this.#Ke?.toast(`GETTING YOUR RACE LINK`, `neutral`, qv), await Promise.race([t, new Promise(e => {
-        globalThis.setTimeout(e, qv)
+      return t === null ? null : (this.#Ke?.toast(`GETTING YOUR RACE LINK`, `neutral`, Jv), await Promise.race([t, new Promise(e => {
+        globalThis.setTimeout(e, Jv)
       })]), this.#Ri())
     }
     #Ri() {
@@ -15598,7 +15651,7 @@ var jv = Object.freeze([{
       let {
         result: r,
         submission: i
-      } = Af({
+      } = jf({
         personalBest: n,
         raceContextId: e.raceContextId,
         track: e.track
@@ -15627,7 +15680,7 @@ var jv = Object.freeze([{
           schemaVersion: 1,
           submission: t
         },
-        s = i ? zl(o) : o;
+        s = i ? Bl(o) : o;
       return this.#K = s, s
     }
     #Bi(e, t) {
@@ -15637,7 +15690,7 @@ var jv = Object.freeze([{
     }
     #Vi() {
       let e = this.#K;
-      e !== null && Ul(e) && this.#Ke?.toast(`RUN FILE SAVED`, `good`)
+      e !== null && Wl(e) && this.#Ke?.toast(`RUN FILE SAVED`, `good`)
     }
     #Hi(e, t, n, r, i, a, o) {
       let s = this.#zi(e, t, r, i, !0, n.raceId ?? null);
@@ -15646,13 +15699,13 @@ var jv = Object.freeze([{
         finish: s,
         input: n,
         manifest: e
-      }), this.#Ke?.showFailure($v(o), ey(o, this.#kn), {
+      }), this.#Ke?.showFailure(ey(o), ty(o, this.#kn), {
         downloadRun: !0,
         resubmitRun: !0
-      }), this.#Wi(ny)
+      }), this.#Wi(ry)
     }
     #Ui() {
-      this.#q !== null && (this.#Ke?.toast(`RESUBMITTING RUN`, `good`), this.#Wi([0, ...ny]))
+      this.#q !== null && (this.#Ke?.toast(`RESUBMITTING RUN`, `good`), this.#Wi([0, ...ry]))
     }
     async #Wi(e) {
       let t = ++this.#J;
@@ -15682,10 +15735,10 @@ var jv = Object.freeze([{
           let e = await this.#Yi(a, r, n);
           return e === `landed` && (this.#q = null), e === `landed`
         }
-        return ty(o.classification) ? !1 : (this.#Ki(e), this.#u.record(`verification_failed`, {
+        return ny(o.classification) ? !1 : (this.#Ki(e), this.#u.record(`verification_failed`, {
           code: o.code,
           reason: o.classification
-        }), this.#lr(this.#cr(n)) && this.#Ke?.showFailure($v(o.classification), ey(o.classification, this.#kn)), !0)
+        }), this.#lr(this.#cr(n)) && this.#Ke?.showFailure(ey(o.classification), ty(o.classification, this.#kn)), !0)
       }
       if (this.#Ki(e), o.kind === `pending`) {
         this.#kn = o.raceId, this.#u.record(`verification_pending`, {
@@ -15703,7 +15756,7 @@ var jv = Object.freeze([{
       return await this.#or(a, r.submission, o.verdict, t, n), !0
     }
     #Ki(e) {
-      Bl(e.finish), this.#K = null, this.#q === e && (this.#q = null)
+      Vl(e.finish), this.#K = null, this.#q === e && (this.#q = null)
     }
     async #qi(e, t, n, r, i) {
       let a = this.#zi(e, t, n, r, !0);
@@ -15719,7 +15772,7 @@ var jv = Object.freeze([{
     }
     async #Ji(e) {
       if (!this.#U || this.#W) return;
-      let t = Rl();
+      let t = zl();
       if (t?.raceContextId === e.raceContextId) try {
         await this.#Yi(e, t, this.#bn - 1)
       } catch {}
@@ -15730,7 +15783,7 @@ var jv = Object.freeze([{
       if (t.raceId !== void 0 && r.fetchRunStatus !== void 0) {
         let i = await r.fetchRunStatus(t.raceId).catch(() => null);
         if (i !== null) {
-          if (Bl(t), this.#K = null, i.state === `terminal`) await this.#or(e, t.submission, Object.freeze({
+          if (Vl(t), this.#K = null, i.state === `terminal`) await this.#or(e, t.submission, Object.freeze({
             ...i.verdict,
             leaderboardEligible: i.leaderboardEligible
           }), r, n);
@@ -15744,33 +15797,33 @@ var jv = Object.freeze([{
       let i = await r.startRace(e.raceContextId, null).catch(() => null);
       if (i === null) return `unreachable`;
       if (this.#X = i.raceId, this.#ie.kind !== `signed-in`) {
-        let e = Vl(t.durationTicks, i.startedAtIso, Date.now());
+        let e = Hl(t.durationTicks, i.startedAtIso, Date.now());
         if (e > 0 && await new Promise(t => globalThis.setTimeout(t, e)), this.#st === `disposed`) return `unreachable`
       }
       this.#kn = i.raceId;
       let a = {
         archival: !0,
         attemptToken: i.attemptToken,
-        idempotencyKey: Qv(),
+        idempotencyKey: $v(),
         raceId: i.raceId,
         retryOfRaceId: null,
         submission: t.submission
       };
       if (r.submitRunOutcome === void 0) {
         let i = await r.submitRun(a);
-        return i === null ? `unreachable` : (Bl(t), this.#K = null, await this.#or(e, t.submission, i, r, n), `landed`)
+        return i === null ? `unreachable` : (Vl(t), this.#K = null, await this.#or(e, t.submission, i, r, n), `landed`)
       }
       let o = await r.submitRunOutcome(a);
       if (o.kind === `failed`) {
         if (o.classification === `server-unreachable` || o.classification === `server-timeout`) return `unreachable`;
-        Bl(t), this.#K = null, this.#u.record(`verification_failed`, {
+        Vl(t), this.#K = null, this.#u.record(`verification_failed`, {
           code: o.code,
           reason: o.classification
         });
         let e = this.#cr(n);
-        return this.#lr(e) && this.#Ke?.showFailure($v(o.classification), ey(o.classification, this.#kn)), `landed`
+        return this.#lr(e) && this.#Ke?.showFailure(ey(o.classification), ty(o.classification, this.#kn)), `landed`
       }
-      if (Bl(t), this.#K = null, o.kind === `pending`) {
+      if (Vl(t), this.#K = null, o.kind === `pending`) {
         this.#kn = o.raceId, this.#u.record(`verification_pending`, {
           raceId: o.raceId,
           state: o.state
@@ -15790,7 +15843,7 @@ var jv = Object.freeze([{
       if (r === null) return null;
       let {
         submission: i
-      } = Af({
+      } = jf({
         personalBest: t,
         raceContextId: e.raceContextId,
         track: e.track,
@@ -15852,11 +15905,11 @@ var jv = Object.freeze([{
           }, {
             timeout: 4e3
           })
-        }, Rv);
+        }, zv);
         return
       }
-      let t = D_({
-          dayCount: Lv,
+      let t = O_({
+          dayCount: Rv,
           todayDailyId: vs()
         }).map(e => e.dailyId),
         n = () => {
@@ -15868,13 +15921,13 @@ var jv = Object.freeze([{
             this.#Pe = null, this.#Ne = e(n, {
               timeout: 4e3
             })
-          }, Uv))
+          }, Wv))
         };
       this.#Pe = globalThis.setTimeout(() => {
         this.#Pe = null, this.#Ne = e(n, {
           timeout: 4e3
         })
-      }, Rv)
+      }, zv)
     }
     #ta() {
       let e = () => {
@@ -15886,18 +15939,18 @@ var jv = Object.freeze([{
       if (typeof t != `function`) {
         this.#ke = globalThis.setTimeout(() => {
           this.#ke = null, e()
-        }, zv);
+        }, Bv);
         return
       }
       this.#ke = globalThis.setTimeout(() => {
         this.#ke = null, this.#Oe = t(e, {
-          timeout: Bv
+          timeout: Vv
         })
-      }, zv)
+      }, Bv)
     }
     #na() {
       let e = () => {
-          this.#Ae = null, !(this.#st === `running` || this.#Me !== null) && w(() => import(`./LiveryEditorScreenV1-DnJrfq5G.js`).then(e => {
+          this.#Ae = null, !(this.#st === `running` || this.#Me !== null) && w(() => import(`./LiveryEditorScreenV1-BTv2tb0v.js`).then(e => {
             this.#Me = e
           }), __vite__mapDeps([21, 7, 22, 23, 24, 25, 26, 13, 4, 8, 12, 1, 14, 16, 17, 9, 27, 28, 29, 10, 6, 30])).catch(() => {})
         },
@@ -15905,14 +15958,14 @@ var jv = Object.freeze([{
       if (typeof t != `function`) {
         this.#je = globalThis.setTimeout(() => {
           this.#je = null, e()
-        }, Vv);
+        }, Hv);
         return
       }
       this.#je = globalThis.setTimeout(() => {
         this.#je = null, this.#Ae = t(e, {
-          timeout: Hv
+          timeout: Uv
         })
-      }, Vv)
+      }, Hv)
     }
     #ra() {
       this.#je !== null && (globalThis.clearTimeout(this.#je), this.#je = null), this.#ke !== null && (globalThis.clearTimeout(this.#ke), this.#ke = null), this.#Pe !== null && (globalThis.clearTimeout(this.#Pe), this.#Pe = null);
@@ -15932,12 +15985,12 @@ var jv = Object.freeze([{
       let e = this.#mt;
       if (this.#m !== null || !this.#U || e === void 0 || this.#W) return;
       this.#Kr(`player-leaderboard`), this.#ss();
-      let t = yg(e.dailyId);
-      this.#m = Zh({
+      let t = bg(e.dailyId);
+      this.#m = Qh({
         dailyId: e.dailyId,
-        dayLabel: ly(e.dailyId),
-        firstDailyId: cy(e.dailyId, this.#vo()),
-        formatDay: ly,
+        dayLabel: uy(e.dailyId),
+        firstDailyId: ly(e.dailyId, this.#vo()),
+        formatDay: uy,
         gateway: this.#p,
         mount: this.#e,
         onClose: () => {
@@ -15981,7 +16034,7 @@ var jv = Object.freeze([{
       this.#pe !== null || !this.#U || this.#W || (this.#u.record(`car_open`, {
         daysRaced: this.#N,
         signedIn: this.#ie.kind === `signed-in`
-      }), this.#pe = Mm({
+      }), this.#pe = Nm({
         mount: this.#e,
         onClose: () => {
           this.#pe = null, this.#hi(`edit-vehicle`)
@@ -16031,7 +16084,7 @@ var jv = Object.freeze([{
         packId: n,
         signedIn: r,
         vehicleId: e
-      }), w(() => import(`./VehicleOfferDialogV1-BR-6XWLa.js`).then(i => {
+      }), w(() => import(`./VehicleOfferDialogV1-DHxf6ITb.js`).then(i => {
         i.openVehicleOfferDialogV1({
           mount: t,
           onBuy: e => {
@@ -16064,12 +16117,12 @@ var jv = Object.freeze([{
     }
     #pa() {
       let e = N();
-      this.#ma(e, null, !1), e !== `stock` && Promise.all([w(() => Promise.resolve().then(() => Cp), void 0), w(() => import(`./VehicleLiveryDesignV1-BRTG82dp.js`).then(e => e.a), __vite__mapDeps([12, 1, 7, 13]))]).then(([t, n]) => {
+      this.#ma(e, null, !1), e !== `stock` && Promise.all([w(() => Promise.resolve().then(() => wp), void 0), w(() => import(`./VehicleLiveryDesignV1-BRTG82dp.js`).then(e => e.a), __vite__mapDeps([12, 1, 7, 13]))]).then(([t, n]) => {
         !n.isVehicleLiveryIdV1(e) || N() !== e || this.#ma(e, t.createLocalVehicleLiveryStoreV1(e).read(), !1)
       }).catch(() => {})
     }
     #ma(e, t, n) {
-      if (!Av()) return;
+      if (!jv()) return;
       let r = t;
       if (typeof t == `string`) try {
         r = JSON.parse(t)
@@ -16131,7 +16184,7 @@ var jv = Object.freeze([{
       this.#qe = e, this.#Ke?.setViewerCarPaint(this.#va() ?? e), this.#_a()
     }
     #_a() {
-      if (!Av() || this.#ie.kind !== `signed-in`) return;
+      if (!jv() || this.#ie.kind !== `signed-in`) return;
       let e = this.#qe;
       if (e !== null && e.chip === ``) return;
       let t = this.#Ye;
@@ -16168,7 +16221,7 @@ var jv = Object.freeze([{
     }
     #Sa(e) {
       let t = this.#mt;
-      w(() => Promise.resolve().then(() => vh).then(n => {
+      w(() => Promise.resolve().then(() => yh).then(n => {
         n.openProfileCardDialogV1({
           baseUrl: `/`,
           mount: e.mount ?? this.#e,
@@ -16194,7 +16247,7 @@ var jv = Object.freeze([{
             joinedAtIso: e.isViewer ? this.#Qe() ?? e.joinedAtIso ?? null : e.joinedAtIso ?? null,
             publicRunId: e.publicRunId ?? null,
             rank: e.rank ?? null,
-            dayLabel: e.dayLabel ?? (t === void 0 ? null : ly(t.dailyId)),
+            dayLabel: e.dayLabel ?? (t === void 0 ? null : uy(t.dailyId)),
             displayName: e.isViewer && this.#ie.kind === `signed-in` ? this.#ie.username : e.displayName,
             isSupporter: this.#go(),
             isViewer: e.isViewer,
@@ -16217,7 +16270,7 @@ var jv = Object.freeze([{
       let e = this.#ie.kind === `signed-in`;
       this.#u.record(`vehicle_packs_open`, {
         signedIn: e
-      }), this.#me = Wm({
+      }), this.#me = Gm({
         mount: this.#e,
         signedIn: e,
         onBuy: e => {
@@ -16241,13 +16294,13 @@ var jv = Object.freeze([{
       })
     }
     async #Ta(e) {
-      let t = Tm(document.cookie);
+      let t = Em(document.cookie);
       if (t === null) {
         this.#Ke?.toast(`SIGN IN TO BUY A PACK`, `warning`);
         return
       }
       try {
-        let n = await fetch(`${jl()}/me/packs/checkout`, {
+        let n = await fetch(`${Ml()}/me/packs/checkout`, {
             body: JSON.stringify({
               packId: e
             }),
@@ -16274,15 +16327,15 @@ var jv = Object.freeze([{
     }
     #Da() {
       if (this.#t) return;
-      let e = dp();
+      let e = fp();
       e !== null && (this.#A = e, this.#Ke?.setAccountState(!0, e.username), this.#N = e.daysRaced)
     }
     #Oa() {
-      this.#A !== null && (this.#A = null, this.#N = null, pp())
+      this.#A !== null && (this.#A = null, this.#N = null, mp())
     }
     #ka() {
       let e = this.#ie;
-      !this.#O || e.kind !== `signed-in` || fp({
+      !this.#O || e.kind !== `signed-in` || pp({
         daysRaced: this.#N,
         isSupporter: e.isSupporter === !0,
         username: e.username
@@ -16301,7 +16354,7 @@ var jv = Object.freeze([{
       this.#g = e.design, this.#w = e.owner, N() === `stock` && this.#ma(`stock`, e.design, !1), this.#Pa(), this.#La() !== null && (this.#C = this.#Ra(e.design))
     }
     #Ma() {
-      if (Tm(document.cookie) === null) return;
+      if (Em(document.cookie) === null) return;
       let e = this.#p.loadMyLivery();
       this.#T = e, e.then(e => {
         e === null || this.#g !== null || this.#Lr() || (this.#g = e, N() === `stock` && this.#ma(`stock`, e, !1), this.#C = this.#Ra(e))
@@ -16309,7 +16362,7 @@ var jv = Object.freeze([{
     }
     async #Na() {
       let e = this.#C;
-      e !== null && await Promise.race([e, new Promise(e => setTimeout(e, Iv))])
+      e !== null && await Promise.race([e, new Promise(e => setTimeout(e, Lv))])
     }
     #Pa() {
       let e = this.#w;
@@ -16347,7 +16400,7 @@ var jv = Object.freeze([{
       if (t !== void 0) {
         this.#v = !0;
         try {
-          let n = this.#j ?? await w(() => import(`./RaceLiveryV1-DcOPHg6e.js`), __vite__mapDeps([33, 7, 4, 28, 29, 12, 1, 13, 17, 9, 10]));
+          let n = this.#j ?? await w(() => import(`./RaceLiveryV1-DxbCj5KF.js`), __vite__mapDeps([33, 7, 4, 28, 29, 12, 1, 13, 17, 9, 10]));
           if (this.#j = n, this.#Lr() || this.#La() === null) return;
           let r = await t.instantiate(ze);
           try {
@@ -16388,7 +16441,7 @@ var jv = Object.freeze([{
         n = this.#za();
       if (e === void 0 || t === void 0 || n === null || this.#e.dataset.cameraSettled !== `true`) return null;
       let r = e.diagnostics();
-      return t.camera.updateMatrixWorld(!0), n.root.updateMatrixWorld(!0), ig({
+      return t.camera.updateMatrixWorld(!0), n.root.updateMatrixWorld(!0), ag({
         camera: {
           aspect: t.camera.aspect,
           far: t.camera.far,
@@ -16397,7 +16450,7 @@ var jv = Object.freeze([{
           near: t.camera.near
         },
         car: {
-          nodes: pg(n.root),
+          nodes: mg(n.root),
           rootMatrixWorld: n.root.matrixWorld.toArray()
         },
         exposure: r.exposure,
@@ -16427,7 +16480,7 @@ var jv = Object.freeze([{
         n = this.#ht,
         r = this.#x;
       if (!(e === null || t === void 0 || n === void 0 || r === null)) try {
-        let i = await w(() => import(`./VehiclePackPhotoV1-DVN3hwAu.js`), __vite__mapDeps([34, 7, 12, 1, 13, 32, 15, 16, 17, 9, 18]));
+        let i = await w(() => import(`./VehiclePackPhotoV1-CIudnM0R.js`), __vite__mapDeps([34, 7, 12, 1, 13, 32, 15, 16, 17, 9, 18]));
         if (this.#Lr() || this.#Le !== t || this.#x !== r) return;
         let o = r.copyInterpolatedChassisQuaternion(new a),
           s = await i.stageVehiclePackPhotoV1({
@@ -16465,7 +16518,7 @@ var jv = Object.freeze([{
             } = await w(async () => {
               let {
                 hydrateAccountVehicleLiveryV1: e
-              } = await Promise.resolve().then(() => Cp);
+              } = await Promise.resolve().then(() => wp);
               return {
                 hydrateAccountVehicleLiveryV1: e
               }
@@ -16486,7 +16539,7 @@ var jv = Object.freeze([{
           }
         } catch {}
         try {
-          let [e, n] = await Promise.all([w(() => Promise.resolve().then(() => Cp), void 0), w(() => import(`./VehicleLiveryDesignV1-BRTG82dp.js`).then(e => e.a), __vite__mapDeps([12, 1, 7, 13]))]), r = n.isVehicleLiveryIdV1(t) ? e.createLocalVehicleLiveryStoreV1(t).read() : null;
+          let [e, n] = await Promise.all([w(() => Promise.resolve().then(() => wp), void 0), w(() => import(`./VehicleLiveryDesignV1-BRTG82dp.js`).then(e => e.a), __vite__mapDeps([12, 1, 7, 13]))]), r = n.isVehicleLiveryIdV1(t) ? e.createLocalVehicleLiveryStoreV1(t).read() : null;
           this.#ma(t, r, !1)
         } catch {
           this.#ma(t, null, !1)
@@ -16500,7 +16553,7 @@ var jv = Object.freeze([{
       let t = N();
       if (t === `stock`) return null;
       try {
-        let [n, r, i] = await Promise.all([w(() => import(`./DressAccountVehicleV1-BpMqeSyL.js`).then(e => e.t), __vite__mapDeps([11, 1, 12, 7, 13, 14, 15, 16, 17, 9, 18])), w(() => Promise.resolve().then(() => Cp), void 0), w(() => import(`./VehicleLiveryDesignV1-BRTG82dp.js`).then(e => e.a), __vite__mapDeps([12, 1, 7, 13]))]), a = i.isVehicleLiveryIdV1(t) ? r.createLocalVehicleLiveryStoreV1(t).read() : null;
+        let [n, r, i] = await Promise.all([w(() => import(`./DressAccountVehicleV1-DwUEgMuR.js`).then(e => e.t), __vite__mapDeps([11, 1, 12, 7, 13, 14, 15, 16, 17, 9, 18])), w(() => Promise.resolve().then(() => wp), void 0), w(() => import(`./VehicleLiveryDesignV1-BRTG82dp.js`).then(e => e.a), __vite__mapDeps([12, 1, 7, 13]))]), a = i.isVehicleLiveryIdV1(t) ? r.createLocalVehicleLiveryStoreV1(t).read() : null;
         return await n.dressAccountVehicleV1(e, t, {
           designText: a
         })
@@ -16509,7 +16562,7 @@ var jv = Object.freeze([{
       }
     }
     #Wa() {
-      this.#y = w(() => import(`./CarBodyPickerV1-BSEVlycg.js`).then(async e => e.createCarBodyStageV1({
+      this.#y = w(() => import(`./CarBodyPickerV1-B0p5RZ-Q.js`).then(async e => e.createCarBodyStageV1({
         onApplied: () => {
           this.#Ja()
         },
@@ -16537,7 +16590,7 @@ var jv = Object.freeze([{
       if (t === null) return null;
       let n = null;
       try {
-        let r = this.#j ?? await w(() => import(`./RaceLiveryV1-DcOPHg6e.js`), __vite__mapDeps([33, 7, 4, 28, 29, 12, 1, 13, 17, 9, 10]));
+        let r = this.#j ?? await w(() => import(`./RaceLiveryV1-DxbCj5KF.js`), __vite__mapDeps([33, 7, 4, 28, 29, 12, 1, 13, 17, 9, 10]));
         return this.#j = r, n = r.createRaceLiveryV1({
           designText: t.design,
           materialRegistrar: this.#ht?.materialRegistrar,
@@ -16613,7 +16666,7 @@ var jv = Object.freeze([{
           } catch (e) {
             return console.warn(`Swervle: the garage could not borrow the loaded car`, e), null
           }
-        }, c = W(`garage-module`, async () => this.#Me ?? w(() => import(`./LiveryEditorScreenV1-DnJrfq5G.js`), __vite__mapDeps([21, 7, 22, 23, 24, 25, 26, 13, 4, 8, 12, 1, 14, 16, 17, 9, 27, 28, 29, 10, 6, 30]))).then(async a => (this.#Me = a, a.openLiveryEditorScreen({
+        }, c = W(`garage-module`, async () => this.#Me ?? w(() => import(`./LiveryEditorScreenV1-BTv2tb0v.js`), __vite__mapDeps([21, 7, 22, 23, 24, 25, 26, 13, 4, 8, 12, 1, 14, 16, 17, 9, 27, 28, 29, 10, 6, 30]))).then(async a => (this.#Me = a, a.openLiveryEditorScreen({
           allowSkinIo: n && (this.#go() || vt()),
           drivableVehicleIds: r,
           gateway: this.#p,
@@ -16660,7 +16713,7 @@ var jv = Object.freeze([{
       this.#Kr(`player-support`), this.#ss();
       let e = this.#ie.kind === `signed-in`,
         t = this.#ie.kind === `signed-in` && this.#ie.discordLinkingAvailable === !0,
-        n = g_({
+        n = __({
           mount: this.#e,
           onClose: () => {
             this.#F = null, this.#hi(`support`)
@@ -16704,7 +16757,7 @@ var jv = Object.freeze([{
     }
     async #to() {
       try {
-        let e = await fetch(`${jl()}/account/patreon`, {
+        let e = await fetch(`${Ml()}/account/patreon`, {
           credentials: `same-origin`,
           headers: {
             accept: `application/json`
@@ -16722,7 +16775,7 @@ var jv = Object.freeze([{
     }
     async #no() {
       try {
-        let e = await fetch(`${jl()}/auth/patreon/start`, {
+        let e = await fetch(`${Ml()}/auth/patreon/start`, {
           body: JSON.stringify({
             returnTo: globalThis.location.pathname
           }),
@@ -16748,7 +16801,7 @@ var jv = Object.freeze([{
     }
     async #ro() {
       try {
-        await fetch(`${jl()}/account/patreon`, {
+        await fetch(`${Ml()}/account/patreon`, {
           credentials: `same-origin`,
           method: `DELETE`
         }), this.#F?.updatePatreon({
@@ -16761,7 +16814,7 @@ var jv = Object.freeze([{
     }
     #io() {
       let e = this.#mt;
-      this.#P !== null || !this.#U || e === void 0 || this.#ie.kind !== `signed-in` || (this.#Kr(`player-teams`), this.#ss(), this.#P = $g({
+      this.#P !== null || !this.#U || e === void 0 || this.#ie.kind !== `signed-in` || (this.#Kr(`player-teams`), this.#ss(), this.#P = e_({
         dailyId: e.dailyId,
         gateway: this.#f,
         mount: this.#e,
@@ -16787,15 +16840,15 @@ var jv = Object.freeze([{
       }))
     }
     async #ao(e) {
-      await Ay(e, `Copy this Swervle invite code:`), this.#Ke?.toast(`INVITE CODE COPIED — SEND IT TO YOUR CREW`, `good`), this.#u.record(`team_invite_copy`)
+      await jy(e, `Copy this Swervle invite code:`), this.#Ke?.toast(`INVITE CODE COPIED — SEND IT TO YOUR CREW`, `good`), this.#u.record(`team_invite_copy`)
     }
     #oo(e) {
       let t = this.#mt;
-      if (!(t === void 0 || !Wv.test(e))) {
+      if (!(t === void 0 || !Gv.test(e))) {
         if (this.#u.record(`team_race_cta`, {
             dailyId: e
           }), t.dailyId !== e) {
-          globalThis.location.assign(`${uy()}daily/${e}?team=1`);
+          globalThis.location.assign(`${dy()}daily/${e}?team=1`);
           return
         }
         this.#so()
@@ -16883,7 +16936,7 @@ var jv = Object.freeze([{
               tick: 0
             }),
             p = await n.instantiate(ze);
-          if (i !== this.#$t || !this.#do()) throw p.dispose(), new Jv;
+          if (i !== this.#$t || !this.#do()) throw p.dispose(), new Yv;
           let m = new Ie({
               appearance: Hi,
               assetInstance: p,
@@ -16897,7 +16950,7 @@ var jv = Object.freeze([{
             } = await w(async () => {
               let {
                 dressAccountVehicleV1: e
-              } = await import(`./DressAccountVehicleV1-BpMqeSyL.js`).then(e => e.t);
+              } = await import(`./DressAccountVehicleV1-DwUEgMuR.js`).then(e => e.t);
               return {
                 dressAccountVehicleV1: e
               }
@@ -16910,7 +16963,7 @@ var jv = Object.freeze([{
               carView: m,
               current: i === this.#$t && this.#do(),
               livery: _
-            })) throw g?.dispose(), new Jv;
+            })) throw g?.dispose(), new Yv;
           g !== null && u.push(g), _ !== null && l.push(_), s.add({
             carView: m,
             initialSnapshot: f,
@@ -16933,7 +16986,7 @@ var jv = Object.freeze([{
       } catch (e) {
         for (let e of l) e.dispose();
         for (let e of u) e.dispose();
-        if (s.dispose(), this.#Jt === s && (this.#Jt = void 0), e instanceof Jv) return;
+        if (s.dispose(), this.#Jt === s && (this.#Jt = void 0), e instanceof Yv) return;
         this.#u.record(`team_field_unavailable`, {
           reason: e instanceof Error ? e.name : `unknown`
         })
@@ -16970,7 +17023,7 @@ var jv = Object.freeze([{
     }
     #ho(e) {
       if (this.#ie.kind !== `signed-in`) return;
-      let t = e === null ? null : _c(e.tag);
+      let t = e === null ? null : vc(e.tag);
       (this.#ie.teamTag ?? null) !== t && (this.#ie = Object.freeze({
         ...this.#ie,
         teamTag: t
@@ -16991,7 +17044,7 @@ var jv = Object.freeze([{
       if (this.#we !== null) return;
       this.#ss();
       let e = vs();
-      this.#we = O_({
+      this.#we = k_({
         accountAvailable: !this.#t,
         dayCount: 60,
         earliestDailyId: this.#vo(),
@@ -17016,7 +17069,7 @@ var jv = Object.freeze([{
     async #xo(e) {
       let t = this.#H;
       if (t === null) return;
-      let n = D_({
+      let n = O_({
           dayCount: 60,
           todayDailyId: e
         }),
@@ -17048,20 +17101,20 @@ var jv = Object.freeze([{
       try {
         let t = this.#i,
           n = this.#z.get(e),
-          r = n === void 0 ? R_(t, e, L_) : null,
+          r = n === void 0 ? z_(t, e, R_) : null,
           i, a, o, s = Ye(e).version;
-        if (n !== void 0) i = n.trackDigest, a = b_(n), z_(t, e, {
+        if (n !== void 0) i = n.trackDigest, a = x_(n), B_(t, e, {
           digest: i,
-          rev: L_,
+          rev: R_,
           svg: a
-        }), o = this.#r.read(My(i), s);
-        else if (r !== null) i = r.digest, a = r.svg, o = this.#r.read(My(i), s);
+        }), o = this.#r.read(Ny(i), s);
+        else if (r !== null) i = r.digest, a = r.svg, o = this.#r.read(Ny(i), s);
         else if (this.#U) return null;
         else {
           let n = this.#n.dailyManifest(e).track;
-          i = n.revision.trackDigest, a = y_(n), z_(t, e, {
+          i = n.revision.trackDigest, a = b_(n), B_(t, e, {
             digest: i,
-            rev: L_,
+            rev: R_,
             svg: a
           }), o = this.#r.read(n, s)
         }
@@ -17086,7 +17139,7 @@ var jv = Object.freeze([{
       if (this.#t || this.#Te !== null || this.#Ee !== null) return;
       this.#Kr(`player-account`), this.#ss();
       let t = this.#ie.kind === `signed-in` ? this.#To() : [],
-        n = pm({
+        n = mm({
           mount: e ?? this.#e,
           onChooseUsername: () => {
             this.#si(`username`)
@@ -17118,17 +17171,17 @@ var jv = Object.freeze([{
           status: this.#ie
         });
       this.#Te = n, this.#ie.kind === `signed-in` && (this.#ie.discordLinkingAvailable === !0 && this.#d.loadDiscordConnection !== void 0 ? this.#d.loadDiscordConnection().then(e => {
-        this.#Te === n && lm(n.element, e)
+        this.#Te === n && um(n.element, e)
       }).catch(() => {
-        this.#Te === n && lm(n.element, {
+        this.#Te === n && um(n.element, {
           kind: `unavailable`
         })
-      }) : this.#ie.discordLinkingAvailable === !0 && lm(n.element, {
+      }) : this.#ie.discordLinkingAvailable === !0 && um(n.element, {
         kind: `unavailable`
       }), this.#Do(!0).then(e => {
-        this.#Te === n && om(n.element, e)
+        this.#Te === n && sm(n.element, e)
       }), this.#Mo(!0).then(e => {
-        e === null || this.#Te !== n || dm(n.element, this.#ko(t, e), Ua(new Date))
+        e === null || this.#Te !== n || fm(n.element, this.#ko(t, e), Ua(new Date))
       }).catch(() => void 0))
     }
     #To() {
@@ -17139,11 +17192,11 @@ var jv = Object.freeze([{
           i = n.dailyId ?? r?.dailyId ?? null;
         if (i === null) continue;
         let a = this.#vr() ? null : this.#n.dailyRank(i, n.durationTicks, n.publicRunId),
-          o = R_(this.#i, i, L_);
+          o = z_(this.#i, i, R_);
         t.push({
           row: {
             dailyId: i,
-            dateLabel: ly(i),
+            dateLabel: uy(i),
             placementLabel: a === null ? null : `#${String(a)}`,
             thumbnailSvg: o?.svg ?? r?.svg ?? null,
             timeLabel: D(n.displayTimeMs)
@@ -17163,7 +17216,7 @@ var jv = Object.freeze([{
       for (let t of this.#ue ?? []) e.push(t.dailyId);
       if (e.length === 0) return 0;
       try {
-        return _p(e, Ua(new Date)).currentDays
+        return vp(e, Ua(new Date)).currentDays
       } catch {
         return 0
       }
@@ -17181,12 +17234,12 @@ var jv = Object.freeze([{
     }
     #Oo() {
       let e = new Map,
-        t = D_({
+        t = O_({
           dayCount: 60,
           todayDailyId: vs()
         });
       for (let n of t) {
-        let t = R_(this.#i, n.dailyId, L_);
+        let t = z_(this.#i, n.dailyId, R_);
         t !== null && e.set(t.digest, {
           dailyId: n.dailyId,
           svg: t.svg
@@ -17197,13 +17250,13 @@ var jv = Object.freeze([{
     #ko(e, t) {
       let n = new Set,
         r = [];
-      for (let e of Xp(t).values()) {
+      for (let e of Zp(t).values()) {
         n.add(e.dailyId);
-        let t = R_(this.#i, e.dailyId, L_);
+        let t = z_(this.#i, e.dailyId, R_);
         r.push({
           row: {
             dailyId: e.dailyId,
-            dateLabel: ly(e.dailyId),
+            dateLabel: uy(e.dailyId),
             placementLabel: e.rank === null ? null : `#${String(e.rank)}`,
             thumbnailSvg: t?.svg ?? null,
             timeLabel: D(H(e.durationTicks, e.displayTimeMs))
@@ -17220,7 +17273,7 @@ var jv = Object.freeze([{
       }) => e)
     }
     #Ao() {
-      this.#Ee === null && (this.#ss(), this.#Ee = ym({
+      this.#Ee === null && (this.#ss(), this.#Ee = bm({
         mount: this.#e,
         onClose: () => {
           this.#Ee = null, this.#hi(`username`)
@@ -17236,7 +17289,7 @@ var jv = Object.freeze([{
     }
     #jo(e) {
       let t = this.#we;
-      for (let n of e) this.#R.delete(n), t !== null && P_(t.element, n, this.#So(n))
+      for (let n of e) this.#R.delete(n), t !== null && F_(t.element, n, this.#So(n))
     }
     #Mo(e = !1) {
       if (!e && this.#ue !== null) return Promise.resolve(this.#ue);
@@ -17245,8 +17298,8 @@ var jv = Object.freeze([{
         if (e === null || this.#ie.kind !== `signed-in`) return e;
         let t = new Set(this.#V.keys());
         this.#ue = e, this.#V.clear();
-        for (let [n, r] of Xp(e)) t.add(n), this.#V.set(n, r);
-        for (let n of jf({
+        for (let [n, r] of Zp(e)) t.add(n), this.#V.set(n, r);
+        for (let n of Mf({
             runs: e,
             store: this.#r
           })) {
@@ -17272,7 +17325,7 @@ var jv = Object.freeze([{
     async #Fo() {
       let e = this.#k;
       if (this.#k = null, !this.#U) {
-        this.#ie = Yp, this.#O = !0, this.#Po(), this.#Oa(), this.#Ke?.setAccountState(!1, null);
+        this.#ie = Xp, this.#O = !0, this.#Po(), this.#Oa(), this.#Ke?.setAccountState(!1, null);
         return
       }
       try {
@@ -17287,8 +17340,8 @@ var jv = Object.freeze([{
       } catch {}
     }
     #Io(e) {
-      let t = Up(this.#le, e);
-      this.#le = t.state, t.show !== null && qp({
+      let t = Wp(this.#le, e);
+      this.#le = t.state, t.show !== null && Jp({
         mount: this.#e,
         onAcknowledge: e => {
           this.#Lo(e.warningId)
@@ -17371,7 +17424,7 @@ var jv = Object.freeze([{
       this.#Ke?.toast(t === `sent` ? `CHECK YOUR EMAIL` : `ACCOUNTS COMING SOON`, t === `sent` ? `good` : `neutral`)
     }
     async #Go() {
-      await this.#d.logout(), this.#ie = Jp, this.#Po(), this.#No(), this.#A = null, this.#N = null, pp(), this.#Fa(), this.#Ke?.setAccountState(!1, null), this.#Ke?.toast(`SIGNED OUT`, `neutral`)
+      await this.#d.logout(), this.#ie = Yp, this.#Po(), this.#No(), this.#A = null, this.#N = null, mp(), this.#Fa(), this.#Ke?.setAccountState(!1, null), this.#Ke?.toast(`SIGNED OUT`, `neutral`)
     }
     #Ko() {
       this.#Ot?.canvas.addEventListener(`click`, this.#Yo), document.addEventListener(`mousedown`, this.#ts), window.addEventListener(`blur`, this.#Jo), window.addEventListener(`keydown`, this.#is, {
@@ -17425,13 +17478,13 @@ var jv = Object.freeze([{
       let t = this.#Ot?.canvas;
       if (t === void 0) return;
       if (document.pointerLockElement === t) {
-        this.#fs(e.movementX, e.movementY, Nv);
+        this.#fs(e.movementX, e.movementY, Pv);
         return
       }
       if (!this.#xt) return;
       let n = e.clientX - this.#Tt,
         r = e.clientY - this.#Et;
-      this.#Tt = e.clientX, this.#Et = e.clientY, e.target === t && this.#fs(n, r, Nv)
+      this.#Tt = e.clientX, this.#Et = e.clientY, e.target === t && this.#fs(n, r, Pv)
     };
     #ts = e => {
       e.button !== 0 || e.target === this.#Ot?.canvas || (this.#xt = !1)
@@ -17453,7 +17506,7 @@ var jv = Object.freeze([{
     #is = e => {
       let t = e.target,
         n = t instanceof Element ? t.closest(`.modal-scrim:not(.result-screen)`) : null;
-      if (n !== null && n !== this.#fe?.element || iy(t)) return;
+      if (n !== null && n !== this.#fe?.element || ay(t)) return;
       let r = this.#he.current;
       if (r !== null && r !== `menu` && e.code !== `Escape`) return;
       if (e.code === `KeyG` && !e.repeat && this.#fe === null) {
@@ -17469,14 +17522,14 @@ var jv = Object.freeze([{
         return
       }
       let i = this.#Be?.model.raceState.phase ?? null;
-      if ((i === `countdown` || i === `racing` || this.#vt) && Mv.has(e.code) && e.preventDefault(), this.#vt) {
-        if (!e.repeat && (e.code === `KeyR` || Ql.has(e.code))) {
+      if ((i === `countdown` || i === `racing` || this.#vt) && Nv.has(e.code) && e.preventDefault(), this.#vt) {
+        if (!e.repeat && (e.code === `KeyR` || $l.has(e.code))) {
           e.preventDefault(), this.#Gr(!1), this.#Qo();
           return
         }
         if (e.code !== `Escape`) return
       }
-      let a = $l({
+      let a = eu({
         code: e.code,
         menuOpen: this.#fe !== null,
         phase: i,
@@ -17538,7 +17591,7 @@ var jv = Object.freeze([{
     }
     #us() {
       if (!(this.#Le === void 0 || this.#gn === null)) {
-        if (this.#un = this.#Le.camera.fov, this.#mn = 0, this.#hn = 0, vy()) {
+        if (this.#un = this.#Le.camera.fov, this.#mn = 0, this.#hn = 0, yy()) {
           this.#gs();
           return
         }
@@ -17554,7 +17607,7 @@ var jv = Object.freeze([{
       this.#_n = i;
       let a = ba(n, i);
       return this.#vs(n, 1 - a.easedProgress), t.setOrbitPose({
-        phiDegrees: ay(a.pose.phiDegrees + this.#mn),
+        phiDegrees: oy(a.pose.phiDegrees + this.#mn),
         radius: a.pose.radius,
         thetaDegrees: a.pose.thetaDegrees + this.#hn
       }), t.camera.fov = this.#un + (80 - this.#un) * a.easedProgress, t.camera.updateProjectionMatrix(), a.complete && this.#_s(), !0
@@ -17565,7 +17618,7 @@ var jv = Object.freeze([{
       let i = r.captureOrbitSnapshot();
       if (r.moveOrbit(e, t, n), this.#gn === null || this.#_n === null) return;
       let a = r.captureOrbitSnapshot();
-      this.#hn += oy(i.thetaDegrees, a.thetaDegrees), this.#mn += a.phiDegrees - i.phiDegrees
+      this.#hn += sy(i.thetaDegrees, a.thetaDegrees), this.#mn += a.phiDegrees - i.phiDegrees
     }
     #ps() {
       if (this.#Re = !this.#Re, this.#Re) {
@@ -17590,7 +17643,7 @@ var jv = Object.freeze([{
       let e = this.#Le,
         t = this.#gn;
       e !== void 0 && t !== null && (e.setOrbitPose({
-        phiDegrees: ay(t.to.phiDegrees + this.#mn),
+        phiDegrees: oy(t.to.phiDegrees + this.#mn),
         radius: t.to.radius,
         thetaDegrees: t.to.thetaDegrees + this.#hn
       }), e.camera.fov = 80, e.camera.updateProjectionMatrix()), this.#_s()
@@ -17609,47 +17662,47 @@ var jv = Object.freeze([{
     }
   };
 
-function Qv() {
+function $v() {
   return `run_${[...crypto.getRandomValues(new Uint8Array(16))].map(e=>e.toString(16).padStart(2,`0`)).join(``)}`
 }
 
-function $v(e) {
+function ey(e) {
   return e === `build-mismatch` ? `RELOAD REQUIRED` : e === `attempt-expired` ? `ATTEMPT EXPIRED` : e === `attempt-reused` ? `ATTEMPT ALREADY USED` : e === `malformed-replay` ? `REPLAY NOT ACCEPTED` : e === `server-timeout` ? `VERIFIER STILL UNREACHABLE` : e === `server-unreachable` ? `OFFICIAL VERIFIER UNREACHABLE` : e === `verifier-error` ? `VERIFIER BUSY` : e === `simulation-divergence` ? `SIMULATION DIVERGED` : e === `api-error` || e === `malformed-response` ? `SUBMISSION NOT ACCEPTED` : `RUN NOT VERIFIED`
 }
 
-function ey(e, t) {
-  let n = sd(t);
-  return e === `build-mismatch` ? `This tab uses an incompatible simulation build. Reload before racing again. ${n}` : e === `attempt-expired` ? `The ranked attempt expired before submission. Start a fresh race. ${n}` : e === `attempt-reused` ? `This attempt identity already belongs to a different submission. ${n}` : e === `malformed-replay` ? `The replay envelope was not structurally valid. ${n}` : ty(e) ? `The verifier could not take this run yet. Nothing is lost: it is saved on this device and is being resubmitted automatically. RETRY SUBMIT sends it again now; DOWNLOAD RUN keeps a copy. ${n}` : e === `api-error` || e === `malformed-response` ? `Your finish never reached the verifier, so it holds no verdict either way. Retry to submit it. ${n}` : `The authoritative verifier could not finalize this run. ${n}`
+function ty(e, t) {
+  let n = cd(t);
+  return e === `build-mismatch` ? `This tab uses an incompatible simulation build. Reload before racing again. ${n}` : e === `attempt-expired` ? `The ranked attempt expired before submission. Start a fresh race. ${n}` : e === `attempt-reused` ? `This attempt identity already belongs to a different submission. ${n}` : e === `malformed-replay` ? `The replay envelope was not structurally valid. ${n}` : ny(e) ? `The verifier could not take this run yet. Nothing is lost: it is saved on this device and is being resubmitted automatically. RETRY SUBMIT sends it again now; DOWNLOAD RUN keeps a copy. ${n}` : e === `api-error` || e === `malformed-response` ? `Your finish never reached the verifier, so it holds no verdict either way. Retry to submit it. ${n}` : `The authoritative verifier could not finalize this run. ${n}`
 }
 
-function ty(e) {
+function ny(e) {
   return e === `server-unreachable` || e === `server-timeout` || e === `verifier-error`
 }
-var ny = Object.freeze([6e3, 1e4, 15e3, 3e4, 6e4]),
-  ry = new Set([`email`, `number`, `password`, `search`, `tel`, `text`, `url`]);
-
-function iy(e) {
-  return e instanceof HTMLTextAreaElement || e instanceof HTMLElement && e.isContentEditable ? !0 : e instanceof HTMLInputElement && ry.has(e.type.toLowerCase())
-}
+var ry = Object.freeze([6e3, 1e4, 15e3, 3e4, 6e4]),
+  iy = new Set([`email`, `number`, `password`, `search`, `tel`, `text`, `url`]);
 
 function ay(e) {
+  return e instanceof HTMLTextAreaElement || e instanceof HTMLElement && e.isContentEditable ? !0 : e instanceof HTMLInputElement && iy.has(e.type.toLowerCase())
+}
+
+function oy(e) {
   return Math.min(85, Math.max(-85, e))
 }
 
-function oy(e, t) {
+function sy(e, t) {
   let n = (t - e) % 360;
   return n > 180 && (n -= 360), n < -180 && (n += 360), n
 }
 
-function sy(e, t) {
+function cy(e, t) {
   if (typeof e != `object` || !e || Array.isArray(e)) throw TypeError(`Race event payload is missing numeric ${t}.`);
   let n = e[t];
   if (typeof n != `number`) throw TypeError(`Race event payload is missing numeric ${t}.`);
   return n
 }
 
-function cy(e, t) {
-  let n = D_({
+function ly(e, t) {
+  let n = O_({
     dayCount: 60,
     earliestDailyId: t,
     todayDailyId: e
@@ -17657,7 +17710,7 @@ function cy(e, t) {
   return n[n.length - 1]?.dailyId ?? e
 }
 
-function ly(e) {
+function uy(e) {
   let t = new Date(`${e}T12:00:00Z`);
   return new Intl.DateTimeFormat(`en-US`, {
     day: `numeric`,
@@ -17666,11 +17719,11 @@ function ly(e) {
   }).format(t).toUpperCase()
 }
 
-function uy() {
+function dy() {
   return `/`.endsWith(`/`) ? `/` : `//`
 }
 
-function dy() {
+function fy() {
   let e;
   try {
     e = globalThis.location.search
@@ -17680,7 +17733,7 @@ function dy() {
   return new URLSearchParams(e).get(`team`) === `1`
 }
 
-function fy() {
+function py() {
   let e;
   try {
     e = globalThis.location.search
@@ -17691,11 +17744,11 @@ function fy() {
   return t === null || !/^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/u.test(t) ? null : t
 }
 
-function py(e) {
+function my(e) {
   return e === null || (e.livery ?? null) === null ? null : e.publicRunId
 }
 
-function my() {
+function hy() {
   let e;
   try {
     e = globalThis.location.search
@@ -17705,11 +17758,11 @@ function my() {
   let t = new URLSearchParams(e).get(`adminTest`);
   return t === null || !/^[0-9a-f]{64}$/u.test(t) ? null : t
 }
-var hy = `swervle:pb-ghost-enabled`,
-  gy = `swervle:reset-restarts-race`,
-  _y = `swervle:countdown-length`;
+var gy = `swervle:pb-ghost-enabled`,
+  _y = `swervle:reset-restarts-race`,
+  vy = `swervle:countdown-length`;
 
-function vy() {
+function yy() {
   try {
     return globalThis.matchMedia(`(prefers-reduced-motion: reduce)`).matches
   } catch {
@@ -17717,25 +17770,25 @@ function vy() {
   }
 }
 
-function yy() {
+function by() {
   let e = globalThis.navigator,
     t = e.userAgent,
     n = e.deviceMemory;
   return Object.freeze({
     deviceMemoryGigabytes: typeof n == `number` && Number.isFinite(n) ? n : null,
     hardwareConcurrency: e.hardwareConcurrency,
-    platform: by(t),
+    platform: xy(t),
     userAgent: t
   })
 }
 
-function by(e) {
+function xy(e) {
   return /Windows/iu.test(e) ? `Windows` : /Android/iu.test(e) ? `Android` : /(?:iPhone|iPad|iPod)/iu.test(e) ? `iOS` : /(?:Macintosh|Mac OS X)/iu.test(e) ? `macOS` : /Linux/iu.test(e) ? `Linux` : `unknown`
 }
 
-function xy() {
+function Sy() {
   return new Promise(e => {
-    globalThis.setTimeout(e, Gv)
+    globalThis.setTimeout(e, Kv)
   })
 }
 
@@ -17743,7 +17796,7 @@ function $(e) {
   return e === `disposed`
 }
 
-function Sy() {
+function Cy() {
   try {
     return globalThis.localStorage
   } catch {
@@ -17751,50 +17804,50 @@ function Sy() {
   }
 }
 
-function Cy(e) {
+function wy(e) {
   try {
-    return e?.getItem(hy) !== `false`
+    return e?.getItem(gy) !== `false`
   } catch {
     return !0
   }
 }
 
-function wy(e, t) {
-  try {
-    e?.setItem(hy, t ? `true` : `false`)
-  } catch {}
-}
-
-function Ty(e) {
-  try {
-    let t = e?.getItem(_y);
-    return xd(t) ? t : bd
-  } catch {
-    return bd
-  }
-}
-
-function Ey(e, t) {
-  try {
-    e?.setItem(_y, t)
-  } catch {}
-}
-
-function Dy(e) {
-  try {
-    return e?.getItem(gy) === `true`
-  } catch {
-    return !1
-  }
-}
-
-function Oy(e, t) {
+function Ty(e, t) {
   try {
     e?.setItem(gy, t ? `true` : `false`)
   } catch {}
 }
 
-function ky() {
+function Ey(e) {
+  try {
+    let t = e?.getItem(vy);
+    return Sd(t) ? t : xd
+  } catch {
+    return xd
+  }
+}
+
+function Dy(e, t) {
+  try {
+    e?.setItem(vy, t)
+  } catch {}
+}
+
+function Oy(e) {
+  try {
+    return e?.getItem(_y) === `true`
+  } catch {
+    return !1
+  }
+}
+
+function ky(e, t) {
+  try {
+    e?.setItem(_y, t ? `true` : `false`)
+  } catch {}
+}
+
+function Ay() {
   try {
     let e = localStorage.getItem(`swervle:display-name`)?.trim();
     return e === void 0 || e.length === 0 ? `GUEST DRIVER` : e
@@ -17802,7 +17855,7 @@ function ky() {
     return `GUEST DRIVER`
   }
 }
-async function Ay(e, t = `Copy this Swervle challenge link:`) {
+async function jy(e, t = `Copy this Swervle challenge link:`) {
   try {
     await navigator.clipboard.writeText(e);
     return
@@ -17811,47 +17864,47 @@ async function Ay(e, t = `Copy this Swervle challenge link:`) {
   }
 }
 
-function jy(e) {
+function My(e) {
   if (e === void 0) throw Error(`Swervle camera is unavailable.`);
   return e
 }
 
-function My(e) {
+function Ny(e) {
   return {
     revision: {
       trackDigest: e
     }
   }
 }
-var Ny = 760,
-  Py = /Android|iPad|iPhone|iPod|Mobile/iu;
-
-function Fy(e) {
-  let t = e.viewportWidth < Ny;
-  return Py.test(e.userAgent) || e.coarsePointer && t
-}
+var Py = 760,
+  Fy = /Android|iPad|iPhone|iPod|Mobile/iu;
 
 function Iy(e) {
+  let t = e.viewportWidth < Py;
+  return Fy.test(e.userAgent) || e.coarsePointer && t
+}
+
+function Ly(e) {
   return e.forcePlay || e.hasWebGl2 ? Object.freeze({
     reason: null,
     supported: !0
   }) : Object.freeze({
-    reason: Fy(e) ? `mobile` : `webgl2`,
+    reason: Iy(e) ? `mobile` : `webgl2`,
     supported: !1
   })
 }
 
-function Ly(e = document, t = navigator, n = globalThis.location) {
-  return Iy({
+function Ry(e = document, t = navigator, n = globalThis.location) {
+  return Ly({
     coarsePointer: globalThis.matchMedia(`(pointer: coarse)`).matches,
-    forcePlay: Ry(n.search),
-    hasWebGl2: zy(e),
+    forcePlay: zy(n.search),
+    hasWebGl2: By(e),
     userAgent: t.userAgent,
     viewportWidth: globalThis.innerWidth
   })
 }
 
-function Ry(e) {
+function zy(e) {
   try {
     let t = new URLSearchParams(e);
     if (!t.has(`forceplay`)) return !1;
@@ -17862,7 +17915,7 @@ function Ry(e) {
   }
 }
 
-function zy(e) {
+function By(e) {
   let t = e.createElement(`canvas`),
     n = t.getContext(`webgl2`, {
       failIfMajorPerformanceCaveat: !0
@@ -17870,23 +17923,23 @@ function zy(e) {
   return n === null ? !1 : (n.getExtension(`WEBGL_lose_context`)?.loseContext(), !0)
 }
 
-function By(e, t) {
+function Vy(e, t) {
   e.dataset.gameState = `unsupported`, e.replaceChildren();
   let n = document.createElement(`main`);
-  n.className = t === `mobile` ? `unsupported-card unsupported-card--landing` : `unsupported-card`, n.innerHTML = Vy(t), e.append(n)
+  n.className = t === `mobile` ? `unsupported-card unsupported-card--landing` : `unsupported-card`, n.innerHTML = Hy(t), e.append(n)
 }
 
-function Vy(e) {
+function Hy(e) {
   return e === `mobile` ? `
     <div class="unsupported-avatar">
-      <img src="${Wy(Uy(`favicon.png`))}" alt="" width="136" height="136" decoding="async">
+      <img src="${Gy(Wy(`favicon.png`))}" alt="" width="136" height="136" decoding="async">
     </div>
     <p class="eyebrow">Swervle.com</p>
     <h1>This browser can&rsquo;t race.</h1>
     <p class="unsupported-lede">Swervle needs WebGL 2, and this browser cannot provide it. Update it, or open <strong>swervle.com</strong> on another device. Today&rsquo;s map is waiting.</p>
     <nav class="unsupported-social" aria-label="Swervle on social media">
       <p class="eyebrow">Follow the daily</p>
-      <ul>${Zl.map(Hy).join(``)}</ul>
+      <ul>${Ql.map(Uy).join(``)}</ul>
     </nav>
   ` : `
     <span class="brand-mark" aria-hidden="true">S</span>
@@ -17896,11 +17949,11 @@ function Vy(e) {
   `
 }
 
-function Hy(e) {
-  return `<li><a href="${Wy(e.url)}" target="_blank" rel="noopener noreferrer" aria-label="${Wy(e.label)} (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${Wy(e.iconPath)}"></path></svg></a></li>`
+function Uy(e) {
+  return `<li><a href="${Gy(e.url)}" target="_blank" rel="noopener noreferrer" aria-label="${Gy(e.label)} (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${Gy(e.iconPath)}"></path></svg></a></li>`
 }
 
-function Uy(e) {
+function Wy(e) {
   let t = `/`;
   try {
     t = `/`
@@ -17908,22 +17961,22 @@ function Uy(e) {
   return `${t.endsWith(`/`)?t:`${t}/`}${e}`
 }
 
-function Wy(e) {
+function Gy(e) {
   return e.replaceAll(`&`, `&amp;`).replaceAll(`<`, `&lt;`).replaceAll(`>`, `&gt;`).replaceAll(`"`, `&quot;`).replaceAll(`'`, `&#39;`)
 }
-var Gy = `diag`;
+var Ky = `diag`;
 
-function Ky(e) {
+function qy(e) {
   try {
-    let t = new URLSearchParams(e).get(Gy);
+    let t = new URLSearchParams(e).get(Ky);
     return t === null ? !1 : t === `` || t === `1` || t === `true` || t === `on`
   } catch {
     return !1
   }
 }
 
-function qy(e, t) {
-  return Ky(t) ? w(async () => {
+function Jy(e, t) {
+  return qy(t) ? w(async () => {
     let {
       mountDiagnosticOverlayV1: e
     } = await import(`./DiagnosticOverlayV1-BawRrFxg.js`);
@@ -17934,57 +17987,57 @@ function qy(e, t) {
     mountDiagnosticOverlayV1: t
   }) => t(e)).catch(() => null) : Promise.resolve(null)
 }
-var Jy = new Set([`today`, `people`, `teams`, `liveries`, `moderation`, `growth`, `traffic`, `revenue`, `overview`, `funnel`, `sources`, `campaigns`, `maps`, `locations`, `referrals`, `races`, `live`, `director`, `seed-lab`, `operations`, `player`]),
-  Yy = `today`;
+var Yy = new Set([`today`, `people`, `teams`, `liveries`, `moderation`, `growth`, `traffic`, `revenue`, `overview`, `funnel`, `sources`, `campaigns`, `maps`, `locations`, `referrals`, `races`, `live`, `director`, `seed-lab`, `operations`, `player`]),
+  Xy = `today`;
 
-function Xy(e) {
+function Zy(e) {
   let t = e.searchParams.get(`tab`);
-  return t !== null && Jy.has(t) ? t : Yy
+  return t !== null && Yy.has(t) ? t : Xy
 }
-var Zy = new Set([`today`, `people`, `teams`, `liveries`, `moderation`, `races`, `live`, `player`, `operations`, `seed-lab`, `growth`, `traffic`, `revenue`, `overview`, `funnel`, `sources`, `campaigns`, `maps`, `locations`, `referrals`]);
+var Qy = new Set([`today`, `people`, `teams`, `liveries`, `moderation`, `races`, `live`, `player`, `operations`, `seed-lab`, `growth`, `traffic`, `revenue`, `overview`, `funnel`, `sources`, `campaigns`, `maps`, `locations`, `referrals`]);
 
-function Qy(e, t) {
-  return `<main class="swervle-admin admin-analytics-shell"${Zy.has(e)?` data-admin-surface="v2"`:``} aria-busy="false">
+function $y(e, t) {
+  return `<main class="swervle-admin admin-analytics-shell"${Qy.has(e)?` data-admin-surface="v2"`:``} aria-busy="false">
     <header class="admin-analytics-header">
-      <div><p class="admin-eyebrow">Swervle operations</p><h1>${tb(e)}</h1></div>
-      ${$y(e)}
+      <div><p class="admin-eyebrow">Swervle operations</p><h1>${nb(e)}</h1></div>
+      ${eb(e)}
     </header>
     ${t}
   </main>`
 }
 
-function $y(e) {
+function eb(e) {
   return `<nav class="admin-primary-nav" aria-label="Admin sections">${[[`today`,`Today`],[`people`,`People`],[`teams`,`Teams`],[`liveries`,`Liveries`],[`moderation`,`Moderation`],[`growth`,`Growth`],[`traffic`,`Traffic`],[`revenue`,`Revenue`],[`races`,`Activity`],[`live`,`Live Feed`],[`director`,`Director`],[`seed-lab`,`Seed Lab`],[`operations`,`Operations`]].map(([t,n])=>`<a href="?tab=${t}" ${t===e?`aria-current="page"`:``}>${n}</a>`).join(``)}</nav>`
 }
-var eb = Object.freeze({
+var tb = Object.freeze({
   live: `Live Feed`,
   races: `Activity`
 });
 
-function tb(e) {
-  return eb[e] ?? e.slice(0, 1).toUpperCase() + e.slice(1)
-}
-
 function nb(e) {
-  return Qy(rb(e), `<p class="admin-activity-state" role="status" aria-live="polite" aria-busy="true"
-      >READING OPERATIONS&hellip;</p>`)
+  return tb[e] ?? e.slice(0, 1).toUpperCase() + e.slice(1)
 }
 
 function rb(e) {
-  if (e !== null) return Xy(e);
-  if (globalThis.location === void 0) return Yy;
+  return $y(ib(e), `<p class="admin-activity-state" role="status" aria-live="polite" aria-busy="true"
+      >READING OPERATIONS&hellip;</p>`)
+}
+
+function ib(e) {
+  if (e !== null) return Zy(e);
+  if (globalThis.location === void 0) return Xy;
   try {
-    return Xy(new URL(globalThis.location.href))
+    return Zy(new URL(globalThis.location.href))
   } catch {
-    return Yy
+    return Xy
   }
 }
 
-function ib(e = null) {
-  return nb(e)
+function ab(e = null) {
+  return rb(e)
 }
 
-function ab() {
+function ob() {
   return `<main class="swervle-admin" aria-busy="false">
     <section class="admin-state admin-state--error" role="alert">
       <h1>Admin needs a reload</h1>
@@ -17997,7 +18050,7 @@ function ab() {
   </main>`
 }
 
-function ob() {
+function sb() {
   return `<main class="swervle-admin" aria-busy="false">
     <section class="admin-state admin-state--error" role="alert">
       <h1>Admin operations unavailable</h1>
@@ -18006,14 +18059,14 @@ function ob() {
   </main>`
 }
 
-function sb(e) {
+function cb(e) {
   let t = e.eventTarget ?? globalThis,
     n = e.random ?? Math.random,
     r = e.sampleRate ?? .1,
     i = new Set,
     a = 0,
     o = (t, o, s) => {
-      let c = cb(o, s),
+      let c = lb(o, s),
         l = `${c.name}:${c.message}`;
       i.has(l) || (i.add(l), !(a >= 8) && (n() >= r || (a += 1, e.telemetry.record(`client_error`, {
         kind: t,
@@ -18033,17 +18086,17 @@ function sb(e) {
   }
 }
 
-function cb(e, t) {
+function lb(e, t) {
   let n = e instanceof Error ? e : null,
     r = n?.message ?? (typeof e == `string` ? e : null) ?? (typeof t == `string` ? t : `unknown error`),
-    i = lb(n);
+    i = ub(n);
   return {
-    message: ub(i === null ? r : `${r} in ${i}`),
-    name: db(n?.name ?? `Error`)
+    message: db(i === null ? r : `${r} in ${i}`),
+    name: fb(n?.name ?? `Error`)
   }
 }
 
-function lb(e) {
+function ub(e) {
   let t = e?.stack;
   if (typeof t != `string`) return null;
   for (let e of t.split(`
@@ -18056,19 +18109,19 @@ function lb(e) {
   return null
 }
 
-function ub(e) {
+function db(e) {
   let t = e.replaceAll(/[a-z][a-z0-9+.-]*:\/\/\S*/giu, ` `).replaceAll(/\S+@\S+/gu, ` `).replaceAll(/[?&@]/gu, ` `).replaceAll(/\s+/gu, ` `).trim().slice(0, 300).trim();
   return t.length > 0 ? t : `unknown error`
 }
 
-function db(e) {
+function fb(e) {
   let t = e.replaceAll(/[^A-Za-z0-9._:-]/gu, ``).slice(0, 64);
   return /^[A-Za-z0-9]/u.test(t) ? t : `Error`
 }
-var fb = `xq0w8bttci`;
+var pb = `xq0w8bttci`;
 
-function pb() {
-  if (!mb(globalThis.location.hostname)) return;
+function mb() {
+  if (!hb(globalThis.location.hostname)) return;
   let e = globalThis;
   if (e.clarity !== void 0) return;
   let t = (...e) => {
@@ -18076,42 +18129,42 @@ function pb() {
   };
   t.q = [], e.clarity = t;
   let n = document.createElement(`script`);
-  n.async = !0, n.src = `https://www.clarity.ms/tag/${fb}`;
+  n.async = !0, n.src = `https://www.clarity.ms/tag/${pb}`;
   let r = document.getElementsByTagName(`script`)[0];
   r?.parentNode ? r.parentNode.insertBefore(n, r) : document.head.append(n)
 }
 
-function mb(e) {
+function hb(e) {
   let t = e.toLowerCase();
   return t === `swervle.com` || t === `www.swervle.com`
 }
-pb(), sb({
-  telemetry: new Vf({
+mb(), cb({
+  telemetry: new Hf({
     baseContext: {
       deploymentBuild: `swervle-beta-v2`
     }
   })
 });
-var hb = `swervle-stale-chunk-reload`;
+var gb = `swervle-stale-chunk-reload`;
 
-function gb() {
+function _b() {
   try {
-    if (globalThis.sessionStorage?.getItem(hb) === document.location.href) return !1;
-    globalThis.sessionStorage?.setItem(hb, document.location.href)
+    if (globalThis.sessionStorage?.getItem(gb) === document.location.href) return !1;
+    globalThis.sessionStorage?.setItem(gb, document.location.href)
   } catch {}
   return globalThis.location.reload(), !0
 }
 globalThis.addEventListener(`vite:preloadError`, e => {
-  globalThis.sessionStorage?.getItem(hb) !== document.location.href && (e.preventDefault(), gb())
+  globalThis.sessionStorage?.getItem(gb) !== document.location.href && (e.preventDefault(), _b())
 }), document.title = `Swervle`;
 {
   let e = document.querySelector(`#app`);
   if (e === null) throw Error(`Swervle could not find its #app mount point.`);
-  if (_b(globalThis.location.pathname)) bb(e);
-  else if (vb(globalThis.location.pathname)) w(async () => {
+  if (vb(globalThis.location.pathname)) xb(e);
+  else if (yb(globalThis.location.pathname)) w(async () => {
     let {
       bootCarLayerRenderV1: e
-    } = await import(`./BootCarLayerRenderV1-B4iAT_lq.js`);
+    } = await import(`./BootCarLayerRenderV1-BFb27hRY.js`);
     return {
       bootCarLayerRenderV1: e
     }
@@ -18124,10 +18177,10 @@ globalThis.addEventListener(`vite:preloadError`, e => {
       e.dataset.carLayerState = `failed`
     }
   });
-  else if (yb(globalThis.location.pathname)) e.innerHTML = ib(), w(async () => {
+  else if (bb(globalThis.location.pathname)) e.innerHTML = ab(), w(async () => {
     let {
       bootHostedAdminDashboardV1: e
-    } = await import(`./BootHostedAdminDashboardV1-CUt6osyp.js`);
+    } = await import(`./BootHostedAdminDashboardV1-C1bsFHEX.js`);
     return {
       bootHostedAdminDashboardV1: e
     }
@@ -18142,27 +18195,27 @@ globalThis.addEventListener(`vite:preloadError`, e => {
         once: !0
       })
     } catch {
-      e.innerHTML = ob()
+      e.innerHTML = sb()
     }
   }).catch(() => {
-    gb() || (e.innerHTML = ab(), e.querySelector(`[data-admin-action="reload-stale"]`)?.addEventListener(`click`, () => {
+    _b() || (e.innerHTML = ob(), e.querySelector(`[data-admin-action="reload-stale"]`)?.addEventListener(`click`, () => {
       globalThis.location.reload()
     }))
   });
   else {
-    let t = Ly();
-    if (!t.supported && t.reason !== null) new Vf({
+    let t = Ry();
+    if (!t.supported && t.reason !== null) new Hf({
       baseContext: {
         deploymentBuild: `swervle-beta-v2`
       }
     }).record(`compatibility_failure`, {
       reason: t.reason
-    }), By(e, t.reason);
+    }), Vy(e, t.reason);
     else {
-      let t = new Zv({
+      let t = new Qv({
         mount: e
       });
-      t.start(), window.__SWERVLE_CARD_STAGE__ = () => t.captureCardStageV1(), window.__SWERVLE_CARD_HIDE_CAR__ = () => t.hideCarForCardCaptureV1(), qy(t, globalThis.location.search).then(e => {
+      t.start(), window.__SWERVLE_CARD_STAGE__ = () => t.captureCardStageV1(), window.__SWERVLE_CARD_HIDE_CAR__ = () => t.hideCarForCardCaptureV1(), Jy(t, globalThis.location.search).then(e => {
         e !== null && globalThis.addEventListener(`pagehide`, () => {
           e()
         }, {
@@ -18173,19 +18226,19 @@ globalThis.addEventListener(`vite:preloadError`, e => {
   }
 }
 
-function _b(e) {
+function vb(e) {
   return e.split(`/`).filter(Boolean).slice(-3).join(`/`) === `admin/render/social`
 }
 
-function vb(e) {
+function yb(e) {
   return e.split(`/`).filter(Boolean).slice(-2).join(`/`) === `render/car`
 }
 
-function yb(e) {
+function bb(e) {
   return e.split(`/`).filter(Boolean).at(-1) === `admin`
 }
 
-function bb(e) {
+function xb(e) {
   document.body.dataset.swervleSurface = `admin`;
   let t = document.createElement(`main`);
   t.className = `swervle-admin`;
@@ -18197,5 +18250,5 @@ function bb(e) {
   i.textContent = `Hosted rendering requires an authenticated immutable queue job.`, n.append(r, i), t.append(n), e.replaceChildren(t)
 }
 export {
-  z as A, Zr as B, G as C, Wa as D, H as E, Rr as F, xr as H, Gr as I, Wr as L, fi as M, Br as N, Ua as O, zr as P, qr as R, Ns as S, Eo as T, Qr as V, kp as _, gv as a, fu as b, b_ as c, Hm as d, Qp as f, Bp as g, Rp as h, Qy as i, Bi as j, zi as k, mg as l, zp as m, Zy as n, uv as o, Vp as p, Xy as r, fv as s, ob as t, ig as u, Od as v, W as w, Wl as x, kd as y, Jr as z
+  zi as A, Jr as B, G as C, Wa as D, H as E, zr as F, Qr as H, Rr as I, Gr as L, Bi as M, fi as N, Ua as O, Br as P, Wr as R, Ns as S, Eo as T, xr as U, Zr as V, mr as W, Ap as _, _v as a, pu as b, x_ as c, Um as d, $p as f, Vp as g, zp as h, $y as i, z as j, $i as k, hg as l, Bp as m, Qy as n, dv as o, Hp as p, Zy as r, pv as s, sb as t, ag as u, kd as v, W as w, Gl as x, Ad as y, qr as z
 };

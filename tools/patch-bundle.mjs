@@ -11,9 +11,9 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 }
 
 // ---- minified identifier mapping for the CURRENT bundles ----
-// main bundle: index-g58yFkXG.js
-// replay chunk: replay-BymKJeTp.js
-// Updated: 2026-08-29
+// main bundle: index-gfwPTtYR.js
+// replay chunk: replay-C4CGFH_K.js
+// Updated: 2026-08-30
 // v - variable
 // f - function
 // c - class
@@ -21,7 +21,7 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 // m - method
 const NAMES = {
   mRunPoster: "#f",
-  /* ln. 5419:
+  /* ln. 5472:
   async #f(e, t) {
     try {
       let n = await this.#p(`POST`, e, {
@@ -63,7 +63,7 @@ const NAMES = {
   /* ln. 5194, 5201
   this.#i = e.submissionTimeoutMs ?? Gc
   */
-  fResponseChecker: "El",
+  fResponseChecker: "Dl",
   /* ln. 5754
   async function El(e) {
     try {
@@ -73,29 +73,29 @@ const NAMES = {
       return null
     }
   }*/
-  fServerAccessErrorClassifier: "Dl",
+  fServerAccessErrorClassifier: "Ol",
   /* ln. 5763
   function Dl(e) {
     return Ol(e) && e.name === `AbortError`
   }*/
   mCheckIfLocalBaseOnHostname: "#vr",
-  /* ln. 14421
+  /* ln. 14475
   #gr() {
     return cl(globalThis.location.hostname)
   }*/
-  fCheckIfLocal: "cl",
+  fCheckIfLocal: "ll",
   /* ln. 5483
   function cl(e, t = Ml()) {
     return sl(t) || rl(e)
   }*/
   fValidateDate: "xs",
-  /* ln. 4515
+  /* ln. 4553
   function xs(e) {
     let t = Date.parse(`${e}T00:00:00Z`);
     if (!/^\d{4}-\d{2}-\d{2}$/u.test(e) || Number.isNaN(t) || new Date(t).toISOString().slice(0, 10) !== e) throw TypeError(`Daily ID must be a UTC calendar date.`)
   }*/
   fValidateDayRunsAndFindRank: "Xa",
-  /* ln. 3227
+  /* ln. 3265
   function Xa(e) {
     return to(e.dailyId), Ya({
       contestId: e.dailyId,
@@ -106,8 +106,8 @@ const NAMES = {
       }
     })
   }*/
-  cServerCommunicationManager: "nl",
-  /* ln. 5189
+  cServerCommunicationManager: "rl",
+  /* ln. 5242
   var nl = class {
     #e;
     #t;
@@ -123,31 +123,31 @@ const NAMES = {
       this.#t = t, this.#n = e.cookieSource ?? Al, this.#r = e.requestTimeoutMs ?? $c, this.#i = e.submissionTimeoutMs ?? el
     }*/
   pDailyManagerObject: "#n",
-  /* ln. 13314, 13528
+  /* ln. 13368, 13582
   this.#n = e.service ?? new hs
   */
-  cMainGame: "Zv",
-  /* ln. 13311
+  cMainGame: "Qv",
+  /* ln. 13365
   It's the one with all the methods and manages everything.
   */
   mCheckIfDisposed: "#Lr",
-  /* ln. 14815
+  /* ln. 14869
   #Fr() {
     return this.#st === `disposed`
   }*/
   pRunsMap: "#R", // needs better documentaion
-  /* ln. 13354, 17045
+  /* ln. 13408, 17098
   return this.#R.set(e, n), n
   */
   mRepaintCalendarAccountRows: "#jo", // needs better documentaion
-  /* ln. 17237
-  #wo(e) {
+  /* ln. 17290
+  #jo(e) {
     let t = this.#we;
-    for (let n of e) this.#R.delete(n), t !== null && P_(t.element, n, this.#So(n))
+    for (let n of e) this.#R.delete(n), t !== null && F_(t.element, n, this.#So(n))
   }*/
   fRankTimes: "#V"
-  /* ln. 13357, 17248
-  for (let [n, r] of Xp(e)) t.add(n), this.#V.set(n, r);
+  /* ln. 13411, 17301
+  for (let [n, r] of Zp(e)) t.add(n), this.#V.set(n, r);
   */
 };
 
@@ -259,7 +259,7 @@ const mainPatcher = makePatcher(
 // 0. Replace the title text to confirm that the extension loaded
 //    successfully.
 mainPatcher.replaceOnce(
-  "replaceTitleText",
+  "0replaceTitleText",
   "title:n.mode===`challenge`?`BEAT THIS RUN.`:`LET'S SWERVE`",
   "title:n.mode===`challenge`?`DESTROY THIS RUN.`:`LET'S TAS`",
 )
@@ -276,7 +276,7 @@ mainPatcher.replaceOnce(
 //    TL:DR: Instead of posting, returns "server unreachable".
 //    This is backup code incase `forceLocalVerifier` fails.
 mainPatcher.replaceOnce(
-  "disableRunSubmission",
+  "1disableRunSubmission",
   "async"+NAMES.mRunPoster+"(e,t){try{let n=await this."+NAMES.mServerAccesser+"(`POST`,e,{body:t,csrf:!0,timeoutMs:this."+NAMES.pTimeoutMs+"});return Object.freeze({body:await "+NAMES.fResponseChecker+"(n),httpStatus:n.status,kind:`response`})}catch(e){return Object.freeze({classification:"+NAMES.fServerAccessErrorClassifier+"(e)?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0?e.message:null})}}",
   "async"+NAMES.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
 );
@@ -285,14 +285,14 @@ mainPatcher.replaceOnce(
 //    Suppose to prevent "OFFICIAL VERIFIER UNREACHABLE" screen
 //    from appearing and shows the time.
 mainPatcher.replaceOnce(
-  "forceLocalVerifier",
+  "2forceLocalVerifier",
   NAMES.mCheckIfLocalBaseOnHostname+"(){return "+NAMES.fCheckIfLocal+"(globalThis.location.hostname)}",
   NAMES.mCheckIfLocalBaseOnHostname+"(){return!1}"
 );
 
 // 3. Force dailyRank() to call fetchStanding() to get rank.
 mainPatcher.replaceOnce(
-  "forceFetchStanding",
+  "3forceFetchStanding",
   "dailyRank(e,t,n){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let r=[];return r.push(Object.freeze({competitorId:`local-player`,contestId:e,contestKind:`daily`,durationTicks:t,participantKind:`human`,publicDisplayName:`YOU`,publicRunId:n,verifiedAtIso:new Date(`${e}T23:59:59.999Z`).toISOString()})),"+NAMES.fValidateDayRunsAndFindRank+"({dailyId:e,results:r}).rankedEntries.find(e=>e.competitorId===`local-player`)?.rank??null}",
   "async dailyRank(e,t,n,r){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let g=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});const standing=await g.fetchStanding(e,t,undefined,r).catch(()=>null);console.log(standing?.rank??null);return standing?.rank??null;}"
 )
@@ -300,7 +300,7 @@ mainPatcher.replaceOnce(
 // 4. Add a gateway field and a rank cache/in-flight tracker
 //    to the main game class.
 mainPatcher.insertAfter(
-  "addFieldsToMainClass",
+  "4addFieldsToMainClass",
   NAMES.cMainGame+"=class{",
   "#dailyRankGateway=null;#dailyRankPending=new Map();"
 )
@@ -311,7 +311,7 @@ mainPatcher.insertAfter(
 
 // 5. Add background daily rank fetch.
 mainPatcher.insertBefore(
-  "AsyncRankFetchFunc",
+  "5AsyncRankFetchFunc",
   "create(){",
   "async #fetchDailyRankInBackground(e,t,n,r){console.log(`asdf`);if(this.#dailyRankPending.has(e))return;if(!Number.isSafeInteger(t)||t<1)return;let p=(async()=>{this.#dailyRankGateway??=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});let s=await this.#dailyRankGateway.fetchStanding(e,t,undefined,r).catch(()=>null);if(s?.rank==null||this."+NAMES.mCheckIfDisposed+"())return;this."+NAMES.pRunsMap+".delete(e);this."+NAMES.mRepaintCalendarAccountRows+"([e]);})();this.#dailyRankPending.set(e,p);try{await p}finally{this.#dailyRankPending.delete(e)}}"
 )
@@ -346,9 +346,9 @@ async #fetchDailyRankInBackground(dailyId, durationTicks, publicRunId, displayTi
 // 6. Set rank to null then call
 //    fetchDailyRankInBackground()
 mainPatcher.replaceOnce(
-  "makeRankUseAsyncFetch",
+  "6makeRankUseAsyncFetch",
   "let c=o===null||this."+NAMES.mCheckIfLocalBaseOnHostname+"()?null:this."+NAMES.pDailyManagerObject+".dailyRank(e,o.durationTicks,o.publicRunId),l=this."+NAMES.fRankTimes+".get(e);",
-  "let c=null;console.log(o);console.log(this."+NAMES.mCheckIfLocalBaseOnHostname+"());if(o!==null&&!this."+NAMES.mCheckIfLocalBaseOnHostname+"()){console.log(`dfgh`);this.#fetchDailyRankInBackground(e,o.durationTicks,o.publicRunId,o.displayTimeMs);console.log(`sdfg`);}let l=this."+NAMES.fRankTimes+".get(e);"
+  "let c=null;throw `ahh`;console.log(o);console.log(this."+NAMES.mCheckIfLocalBaseOnHostname+"());if(o!==null&&!this."+NAMES.mCheckIfLocalBaseOnHostname+"()){console.log(`dfgh`);this.#fetchDailyRankInBackground(e,o.durationTicks,o.publicRunId,o.displayTimeMs);console.log(`sdfg`);}let l=this."+NAMES.fRankTimes+".get(e);"
 )
 
 // temp
