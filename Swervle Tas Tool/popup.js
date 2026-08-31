@@ -11,7 +11,7 @@ document.getElementById('inject-btn').addEventListener('click', async () => {
     // Inject JS into the webpage
     await chrome.scripting.executeScript({
       target: { tabId: tab.id },
-      files: ['content.js']
+      files: ['panel-injector.js']
     });
   }
 });
