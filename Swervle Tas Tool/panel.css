@@ -1,0 +1,171 @@
+#tm-floating-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: #141419;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 12px 15px;
+    z-index: 999999;
+    font-family: Arial, sans-serif;
+    color: white;
+    box-sizing: border-box;
+}
+#tm-panel-header {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    cursor: move;
+    user-select: none;
+}
+.tm-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.tm-header-btn {
+    background: none;
+    color: #888;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+}
+.tm-header-btn:hover {
+    color: #333;
+}
+
+/* Minimized State: Only hides the body content */
+#tm-floating-panel.minimized .tm-panel-body {
+    display: none;
+}
+
+.tm-panel-body {
+    max-height: 350px; /* Adjust height limit as needed */
+    overflow-y: auto;
+    padding-right: 4px; /* Leaves space for the scrollbar */
+}
+
+/* Optional: Custom dark scrollbar to match panel theme */
+.tm-panel-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tm-panel-body::-webkit-scrollbar-track {
+    background: #141419;
+}
+
+.tm-panel-body::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+}
+
+.tm-panel-body::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+button.tm-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button.tm-btn:hover {
+    background: #0056b3;
+}
+
+input.tm-input {
+    background: #333333;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.tm-multi-element-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tm-multi-element-line .tm-btn,
+.tm-multi-element-line .tm-input {
+    flex: 1; /* Makes elements share width equally */
+    /* margin-top: 0; */
+}
+
+.tm-multi-element-line input[type="range"] {
+    flex: 1;
+    /*margin-top: 0;*/       /* Removes extra top margin from general input styles */
+    cursor: pointer;
+}
+
+#tm-input-overlay {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%); /* Centers element relative to its own width */
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 999999;
+    cursor: move;
+    user-select: none;
+}
+
+.tm-key-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.tm-key-row-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 40px);
+    gap: 4px;
+}
+
+.tm-key {
+    width: 40px;
+    height: 40px;
+    background: rgba(20, 20, 25, 0.5);
+    border: 2px solid #f0f0fa;
+    border-radius: 12px;
+    color: #888;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.05s, color 0.05s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Wide key styles for Spacebar */
+.tm-key.key-wide {
+    width: 128px; /* Spans full width of 3 grid keys + gaps */
+}
+
+/* Active pressed state */
+.tm-key.active {
+    background: #f0f0fa;
+    color: #222;
+    /*border-color: #0056b3;*/
+    box-shadow: 0 0 8px rgba(123, 123, 197, 0.8);
+}
