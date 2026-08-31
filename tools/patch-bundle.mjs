@@ -172,7 +172,7 @@ const NAMES = {
    * Map containing player finish times mapped by competitive rank position.
    * Lines 13411, 17301: this.#V.set(n, r);
    */
-  fRankTimes: "#V",
+  pRankTimes: "#V",
 
   /** 
    * Renders HTML structure for the post-race leaderboard panel.
@@ -196,7 +196,13 @@ const NAMES = {
    * Returns current car boost availability meter or boost energy status (>0).
    * Line 110: s as Ze
    */
-  fBoostMeter: "#rn"
+  fBoostMeter: "Ze",
+
+  /**
+   * The amount of boost.
+   * Line 13551, 13863 this.#rn = Ke(n.dailyId, n.track.revision.rulesetVersion, { previewUnreleasedRules: r })
+   */
+  pBoostMeter: "#rn",
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -496,7 +502,7 @@ let r = this.__tas ? this.__tas.next(e-211) : n.sample()
 // 9. Capture last actions.
 mainPatcher.replaceOnce(
   "9.1getActions",
-  "u="+NAMES.fActionBools+"({boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this."+NAMES.fBoostMeter+")>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0})",
+  "u="+NAMES.fActionBools+"({boost:(r.held.boost===!0||o?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0})",
   "actions={boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this.#rn)>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0},u=ce(actions)"
 )
 mainPatcher.insertAfter(
