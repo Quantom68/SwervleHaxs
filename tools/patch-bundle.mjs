@@ -10,232 +10,193 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
   process.exit(1);
 }
 
-// ---- minified identifier mapping for the CURRENT bundles ----
+// ---- Minified Identifier Mapping for Current Bundles ----
 // main bundle: index-gfwPTtYR.js
 // replay chunk: replay-C4CGFH_K.js
 // Updated: 2026-08-30
-// v - variable
-// f - function
-// c - class
-// p - property
-// m - method
+// Key Prefix Legend:
+//   v - Variable
+//   f - Function
+//   c - Class
+//   p - Private/Public Property
+//   m - Method
 const NAMES = {
-  /* ln. 5472:
-  async #f(e, t) {
-    try {
-      let n = await this.#p(`POST`, e, {
-        body: t,
-        csrf: !0,
-        timeoutMs: this.#i
-      });
-      return Object.freeze({
-        body: await _l(n),
-        httpStatus: n.status,
-        kind: `response`
-      })
-    } catch (e) {
-      return Object.freeze({
-        classification: vl(e) ? `server-timeout` : `server-unreachable`,
-        kind: `transport-failure`,
-        message: e instanceof Error && e.message.length > 0 ? e.message : null
-      })
-    }
-  }*/
+  // --- Network & Server Communication ---
+  
+  /** 
+   * Main game POST runner method.
+   * Sends network requests to post telemetry or run logs.
+   * Line 5472: async #f(e, t) { ... }
+   */
   mRunPoster: "#f",
-  /* ln. 5439
-  #p(e, t, n = {}) {
-    let r = {
-        accept: `application/json`
-      },
-      i = {
-        credentials: `same-origin`,
-        headers: r,
-        method: e
-      };
-    if (n.body !== void 0 && (r[`content-type`] = `application/json`, i.body = JSON.stringify(n.body)), n.csrf === !0) {
-      let e = kl(this.#n());
-      e !== null && (r[`x-csrf-token`] = e)
-    }
-    return this.#m(wl(this.#t, `${this.#e}${t}`, i, n.timeoutMs ?? this.#r))
-  }*/
+
+  /** 
+   * Low-level fetch wrapper handling standard headers, CSRF tokens, and timeouts.
+   * Line 5439: #p(e, t, n = {}) { ... }
+   */
   mServerAccesser: "#p",
-  /* ln. 5194, 5201
-  this.#i = e.submissionTimeoutMs ?? Gc
-  */
+
+  /** 
+   * Timeout duration property for submission network calls.
+   * Lines 5194, 5201: this.#i = e.submissionTimeoutMs ?? Gc
+   */
   pTimeoutMs: "#i",
-  /* ln. 5754
-  async function El(e) {
-    try {
-      let t = await e.json();
-      return Ol(t) ? t : null
-    } catch {
-      return null
-    }
-  }*/
+
+  /** 
+   * Helper function validating whether a response is valid non-null JSON.
+   * Line 5754: async function El(e) { ... }
+   */
   fResponseChecker: "Dl",
-  /* ln. 5763
-  function Dl(e) {
-    return Ol(e) && e.name === `AbortError`
-  }*/
+
+  /** 
+   * Checks if a network request error was caused by an AbortError/Timeout.
+   * Line 5763: function Dl(e) { ... }
+   */
   fServerAccessErrorClassifier: "Ol",
-  /* ln. 14475
-  #gr() {
-    return cl(globalThis.location.hostname)
-  }*/
-  mCheckIfLocalBaseOnHostname: "#vr",
-  /* ln. 5483
-  function cl(e, t = Ml()) {
-    return sl(t) || rl(e)
-  }*/
-  fCheckIfLocal: "ll",
-  /* ln. 4553
-  function xs(e) {
-    let t = Date.parse(`${e}T00:00:00Z`);
-    if (!/^\d{4}-\d{2}-\d{2}$/u.test(e) || Number.isNaN(t) || new Date(t).toISOString().slice(0, 10) !== e) throw TypeError(`Daily ID must be a UTC calendar date.`)
-  }*/
-  fValidateDate: "xs",
-  /* ln. 3265
-  function Xa(e) {
-    return to(e.dailyId), Ya({
-      contestId: e.dailyId,
-      contestKind: `daily`,
-      results: e.results,
-      ...e.realRacerIds === void 0 ? {} : {
-        realRacerIds: e.realRacerIds
-      }
-    })
-  }*/
-  fValidateDayRunsAndFindRank: "Xa",
-  /* ln. 5242
-  var nl = class {
-    #e;
-    #t;
-    #n;
-    #r;
-    #i;
-    #a = null;
-    #o = `normal`;
-    constructor(e = {}) {
-      this.#e = e.apiBase ?? jl();
-      let t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null);
-      if (t === null) throw TypeError(`A fetch implementation is required for server mode.`);
-      this.#t = t, this.#n = e.cookieSource ?? Al, this.#r = e.requestTimeoutMs ?? $c, this.#i = e.submissionTimeoutMs ?? el
-    }*/
+
+  /** 
+   * Primary network communication class managing API connections & fetch logic.
+   * Line 5242: var nl = class { ... }
+   */
   cServerCommunicationManager: "rl",
-  /* ln. 13368, 13582
-  this.#n = e.service ?? new hs
-  */
-  pDailyManagerObject: "#n",
-  /* ln. 13365
-  It's the one with all the methods and manages everything.
-  */
+
+
+  // --- Domain & Environment Logic ---
+
+  /** 
+   * Method determining if the current environment is local based on hostname.
+   * Line 14475: #gr() { return cl(globalThis.location.hostname) }
+   */
+  mCheckIfLocalBaseOnHostname: "#vr",
+
+  /** 
+   * Helper checking hostname patterns to declare local/dev environment status.
+   * Line 5483: function cl(e, t = Ml()) { ... }
+   */
+  fCheckIfLocal: "ll",
+
+  /** 
+   * Validates ISO calendar dates (YYYY-MM-DD) formatted for daily events.
+   * Line 4553: function xs(e) { ... }
+   */
+  fValidateDate: "xs",
+
+  /** 
+   * Validates daily run submissions and returns player rank calculation.
+   * Line 3265: function Xa(e) { ... }
+   */
+  fValidateDayRunsAndFindRank: "Xa",
+
+
+  // --- Game Engine & Core State ---
+
+  /** 
+   * Core orchestrator class for game loop, inputs, and UI integration.
+   * Line 13365: Main game instance managing active state & sub-managers.
+   */
   cMainGame: "Qv",
-  /* ln. 14869
-  #Fr() {
-    return this.#st === `disposed`
-  }*/
-  mCheckIfDisposed: "#Lr",
-  /* ln. 13408, 17098
-  return this.#R.set(e, n), n
-  */
-  pRunsMap: "#R", // needs better documentaion
-  /* ln. 17290
-  #jo(e) {
-    let t = this.#we;
-    for (let n of e) this.#R.delete(n), t !== null && F_(t.element, n, this.#So(n))
-  }*/
-  mRepaintCalendarAccountRows: "#jo", // needs better documentaion
-  /* ln. 13411, 17301
-  for (let [n, r] of Zp(e)) t.add(n), this.#V.set(n, r);
-  */
-  fRankTimes: "#V",
-  /* ln. 6965
-  function Uu(e) {
-    let t = Tu[e.surface],
-      n = Eu[e.surface],
-      r = e.scopeControl,
-      i = vu();
-    if (e.state === `offline` && !i) return Xu(e.surface, t, n, r);
-    if (e.state === `pending` && !i) return Ju(t, n, r);
-    let a = vc(e.viewerTeamTag),
-      o = rd(e.entries).map(t => `
-            <li${t.isPlayer?` data-player="true"`:``}>
-              <span class="leaderboard-rank" aria-label="Rank ${String(t.rank)}">${String(t.rank)}</span>
-              ${$u(t.isPlayer?e.viewerIsSupporter===!0||t.isSupporter===!0:t.isSupporter)}
-              <span class="leaderboard-name">${Qu(t.isPlayer?e.viewerTeamTag??t.teamTag:t.teamTag,a)}<strong>${t.isPlayer?`YOU`:J(t.displayName)}</strong>${ed(t.creatorLinks)}</span>
-              <time>${D(t.displayTimeMs??T(t.durationTicks))}</time>
-              ${ad(t.carPaint??null,t.isPlayer?`your car`:`${t.displayName}'s car`,t.isPlayer?`YOU`:t.displayName,D(t.displayTimeMs??T(t.durationTicks)),t.isPlayer,t.publicRunId,t.rank,t.joinedAtIso??null)}${e.offerSignIn?`
-              ${t.isPlayer?od():`<span class="leaderboard-signin-slot" aria-hidden="true"></span>`}`:``}
-            </li>`).join(``),
-      s = e.viewerRow,
-      c = s !== null && s.durationTicks === null,
-      l = c ? wu : D(s?.displayTimeMs ?? T(s?.durationTicks ?? 0)),
-      u = Wu(e, a),
-      d = e.entries.length > 0 || u !== ``,
-      f = s === null ? `` : `${d?`
-            <li class="leaderboard-separator" role="presentation" aria-hidden="true"></li>`:``}
-            <li class="leaderboard-you-outside" data-player="true"${c?` data-untimed="true"`:``}>
-              <span class="leaderboard-rank" aria-label="${c?`No time yet`:s.rank===null?`Unranked`:`Rank ${String(s.rank)}`}">${c||s.rank===null?`&mdash;`:String(s.rank)}</span>
-              ${$u(s.isSupporter===!0||e.viewerIsSupporter===!0)}
-              <span class="leaderboard-name">${Qu(s.teamTag??e.viewerTeamTag,a)}<strong>YOU</strong>${ed(s.creatorLinks)}</span>
-              <time>${l}</time>
-              ${ad(s.carPaint??null,`your car`,`YOU`,l,!0,void 0,s.rank,s.joinedAtIso??null)}${e.offerSignIn?`
-              ${od()}`:``}
-            </li>`;
-    return `
-          <aside class="result-leaderboard panel" data-slot="${t}"${Gu(r)} data-board-state="ready" aria-labelledby="${n}">
-            ${qu(n,r)}
-            <ol${e.offerSignIn?` data-sign-in="true"`:``}${Zt()?``:` data-chips="off"`}>${o}${u}${f}</ol>
-          </aside>`
-  }
-  */
-  fRenderLeaderboard: "Uu",
-  /* ln. 13007
-  var bv = Object.freeze({
-    boost: !1,
-    handbrake: !1,
-    reverse: !1,
-    steerTarget: 0,
-    throttle: !1
-  }),*/
-  vDefaultActionsSample: "bv",
-  /* ln. 13501
-  #st = `new`;
-  property is also changed in other parts of the code.*/
+
+  /** 
+   * Property holding the current lifecycle state string (e.g., 'new', 'running', 'disposed').
+   * Line 13501: #st = `new`;
+   */
   pLifecycleState: "#st",
-  /* ln. 13505, 13985
-  g.restore(i.simulation.captureSnapshot().clock), this.#dt = new Nt({
-  */
+
+  /** 
+   * Checks if the main game instance has been disposed.
+   * Line 14869: #Fr() { return this.#st === `disposed` }
+   */
+  mCheckIfDisposed: "#Lr",
+
+  /** 
+   * Instance managing game clock ticks and time scale updates.
+   * Lines 13505, 13985: this.#dt = new Nt({ ... })
+   */
   pTimeManagerObject: "#dt",
-  /* ln. 13521
-  #Dt = new de(E.maximumRaceTicks);
-  */
+
+  /** 
+   * Recorder instance capturing player input bytes frame-by-frame.
+   * Line 13521: #Dt = new de(E.maximumRaceTicks);
+   */
   pRunRecorderObject: "#Dt",
-  /* ln. 13472, 13874
-  this.#Be = i, this.#cs();
-  */
-  pSimulationManager: "#Be", // needs better documentation
-  /* ln. 13525, 13978
-  this.#jt = e
-  */
+
+  /** 
+   * Core physics and state simulation manager.
+   * Handles vehicle step updates, body snapshots, and tick advancing.
+   * Lines 13472, 13874: this.#Be = i, this.#cs();
+   */
+  pSimulationManager: "#Be",
+
+  /** 
+   * Ghost object representing rival racer physics/playback snapshot.
+   * Lines 13525, 13978: this.#jt = e
+   */
   pRivalGhost: "jt",
-  /* ln. 13499, 14580, 14595
-  14580 this.#at = 0;
-  14595 this.#at = p & 95
-  */
+
+  /** 
+   * Encoded base64 string or bitfield integer representing current control inputs.
+   * Lines 13499, 14580, 14595: this.#at = p & 95
+   */
   pInputBase64: "#at",
-  /* ln. 13524, 13978
-  this.#At = o
-  */
+
+  /** 
+   * Object storing recorded telemetry and car snapshot data of rival racers.
+   * Lines 13524, 13978: this.#At = o
+   */
   pRecordedRivalObject: "At",
-  /* ln. 47
-  f as ce
-  */
+
+
+  // --- Game Data & UI Rendering ---
+
+  /** 
+   * Reference object holding active daily challenge management methods.
+   * Lines 13368, 13582: this.#n = e.service ?? new hs
+   */
+  pDailyManagerObject: "#n",
+
+  /** 
+   * Keyed Map storing historical run telemetry objects (`runId` -> `RunData`).
+   * Used for leaderboard caching and replay lookup.
+   * Lines 13408, 17098: return this.#R.set(e, n), n
+   */
+  pRunsMap: "#R",
+
+  /** 
+   * Redraws account rows in the calendar menu view when runs update.
+   * Iterates through deleted entries and calls surface update hooks.
+   * Line 17290: #jo(e) { ... }
+   */
+  mRepaintCalendarAccountRows: "#jo",
+
+  /** 
+   * Map containing player finish times mapped by competitive rank position.
+   * Lines 13411, 17301: this.#V.set(n, r);
+   */
+  fRankTimes: "#V",
+
+  /** 
+   * Renders HTML structure for the post-race leaderboard panel.
+   * Line 6965: function Uu(e) { ... }
+   */
+  fRenderLeaderboard: "Uu",
+
+  /** 
+   * Immutable fallback object containing default zeroed player actions.
+   * Line 13007: var bv = Object.freeze({ ... })
+   */
+  vDefaultActionsSample: "bv",
+
+  /** 
+   * Helper function mapping raw action input states into boolean flags.
+   * Line 47: f as ce
+   */
   fActionBools: "ce",
-  /* ln. 110
-  s as Ze
-  */
-  fBoostThing: "#rn", // needs better documentation
+
+  /** 
+   * Returns current car boost availability meter or boost energy status (>0).
+   * Line 110: s as Ze
+   */
+  fBoostMeter: "#rn"
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -535,7 +496,7 @@ let r = this.__tas ? this.__tas.next(e-211) : n.sample()
 // 9. Capture last actions.
 mainPatcher.replaceOnce(
   "9.1getActions",
-  "u="+NAMES.fActionBools+"({boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this."+NAMES.fBoostThing+")>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0})",
+  "u="+NAMES.fActionBools+"({boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this."+NAMES.fBoostMeter+")>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0})",
   "actions={boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this.#rn)>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0},u=ce(actions)"
 )
 mainPatcher.insertAfter(
