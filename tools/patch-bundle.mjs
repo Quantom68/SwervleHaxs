@@ -199,6 +199,43 @@ const NAMES = {
     throttle: !1
   }),*/
   vDefaultActionsSample: "bv",
+  /* ln. 13501
+  #st = `new`;
+  property is also changed in other parts of the code.*/
+  pLifecycleState: "#st",
+  /* ln. 13505, 13985
+  g.restore(i.simulation.captureSnapshot().clock), this.#dt = new Nt({
+  */
+  pTimeManagerObject: "#dt",
+  /* ln. 13521
+  #Dt = new de(E.maximumRaceTicks);
+  */
+  pRunRecorderObject: "#Dt",
+  /* ln. 13472, 13874
+  this.#Be = i, this.#cs();
+  */
+  pSimulationManager: "#Be", // needs better documentation
+  /* ln. 13525, 13978
+  this.#jt = e
+  */
+  pRivalGhost: "jt",
+  /* ln. 13499, 14580, 14595
+  14580 this.#at = 0;
+  14595 this.#at = p & 95
+  */
+  pInputBase64: "#at",
+  /* ln. 13524, 13978
+  this.#At = o
+  */
+  pRecordedRivalObject: "At",
+  /* ln. 47
+  f as ce
+  */
+  fActionBools: "ce",
+  /* ln. 110
+  s as Ze
+  */
+  fBoostThing: "#rn", // needs better documentation
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -297,6 +334,8 @@ function rewriteRelativeChunkRefs(name, src) {
   return out;
 }
 
+// Patches are minimized with duckduckgo's minifier
+
 // ---- main bundle ----
 let mainSrc = rewriteRelativeChunkRefs("main bundle", readFileSync(mainIn, "utf8"));
 
@@ -351,7 +390,7 @@ mainPatcher.replaceOnce(
 
 // 4. Add background daily rank fetch.
 mainPatcher.insertBefore(
-  "5AsyncRankFetchFunc",
+  "4AsyncRankFetchFunc",
   "function "+NAMES.fRenderLeaderboard+"(e){",
   "async function fetchDailyRankInBackground(dailyId, durationTicks) {let dailyRankGateway = new "+NAMES.cServerCommunicationManager+"({ apiBase: `https://swervle.com/api/v1` }); let standing = await dailyRankGateway.fetchStanding(dailyId, durationTicks); const nameElements = document.querySelectorAll('.leaderboard-name'); const myNameElement = Array.from(nameElements).find(el => el.textContent.trim() === 'YOU'); if (myNameElement) { const rankElement = myNameElement.closest('li').querySelector('.leaderboard-rank'); rankElement.textContent = String(standing.rank); } else { console.log(`[Swervle TAS Tool] Rank Element Not Found.`)}}"
 )
@@ -380,12 +419,130 @@ async function fetchDailyRankInBackground(dailyId, durationTicks) {
 
 // 5. call fetchDailyRankInBackground()
 mainPatcher.replaceOnce(
-  "6makeRankUseAsyncFetch",
+  "5makeRankUseAsyncFetch",
   "</li>`;return`",
   "</li>`;try{fetchDailyRankInBackground(`2026-08-30`, e.entries[0].durationTicks);}catch(e){console.log(`[Swervle TAS Tool]: ` + e)}return`"
 )
 
 // == 6-? TAS ==
+
+// 6. Add TasPlayback class to manage tas playback.
+mainPatcher.insertBefore(
+  "6tasPlayback",
+  "var "+NAMES.vDefaultActionsSample+"=Object.freeze({",
+  "const BIT={throttle:1,reverse:2,steerLeft:4,steerRight:8,handbrake:16,recovery:32,boost:64};function decodeStateByte(prevByte,currByte){const heldBits=['throttle','reverse','steerLeft','steerRight','handbrake','boost'];const edges=[];for(const action of heldBits){const bit=BIT[action];const was=(prevByte&bit)!==0;const is=(currByte&bit)!==0;if(was!==is){edges.push({action,kind:is?'pressed':'released'})}}if((currByte&BIT.recovery)!==0){edges.push({action:'recover',kind:'pressed'})}const held={throttle:(currByte&BIT.throttle)!==0,reverse:(currByte&BIT.reverse)!==0,left:(currByte&BIT.steerLeft)!==0,right:(currByte&BIT.steerRight)!==0,handbrake:(currByte&BIT.handbrake)!==0,boost:(currByte&BIT.boost)!==0};return{edges,held}}class TasPlayback{constructor(statesBase64){const binary=atob(statesBase64);this.bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));this.prevByte=0}next(tick){const b=this.bytes[tick]??this.bytes[this.bytes.length-1]??0;const sample=decodeStateByte(this.prevByte,b);this.prevByte=b;return sample;}}"
+)
+/*
+// BIT from TerrainView.js car-state-byte-v1
+// too lazy to get it from the file
+// instead this is a copy
+const BIT = {
+  throttle: 1,
+  reverse: 2,
+  steerLeft: 4,
+  steerRight: 8,
+  handbrake: 16,
+  recovery: 32,   // encodes the "recover" edge, not a held state
+  boost: 64,
+};
+
+function decodeStateByte(prevByte, currByte) {
+  const heldBits = ['throttle', 'reverse', 'steerLeft', 'steerRight', 'handbrake', 'boost'];
+  const edges = [];
+  for (const action of heldBits) {
+    const bit = BIT[action];
+    const was = (prevByte & bit) !== 0;
+    const is  = (currByte & bit) !== 0;
+    if (was !== is) edges.push({ action, kind: is ? 'pressed' : 'released' });
+  }
+  if ((currByte & BIT.recovery) !== 0) {
+    edges.push({ action: 'recover', kind: 'pressed' });
+  }
+  const held = {
+    throttle: (currByte & BIT.throttle) !== 0,
+    reverse: (currByte & BIT.reverse) !== 0,
+    left: (currByte & BIT.steerLeft) !== 0,
+    right: (currByte & BIT.steerRight) !== 0,
+    handbrake: (currByte & BIT.handbrake) !== 0,
+    boost: (currByte & BIT.boost) !== 0,
+  };
+  return { edges, held };
+}
+
+class TasPlayback {
+  constructor(statesBase64) {
+    const binary = atob(statesBase64);
+    this.bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+    this.prevByte = 0;
+  }
+  next(tick) {
+    const b = this.bytes[tick] ?? this.bytes[this.bytes.length - 1] ?? 0;
+    const sample = decodeStateByte(this.prevByte, b);
+    this.prevByte = b;
+    return sample; // {edges, held} — same shape n.sample() returns
+  }
+}
+*/
+
+// 7. Add getters and methods to the main game class.
+mainPatcher.insertAfter(
+  "7addMainGettersAndMethods",
+  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
+  "get __debugTimeScale(){return this."+NAMES.pTimeManagerObject+"?.timeScale??null}get __debugCurrentActions(){return this.__lastActions??null}__debugCaptureStates(){return this."+NAMES.pRunRecorderObject+".captureStates()}__debugStartPlayback(statesBase64){this.__tas=new TasPlayback(statesBase64)}__debugStopPlayback(){this.__tas=null}__debugSaveState(){return{simulation:this."+NAMES.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this."+NAMES.pRunRecorder+".captureStates(),ghost:this."+NAMES.pRivalGhost+"?.captureRawSnapshot()??null}}__debugLoadState(state){this."+NAMES.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this."+NAMES.pTimeManagerObject+"?.clock.restore(this."+NAMES.pSimulationManager+".simulation.captureSnapshot().clock);this."+NAMES.pRunRecorderObject+".reset();for(const b of state.inputBytes){this."+NAMES.pRunRecorderObject+".recordByte(b)}this."+NAMES.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this."+NAMES.pRivalGhost+"&&state.ghost){this."+NAMES.pRivalGhost+".restoreRawSnapshot(state.ghost);this."+NAMES.pRecordedRivalObject+"?.consumeSnapshot(this."+NAMES.pRivalGhost+".frame.car)}}"
+)
+/*
+get __debugTimeScale() { return this."+NAMES.pTimeManagerObject+"?.timeScale ?? null; }
+get __debugCurrentActions() { return this.__lastActions ?? null; }
+__debugCaptureStates() { return this."+NAMES.pRunRecorderObject+".captureStates(); }
+__debugStartPlayback(statesBase64) {
+  this.__tas = new TasPlayback(statesBase64)
+}
+__debugStopPlayback() { this.__tas = null; }
+__debugSaveState() {
+  return {
+    simulation: this."+NAMES.pSimulationManager+".simulation.captureSnapshot(),
+    inputBytes: this."+NAMES.pRunRecorder+".captureStates(),
+    ghost: this."+NAMES.pRivalGhost+"?.captureRawSnapshot() ?? null,
+  };
+}
+__debugLoadState(state) {
+  this."+NAMES.pSimulationManager+".simulation.restoreSnapshot(state.simulation);
+  this."+NAMES.pTimeManagerObject+"?.clock.restore(this."+NAMES.pSimulationManager+".simulation.captureSnapshot().clock);
+
+  this."+NAMES.pRunRecorderObject+".reset();
+  for (const b of state.inputBytes) this."+NAMES.pRunRecorderObject+".recordByte(b);
+  this."+NAMES.pInputBase64+" = state.inputBytes.length > 0
+    ? state.inputBytes[state.inputBytes.length - 1] & 95
+    : 0;
+
+  if (this."+NAMES.pRivalGhost+" && state.ghost) {
+    this."+NAMES.pRivalGhost+".restoreRawSnapshot(state.ghost);
+    this."+NAMES.pRecordedRivalObject+"?.consumeSnapshot(this."+NAMES.pRivalGhost+".frame.car);
+  }
+}
+*/
+
+// 8. Trick game into getting the inputs from the tas.
+mainPatcher.replaceOnce(
+  "8useTas",
+  "let r=n.sample()",
+  "let r=this.__tas?this.__tas.next(e-211):n.sample()"
+)
+/*
+let r = this.__tas ? this.__tas.next(e-211) : n.sample()
+*/
+
+// 9. Capture last actions.
+mainPatcher.replaceOnce(
+  "9.1getActions",
+  "u="+NAMES.fActionBools+"({boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this."+NAMES.fBoostThing+")>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0})",
+  "actions={boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this.#rn)>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0},u=ce(actions)"
+)
+mainPatcher.insertAfter(
+  "9.2setActions",
+  "d=t.model.raceState;",
+  "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
+)
 
 writeFileSync(mainOut, mainSrc, "utf8");
 console.log(`Patched main bundle written to ${mainOut} (${mainSrc.length} bytes).`);
