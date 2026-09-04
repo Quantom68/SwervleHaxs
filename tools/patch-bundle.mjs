@@ -165,49 +165,55 @@ const NAMES = {
     passive: !1
   },*/
   vDefaultActionsSample: "dE",
-  /* ln. 13501
-  #st = `new`;
-  property is also changed in other parts of the code.*/
-  pLifecycleState: "#st",
-  /* ln. 13505, 13985
-  g.restore(i.simulation.captureSnapshot().clock), this.#dt = new Nt({
+  /* ln. 20554
+  return this.#Ae
   */
-  pTimeManagerObject: "#dt",
-  /* ln. 13521
-  #Dt = new de(E.maximumRaceTicks);
+  pLifecycleState: "#Ae",
+  /* ln. 20819
+  _.restore(s.simulation.captureSnapshot().clock), this.#Pe = new dn({
   */
-  pRunRecorderObject: "#Dt",
-  /* ln. 13472, 13874
-  this.#Be = i, this.#cs();
+  pTimeManagerObject: "#Pe",
+  /* ln. 20351
+  #Xe = new st(E.maximumRaceTicks);
   */
-  pSimulationManager: "#Be", // needs better documentation
-  /* ln. 13525, 13978
-  this.#jt = e
+  pRunRecorderObject: "#Xe",
+  /* ln. 22061
+  #Hn(e) {
+      if (this.#be?.model.raceState.phase === `invalid`) {
+        if (e === `scrim`) {
+          this.#ri();
+          return
+        }
   */
-  pRivalGhost: "jt",
-  /* ln. 13499, 14580, 14595
-  14580 this.#at = 0;
-  14595 this.#at = p & 95
+  pSimulationManager: "#be",
+  /* ln. 20812
+  o.setVisible(this.#pt.ghostsVisible), this.#pt.rival = o, this.#pt.rivalReplay = e, this.#pt.rivalPoses = this.#pt.ghostPoseChannel(this.#pt.rivalPoses, `rival`, i.opponent.states), this.#pt.rivalLivery = t, this.#pt.rivalGap = new Gx(i.track.routeLine)
   */
-  pInputBase64: "#at",
-  /* ln. 13524, 13978
-  this.#At = o
+  pRivalGhost: "#pt.rivalReplay",
+  /* ln. 21138
+  this.#ke = p & 95
   */
-  pRecordedRivalObject: "At",
-  /* ln. 47
-  f as ce
+  pInputBase64: "#ke",
+  /* ln. 20812
+  o.setVisible(this.#pt.ghostsVisible), this.#pt.rival = o, this.#pt.rivalReplay = e, this.#pt.rivalPoses = this.#pt.ghostPoseChannel(this.#pt.rivalPoses, `rival`, i.opponent.states), this.#pt.rivalLivery = t, this.#pt.rivalGap = new Gx(i.track.routeLine)
   */
-  fActionBools: "ce",
-  /* ln. 110
-  s as Ze
+  pRecordedRivalObject: "#pt.rival",
+  /* ln. 21112
+  u = lt({
+    boost: (r.held.boost === !0 || o?.boost === !0) && ze(this.#et) > 0,
+    handbrake: r.held.handbrake === !0 || o?.handbrake === !0,
+    recoveryRequested: a,
+    reverse: r.held.reverse === !0 || o?.reverse === !0,
+    steerLeft: s || l === `left`,
+    steerRight: c || l === `right`,
+    throttle: r.held.throttle === !0 || o?.throttle === !0
+  }),
   */
-  fBoostMeter: "Ze",
-
-  /**
-   * The amount of boost.
-   * Line 13551, 13863 this.#rn = Ke(n.dailyId, n.track.revision.rulesetVersion, { previewUnreleasedRules: r })
-   */
-  pBoostMeter: "#rn",
+  fActionBools: "lt",
+  /* ln. 21113
+  boost: (r.held.boost === !0 || o?.boost === !0) && ze(this.#et) > 0,
+  */
+  fBoostMeter: "ze",pBoostMeter: "#et",
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -519,8 +525,8 @@ mainPatcher.insertAfter(
 // 10. Expose main game as __SWERVLE_GAME__
 mainPatcher.insertAfter(
   "10exposeMain",
-  "window.__SWERVLE_CARD_HIDE_CAR__=()=>t.hideCarForCardCaptureV1(),",
-  "window.__SWERVLE_GAME__=t,"
+  "window.__SWERVLE_CARD_HIDE_CAR__=Lw",
+  ",window.__SWERVLE_GAME__=t,"
 )
 
 writeFileSync(mainOut, mainSrc, "utf8");
