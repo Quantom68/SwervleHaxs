@@ -166,12 +166,12 @@ const NAMES = {
     passive: !1
   },*/
   vDefaultActionsSample: "CE",
-  /* ln. 365
+  /* ln. 20783
   get lifecycleState() {
-      return this.#a
-    }
-  */
-  pLifecycleState: "#a",
+    return this.#je
+  }
+  MAKE SURE IT'S THE ONE IN THE MAIN CLASS*/
+  pLifecycleState: "#je",
   /* ln. 20819
   _.restore(s.simulation.captureSnapshot().clock), this.#Pe = new dn({
   */
