@@ -42,6 +42,10 @@ The following files don't get automatically downloaded and have to be manually d
 
 Can be locally runned via vscode's [live server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). Disclaimer: Because it won't be able to access a server, the code will default to a locally generated map. The code has to be changed for it to read a `daily.json`.
 
+### 2026-09-03 Update
+
+File names no longer have actual names and are now hash-hash.js.
+
 ## assets beautified
 
 A select few javascript files that are beautified via [beautifier.io](https://beautifier.io/). This is to make it easier to read by human eyes and allows finding code via line number.
