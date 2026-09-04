@@ -526,7 +526,7 @@ mainPatcher.insertAfter(
 mainPatcher.insertAfter(
   "10exposeMain",
   "window.__SWERVLE_CARD_HIDE_CAR__=Lw",
-  ",window.__SWERVLE_GAME__=t,"
+  ",window.__SWERVLE_GAME__=t"
 )
 
 writeFileSync(mainOut, mainSrc, "utf8");
