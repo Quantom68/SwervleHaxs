@@ -7,7 +7,20 @@
       "redirect": { "extensionPath": "/patched-bundle.js" }
     },
     "condition": {
-      "urlFilter": "mkilKz21"
+      "urlFilter": "||swervle.com/assets/e3c40cc0-AQcOh4hE.js",
+      "resourceTypes": ["script"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": { "extensionPath": "/patched-replay.js" }
+    },
+    "condition": {
+      "urlFilter": "||swervle.com/assets/c3c40cc0-DxaohzSt.js",
+      "resourceTypes": ["script"]
     }
   }
 ]

@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Swervle Tas Tool",
     "description": "tba",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "permissions": [
         "declarativeNetRequest",
         "activeTab",
