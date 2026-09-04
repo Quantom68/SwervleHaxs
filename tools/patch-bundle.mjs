@@ -537,7 +537,7 @@ mainPatcher.insertAfter(
 mainPatcher.insertAfter(
   "10exposeMain",
   "let t=new "+NAMES.cMainGame+"({mount:e});",
-  "let window.__SWERVLE_GAME__=t;"
+  "window.__SWERVLE_GAME__=t;"
 )
 
 writeFileSync(mainOut, mainSrc, "utf8");
