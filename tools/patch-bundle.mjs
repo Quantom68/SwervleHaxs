@@ -21,27 +21,27 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 // m - method
 const NAMES = {
   /* ln. 3756:
-  async #m(e, t) {
+  async #h(e, t) {
     try {
-      let n = await this.#h(`POST`, e, {
+      let n = await this.#g(`POST`, e, {
         body: t,
         csrf: !0,
         timeoutMs: this.#i
       });
       return Object.freeze({
-        body: await $s(n),
+        body: await Wl(n),
         httpStatus: n.status,
         kind: `response`
       })
     } catch (e) {
       return Object.freeze({
-        classification: ec(e) ? `server-timeout` : `server-unreachable`,
+        classification: Gl(e) ? `server-timeout` : `server-unreachable`,
         kind: `transport-failure`,
         message: e instanceof Error && e.message.length > 0 ? e.message : null
       })
     }
   }*/
-  mRunPoster: "#m",
+  mRunPoster: "#h",
   /* ln. 3776
   #h(e, t, n = {}) {
     let r = {
@@ -58,7 +58,7 @@ const NAMES = {
     }
     return this.#g(Zs(this.#t, `${this.#e}${t}`, i, n.timeoutMs ?? this.#r))
   }*/
-  mServerAccesser: "#h",
+  mServerAccesser: "#g",
   /* ln. 3761
   timeoutMs: this.#i
   */
@@ -66,11 +66,11 @@ const NAMES = {
   /* ln. 3764
   body: await $s(n),
   */
-  fResponseChecker: "ec",
+  fResponseChecker: "Wl",
   /* ln. 3770
   classification: ec(e) ? `server-timeout` : `server-unreachable`,
   */
-  fServerAccessErrorClassifier: "tc",
+  fServerAccessErrorClassifier: "Gl",
   /* ln. 8408
   requiresServerTruth() {
     return js(globalThis.location.hostname)
@@ -79,19 +79,20 @@ const NAMES = {
   /* ln. 8409
   return js(globalThis.location.hostname)
   */
-  fCheckIfLocal: "Ms",
-  /* ln. 5702
-  if (sl(e), !Number.isSafeInteger(t) || t < 1) return null;
+  fCheckIfLocal: "Sl",
+  /* ln. 7542
+  dailyRank(e, t, n) {
+    if (Zu(e), !Number.isSafeInteger(t) || t < 1) return null;
   */
-  fValidateDate: "sl",
+  fValidateDate: "Zu",
   /* ln. 5711
   Tc({
     dailyId: e,
     results: r
   }).rankedEntries.find(e => e.competitorId === `local-player`)?.rank ?? null*/
-  fValidateDayRunsAndFindRank: "Tc",
+  fValidateDayRunsAndFindRank: "hu",
   /* ln. 5242
-  var Ts = class {
+  var gl = class {
     #e;
     #t;
     #n;
@@ -101,14 +102,14 @@ const NAMES = {
     #o = null;
     #s = `normal`;
     constructor(e = {}) {
-      this.#e = e.apiBase ?? oc();
+      this.#e = e.apiBase ?? Xl();
       let t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null);
       if (t === null) throw TypeError(`A fetch implementation is required for server mode.`);
-      this.#t = t, this.#n = e.cookieSource ?? ac, this.#r = e.requestTimeoutMs ?? vs, this.#i = e.submissionTimeoutMs ?? ys, this.#a = e.delayImpl ?? (e => new Promise(t => {
+      this.#t = t, this.#n = e.cookieSource ?? Yl, this.#r = e.requestTimeoutMs ?? ll, this.#i = e.submissionTimeoutMs ?? ul, this.#a = e.delayImpl ?? (e => new Promise(t => {
         setTimeout(t, e)
       }))
     }*/
-  cServerCommunicationManager: "Ts",
+  cServerCommunicationManager: "gl",
   /* ln. 2706
   function ja(e) {
     let t = pa[e.surface],
@@ -148,7 +149,7 @@ const NAMES = {
             <ol${e.offerSignIn?` data-sign-in="true"`:``}${$t()?``:` data-chips="off"`}>${o}${u}${f}</ol>
           </aside>`
   }*/
-  fRenderLeaderboard: "ja",
+  fRenderLeaderboard: "Cs",
   /* ln. 19908
   var fE = Object.freeze({
     boost: !1,
@@ -164,40 +165,46 @@ const NAMES = {
   _E = {
     passive: !1
   },*/
-  vDefaultActionsSample: "fE",
-  /* ln. 20554
-  return this.#Ae
+  vDefaultActionsSample: "CE",
+  /* ln. 365
+  get lifecycleState() {
+      return this.#a
+    }
   */
-  pLifecycleState: "#Ae",
+  pLifecycleState: "#a",
   /* ln. 20819
   _.restore(s.simulation.captureSnapshot().clock), this.#Pe = new dn({
   */
-  pTimeManagerObject: "#Pe",
-  /* ln. 20351
-  #Xe = new st(E.maximumRaceTicks);
+  pTimeManagerObject: "#Fe",
+  /* ln. 20574
+  #Ze = new ot(Oe.maximumRaceTicks);
   */
-  pRunRecorderObject: "#Xe",
-  /* ln. 22061
-  #Hn(e) {
-      if (this.#be?.model.raceState.phase === `invalid`) {
-        if (e === `scrim`) {
-          this.#ri();
-          return
-        }
+  pRunRecorderObject: "#Ze",
+  /* ln. 22292
+  #Un(e) {
+    if (this.#xe?.model.raceState.phase === `invalid`) {
+      if (e === `scrim`) {
+        this.#ai();
+        return
+      }
+      globalThis.setTimeout(() => {
+        this.#ce !== null || this.#xe?.model.raceState.phase !== `invalid` || this.#en(!0)
+      }, 0)
+    }
+  }*/
+  pSimulationManager: "#xe",
+  /* ln. 21043
+  o.setVisible(this.#mt.ghostsVisible), this.#mt.rival = o, this.#mt.rivalReplay = e, this.#mt.rivalPoses = this.#mt.ghostPoseChannel(this.#mt.rivalPoses, `rival`, i.opponent.states), this.#mt.rivalLivery = t, this.#mt.rivalGap = new Qx(i.track.routeLine)
   */
-  pSimulationManager: "#be",
-  /* ln. 20812
-  o.setVisible(this.#pt.ghostsVisible), this.#pt.rival = o, this.#pt.rivalReplay = e, this.#pt.rivalPoses = this.#pt.ghostPoseChannel(this.#pt.rivalPoses, `rival`, i.opponent.states), this.#pt.rivalLivery = t, this.#pt.rivalGap = new Gx(i.track.routeLine)
-  */
-  pRivalGhost: "#pt.rivalReplay",
+  pRivalGhost: "#mt.rivalReplay",
   /* ln. 21138
   this.#ke = p & 95
   */
-  pInputBase64: "#ke",
+  pInputBase64: "#Ae",
   /* ln. 20812
   o.setVisible(this.#pt.ghostsVisible), this.#pt.rival = o, this.#pt.rivalReplay = e, this.#pt.rivalPoses = this.#pt.ghostPoseChannel(this.#pt.rivalPoses, `rival`, i.opponent.states), this.#pt.rivalLivery = t, this.#pt.rivalGap = new Gx(i.track.routeLine)
   */
-  pRecordedRivalObject: "#pt.rival",
+  pRecordedRivalObject: "#mt.rival",
   /* ln. 21112
   u = lt({
     boost: (r.held.boost === !0 || o?.boost === !0) && ze(this.#et) > 0,
@@ -209,15 +216,15 @@ const NAMES = {
     throttle: r.held.throttle === !0 || o?.throttle === !0
   }),
   */
-  fActionBools: "lt",
+  fActionBools: "ct",
   /* ln. 21113
   boost: (r.held.boost === !0 || o?.boost === !0) && ze(this.#et) > 0,
   */
-  fBoostMeter: "ze",pBoostMeter: "#et",
+  fBoostMeter: "Re",pBoostMeter: "#tt",
   /* ln. 20243
   The main game class.
   */
-  cMainGame: "jE",
+  cMainGame: "HE",
 };
 
 // Every patch's success/failure, in call order, across all three files —
