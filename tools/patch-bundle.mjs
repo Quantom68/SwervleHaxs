@@ -11,8 +11,8 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 }
 
 // ---- minified identifier mapping for the CURRENT bundles ----
-// main bundle: index-gfwPTtYR.js
-// replay chunk: replay-C4CGFH_K.js
+// main bundle: e3c40cc0-mkilKz21.js
+// replay chunk: c3c40cc0-DxaohzSt.js
 // Updated: 2026-08-30
 // v - variable
 // f - function
@@ -20,30 +20,30 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 // p - property
 // m - method
 const NAMES = {
-  /* ln. 5472:
-  async #f(e, t) {
+  /* ln. 3756:
+  async #m(e, t) {
     try {
-      let n = await this.#p(`POST`, e, {
+      let n = await this.#h(`POST`, e, {
         body: t,
         csrf: !0,
         timeoutMs: this.#i
       });
       return Object.freeze({
-        body: await _l(n),
+        body: await $s(n),
         httpStatus: n.status,
         kind: `response`
       })
     } catch (e) {
       return Object.freeze({
-        classification: vl(e) ? `server-timeout` : `server-unreachable`,
+        classification: ec(e) ? `server-timeout` : `server-unreachable`,
         kind: `transport-failure`,
         message: e instanceof Error && e.message.length > 0 ? e.message : null
       })
     }
   }*/
-  mRunPoster: "#f",
-  /* ln. 5439
-  #p(e, t, n = {}) {
+  mRunPoster: "#m",
+  /* ln. 3776
+  #h(e, t, n = {}) {
     let r = {
         accept: `application/json`
       },
@@ -53,152 +53,118 @@ const NAMES = {
         method: e
       };
     if (n.body !== void 0 && (r[`content-type`] = `application/json`, i.body = JSON.stringify(n.body)), n.csrf === !0) {
-      let e = kl(this.#n());
+      let e = ic(this.#n());
       e !== null && (r[`x-csrf-token`] = e)
     }
-    return this.#m(wl(this.#t, `${this.#e}${t}`, i, n.timeoutMs ?? this.#r))
+    return this.#g(Zs(this.#t, `${this.#e}${t}`, i, n.timeoutMs ?? this.#r))
   }*/
-  mServerAccesser: "#p",
-  /* ln. 5194, 5201
-  this.#i = e.submissionTimeoutMs ?? Gc
+  mServerAccesser: "#h",
+  /* ln. 3761
+  timeoutMs: this.#i
   */
   pTimeoutMs: "#i",
-  /* ln. 5754
-  async function El(e) {
-    try {
-      let t = await e.json();
-      return Ol(t) ? t : null
-    } catch {
-      return null
-    }
+  /* ln. 3764
+  body: await $s(n),
+  */
+  fResponseChecker: "$s",
+  /* ln. 3770
+  classification: ec(e) ? `server-timeout` : `server-unreachable`,
+  */
+  fServerAccessErrorClassifier: "ec",
+  /* ln. 8408
+  requiresServerTruth() {
+    return js(globalThis.location.hostname)
   }*/
-  fResponseChecker: "Dl",
-  /* ln. 5763
-  function Dl(e) {
-    return Ol(e) && e.name === `AbortError`
-  }*/
-  fServerAccessErrorClassifier: "Ol",
-  /* ln. 14475
-  #gr() {
-    return cl(globalThis.location.hostname)
-  }*/
-  mCheckIfLocalBaseOnHostname: "#vr",
-  /* ln. 5483
-  function cl(e, t = Ml()) {
-    return sl(t) || rl(e)
-  }*/
-  fCheckIfLocal: "ll",
-  /* ln. 4553
-  function xs(e) {
-    let t = Date.parse(`${e}T00:00:00Z`);
-    if (!/^\d{4}-\d{2}-\d{2}$/u.test(e) || Number.isNaN(t) || new Date(t).toISOString().slice(0, 10) !== e) throw TypeError(`Daily ID must be a UTC calendar date.`)
-  }*/
-  fValidateDate: "xs",
-  /* ln. 3265
-  function Xa(e) {
-    return to(e.dailyId), Ya({
-      contestId: e.dailyId,
-      contestKind: `daily`,
-      results: e.results,
-      ...e.realRacerIds === void 0 ? {} : {
-        realRacerIds: e.realRacerIds
-      }
-    })
-  }*/
-  fValidateDayRunsAndFindRank: "Xa",
+  mCheckIfLocalBaseOnHostname: "requiresServerTruth",
+  /* ln. 8409
+  return js(globalThis.location.hostname)
+  */
+  fCheckIfLocal: "js",
+  /* ln. 5702
+  if (sl(e), !Number.isSafeInteger(t) || t < 1) return null;
+  */
+  fValidateDate: "sl",
+  /* ln. 5711
+  Tc({
+    dailyId: e,
+    results: r
+  }).rankedEntries.find(e => e.competitorId === `local-player`)?.rank ?? null*/
+  fValidateDayRunsAndFindRank: "Tc",
   /* ln. 5242
-  var nl = class {
+  var Ts = class {
     #e;
     #t;
     #n;
     #r;
     #i;
-    #a = null;
-    #o = `normal`;
+    #a;
+    #o = null;
+    #s = `normal`;
     constructor(e = {}) {
-      this.#e = e.apiBase ?? jl();
+      this.#e = e.apiBase ?? oc();
       let t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null);
       if (t === null) throw TypeError(`A fetch implementation is required for server mode.`);
-      this.#t = t, this.#n = e.cookieSource ?? Al, this.#r = e.requestTimeoutMs ?? $c, this.#i = e.submissionTimeoutMs ?? el
+      this.#t = t, this.#n = e.cookieSource ?? ac, this.#r = e.requestTimeoutMs ?? vs, this.#i = e.submissionTimeoutMs ?? ys, this.#a = e.delayImpl ?? (e => new Promise(t => {
+        setTimeout(t, e)
+      }))
     }*/
-  cServerCommunicationManager: "rl",
-  /* ln. 13368, 13582
-  this.#n = e.service ?? new hs
-  */
-  pDailyManagerObject: "#n",
-  /* ln. 13365
-  It's the one with all the methods and manages everything.
-  */
-  cMainGame: "Qv",
-  /* ln. 14869
-  #Fr() {
-    return this.#st === `disposed`
-  }*/
-  mCheckIfDisposed: "#Lr",
-  /* ln. 13408, 17098
-  return this.#R.set(e, n), n
-  */
-  pRunsMap: "#R", // needs better documentaion
-  /* ln. 17290
-  #jo(e) {
-    let t = this.#we;
-    for (let n of e) this.#R.delete(n), t !== null && F_(t.element, n, this.#So(n))
-  }*/
-  mRepaintCalendarAccountRows: "#jo", // needs better documentaion
-  /* ln. 13411, 17301
-  for (let [n, r] of Zp(e)) t.add(n), this.#V.set(n, r);
-  */
-  fRankTimes: "#V",
-  /* ln. 6965
-  function Uu(e) {
-    let t = Tu[e.surface],
-      n = Eu[e.surface],
+  cServerCommunicationManager: "Ts",
+  /* ln. 2706
+  function ja(e) {
+    let t = pa[e.surface],
+      n = ma[e.surface],
       r = e.scopeControl,
-      i = vu();
-    if (e.state === `offline` && !i) return Xu(e.surface, t, n, r);
-    if (e.state === `pending` && !i) return Ju(t, n, r);
-    let a = vc(e.viewerTeamTag),
-      o = rd(e.entries).map(t => `
+      i = oa();
+    if (e.state === `offline` && !i) return Ra(e.surface, t, n, r);
+    if (e.state === `pending` && !i) return Ia(t, n, r);
+    let a = jr(e.viewerTeamTag),
+      o = Ga(e.entries).map(t => `
             <li${t.isPlayer?` data-player="true"`:``}>
               <span class="leaderboard-rank" aria-label="Rank ${String(t.rank)}">${String(t.rank)}</span>
-              ${$u(t.isPlayer?e.viewerIsSupporter===!0||t.isSupporter===!0:t.isSupporter)}
-              <span class="leaderboard-name">${Qu(t.isPlayer?e.viewerTeamTag??t.teamTag:t.teamTag,a)}<strong>${t.isPlayer?`YOU`:J(t.displayName)}</strong>${ed(t.creatorLinks)}</span>
-              <time>${D(t.displayTimeMs??T(t.durationTicks))}</time>
-              ${ad(t.carPaint??null,t.isPlayer?`your car`:`${t.displayName}'s car`,t.isPlayer?`YOU`:t.displayName,D(t.displayTimeMs??T(t.durationTicks)),t.isPlayer,t.publicRunId,t.rank,t.joinedAtIso??null)}${e.offerSignIn?`
-              ${t.isPlayer?od():`<span class="leaderboard-signin-slot" aria-hidden="true"></span>`}`:``}
+              ${Va(t.isPlayer?e.viewerIsSupporter===!0||t.isSupporter===!0:t.isSupporter)}
+              <span class="leaderboard-name">${Ba(t.isPlayer?e.viewerTeamTag??t.teamTag:t.teamTag,a)}<strong>${t.isPlayer?`YOU`:B(t.displayName)}</strong>${Ha(t.creatorLinks)}</span>
+              <time>${N(t.displayTimeMs??Ee(t.durationTicks))}</time>
+              ${qa(t.carPaint??null,t.isPlayer?`your car`:`${t.displayName}'s car`,t.isPlayer?`YOU`:t.displayName,N(t.displayTimeMs??Ee(t.durationTicks)),t.isPlayer,t.publicRunId,t.rank,t.joinedAtIso??null)}${e.offerSignIn?`
+              ${t.isPlayer?Ja(e.signInCtaMode??`save`):`<span class="leaderboard-signin-slot" aria-hidden="true"></span>`}`:``}
             </li>`).join(``),
       s = e.viewerRow,
       c = s !== null && s.durationTicks === null,
-      l = c ? wu : D(s?.displayTimeMs ?? T(s?.durationTicks ?? 0)),
-      u = Wu(e, a),
+      l = c ? fa : N(s?.displayTimeMs ?? Ee(s?.durationTicks ?? 0)),
+      u = Ma(e, a),
       d = e.entries.length > 0 || u !== ``,
       f = s === null ? `` : `${d?`
             <li class="leaderboard-separator" role="presentation" aria-hidden="true"></li>`:``}
             <li class="leaderboard-you-outside" data-player="true"${c?` data-untimed="true"`:``}>
               <span class="leaderboard-rank" aria-label="${c?`No time yet`:s.rank===null?`Unranked`:`Rank ${String(s.rank)}`}">${c||s.rank===null?`&mdash;`:String(s.rank)}</span>
-              ${$u(s.isSupporter===!0||e.viewerIsSupporter===!0)}
-              <span class="leaderboard-name">${Qu(s.teamTag??e.viewerTeamTag,a)}<strong>YOU</strong>${ed(s.creatorLinks)}</span>
+              ${Va(s.isSupporter===!0||e.viewerIsSupporter===!0)}
+              <span class="leaderboard-name">${Ba(s.teamTag??e.viewerTeamTag,a)}<strong>YOU</strong>${Ha(s.creatorLinks)}</span>
               <time>${l}</time>
-              ${ad(s.carPaint??null,`your car`,`YOU`,l,!0,void 0,s.rank,s.joinedAtIso??null)}${e.offerSignIn?`
-              ${od()}`:``}
+              ${qa(s.carPaint??null,`your car`,`YOU`,l,!0,void 0,s.rank,s.joinedAtIso??null)}${e.offerSignIn?`
+              ${Ja(e.signInCtaMode??`save`)}`:``}
             </li>`;
     return `
-          <aside class="result-leaderboard panel" data-slot="${t}"${Gu(r)} data-board-state="ready" aria-labelledby="${n}">
-            ${qu(n,r)}
-            <ol${e.offerSignIn?` data-sign-in="true"`:``}${Zt()?``:` data-chips="off"`}>${o}${u}${f}</ol>
+          <aside class="result-leaderboard panel" data-slot="${t}"${Na(r)} data-board-state="ready" aria-labelledby="${n}">
+            ${Fa(n,r)}
+            <ol${e.offerSignIn?` data-sign-in="true"`:``}${$t()?``:` data-chips="off"`}>${o}${u}${f}</ol>
           </aside>`
-  }
-  */
-  fRenderLeaderboard: "Uu",
-  /* ln. 13007
-  var bv = Object.freeze({
+  }*/
+  fRenderLeaderboard: "ja",
+  /* ln. 19908
+  var dE = Object.freeze({
     boost: !1,
     handbrake: !1,
     reverse: !1,
     steerTarget: 0,
     throttle: !1
-  }),*/
-  vDefaultActionsSample: "bv",
+  }),
+  fE = -1,
+  pE = `input, textarea, select, option, [contenteditable=""], [contenteditable="true"]`,
+  mE = `button, a[href], label, summary, [role="button"], [data-action]`,
+  hE = 16,
+  gE = {
+    passive: !1
+  },*/
+  vDefaultActionsSample: "dE",
   /* ln. 13501
   #st = `new`;
   property is also changed in other parts of the code.*/
@@ -235,13 +201,13 @@ const NAMES = {
   /* ln. 110
   s as Ze
   */
-  fBoostThing: "Ze",
+  fBoostMeter: "Ze",
 
   /**
    * The amount of boost.
    * Line 13551, 13863 this.#rn = Ke(n.dailyId, n.track.revision.rulesetVersion, { previewUnreleasedRules: r })
    */
-  pBoostMeter: "#rn",, // needs better documentation
+  pBoostMeter: "#rn",
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -356,9 +322,9 @@ const mainPatcher = makePatcher(
 // 0. Replace the title text to confirm that the extension loaded
 //    successfully.
 mainPatcher.replaceOnce(
-  "0replaceTitleText",
-  "title:n.mode===`challenge`?`BEAT THIS RUN.`:`LET'S SWERVE`",
-  "title:n.mode===`challenge`?`DESTROY THIS RUN.`:`LET'S TAS`",
+  "00replaceTitleText",
+  "title:i.mode===`challenge`?`BEAT THIS RUN.`:`LET'S SWERVE`",
+  "title:i.mode===`challenge`?`DESTROY THIS RUN.`:`LET'S TAS`",
 )
 
 // 1. Kill the run-submission network call. submitRunOutcome's only side
@@ -390,7 +356,7 @@ mainPatcher.replaceOnce(
 // 3. Force dailyRank() to call fetchStanding() to get rank.
 mainPatcher.replaceOnce(
   "03forceFetchStanding",
-  "dailyRank(e,t,n){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let r=[];return r.push(Object.freeze({competitorId:`local-player`,contestId:e,contestKind:`daily`,durationTicks:t,participantKind:`human`,publicDisplayName:`YOU`,publicRunId:n,verifiedAtIso:new Date(`${e}T23:59:59.999Z`).toISOString()})),"+NAMES.fValidateDayRunsAndFindRank+"({dailyId:e,results:r}).rankedEntries.find(e=>e.competitorId===`local-player`)?.rank??null}",
+  "dailyRank(e,t,n){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let r=[];return r.push(Object.freeze({competitorId:`local-player`,durationTicks:t,participantKind:`human`,publicDisplayName:`YOU`,publicRunId:n,verifiedAtIso:new Date(`${e}T23:59:59.999Z`).toISOString()})),"+NAMES.fValidateDayRunsAndFindRank+"({dailyId:e,results:r}).rankedEntries.find(e=>e.competitorId===`local-player`)?.rank??null}",
   "async dailyRank(e,t,n,r){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let g=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});const standing=await g.fetchStanding(e,t,undefined,r).catch(()=>null);console.log(standing?.rank??null);return standing?.rank??null;}"
 )
 
