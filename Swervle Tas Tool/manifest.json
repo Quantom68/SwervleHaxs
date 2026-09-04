@@ -8,18 +8,6 @@
         "activeTab",
         "scripting"
     ],
-    "host_permissions": ["https://swervle.com/*"],
-    "action": {
-        "default_popup": "popup.html"
-    },
-    "content_scripts": [
-        {
-        "matches": ["https://swervle.com/*"],
-        "js": ["anti-auto-pause.js"],
-        "run_at": "document_start",
-        "world": "MAIN"
-        }
-    ],
     "declarative_net_request": {
         "rule_resources": [
         {
