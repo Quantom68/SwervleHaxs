@@ -11,7 +11,7 @@ if (!mainIn || !replayIn || !mainOut || !replayOut) {
 }
 
 // ---- minified identifier mapping for the CURRENT bundles ----
-// main bundle: e3c40cc0-mkilKz21.js
+// main bundle: e3c40cc0-AQcOh4hE.js
 // replay chunk: c3c40cc0-DxaohzSt.js
 // Updated: 2026-08-30
 // v - variable
