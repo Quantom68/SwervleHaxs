@@ -13,5 +13,12 @@ document.getElementById('inject-btn').addEventListener('click', async () => {
       target: { tabId: tab.id },
       files: ['panel-injector.js']
     });
+
+    // Inject Game Control Logic (MAIN World)
+    await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        world: 'MAIN',
+        files: ['panel-script.js']
+    });
   }
 });

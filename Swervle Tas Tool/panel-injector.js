@@ -63,10 +63,4 @@
 
     // 3. Append Panel to Page
     (document.body || document.documentElement).appendChild(panel);
-
-    // Setup close button listener
-    const closeBtn = document.getElementById('tm-panel-close');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => panel.remove());
-    }
 })();

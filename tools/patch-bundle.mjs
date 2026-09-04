@@ -334,7 +334,7 @@ mainPatcher.replaceOnce(
 //    TL:DR: Instead of posting, returns "server unreachable".
 //    This is backup code incase `forceLocalVerifier` fails.
 mainPatcher.replaceOnce(
-  "1disableRunSubmission",
+  "01disableRunSubmission",
   "async"+NAMES.mRunPoster+"(e,t){try{let n=await this."+NAMES.mServerAccesser+"(`POST`,e,{body:t,csrf:!0,timeoutMs:this."+NAMES.pTimeoutMs+"});return Object.freeze({body:await "+NAMES.fResponseChecker+"(n),httpStatus:n.status,kind:`response`})}catch(e){return Object.freeze({classification:"+NAMES.fServerAccessErrorClassifier+"(e)?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0?e.message:null})}}",
   "async"+NAMES.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
 );
@@ -343,21 +343,21 @@ mainPatcher.replaceOnce(
 //    Suppose to prevent "OFFICIAL VERIFIER UNREACHABLE" screen
 //    from appearing and shows the time.
 mainPatcher.replaceOnce(
-  "2forceLocalVerifier",
+  "02forceLocalVerifier",
   NAMES.mCheckIfLocalBaseOnHostname+"(){return "+NAMES.fCheckIfLocal+"(globalThis.location.hostname)}",
   NAMES.mCheckIfLocalBaseOnHostname+"(){return!1}"
 );
 
 // 3. Force dailyRank() to call fetchStanding() to get rank.
 mainPatcher.replaceOnce(
-  "3forceFetchStanding",
+  "03forceFetchStanding",
   "dailyRank(e,t,n){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let r=[];return r.push(Object.freeze({competitorId:`local-player`,contestId:e,contestKind:`daily`,durationTicks:t,participantKind:`human`,publicDisplayName:`YOU`,publicRunId:n,verifiedAtIso:new Date(`${e}T23:59:59.999Z`).toISOString()})),"+NAMES.fValidateDayRunsAndFindRank+"({dailyId:e,results:r}).rankedEntries.find(e=>e.competitorId===`local-player`)?.rank??null}",
   "async dailyRank(e,t,n,r){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let g=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});const standing=await g.fetchStanding(e,t,undefined,r).catch(()=>null);console.log(standing?.rank??null);return standing?.rank??null;}"
 )
 
 // 4. Add background daily rank fetch.
 mainPatcher.insertBefore(
-  "4AsyncRankFetchFunc",
+  "04AsyncRankFetchFunc",
   "function "+NAMES.fRenderLeaderboard+"(e){",
   "async function fetchDailyRankInBackground(dailyId, durationTicks) {let dailyRankGateway = new "+NAMES.cServerCommunicationManager+"({ apiBase: `https://swervle.com/api/v1` }); let standing = await dailyRankGateway.fetchStanding(dailyId, durationTicks); const nameElements = document.querySelectorAll('.leaderboard-name'); const myNameElement = Array.from(nameElements).find(el => el.textContent.trim() === 'YOU'); if (myNameElement) { const rankElement = myNameElement.closest('li').querySelector('.leaderboard-rank'); rankElement.textContent = String(standing.rank); } else { console.log(`[Swervle TAS Tool] Rank Element Not Found.`)}}"
 )
@@ -386,7 +386,7 @@ async function fetchDailyRankInBackground(dailyId, durationTicks) {
 
 // 5. call fetchDailyRankInBackground()
 mainPatcher.replaceOnce(
-  "5makeRankUseAsyncFetch",
+  "05makeRankUseAsyncFetch",
   "</li>`;return`",
   "</li>`;try{fetchDailyRankInBackground(`2026-08-30`, e.entries[0].durationTicks);}catch(e){console.log(`[Swervle TAS Tool]: ` + e)}return`"
 )
@@ -395,7 +395,7 @@ mainPatcher.replaceOnce(
 
 // 6. Add TasPlayback class to manage tas playback.
 mainPatcher.insertBefore(
-  "6tasPlayback",
+  "06tasPlayback",
   "var "+NAMES.vDefaultActionsSample+"=Object.freeze({",
   "const BIT={throttle:1,reverse:2,steerLeft:4,steerRight:8,handbrake:16,recovery:32,boost:64};function decodeStateByte(prevByte,currByte){const heldBits=['throttle','reverse','steerLeft','steerRight','handbrake','boost'];const edges=[];for(const action of heldBits){const bit=BIT[action];const was=(prevByte&bit)!==0;const is=(currByte&bit)!==0;if(was!==is){edges.push({action,kind:is?'pressed':'released'})}}if((currByte&BIT.recovery)!==0){edges.push({action:'recover',kind:'pressed'})}const held={throttle:(currByte&BIT.throttle)!==0,reverse:(currByte&BIT.reverse)!==0,left:(currByte&BIT.steerLeft)!==0,right:(currByte&BIT.steerRight)!==0,handbrake:(currByte&BIT.handbrake)!==0,boost:(currByte&BIT.boost)!==0};return{edges,held}}class TasPlayback{constructor(statesBase64){const binary=atob(statesBase64);this.bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));this.prevByte=0}next(tick){const b=this.bytes[tick]??this.bytes[this.bytes.length-1]??0;const sample=decodeStateByte(this.prevByte,b);this.prevByte=b;return sample;}}"
 )
@@ -453,7 +453,7 @@ class TasPlayback {
 
 // 7. Add getters and methods to the main game class.
 mainPatcher.insertAfter(
-  "7addMainGettersAndMethods",
+  "07addMainGettersAndMethods",
   "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
   "get __debugTimeScale(){return this."+NAMES.pTimeManagerObject+"?.timeScale??null}get __debugCurrentActions(){return this.__lastActions??null}__debugCaptureStates(){return this."+NAMES.pRunRecorderObject+".captureStates()}__debugStartPlayback(statesBase64){this.__tas=new TasPlayback(statesBase64)}__debugStopPlayback(){this.__tas=null}__debugSaveState(){return{simulation:this."+NAMES.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this."+NAMES.pRunRecorder+".captureStates(),ghost:this."+NAMES.pRivalGhost+"?.captureRawSnapshot()??null}}__debugLoadState(state){this."+NAMES.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this."+NAMES.pTimeManagerObject+"?.clock.restore(this."+NAMES.pSimulationManager+".simulation.captureSnapshot().clock);this."+NAMES.pRunRecorderObject+".reset();for(const b of state.inputBytes){this."+NAMES.pRunRecorderObject+".recordByte(b)}this."+NAMES.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this."+NAMES.pRivalGhost+"&&state.ghost){this."+NAMES.pRivalGhost+".restoreRawSnapshot(state.ghost);this."+NAMES.pRecordedRivalObject+"?.consumeSnapshot(this."+NAMES.pRivalGhost+".frame.car)}}"
 )
@@ -491,7 +491,7 @@ __debugLoadState(state) {
 
 // 8. Trick game into getting the inputs from the tas.
 mainPatcher.replaceOnce(
-  "8useTas",
+  "08useTas",
   "let r=n.sample()",
   "let r=this.__tas?this.__tas.next(e-211):n.sample()"
 )
@@ -501,14 +501,21 @@ let r = this.__tas ? this.__tas.next(e-211) : n.sample()
 
 // 9. Capture last actions.
 mainPatcher.replaceOnce(
-  "9.1getActions",
+  "09.1getActions",
   "u="+NAMES.fActionBools+"({boost:(r.held.boost===!0||o?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0})",
   "actions={boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this.#rn)>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0},u=ce(actions)"
 )
 mainPatcher.insertAfter(
-  "9.2setActions",
+  "09.2setActions",
   "d=t.model.raceState;",
   "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
+)
+
+// 10. Expose main game as __SWERVLE_GAME__
+mainPatcher.insertAfter(
+  "10exposeMain",
+  "window.__SWERVLE_CARD_HIDE_CAR__=()=>t.hideCarForCardCaptureV1(),",
+  "window.__SWERVLE_GAME__=t,"
 )
 
 writeFileSync(mainOut, mainSrc, "utf8");
