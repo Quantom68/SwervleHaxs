@@ -66,11 +66,11 @@ const NAMES = {
   /* ln. 3764
   body: await $s(n),
   */
-  fResponseChecker: "$s",
+  fResponseChecker: "ec",
   /* ln. 3770
   classification: ec(e) ? `server-timeout` : `server-unreachable`,
   */
-  fServerAccessErrorClassifier: "ec",
+  fServerAccessErrorClassifier: "tc",
   /* ln. 8408
   requiresServerTruth() {
     return js(globalThis.location.hostname)
@@ -79,7 +79,7 @@ const NAMES = {
   /* ln. 8409
   return js(globalThis.location.hostname)
   */
-  fCheckIfLocal: "js",
+  fCheckIfLocal: "Ms",
   /* ln. 5702
   if (sl(e), !Number.isSafeInteger(t) || t < 1) return null;
   */
@@ -150,21 +150,21 @@ const NAMES = {
   }*/
   fRenderLeaderboard: "ja",
   /* ln. 19908
-  var dE = Object.freeze({
+  var fE = Object.freeze({
     boost: !1,
     handbrake: !1,
     reverse: !1,
     steerTarget: 0,
     throttle: !1
   }),
-  fE = -1,
-  pE = `input, textarea, select, option, [contenteditable=""], [contenteditable="true"]`,
-  mE = `button, a[href], label, summary, [role="button"], [data-action]`,
-  hE = 16,
-  gE = {
+  pE = -1,
+  mE = `input, textarea, select, option, [contenteditable=""], [contenteditable="true"]`,
+  hE = `button, a[href], label, summary, [role="button"], [data-action]`,
+  gE = 16,
+  _E = {
     passive: !1
   },*/
-  vDefaultActionsSample: "dE",
+  vDefaultActionsSample: "fE",
   /* ln. 20554
   return this.#Ae
   */
@@ -214,6 +214,10 @@ const NAMES = {
   boost: (r.held.boost === !0 || o?.boost === !0) && ze(this.#et) > 0,
   */
   fBoostMeter: "ze",pBoostMeter: "#et",
+  /* ln. 20243
+  The main game class.
+  */
+  cMainGame: "jE",
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -525,8 +529,8 @@ mainPatcher.insertAfter(
 // 10. Expose main game as __SWERVLE_GAME__
 mainPatcher.insertAfter(
   "10exposeMain",
-  "window.__SWERVLE_CARD_HIDE_CAR__=Lw",
-  ",window.__SWERVLE_GAME__=t"
+  "let t=new "+NAMES.cMainGame+"({mount:e});",
+  "let window.__SWERVLE_GAME__=t;"
 )
 
 writeFileSync(mainOut, mainSrc, "utf8");
