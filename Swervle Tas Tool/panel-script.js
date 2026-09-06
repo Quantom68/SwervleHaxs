@@ -72,14 +72,14 @@
 
     // Diagnostics
     document.getElementById('tm-diagnostics-btn')?.addEventListener('click', () => {
-        let diagnostics = window.__SWERVLE_GAME__?.diagnostics();
+        //let diagnostics = window.__SWERVLE_GAME__?.diagnostics();
+        let diagnostics = window.__SWERVLE_GAME__?.__debugDiagnostics;
         console.log('Diagnostics:', diagnostics);
     });
 
     // TAS Variables
     let tas_states = null;
     let tas_savestate = null;
-    let tas_input = false;
 
     // Export States
     document.getElementById('tm-export-states-btn')?.addEventListener('click', () => {
@@ -111,13 +111,11 @@
     // TAS Start
     document.getElementById('tm-tas-start-btn')?.addEventListener('click', () => {
         window.__SWERVLE_GAME__?.__debugStartPlayback(tas_states);
-        tas_input = true;
     });
 
     // TAS Stop
     document.getElementById('tm-tas-stop-btn')?.addEventListener('click', () => {
         window.__SWERVLE_GAME__?.__debugStopPlayback();
-        tas_input = false;
     });
 
     // TAS Savestate
