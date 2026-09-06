@@ -410,7 +410,7 @@ async function fetchDailyRankInBackground(dailyId, durationTicks) {
 mainPatcher.replaceOnce(
   "05makeRankUseAsyncFetch",
   "</li>`;return`",
-  "</li>`;try{fetchDailyRankInBackground(`2026-08-30`, e.entries[0].durationTicks);}catch(e){console.log(`[Swervle TAS Tool]: ` + e)}return`"
+  "</li>`;try{fetchDailyRankInBackground(`2026-09-06`, e.entries[0].durationTicks);}catch(e){console.log(`[Swervle TAS Tool]: ` + e)}return`"
 )
 
 // == 6-? TAS ==
@@ -525,7 +525,7 @@ let r = this.__tas ? this.__tas.next(e-211) : n.sample()
 mainPatcher.replaceOnce(
   "09.1getActions",
   "d="+NAMES.fActionBools+"({boost:(r.held.boost===!0||s?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0})",
-  "actions="+NAMES.fActionBools+"({boost:(r.held.boost===!0||s?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0})"
+  "actions={boost:(r.held.boost===!0||s?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0},d="+NAMES.fActionBools+"(actions)"
 )
 mainPatcher.insertAfter(
   "09.2setActions",
