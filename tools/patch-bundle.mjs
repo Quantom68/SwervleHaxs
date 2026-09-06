@@ -540,6 +540,50 @@ mainPatcher.insertAfter(
   "window.__SWERVLE_GAME__=t;"
 )
 
+// test
+// Remove ALL the other patches and use ONLY these:
+
+// 1. Wrap #Bt() call (this one works)
+mainPatcher.replaceOnce(
+  'wrap-Bt-safe',
+  `await this.#Bt()`,
+  `await (async()=>{try{return await this.#Bt();}catch(e){console.error('[TAS-PAUSE] ERROR in #Bt():',e.message);throw e;}})()`,
+);
+
+// 2. Log before countdown_start (this works)
+mainPatcher.insertBefore(
+  'before-countdown-start',
+  `this.#p.record(\`countdown_start\`)`,
+  `console.log('[TAS-PAUSE] About to record countdown_start'),`,
+);
+
+// 3. Log after countdown_start (this works)
+mainPatcher.insertAfter(
+  'after-countdown-start',
+  `this.#p.record(\`countdown_start\`)`,
+  `,console.log('[TAS-PAUSE] countdown_start recorded - SUCCESS')`,
+);
+
+// 4. Log right after #Bt() returns
+mainPatcher.insertAfter(
+  'after-Bt-returns',
+  `await this.#Bt()`,
+  `;console.log('[TAS-PAUSE] #Bt() returned, race loop starting...')`,
+);
+
+// 5. Catch errors in the game loop's frame advancement
+mainPatcher.insertBefore(
+  'catch-frame-error',
+  `advanceFrame(e){`,
+  `advanceFrame(e){try{`,
+);
+
+mainPatcher.insertAfter(
+  'catch-frame-error-close',
+  `return this._5c2daadd7ced.update(e),t`,
+  `;return this._5c2daadd7ced.update(e),t}catch(err){console.error('[TAS-PAUSE] GameLoop.advanceFrame() threw:',err.message);throw err;}`,
+);
+
 writeFileSync(mainOut, mainSrc, "utf8");
 console.log(`Patched main bundle written to ${mainOut} (${mainSrc.length} bytes).`);
 
