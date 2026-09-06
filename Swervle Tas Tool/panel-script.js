@@ -200,4 +200,28 @@
             document.getElementById('tm-loadstate-btn')?.click();
         }
     });
+
+    // 14. Panel Drag and Drop Implementation
+    const header = document.getElementById('tm-panel-header');
+    let isDragging = false, offsetX = 0, offsetY = 0;
+
+    header.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.tm-header-btn')) return;
+        isDragging = true;
+        offsetX = e.clientX - panel.offsetLeft;
+        offsetY = e.clientY - panel.offsetTop;
+        panel.style.right = 'auto';
+        panel.style.left = panel.offsetLeft + 'px';
+        panel.style.top = panel.offsetTop + 'px';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        panel.style.left = (e.clientX - offsetX) + 'px';
+        panel.style.top = (e.clientY - offsetY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
 })();
