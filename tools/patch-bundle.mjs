@@ -66,31 +66,31 @@ const NAMES = {
   /* ln. 3764
   body: await $s(n),
   */
-  fResponseChecker: "Wl",
+  fResponseChecker: "ss",
   /* ln. 3770
   classification: ec(e) ? `server-timeout` : `server-unreachable`,
   */
-  fServerAccessErrorClassifier: "Gl",
+  fServerAccessErrorClassifier: "cs",
   /* ln. 8408
   requiresServerTruth() {
-    return js(globalThis.location.hostname)
+    return zo(globalThis.location.hostname)
   }*/
   mCheckIfLocalBaseOnHostname: "requiresServerTruth",
   /* ln. 8409
   return js(globalThis.location.hostname)
   */
-  fCheckIfLocal: "Sl",
+  fCheckIfLocal: "zo",
   /* ln. 7542
   dailyRank(e, t, n) {
     if (Zu(e), !Number.isSafeInteger(t) || t < 1) return null;
   */
-  fValidateDate: "Zu",
+  fValidateDate: "Yu",
   /* ln. 5711
   Tc({
     dailyId: e,
     results: r
   }).rankedEntries.find(e => e.competitorId === `local-player`)?.rank ?? null*/
-  fValidateDayRunsAndFindRank: "hu",
+  fValidateDayRunsAndFindRank: "fu",
   /* ln. 5242
   var gl = class {
     #e;
@@ -109,7 +109,7 @@ const NAMES = {
         setTimeout(t, e)
       }))
     }*/
-  cServerCommunicationManager: "gl",
+  cServerCommunicationManager: "No",
   /* ln. 2706
   function ja(e) {
     let t = pa[e.surface],
@@ -149,7 +149,7 @@ const NAMES = {
             <ol${e.offerSignIn?` data-sign-in="true"`:``}${$t()?``:` data-chips="off"`}>${o}${u}${f}</ol>
           </aside>`
   }*/
-  fRenderLeaderboard: "Cs",
+  fRenderLeaderboard: "kl",
   /* ln. 19908
   var fE = Object.freeze({
     boost: !1,
@@ -179,7 +179,7 @@ const NAMES = {
   /* ln. 20574
   #Ze = new ot(Oe.maximumRaceTicks);
   */
-  pRunRecorderObject: "#Ze",
+  pRunRecorderObject: "#Qe",
   /* ln. 22292
   #Un(e) {
     if (this.#xe?.model.raceState.phase === `invalid`) {
@@ -196,35 +196,35 @@ const NAMES = {
   /* ln. 21043
   o.setVisible(this.#mt.ghostsVisible), this.#mt.rival = o, this.#mt.rivalReplay = e, this.#mt.rivalPoses = this.#mt.ghostPoseChannel(this.#mt.rivalPoses, `rival`, i.opponent.states), this.#mt.rivalLivery = t, this.#mt.rivalGap = new Qx(i.track.routeLine)
   */
-  pRivalGhost: "#mt.rivalReplay",
+  pRivalGhost: "#ht.rivalReplay",
   /* ln. 21138
-  this.#ke = p & 95
+  this.#Ae = m & 95
   */
   pInputBase64: "#Ae",
   /* ln. 20812
   o.setVisible(this.#pt.ghostsVisible), this.#pt.rival = o, this.#pt.rivalReplay = e, this.#pt.rivalPoses = this.#pt.ghostPoseChannel(this.#pt.rivalPoses, `rival`, i.opponent.states), this.#pt.rivalLivery = t, this.#pt.rivalGap = new Gx(i.track.routeLine)
   */
-  pRecordedRivalObject: "#mt.rival",
+  pRecordedRivalObject: "#ht.rival",
   /* ln. 21112
-  u = lt({
-    boost: (r.held.boost === !0 || o?.boost === !0) && ze(this.#et) > 0,
-    handbrake: r.held.handbrake === !0 || o?.handbrake === !0,
-    recoveryRequested: a,
-    reverse: r.held.reverse === !0 || o?.reverse === !0,
-    steerLeft: s || l === `left`,
-    steerRight: c || l === `right`,
-    throttle: r.held.throttle === !0 || o?.throttle === !0
+  d = lt({
+    boost: (r.held.boost === !0 || s?.boost === !0) && ze(this.#nt) > 0,
+    handbrake: r.held.handbrake === !0 || s?.handbrake === !0,
+    recoveryRequested: o,
+    reverse: r.held.reverse === !0 || s?.reverse === !0,
+    steerLeft: c || u === `left`,
+    steerRight: l || u === `right`,
+    throttle: r.held.throttle === !0 || s?.throttle === !0
   }),
   */
-  fActionBools: "ct",
+  fActionBools: "lt",
   /* ln. 21113
   boost: (r.held.boost === !0 || o?.boost === !0) && ze(this.#et) > 0,
   */
-  fBoostMeter: "Re",pBoostMeter: "#tt",
+  fBoostMeter: "ze",pBoostMeter: "#nt",
   /* ln. 20243
   The main game class.
   */
-  cMainGame: "HE",
+  cMainGame: "VE",
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -524,12 +524,12 @@ let r = this.__tas ? this.__tas.next(e-211) : n.sample()
 // 9. Capture last actions.
 mainPatcher.replaceOnce(
   "09.1getActions",
-  "u="+NAMES.fActionBools+"({boost:(r.held.boost===!0||o?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0})",
-  "actions={boost:(r.held.boost===!0||o?.boost===!0)&&Ze(this.#rn)>0,handbrake:r.held.handbrake===!0||o?.handbrake===!0,recoveryRequested:a,reverse:r.held.reverse===!0||o?.reverse===!0,steerLeft:s||l===`left`,steerRight:c||l===`right`,throttle:r.held.throttle===!0||o?.throttle===!0},u=ce(actions)"
+  "d="+NAMES.fActionBools+"({boost:(r.held.boost===!0||s?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0})",
+  "actions="+NAMES.fActionBools+"({boost:(r.held.boost===!0||s?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0})"
 )
 mainPatcher.insertAfter(
   "09.2setActions",
-  "d=t.model.raceState;",
+  "f=t.model.raceState;",
   "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
 )
 
@@ -539,50 +539,6 @@ mainPatcher.insertAfter(
   "let t=new "+NAMES.cMainGame+"({mount:e});",
   "window.__SWERVLE_GAME__=t;"
 )
-
-// test
-// Remove ALL the other patches and use ONLY these:
-
-// 1. Wrap #Bt() call (this one works)
-mainPatcher.replaceOnce(
-  'wrap-Bt-safe',
-  `await this.#Bt()`,
-  `await (async()=>{try{return await this.#Bt();}catch(e){console.error('[TAS-PAUSE] ERROR in #Bt():',e.message);throw e;}})()`,
-);
-
-// 2. Log before countdown_start (this works)
-mainPatcher.insertBefore(
-  'before-countdown-start',
-  `this.#p.record(\`countdown_start\`)`,
-  `console.log('[TAS-PAUSE] About to record countdown_start'),`,
-);
-
-// 3. Log after countdown_start (this works)
-mainPatcher.insertAfter(
-  'after-countdown-start',
-  `this.#p.record(\`countdown_start\`)`,
-  `,console.log('[TAS-PAUSE] countdown_start recorded - SUCCESS')`,
-);
-
-// 4. Log right after #Bt() returns
-mainPatcher.insertAfter(
-  'after-Bt-returns',
-  `await this.#Bt()`,
-  `;console.log('[TAS-PAUSE] #Bt() returned, race loop starting...')`,
-);
-
-// 5. Catch errors in the game loop's frame advancement
-mainPatcher.insertBefore(
-  'catch-frame-error',
-  `advanceFrame(e){`,
-  `advanceFrame(e){try{`,
-);
-
-mainPatcher.insertAfter(
-  'catch-frame-error-close',
-  `return this._5c2daadd7ced.update(e),t`,
-  `;return this._5c2daadd7ced.update(e),t}catch(err){console.error('[TAS-PAUSE] GameLoop.advanceFrame() threw:',err.message);throw err;}`,
-);
 
 writeFileSync(mainOut, mainSrc, "utf8");
 console.log(`Patched main bundle written to ${mainOut} (${mainSrc.length} bytes).`);
