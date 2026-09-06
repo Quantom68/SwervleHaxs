@@ -234,6 +234,84 @@ const NAMES = {
   let d = u.diagnostics();
   */
   pRenderer: "#$e",
+  /* ln. 10670
+  function em(e) {
+  let t = e.limit ?? 10;
+  if (!Number.isSafeInteger(t) || t < 0) throw RangeError(`Team ghost field limit must be a non-negative integer.`);
+  let n = [],
+    r = new Set;
+  for (let i of [...e.entries].sort(sm)) {
+    if (n.length >= t) break;
+    if (i.trackDigest !== e.trackDigest || i.encoding !== `car-state-byte-v1` || !cm(i.durationTicks) || i.tickCount !== i.durationTicks || !lm(i.publicRunId) || r.has(i.publicRunId)) continue;
+    try {
+      et(i.statesBase64, {
+        expectedLength: i.durationTicks,
+        maximumLength: ke.maximumRaceTicks // this one
+      })
+    } catch {
+      continue
+    }*/
+  vRaceRules: "ke",
+  /* ln. 21322
+  #xt(e, t, n) {
+    this.#Te = !0;
+    try {
+      for (let t = 0; t < n; t += 1) this.#Ut(e.simulation.tick + 1), this.#Gt()
+    } finally {
+      this.#Te = !1
+    }
+    this.#St(e), t.clock.restore(e.simulation.captureSnapshot().clock)
+  }*/
+  mAdvanceTicks: "#xt",
+  /* ln. 21980
+  #Qt(e, t, n) {
+    this.#ie && this.#w?.tickLights(globalThis.performance.now());
+    let r = this.#xe;
+    this.#Yt(r);
+    let i = r === void 0 ? void 0 : this.#$t(r),
+      a = this.#Re?.track.routeLine ?? [];
+    this.#vt.smoothCrestOffset(a, i?.position, e.realDeltaSeconds);
+    let o = this.#vt.updateStartCameraTransition(e.realDeltaSeconds);
+    this.#vt.applyCameraTargetOffset(), this.#u.begin(Q.presentationUpdate), this.#_e > 0 ? this.#ze?.updateHeldCamera(e.alpha) : this.#ze?.update(e.alpha), !o && this.#vt.cameraLocked && i !== void 0 && this.#vt.applyLockedCameraView(i), this.#vt.syncTerrainAtmosphere(), this.#u.end(Q.presentationUpdate), o || n.updateOrbit(e.realDeltaSeconds);
+    let s = Math.max(1, this.#s.profile.cameraObstructionFrameInterval),
+      c = this.#vt.advanceObstructionFrame();
+    if (c % s === 0 && this.#vt.updateCameraObstruction(this.#vt.transitionStaged || o, this.#s.profile.cameraObstructionProbesStructures), r !== void 0 && i !== void 0) {
+      if (this.#lt?.updatePerformanceCulling(i.position), !o) {
+        let t = i.groundedWheelCount === 0 && Math.abs(i.speed) > 4 ? IE : 80,
+          r = 1 - Math.exp(-8 * e.realDeltaSeconds);
+        n.camera.fov += (t - n.camera.fov) * r, n.camera.updateProjectionMatrix()
+      }
+      this.#ht.rival?.update(e.alpha, i.position), this.#ht.pbGhost?.update(e.alpha, i.position), this.#ht.teamFieldView?.update(e.alpha, i.position), this.#ht.rival?.updateNameplate(n.camera), this.#ht.pbGhost?.updateNameplate(n.camera), this.#ht.teamFieldView?.updateNameplates(n.camera);
+      let t = this.#s.profile,
+        a = c % t.audioUpdateFrameInterval === 0;
+      if (a || t.surfaceEffectsEnabled) {
+        let n = ip(r.model.wheelSurfaceSamples),
+          o = Math.hypot(i.velocity.x, i.velocity.z);
+        if (a) {
+          let e = O_(i.velocity, i.quaternion),
+            t = i.wheels.reduce((e, t) => Math.max(e, Math.abs(t.steering)), 0);
+          this.#f.setEngine({
+            gear: i.gear,
+            groundedWheelCount: i.groundedWheelCount,
+            reverse: i.heldControls.reverse,
+            shiftTimer: i.shiftTimer,
+            speed: i.speed,
+            throttle: i.heldControls.throttle
+          }), this.#f.setSurface({
+            brake: i.heldControls.brake || i.heldControls.reverse && i.speed > .25,
+            groundedWheelCount: i.groundedWheelCount,
+            lateralSpeed: e,
+            material: n,
+            speed: o,
+            steeringAngle: t
+          })
+        }
+        t.surfaceEffectsEnabled && this.#ct?.update(n, i.position, i.speed, e.realDeltaSeconds)
+      }
+    }
+    this.#u.begin(Q.rendererSubmission), t.render(n.camera), this.#u.end(Q.rendererSubmission), this.#e.dataset.gameState === `ready` ? this.#e.dataset.cameraSettled !== `true` && (this.#e.dataset.cameraSettled = `true`, this.#lr()) : this.#e.dataset.cameraSettled === `true` && delete this.#e.dataset.cameraSettled
+  }*/
+  mRenderTick: "#Zt",
 };
 
 // Every patch's success/failure, in call order, across all three files —
@@ -486,7 +564,7 @@ class TasPlayback {
 mainPatcher.insertAfter(
   "07addMainGettersAndMethods",
   "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "get __debugTimeScale(){return this."+NAMES.pTimeManagerObject+"?.timeScale??null}get __debugCurrentActions(){return this.__lastActions??null}__debugCaptureStates(){return this."+NAMES.pRunRecorderObject+".captureStates()}__debugStartPlayback(statesBase64){this.__tas=new TasPlayback(statesBase64)}__debugStopPlayback(){this.__tas=null}__debugSaveState(){return{simulation:this."+NAMES.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this."+NAMES.pRunRecorder+".captureStates(),ghost:this."+NAMES.pRivalGhost+"?.captureRawSnapshot()??null}}__debugLoadState(state){this."+NAMES.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this."+NAMES.pTimeManagerObject+"?.clock.restore(this."+NAMES.pSimulationManager+".simulation.captureSnapshot().clock);this."+NAMES.pRunRecorderObject+".reset();for(const b of state.inputBytes){this."+NAMES.pRunRecorderObject+".recordByte(b)}this."+NAMES.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this."+NAMES.pRivalGhost+"&&state.ghost){this."+NAMES.pRivalGhost+".restoreRawSnapshot(state.ghost);this."+NAMES.pRecordedRivalObject+"?.consumeSnapshot(this."+NAMES.pRivalGhost+".frame.car)}}get __debugDiagnostics(){return{frameLoop:this."+NAMES.pTimeManagerObject+"?.diagnostics??null,quality:this."+NAMES.pQualityMonitor+"?.diagnostics()??null,renderer:this."+NAMES.pRenderer+"?.diagnostics()??null}}"
+  "get __debugTimeScale(){return this."+NAMES.pTimeManagerObject+"?.timeScale??null}get __debugCurrentActions(){return this.__lastActions??null}__debugCaptureStates(){return this."+NAMES.pRunRecorderObject+".captureStates()}__debugStartPlayback(statesBase64){this.__tas=new TasPlayback(statesBase64)}__debugStopPlayback(){this.__tas=null}__debugSaveState(){return{simulation:this."+NAMES.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this."+NAMES.pRunRecorder+".captureStates(),ghost:this."+NAMES.pRivalGhost+"?.captureRawSnapshot()??null}}__debugLoadState(state){this."+NAMES.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this."+NAMES.pTimeManagerObject+"?.clock.restore(this."+NAMES.pSimulationManager+".simulation.captureSnapshot().clock);this."+NAMES.pRunRecorderObject+".reset();for(const b of state.inputBytes){this."+NAMES.pRunRecorderObject+".recordByte(b)}this."+NAMES.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this."+NAMES.pRivalGhost+"&&state.ghost){this."+NAMES.pRivalGhost+".restoreRawSnapshot(state.ghost);this."+NAMES.pRecordedRivalObject+"?.consumeSnapshot(this."+NAMES.pRivalGhost+".frame.car)}}get __debugDiagnostics(){return{frameLoop:this."+NAMES.pTimeManagerObject+"?.diagnostics??null,quality:this."+NAMES.pQualityMonitor+"?.diagnostics()??null,renderer:this."+NAMES.pRenderer+"?.diagnostics()??null}}advanceTestTicks(e){let t=this."+NAMES.pSimulationManager+"?.model.ruleset??"+NAMES.vRaceRules+",n=t.warmupTicks+t.countdownTicks+t.maximumRaceTicks;if(!Number.isSafeInteger(e)||e<0||e>n){throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`)}let r=this."+NAMES.pSimulationManager+",i=this."+NAMES.pTimeManagerObject+";if(r===void 0||i===void 0){return}let a=r.model.raceState.phase;if(a!==`countdown`&&a!==`racing`){throw Error(`Swervle test ticks require an active countdown or race.`)}return i.stop(),this."+NAMES.mAdvanceTicks+"(r,i,e),e>0&&this."+NAMES.mRenderTick+"({alpha:1,realDeltaSeconds:e*1/60,simulationTick:r.simulation.tick,ticksAdvanced:e})}resumeTestFrames(){let e=this."+NAMES.pTimeManagerObject+";if(e===void 0){return this.diagnostics()}if(this."+NAMES.pLifecycleState+"!==`running`){throw Error(`Swervle test frames require a running race.`)}return e.start(),this.diagnostics()}"
 )
 /*
 get __debugTimeScale() { return this."+NAMES.pTimeManagerObject+"?.timeScale ?? null; }
@@ -517,6 +595,38 @@ __debugLoadState(state) {
     this."+NAMES.pRivalGhost+".restoreRawSnapshot(state.ghost);
     this."+NAMES.pRecordedRivalObject+"?.consumeSnapshot(this."+NAMES.pRivalGhost+".frame.car);
   }
+}
+
+get __debugDiagnostics() {
+  return {
+      frameLoop: this."+NAMES.pTimeManagerObject+"?.diagnostics ?? null,
+      quality: this."+NAMES.pQualityMonitor+"?.diagnostics() ?? null,
+      renderer: this."+NAMES.pRenderer+"?.diagnostics() ?? null
+  }
+}
+
+advanceTestTicks(e) {
+  let t = this."+NAMES.pSimulationManager+"?.model.ruleset ?? "+NAMES.vRaceRules+",
+    n = t.warmupTicks + t.countdownTicks + t.maximumRaceTicks;
+  if (!Number.isSafeInteger(e) || e < 0 || e > n) throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`);
+  let r = this."+NAMES.pSimulationManager+",
+    i = this."+NAMES.pTimeManagerObject+";
+  if (r === void 0 || i === void 0) return;
+  let a = r.model.raceState.phase;
+  if (a !== `countdown` && a !== `racing`) throw Error(`Swervle test ticks require an active countdown or race.`);
+  return i.stop(), this."+NAMES.mAdvanceTicks+"(r, i, e), e > 0 && this."+NAMES.mRenderTick+"({
+    alpha: 1,
+    realDeltaSeconds: e * 1/60,
+    simulationTick: r.simulation.tick,
+    ticksAdvanced: e
+  })
+}
+
+resumeTestFrames() {
+  let e = this."+NAMES.pTimeManagerObject+";
+  if (e === void 0) return;
+  if (this."+NAMES.pLifecycleState+" !== `running`) throw Error(`Swervle test frames require a running race.`);
+  return e.start()
 }
 */
 
