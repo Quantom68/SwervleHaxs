@@ -158,6 +158,11 @@ const NAMES = {
   _.restore(s.simulation.captureSnapshot().clock), this.*#Fe* = new un({
   */
   pTimeManagerObject: "#Fe",
+  /* ln. 365
+  constructor(e) {
+    this.#e = e.callbacks, this.#t = e.frameDriver, this.clock = e.clock ?? new Ue, this._5c2daadd7ced = e._5c2daadd7ced ?? new He
+  }*/
+  pTimescale: "_5c2daadd7ced",
   /* ln. 20574
   #Ze = new ot(Oe.maximumRaceTicks);
   */
@@ -687,10 +692,10 @@ class TasPlayback {
 mainPatcher.insertAfter(
   "07.01debugTimeScale",
   "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "get __debugTimeScale(){return this."+NAMES.pTimeManagerObject+"?.timeScale??null}"
+  "get __debugTimeScale(){return this."+NAMES.pTimeManagerObject+"?."+NAMES.pTimescale+"??null}"
 )
 /*
-get __debugTimeScale() { return this."+NAMES.pTimeManagerObject+"?.timeScale ?? null; }
+get __debugTimeScale() { return this."+NAMES.pTimeManagerObject+"?."+NAMES.pTimescale+" ?? null; }
 */
 mainPatcher.insertAfter(
   "07.02debugCurrentActions",
