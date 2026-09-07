@@ -115,57 +115,72 @@ input.tm-input {
     cursor: pointer;
 }
 
-#tm-input-overlay {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%); /* Centers element relative to its own width */
-    background: transparent;
-    border: none;
-    padding: 0;
-    z-index: 999999;
-    cursor: move;
-    user-select: none;
+/* Hides advanced elements by default */
+.tm-advanced-only {
+    display: none !important;
 }
 
-.tm-key-overlay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+/* Shows advanced elements when panel has the 'advanced-mode' class */
+#tm-floating-panel.advanced-mode .tm-advanced-only {
+    display: flex !important; /* Use 'flex' for rows, or 'block' depending on element */
 }
 
-.tm-key-row-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 40px);
-    gap: 4px;
-}
-
-.tm-key {
-    width: 40px;
-    height: 40px;
-    background: rgba(20, 20, 25, 0.5);
-    border: 2px solid #f0f0fa;
-    border-radius: 12px;
-    color: #888;
-    font-size: 16px;
-    font-weight: bold;
+/* Switch layout container */
+.tm-toggle-row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: background 0.05s, color 0.05s;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #333;
 }
 
-/* Wide key styles for Spacebar */
-.tm-key.key-wide {
-    width: 128px; /* Spans full width of 3 grid keys + gaps */
+/* Switch slider container */
+.tm-switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
 }
 
-/* Active pressed state */
-.tm-key.active {
-    background: #f0f0fa;
-    color: #222;
-    /*border-color: #0056b3;*/
-    box-shadow: 0 0 8px rgba(123, 123, 197, 0.8);
+/* Hide native checkbox */
+.tm-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Track styling */
+.tm-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444;
+    transition: 0.2s;
+    border-radius: 20px;
+}
+
+/* Handle knob styling */
+.tm-slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 50%;
+}
+
+/* Checked states */
+.tm-switch input:checked + .tm-slider {
+    background-color: #007bff;
+}
+
+.tm-switch input:checked + .tm-slider:before {
+    transform: translateX(16px);
 }

@@ -224,4 +224,29 @@
     document.addEventListener('mouseup', () => {
         isDragging = false;
     });
+
+    // 15. Advance Switch
+    const advancedCheckbox = document.getElementById('tm-advanced-toggle');
+    const panelBody = panel?.querySelector('.tm-panel-body');
+
+    advancedCheckbox?.addEventListener('change', (e) => {
+        if (!panelBody) return;
+
+        // 1. Store the previous scroll position and scroll height before state change
+        const previousScrollTop = panelBody.scrollTop;
+        const previousScrollHeight = panelBody.scrollHeight;
+
+        // 2. Toggle the class
+        if (e.target.checked) {
+            panel.classList.add('advanced-mode');
+            
+            // 3. Calculate how much content height was added
+            const heightDifference = panelBody.scrollHeight - previousScrollHeight;
+
+            // 4. Scroll down by the difference so content above doesn't jump visual positions
+            panelBody.scrollTop = previousScrollTop + heightDifference;
+        } else {
+            panel.classList.remove('advanced-mode');
+        }
+    });
 })();
