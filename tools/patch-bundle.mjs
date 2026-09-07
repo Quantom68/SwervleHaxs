@@ -202,9 +202,6 @@ const NAMES = {
   this.#Ae = m & 95
   */
   pInputBase64: "#Ae",
-  /* ln. 20812
-  o.setVisible(this.#pt.ghostsVisible), this.#pt.rival = o, this.#pt.rivalReplay = e, this.#pt.rivalPoses = this.#pt.ghostPoseChannel(this.#pt.rivalPoses, `rival`, i.opponent.states), this.#pt.rivalLivery = t, this.#pt.rivalGap = new Gx(i.track.routeLine)
-  */
   /* ln. 21112
   d = lt({
     boost: (r.held.boost === !0 || s?.boost === !0) && ze(this.#nt) > 0,
