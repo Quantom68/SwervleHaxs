@@ -327,13 +327,13 @@ const NAMES = {
   /* ln. 21444
   r = new we({
     appearance: xm,
-    assetInstance: await this.#ye.instantiate(ue),
+    assetInstance: await this.#ye.instantiate(ue), // MAKE SURE NOT TO INCLUDE COMMA
     definition: le,
     entityId: n.car.entityId,
     materialColorOverrides: Sm,
     materialRegistrar: this.#ze.materialRegistrar
   });*/
-  cGhostCarView: "we", vGCVApperance: "xm", vGCVAssetInstance: "await this.#ye.instantiate(ue),", vGCVDefinition: "le", vGCVMaterialColorOverrides: "Sm", pTerrainViewManagerObject: "#ze",
+  cGhostCarView: "we", vGCVApperance: "xm", vGCVAssetInstance: "await this.#ye.instantiate(ue)", vGCVDefinition: "le", vGCVMaterialColorOverrides: "Sm", pTerrainViewManagerObject: "#ze",
   /* ln. 9629
   function *Wf*(e) {
     return e.surface === `gameplay` && e.isLocalPlayerCar === !0 ? null : e.relationship === `self-ghost` ? `You` : Gf(e.displayName)
@@ -815,7 +815,7 @@ resumeTestFrames() {
 mainPatcher.insertAfter(
   "07.11",
   "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "async loadRivalGhost(e){console.log(`hiyya`);if(this."+NAMES.pSimulationManager+"===undefined){throw new Error('loadRivalGhost failed: Instance state "+NAMES.pSimulationManager+" is undefined.')}if(this."+NAMES.pTrack+"===undefined){throw new Error('loadRivalGhost failed: Instance state "+NAMES.pTrack+" is undefined.')}if(!e||typeof e!=='object'){throw new TypeError(`loadRivalGhost failed: Expected an options object argument. ${ e }`)}if(typeof e.statesBase64!=='string'){throw new TypeError(`loadRivalGhost failed: 'statesBase64' must be a string, received ${ typeof e.statesBase64 }. ${e.statesBase64 }`)}if(typeof e.displayName!=='string'){throw new TypeError(`loadRivalGhost failed: 'displayName' must be a string, received ${ typeof e.displayName }.`)}if(!e.livery||typeof e.livery!=='object'){console.warn(`loadRivalGhost warning: 'livery' expected an object, received ${ typeof e.livery }.`)}try{let t="+NAMES.fValidStates+"(e.statesBase64,{expectedLength:e.durationTicks,maximumLength:E(this."+NAMES.pTrack+".track.revision.rulesetVersion).maximumRaceTicks});this.__ghostStates=t;if(this."+NAMES.pRivalGhost+".rivalReplay?.dispose(),this."+NAMES.pRivalGhost+".rival?.dispose(),this."+NAMES.pRivalGhost+".rivalReplay=void 0,this."+NAMES.pRivalGhost+".rival=void 0,this."+NAMES.pRivalGhost+".rivalGap=void 0,t.length===0){return}let n=new "+NAMES.cRivalGhostSimulator+"({modifiers:this."+NAMES.pRivalGhostModifiers+",states:t,track:this."+NAMES.pTrack+".track}),r=null;try{let i=n.create();let a=new "+NAMES.cGhostCarView+"({appearance:"+NAMES.vGCVApperance+",assetInstance:"+NAMES.vGCVAssetInstance+",definition:"+NAMES.vGCVDefinition+",entityId:i.car.entityId,materialColorOverrides:"+NAMES.vGCVMaterialColorOverrides+",materialRegistrar:this."+NAMES.pTerrainViewManagerObject+".materialRegistrar});let ghostLivery=e.livery??e.ghost?.livery??e.design??null;r=await this."+NAMES.pRivalGhost+".createGhostRaceLivery(a,ghostLivery);let o="+NAMES.fGetGhostDisplayName+"({displayName:e.displayName,relationship:`friend`,surface:`gameplay`}),s=new "+NAMES.cRivalGhostRenderer+"({carView:a,initialSnapshot:i.car,nameplate:o===null?null:{label:o},parent:this."+NAMES.pTerrainViewManager+".viewParent});s.setVisible(this."+NAMES.pRivalGhost+"),this."+NAMES.pRivalGhost+".rival=s,this."+NAMES.pRivalGhost+".rivalReplay=n,this."+NAMES.pRivalGhost+".rivalGap=new "+NAMES.cRivalGapGetter+"(this."+NAMES.pTrack+".track.routeLine),this."+NAMES.pRenderer+"?.render("+NAMES.fValidateCamera+"(this."+NAMES.pCameraManagerObject+").camera);console.log(`yippe!`)}catch(e){throw r?.dispose(),n.dispose(),e}return this.diagnostics()}catch(e){throw Error(`Failed to load rival ghost: ${ e instanceof Error?e.messaye:String(e)}`)}}"
+  "async loadRivalGhost(e){console.log(`hiyya`);if(this."+NAMES.pSimulationManager+"===undefined){throw new Error('loadRivalGhost failed: Instance state "+NAMES.pSimulationManager+" is undefined.')}if(this."+NAMES.pTrack+"===undefined){throw new Error('loadRivalGhost failed: Instance state "+NAMES.pTrack+" is undefined.')}if(!e||typeof e!=='object'){throw new TypeError(`loadRivalGhost failed: Expected an options object argument. ${ e }`)}if(typeof e.statesBase64!=='string'){throw new TypeError(`loadRivalGhost failed: 'statesBase64' must be a string, received ${ typeof e.statesBase64 }. ${e.statesBase64 }`)}if(typeof e.displayName!=='string'){if(typeof e.publicDisplayName!=='string'){throw new TypeError(`loadRivalGhost failed: 'displayName' or 'publicDisplayName' must be a string, received ${ typeof e.displayName } and ${ typeof e.publicDisplayName }.`)}e.displayName=e.publicDisplayName}if(!e.livery||typeof e.livery!=='object'){console.warn(`loadRivalGhost warning: 'livery' expected an object, received ${ typeof e.livery }.`)}try{let t="+NAMES.fValidStates+"(e.statesBase64,{expectedLength:e.durationTicks,maximumLength:"+NAMES.fGetRuleset+"(this."+NAMES.pTrack+".track.revision.rulesetVersion).maximumRaceTicks});this.__ghostStates=t;if(this."+NAMES.pRivalGhost+".rivalReplay?.dispose(),this."+NAMES.pRivalGhost+".rival?.dispose(),this."+NAMES.pRivalGhost+".rivalReplay=void 0,this."+NAMES.pRivalGhost+".rival=void 0,this."+NAMES.pRivalGhost+".rivalGap=void 0,t.length===0){return}let n=new "+NAMES.cRivalGhostSimulator+"({modifiers:this."+NAMES.pRivalGhostModifiers+",states:t,track:this."+NAMES.pTrack+".track}),r=null;try{let i=n.create();let a=new "+NAMES.cGhostCarView+"({appearance:"+NAMES.vGCVApperance+",assetInstance:"+NAMES.vGCVAssetInstance+",definition:"+NAMES.vGCVDefinition+",entityId:i.car.entityId,materialColorOverrides:"+NAMES.vGCVMaterialColorOverrides+",materialRegistrar:this."+NAMES.pTerrainViewManagerObject+".materialRegistrar});let ghostLivery=e.livery??e.ghost?.livery??e.design??null;r=await this."+NAMES.pRivalGhost+".createGhostRaceLivery(a,ghostLivery);let o="+NAMES.fGetGhostDisplayName+"({displayName:e.displayName,relationship:`friend`,surface:`gameplay`}),s=new "+NAMES.cRivalGhostRenderer+"({carView:a,initialSnapshot:i.car,nameplate:o===null?null:{label:o},parent:this."+NAMES.pTerrainViewManagerObject+".viewParent});s.setVisible(this."+NAMES.pRivalGhost+"),this."+NAMES.pRivalGhost+".rival=s,this."+NAMES.pRivalGhost+".rivalReplay=n,this."+NAMES.pRivalGhost+".rivalGap=new "+NAMES.cRivalGapGetter+"(this."+NAMES.pTrack+".track.routeLine),this."+NAMES.pRenderer+"?.render("+NAMES.fValidateCamera+"(this."+NAMES.pCameraManagerObject+").camera);console.log(`yippe!`)}catch(e){throw r?.dispose(),n.dispose(),e}return this.diagnostics()}catch(e){throw Error(`Failed to load rival ghost: ${ e instanceof Error?e.message:String(e)}`)}}"
 )
 /*
 async loadRivalGhost(e) {
@@ -839,7 +839,10 @@ async loadRivalGhost(e) {
   }
 
   if (typeof e.displayName !== 'string') {
-    throw new TypeError(`loadRivalGhost failed: 'displayName' must be a string, received ${typeof e.displayName}.`);
+    if (typeof e.publicDisplayName !== 'string') {
+      throw new TypeError(`loadRivalGhost failed: 'displayName' or 'publicDisplayName' must be a string, received ${typeof e.displayName} and ${typeof e.publicDisplayName}.`);
+    }
+    e.displayName = e.publicDisplayName;
   }
 
   // durationTicks is not necessary
@@ -853,7 +856,7 @@ async loadRivalGhost(e) {
   try {
     let t = "+NAMES.fValidStates+"(e.statesBase64, {
       expectedLength: e.durationTicks,
-      maximumLength: E(this."+NAMES.pTrack+".track.revision.rulesetVersion).maximumRaceTicks
+      maximumLength: "+NAMES.fGetRuleset+"(this."+NAMES.pTrack+".track.revision.rulesetVersion).maximumRaceTicks
     });
     this.__ghostStates = t; // Save ghost states for save and load state
     if (this."+NAMES.pRivalGhost+".rivalReplay?.dispose(), this."+NAMES.pRivalGhost+".rival?.dispose(), this."+NAMES.pRivalGhost+".rivalReplay = void 0, this."+NAMES.pRivalGhost+".rival = void 0, this."+NAMES.pRivalGhost+".rivalGap = void 0, t.length === 0)
@@ -886,7 +889,7 @@ async loadRivalGhost(e) {
         carView: a,
         initialSnapshot: i.car,
         nameplate: o === null ? null : {label: o},
-        parent: this."+NAMES.pTerrainViewManager+".viewParent
+        parent: this."+NAMES.pTerrainViewManagerObject+".viewParent
       });
       s.setVisible(this."+NAMES.pRivalGhost+"),
       this."+NAMES.pRivalGhost+".rival = s,
@@ -903,7 +906,7 @@ async loadRivalGhost(e) {
     return this.diagnostics()
   }
   catch(e) {
-    throw Error(`Failed to load rival ghost: ${e instanceof Error ? e.messaye : String(e)}`)
+    throw Error(`Failed to load rival ghost: ${e instanceof Error ? e.message : String(e)}`)
   }
 }
 */
