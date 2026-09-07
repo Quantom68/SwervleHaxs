@@ -2,9 +2,25 @@
 
 ## Features
 
+### Run Offline
+
 - Prevents sending runs to server. **Remeber to disable this extension when you do actual runs.**
     - Doesn't prevent saving the personal best to local storage.
 - Shows the leaderboard rank a run would get based on it's time.
+
+### Helping Hecking Hacky Haxs
+
+- Load a ghost.json to run against (overides rival ghost).
+- Adds pausing and resuming.
+- Advance the game a set number of ticks.
+- Slow down the game.
+
+#### Tas
+
+- Export states.
+- Import states.
+- Play imported states.
+- Save state and load state.
 
 ## rules.json
 
@@ -23,6 +39,16 @@ node tools/patch-bundle.mjs <main.js> <replay-chunk.js> <out-main.js> <out-repla
 ```
 
 Usually `<out-main.js>` is `patched-bundle.js` and `<out-replay>` is `patched-replay.js`.
+
+## convert-states-file.mjs
+
+Converts a `states.txt` to a `ghost.json` so you can load it as a ghost.
+
+### Usage
+
+```bash
+node tools/convert-states-file.mjs <states.txt> <ghost.json> <optional display name>
+```
 
 # Downloaded Website
 
