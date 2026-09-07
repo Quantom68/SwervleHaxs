@@ -7,7 +7,7 @@
       "redirect": { "extensionPath": "/patched-bundle.js" }
     },
     "condition": {
-      "urlFilter": "||swervle.com/assets/e3c40cc0-BbXlBwMx.js",
+      "urlFilter": "||swervle.com/assets/e3c40cc0-CSYLfZtS.js",
       "resourceTypes": ["script"]
     }
   },
