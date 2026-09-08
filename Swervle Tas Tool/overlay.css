@@ -1,0 +1,68 @@
+/* Hide original Swervle Overlay key display */
+#swervle-key-overlay {
+  display: none !important;
+}
+
+/* Custom Replacement Overlay */
+#swervle-hax-key-overlay {
+  position: fixed;
+  top: 96px;
+  left: 50%;
+  transform: translateX(-260px);
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  pointer-events: none;
+  user-select: none;
+  font-family: ui-monospace, Menlo, monospace;
+}
+
+#swervle-hax-key-overlay.swervle-hidden {
+  display: none !important;
+}
+
+#swervle-hax-key-overlay .row {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+#swervle-hax-key-overlay .wrow {
+  position: relative;
+}
+
+#swervle-hax-key-overlay .rkey {
+  position: absolute;
+  left: calc(100% + 5px);
+  top: -6px;
+}
+
+#swervle-hax-key-overlay .key {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+#swervle-hax-key-overlay .key.active {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+  transform: scale(1.06);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+#swervle-hax-key-overlay .key.space {
+  min-width: 118px;
+}

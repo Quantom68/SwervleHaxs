@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Swervle Tas Tool",
     "description": "tba",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "permissions": [
         "declarativeNetRequest",
         "activeTab",
@@ -16,6 +16,13 @@
         {
         "matches": ["https://swervle.com/*"],
         "js": ["anti-auto-pause.js"],
+        "run_at": "document_start",
+        "world": "MAIN"
+        },
+        {
+        "matches": ["https://swervle.com/*"],
+        "js": ["draggable.js", "overlay.js"],
+        "css": ["overlay.css"],
         "run_at": "document_start",
         "world": "MAIN"
         }

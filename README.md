@@ -22,6 +22,10 @@
 - Play imported states.
 - Save state and load state.
 
+### Swervle Overlay's Keyboard Overlay
+
+Compatible with Swervle Overlays. Makes the keyboard overlay get the internal actions so it gets tas inputs too.
+
 ## rules.json
 
 The redirect to the patched bundle filters for the exact hash, so when the website updates, the extension completely fails. This is intentional, as it means the patched bundle is outdated. If an improper patched bundle is use, the user could **risk getting banned**. MAKE SURE THERE IS NOTHING WRONG WITH PATCHING THE FILES BEFORE UPDATING OR **RISK GETTING BANNED** WHEN A TAS FINISHES.
