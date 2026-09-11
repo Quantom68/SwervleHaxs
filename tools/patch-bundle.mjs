@@ -338,7 +338,7 @@ const NAMES = {
     materialColorOverrides: Sm,
     materialRegistrar: this.#ze.materialRegistrar
   });*/
-  cGhostCarView: "Ce", vGCVApperance: "Im", vGCVAssetInstance: "assetInstance: await this.#ye.instantiate(le)", vGCVDefinition: "ce", vGCVMaterialColorOverrides: "Lm", pTerrainViewManagerObject: "#ze",
+  cGhostCarView: "Ce", vGCVApperance: "Im", vGCVAssetInstance: "await this.#ye.instantiate(le)", vGCVDefinition: "ce", vGCVMaterialColorOverrides: "Lm", pTerrainViewManagerObject: "#ze",
   /* ln. 9629
   function *Wf*(e) {
     return e.surface === `gameplay` && e.isLocalPlayerCar === !0 ? null : e.relationship === `self-ghost` ? `You` : Gf(e.displayName)
