@@ -47,14 +47,14 @@ const NAMES = {
   mRunPoster: "#h",
   mServerAccesser: "#g",
   pTimeoutMs: "#i",
-  fResponseChecker: "fs",
-  fServerAccessErrorClassifier: "ps",
+  fResponseChecker: "Ds",
+  fServerAccessErrorClassifier: "Os",
   /* ln. 9275
   requiresServerTruth() {
     return Wo(globalThis.location.hostname)
   }*/
   mCheckIfLocalBaseOnHostname: "requiresServerTruth",
-  fCheckIfLocal: "Wo",
+  fCheckIfLocal: "as",
   /* ln. 7855
   dailyRank(e, t, n) {
     if (*nd*(e), !Number.isSafeInteger(t) || t < 1) return null;
@@ -71,8 +71,8 @@ const NAMES = {
       results: r
     }).rankedEntries.find(e => e.competitorId === `local-player`)?.rank ?? null
   }*/
-  fValidateDate: "nd",
-  fValidateDayRunsAndFindRank: "yu",
+  fValidateDate: "_d",
+  fValidateDayRunsAndFindRank: "Pu",
   /* ln. 5242
   var gl = class {
     #e;
@@ -91,7 +91,7 @@ const NAMES = {
         setTimeout(t, e)
       }))
     }*/
-  cServerCommunicationManager: "Ro",
+  cServerCommunicationManager: "$o",
   /* ln. 2706
   function ja(e) {
     let t = pa[e.surface],
@@ -131,7 +131,7 @@ const NAMES = {
             <ol${e.offerSignIn?` data-sign-in="true"`:``}${$t()?``:` data-chips="off"`}>${o}${u}${f}</ol>
           </aside>`
   }*/
-  fRenderLeaderboard: "Nl",
+  fRenderLeaderboard: "Jl",
   /* ln. 19908
   var fE = Object.freeze({
     boost: !1,
@@ -147,7 +147,7 @@ const NAMES = {
   _E = {
     passive: !1
   },*/
-  vDefaultActionsSample: "AE",
+  vDefaultActionsSample: "$E",
   /* ln. 20783
   get lifecycleState() {
     return this.#je
@@ -183,7 +183,7 @@ const NAMES = {
   /* ln. 21481
   o.setVisible(this.*#ht*.ghostsVisible), this.#ht.rival = o, this.#ht.rivalReplay = e, this.#ht.rivalPoses = this.#ht.ghostPoseChannel(this.#ht.rivalPoses, `rival`, i.opponent.states), this.#ht.rivalLivery = t, this.#ht.rivalGap = new *Zx*(i.track.routeLine)
   */
-  pRivalGhost: "#ht", cRivalGapGetter: "iS",
+  pRivalGhost: "#ht", cRivalGapGetter: "DS",
   /* ln. 21138
   this.#Ae = m & 95
   */
@@ -198,13 +198,13 @@ const NAMES = {
     steerRight: l || u === `right`,
     throttle: r.held.throttle === !0 || s?.throttle === !0
   }),*/
-  fActionBools: "ut",
-  fBoostMeter: "Be", pBoostMeter: "#nt",
+  fActionBools: "We",
+  fBoostMeter: "ze", pBoostMeter: "#nt",
   /* ln. 24673
   let t = new JE({
     mount: e
   });*/
-  cMainGame: "JE",
+  cMainGame: "_D",
   /* ln. 19917
   gpuFrameMs: this.#s.diagnostics().lastGpuFrameMs,
   */
@@ -231,7 +231,7 @@ const NAMES = {
       } catch {
         continue
       }*/
-  vRaceRules: "Ae",
+  vRaceRules: "ke",
   /* ln. 21322
   *#xt*(e, t, n) {
     this.#Te = !0;
@@ -318,8 +318,8 @@ const NAMES = {
     track: n,
     trackName: td(t.seed)
   })*/
-  fValidStates: "tt",
-  fGetRuleset: "Oe",
+  fValidStates: "$e",
+  fGetRuleset: "De",
   /* ln. 21520
   let e = new ot({
     modifiers: this.#nt,
@@ -338,12 +338,12 @@ const NAMES = {
     materialColorOverrides: Sm,
     materialRegistrar: this.#ze.materialRegistrar
   });*/
-  cGhostCarView: "we", vGCVApperance: "xm", vGCVAssetInstance: "await this.#ye.instantiate(ue)", vGCVDefinition: "le", vGCVMaterialColorOverrides: "Sm", pTerrainViewManagerObject: "#ze",
+  cGhostCarView: "Ce", vGCVApperance: "Im", vGCVAssetInstance: "assetInstance: await this.#ye.instantiate(le)", vGCVDefinition: "ce", vGCVMaterialColorOverrides: "Lm", pTerrainViewManagerObject: "#ze",
   /* ln. 9629
   function *Wf*(e) {
     return e.surface === `gameplay` && e.isLocalPlayerCar === !0 ? null : e.relationship === `self-ghost` ? `You` : Gf(e.displayName)
   }*/
-  fGetGhostDisplayName: "Wf",
+  fGetGhostDisplayName: "ap",
   /* ln. 21473
   o = new *rp*({
     carView: r,
@@ -353,15 +353,15 @@ const NAMES = {
     },
     parent: this.#ze.viewParent
   });*/
-  cRivalGhostRenderer: "rp",
+  cRivalGhostRenderer: "vp",
   /* ln. 24182
   function uD(e) {
     if (e === void 0) throw Error(`Swervle camera is unavailable.`);
     return e
   }*/
-  fValidateCamera: "_D",
+  fValidateCamera: "BD",
   /* ln. 21478
-  this.#s.resolveRendererCompatibility(d.rendererName, d.rendererVendor) && this.#vi(), this.*#be* = new og, this.#dt = new Zg, this.#ft.adoptCachedLivery(), this.#ze = new Qg(u.scene, this.#be, this.#dt, e => {
+  this.#s.resolveRendererCompatibility(d.rendererName, d.rendererVendor) && this.#vi(), this.*#be* = new og, this.#dt = new Zg, this.#ft.adoptCachedLivery(), this.#ze = new Qg(u.scene, this.*#be*, this.#dt, e => {
     u.setExposure(e)
   },*/
   pCameraManagerObject: "#be",
