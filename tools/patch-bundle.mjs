@@ -47,14 +47,14 @@ const NAMES = {
   mRunPoster: "#h",
   mServerAccesser: "#g",
   pTimeoutMs: "#i",
-  fResponseChecker: "Ds",
-  fServerAccessErrorClassifier: "Os",
+  fResponseChecker: "Os",
+  fServerAccessErrorClassifier: "ks",
   /* ln. 9275
   requiresServerTruth() {
     return Wo(globalThis.location.hostname)
   }*/
   mCheckIfLocalBaseOnHostname: "requiresServerTruth",
-  fCheckIfLocal: "as",
+  fCheckIfLocal: "os",
   /* ln. 7855
   dailyRank(e, t, n) {
     if (*nd*(e), !Number.isSafeInteger(t) || t < 1) return null;
@@ -71,8 +71,8 @@ const NAMES = {
       results: r
     }).rankedEntries.find(e => e.competitorId === `local-player`)?.rank ?? null
   }*/
-  fValidateDate: "_d",
-  fValidateDayRunsAndFindRank: "Pu",
+  fValidateDate: "Td",
+  fValidateDayRunsAndFindRank: "Hu",
   /* ln. 5242
   var gl = class {
     #e;
@@ -91,7 +91,7 @@ const NAMES = {
         setTimeout(t, e)
       }))
     }*/
-  cServerCommunicationManager: "$o",
+  cServerCommunicationManager: "es",
   /* ln. 2706
   function ja(e) {
     let t = pa[e.surface],
@@ -131,7 +131,7 @@ const NAMES = {
             <ol${e.offerSignIn?` data-sign-in="true"`:``}${$t()?``:` data-chips="off"`}>${o}${u}${f}</ol>
           </aside>`
   }*/
-  fRenderLeaderboard: "Jl",
+  fRenderLeaderboard: "tu",
   /* ln. 19908
   var fE = Object.freeze({
     boost: !1,
@@ -147,7 +147,7 @@ const NAMES = {
   _E = {
     passive: !1
   },*/
-  vDefaultActionsSample: "$E",
+  vDefaultActionsSample: "sD",
   /* ln. 20783
   get lifecycleState() {
     return this.#je
@@ -198,13 +198,13 @@ const NAMES = {
     steerRight: l || u === `right`,
     throttle: r.held.throttle === !0 || s?.throttle === !0
   }),*/
-  fActionBools: "We",
-  fBoostMeter: "ze", pBoostMeter: "#nt",
+  fActionBools: "Ke",
+  fBoostMeter: "Re", pBoostMeter: "#nt",
   /* ln. 24673
   let t = new JE({
     mount: e
   });*/
-  cMainGame: "_D",
+  cMainGame: "TD",
   /* ln. 19917
   gpuFrameMs: this.#s.diagnostics().lastGpuFrameMs,
   */
