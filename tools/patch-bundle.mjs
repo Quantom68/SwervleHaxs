@@ -49,12 +49,11 @@ const NAMES = {
   pTimeoutMs: "#i",
   fResponseChecker: "Os",
   fServerAccessErrorClassifier: "ks",
-  /* ln. 9275
-  requiresServerTruth() {
-    return Wo(globalThis.location.hostname)
-  }*/
-  mCheckIfLocalBaseOnHostname: "requiresServerTruth",
-  fCheckIfLocal: "os",
+  /* ln. 23634
+  if (this.#gt.requiresServerTruth()) {
+    if (this.#U) {
+  */
+  pRunVerifierObject: "#gt",
   /* ln. 7855
   dailyRank(e, t, n) {
     if (*nd*(e), !Number.isSafeInteger(t) || t < 1) return null;
@@ -231,7 +230,7 @@ const NAMES = {
       } catch {
         continue
       }*/
-  vRaceRules: "ke",
+  vRaceRules: "Oe",
   /* ln. 21322
   *#xt*(e, t, n) {
     this.#Te = !0;
@@ -318,16 +317,16 @@ const NAMES = {
     track: n,
     trackName: td(t.seed)
   })*/
-  fValidStates: "$e",
-  fGetRuleset: "De",
+  fValidStates: "ut",
+  fGetRuleset: "Ee",
   /* ln. 21520
-  let e = new ot({
-    modifiers: this.#nt,
+  let e = new *ot*({
+    modifiers: this.*#nt*,
     presentationRaycastEmulation: i.opponent.replayMode === `camera-probe-v1`,
     states: i.opponent.states,
     track: i.track
   }),*/
-  cRivalGhostSimulator: "ot",
+  cRivalGhostSimulator: "ct",
   pRivalGhostModifiers: "#nt",
   /* ln. 21444
   r = new we({
@@ -338,12 +337,12 @@ const NAMES = {
     materialColorOverrides: Sm,
     materialRegistrar: this.#ze.materialRegistrar
   });*/
-  cGhostCarView: "Ce", vGCVApperance: "Im", vGCVAssetInstance: "await this.#ye.instantiate(le)", vGCVDefinition: "ce", vGCVMaterialColorOverrides: "Lm", pTerrainViewManagerObject: "#ze",
+  cGhostCarView: "Se", vGCVApperance: "Wm", vGCVAssetInstance: "await this.#ye.instantiate(ce)", vGCVDefinition: "se", vGCVMaterialColorOverrides: "Gm", pTerrainViewManagerObject: "#ze",
   /* ln. 9629
   function *Wf*(e) {
     return e.surface === `gameplay` && e.isLocalPlayerCar === !0 ? null : e.relationship === `self-ghost` ? `You` : Gf(e.displayName)
   }*/
-  fGetGhostDisplayName: "ap",
+  fGetGhostDisplayName: "pp",
   /* ln. 21473
   o = new *rp*({
     carView: r,
@@ -353,13 +352,13 @@ const NAMES = {
     },
     parent: this.#ze.viewParent
   });*/
-  cRivalGhostRenderer: "vp",
+  cRivalGhostRenderer: "Ep",
   /* ln. 24182
   function uD(e) {
     if (e === void 0) throw Error(`Swervle camera is unavailable.`);
     return e
   }*/
-  fValidateCamera: "BD",
+  fValidateCamera: "JD",
   /* ln. 21478
   this.#s.resolveRendererCompatibility(d.rendererName, d.rendererVendor) && this.#vi(), this.*#be* = new og, this.#dt = new Zg, this.#ft.adoptCachedLivery(), this.#ze = new Qg(u.scene, this.*#be*, this.#dt, e => {
     u.setExposure(e)
@@ -435,7 +434,7 @@ const NAMES = {
       wheelSurfaceSamples: Object.freeze([...i])
     } : o)
   }*/
-  fReturnCarState: "sl",
+  fReturnCarState: "zl",
   /* ln. 8835
   this.#i = e.capturePresentationData === !0;
   */
@@ -579,10 +578,15 @@ mainPatcher.replaceOnce(
 // 2. Forces local verification instead of submiting to servers.
 //    Suppose to prevent "OFFICIAL VERIFIER UNREACHABLE" screen
 //    from appearing and shows the time.
+// mainPatcher.replaceOnce(
+//   "02forceLocalVerifier",
+//   NAMES.mCheckIfLocalBaseOnHostname+"(){return "+NAMES.fCheckIfLocal+"(globalThis.location.hostname)}",
+//   NAMES.mCheckIfLocalBaseOnHostname+"(){return!1}"
+// );
 mainPatcher.replaceOnce(
   "02forceLocalVerifier",
-  NAMES.mCheckIfLocalBaseOnHostname+"(){return "+NAMES.fCheckIfLocal+"(globalThis.location.hostname)}",
-  NAMES.mCheckIfLocalBaseOnHostname+"(){return!1}"
+  "if(this."+NAMES.pRunVerifierObject+".requiresServerTruth()){if",
+  "if(!1){if"
 );
 
 // 3. Force dailyRank() to call fetchStanding() to get rank.
