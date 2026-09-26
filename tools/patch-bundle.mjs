@@ -1,1021 +1,219 @@
 #!/usr/bin/env node
+// CLI wrapper around tools/patch-logic.mjs (the portable derive/patch core —
+// see that file for the actual identifier-derivation regexes and the
+// rationale behind the wildcarded-anchor approach).
+//
+// ============================================================================
+// WHY THIS RUNS ON GITHUB ACTIONS, NOT INSIDE THE EXTENSION
+// ============================================================================
+// Two earlier attempts tried to make the extension patch itself entirely at
+// runtime, inside the browser:
+//   1. Redirect swervle.com's script request to a `data:` URL built in
+//      memory. Worked in one browser, but Chromium's redirect-safety rules
+//      reject redirecting a script-destination request to `data:` in
+//      others (confirmed: net::ERR_UNSAFE_REDIRECT in Brave) — inconsistent
+//      across browsers, not something a config change fixes.
+//   2. Redirect to a made-up `chrome-extension://` path and serve it
+//      dynamically from the background service worker's own `fetch` event.
+//      Also failed: a service worker only intercepts fetches from clients
+//      IT CONTROLS (pages loaded from its own extension origin) — a
+//      cross-origin redirect from an external page never reaches that
+//      handler at all. `web_accessible_resources` only exposes REAL files
+//      that exist in the package, with no hook for dynamic content.
+// Conclusion: MV3 does not allow an extension to synthesize content for an
+// external page without that content already existing as a real file
+// somewhere reachable over plain https:// — full stop, not a bug to work
+// around.
+//
+// So the actual fetch+derive+patch step now runs OUTSIDE any browser
+// entirely, on a schedule, via GitHub Actions (see
+// .github/workflows/repatch.yml) — which runs this exact script and commits
+// patched-bundle.js/patched-terrainview.js/state.json when they change.
+// Redirecting a `<script>` tag to a normal `https://raw.githubusercontent.com/...`
+// URL is completely unrestricted (ordinary cross-origin script loading),
+// which is what background.js in the extension itself now does — it only
+// needs to know *which* live swervle.com filenames to intercept (from
+// state.json, a few bytes) and points the ACTION at these fixed GitHub URLs,
+// whose CONTENT updates independently, with no extension release needed.
+//
 // Usage:
-//   node tools/patch-bundle.mjs <main.js> <terrainview-chunk.js> <out-main.js> <out-terrainview.js>
-
-import { readFileSync, writeFileSync } from "node:fs";
-
-const [, , mainIn, replayIn, mainOut, replayOut] = process.argv;
-if (!mainIn || !replayIn || !mainOut || !replayOut) {
-  console.error("Usage: node patch-bundle.mjs <main.js> <replay-chunk.js> <out-main.js> <out-replay.js>");
-  process.exit(1);
-}
-
-// ---- minified identifier mapping for the CURRENT bundles ----
-// main bundle: e3c40cc0-CSYLfZtS.js
-// replay chunk: c3c40cc0-DxaohzSt.js
-// Updated: 2026-09-07
-// I've consistent forgot to update the above last updated
-// infomation, so it may be inaccurate some times.
-// v - variable
-// f - function
-// c - class
-// p - property
-// m - method
-const NAMES = {
-  /// MAIN INDEX ///
-  /* ln. 3236:
-  async #h(e, t) {
-    try {
-      let n = await this.#g(`POST`, e, {
-        body: t,
-        csrf: !0,
-        timeoutMs: this.#i
-      });
-      return Object.freeze({
-        body: await fs(n),
-        httpStatus: n.status,
-        kind: `response`
-      })
-    } catch (e) {
-      return Object.freeze({
-        classification: ps(e) ? `server-timeout` : `server-unreachable`,
-        kind: `transport-failure`,
-        message: e instanceof Error && e.message.length > 0 ? e.message : null
-      })
-    }
-  }*/
-  mRunPoster: "#h",
-  mServerAccesser: "#g",
-  pTimeoutMs: "#i",
-  fResponseChecker: "Os",
-  fServerAccessErrorClassifier: "ks",
-  /* ln. 23634
-  if (this.#gt.requiresServerTruth()) {
-    if (this.#U) {
-  */
-  pRunVerifierObject: "#gt",
-  /* ln. 7855
-  dailyRank(e, t, n) {
-    if (*nd*(e), !Number.isSafeInteger(t) || t < 1) return null;
-    let r = [];
-    return r.push(Object.freeze({
-      competitorId: `local-player`,
-      durationTicks: t,
-      participantKind: `human`,
-      publicDisplayName: `YOU`,
-      publicRunId: n,
-      verifiedAtIso: new Date(`${e}T23:59:59.999Z`).toISOString()
-    })), *yu*({
-      dailyId: e,
-      results: r
-    }).rankedEntries.find(e => e.competitorId === `local-player`)?.rank ?? null
-  }*/
-  fValidateDate: "Td",
-  fValidateDayRunsAndFindRank: "Hu",
-  /* ln. 5242
-  var gl = class {
-    #e;
-    #t;
-    #n;
-    #r;
-    #i;
-    #a;
-    #o = null;
-    #s = `normal`;
-    constructor(e = {}) {
-      this.#e = e.apiBase ?? Xl();
-      let t = e.fetchImpl ?? (typeof fetch == `function` ? fetch.bind(globalThis) : null);
-      if (t === null) throw TypeError(`A fetch implementation is required for server mode.`);
-      this.#t = t, this.#n = e.cookieSource ?? Yl, this.#r = e.requestTimeoutMs ?? ll, this.#i = e.submissionTimeoutMs ?? ul, this.#a = e.delayImpl ?? (e => new Promise(t => {
-        setTimeout(t, e)
-      }))
-    }*/
-  cServerCommunicationManager: "es",
-  /* ln. 2706
-  function ja(e) {
-    let t = pa[e.surface],
-      n = ma[e.surface],
-      r = e.scopeControl,
-      i = oa();
-    if (e.state === `offline` && !i) return Ra(e.surface, t, n, r);
-    if (e.state === `pending` && !i) return Ia(t, n, r);
-    let a = jr(e.viewerTeamTag),
-      o = Ga(e.entries).map(t => `
-            <li${t.isPlayer?` data-player="true"`:``}>
-              <span class="leaderboard-rank" aria-label="Rank ${String(t.rank)}">${String(t.rank)}</span>
-              ${Va(t.isPlayer?e.viewerIsSupporter===!0||t.isSupporter===!0:t.isSupporter)}
-              <span class="leaderboard-name">${Ba(t.isPlayer?e.viewerTeamTag??t.teamTag:t.teamTag,a)}<strong>${t.isPlayer?`YOU`:B(t.displayName)}</strong>${Ha(t.creatorLinks)}</span>
-              <time>${N(t.displayTimeMs??Ee(t.durationTicks))}</time>
-              ${qa(t.carPaint??null,t.isPlayer?`your car`:`${t.displayName}'s car`,t.isPlayer?`YOU`:t.displayName,N(t.displayTimeMs??Ee(t.durationTicks)),t.isPlayer,t.publicRunId,t.rank,t.joinedAtIso??null)}${e.offerSignIn?`
-              ${t.isPlayer?Ja(e.signInCtaMode??`save`):`<span class="leaderboard-signin-slot" aria-hidden="true"></span>`}`:``}
-            </li>`).join(``),
-      s = e.viewerRow,
-      c = s !== null && s.durationTicks === null,
-      l = c ? fa : N(s?.displayTimeMs ?? Ee(s?.durationTicks ?? 0)),
-      u = Ma(e, a),
-      d = e.entries.length > 0 || u !== ``,
-      f = s === null ? `` : `${d?`
-            <li class="leaderboard-separator" role="presentation" aria-hidden="true"></li>`:``}
-            <li class="leaderboard-you-outside" data-player="true"${c?` data-untimed="true"`:``}>
-              <span class="leaderboard-rank" aria-label="${c?`No time yet`:s.rank===null?`Unranked`:`Rank ${String(s.rank)}`}">${c||s.rank===null?`&mdash;`:String(s.rank)}</span>
-              ${Va(s.isSupporter===!0||e.viewerIsSupporter===!0)}
-              <span class="leaderboard-name">${Ba(s.teamTag??e.viewerTeamTag,a)}<strong>YOU</strong>${Ha(s.creatorLinks)}</span>
-              <time>${l}</time>
-              ${qa(s.carPaint??null,`your car`,`YOU`,l,!0,void 0,s.rank,s.joinedAtIso??null)}${e.offerSignIn?`
-              ${Ja(e.signInCtaMode??`save`)}`:``}
-            </li>`;
-    return `
-          <aside class="result-leaderboard panel" data-slot="${t}"${Na(r)} data-board-state="ready" aria-labelledby="${n}">
-            ${Fa(n,r)}
-            <ol${e.offerSignIn?` data-sign-in="true"`:``}${$t()?``:` data-chips="off"`}>${o}${u}${f}</ol>
-          </aside>`
-  }*/
-  fRenderLeaderboard: "tu",
-  /* ln. 19908
-  var fE = Object.freeze({
-    boost: !1,
-    handbrake: !1,
-    reverse: !1,
-    steerTarget: 0,
-    throttle: !1
-  }),
-  pE = -1,
-  mE = `input, textarea, select, option, [contenteditable=""], [contenteditable="true"]`,
-  hE = `button, a[href], label, summary, [role="button"], [data-action]`,
-  gE = 16,
-  _E = {
-    passive: !1
-  },*/
-  vDefaultActionsSample: "sD",
-  /* ln. 20783
-  get lifecycleState() {
-    return this.#je
-  }
-  MAKE SURE IT'S THE ONE IN THE MAIN CLASS*/
-  pLifecycleState: "#je",
-  /* ln. 21573
-  _.restore(s.simulation.captureSnapshot().clock), this.*#Fe* = new un({
-  */
-  pTimeManagerObject: "#Fe",
-  /* ln. 365
-  constructor(e) {
-    this.#e = e.callbacks, this.#t = e.frameDriver, this.clock = e.clock ?? new Ue, this._5c2daadd7ced = e._5c2daadd7ced ?? new He
-  }*/
-  pTimescale: "_5c2daadd7ced",
-  /* ln. 20574
-  #Ze = new ot(Oe.maximumRaceTicks);
-  */
-  pRunRecorderObject: "#Qe",
-  /* ln. 22817
-  #Wn(e) {
-    if (this.*#xe*?.model.raceState.phase !== `invalid`) return;
-    if (e === `scrim`) {
-      this.#si();
-      return
-    }
-    let t = this.#pe;
-    globalThis.setTimeout(() => {
-      t !== this.#pe || !this.#de.isEmpty || this.*#xe*?.model.raceState.phase !== `invalid` || this.#tn(!0)
-    }, 0)
-  }*/
-  pSimulationManager: "#xe",
-  /* ln. 21481
-  o.setVisible(this.*#ht*.ghostsVisible), this.#ht.rival = o, this.#ht.rivalReplay = e, this.#ht.rivalPoses = this.#ht.ghostPoseChannel(this.#ht.rivalPoses, `rival`, i.opponent.states), this.#ht.rivalLivery = t, this.#ht.rivalGap = new *Zx*(i.track.routeLine)
-  */
-  pRivalGhost: "#ht", cRivalGapGetter: "DS",
-  /* ln. 21138
-  this.#Ae = m & 95
-  */
-  pInputBase64: "#Ae",
-  /* ln. 21867
-  d = *ut*({
-    boost: (r.held.boost === !0 || s?.boost === !0) && *Be*(this.*#nt*) > 0,
-    handbrake: r.held.handbrake === !0 || s?.handbrake === !0,
-    recoveryRequested: o,
-    reverse: r.held.reverse === !0 || s?.reverse === !0,
-    steerLeft: c || u === `left`,
-    steerRight: l || u === `right`,
-    throttle: r.held.throttle === !0 || s?.throttle === !0
-  }),*/
-  fActionBools: "Ke",
-  fBoostMeter: "Re", pBoostMeter: "#nt",
-  /* ln. 24673
-  let t = new JE({
-    mount: e
-  });*/
-  cMainGame: "TD",
-  /* ln. 19917
-  gpuFrameMs: this.#s.diagnostics().lastGpuFrameMs,
-  */
-  pQualityMonitor: "#s",
-  /* ln. 19352
-  this.#$e = u, l();
-  let d = u.diagnostics();
-  */
-  pRenderer: "#$e",
-  /* ln. 10670
-  function sm(e) {
-    let t = e.limit ?? 10;
-    if (!Number.isSafeInteger(t) || t < 0) throw RangeError(`Team ghost field limit must be a non-negative integer.`);
-    let n = [],
-      r = new Set;
-    for (let i of [...e.entries].sort(mm)) {
-      if (n.length >= t) break;
-      if (i.trackDigest !== e.trackDigest || i.encoding !== `car-state-byte-v1` || !hm(i.durationTicks) || i.tickCount !== i.durationTicks || !gm(i.publicRunId) || r.has(i.publicRunId)) continue;
-      try {
-        tt(i.statesBase64, {
-          expectedLength: i.durationTicks,
-          maximumLength: *Ae*.maximumRaceTicks
-        })
-      } catch {
-        continue
-      }*/
-  vRaceRules: "Oe",
-  /* ln. 21322
-  *#xt*(e, t, n) {
-    this.#Te = !0;
-    try {
-      for (let t = 0; t < n; t += 1) this.#Ut(e.simulation.tick + 1), this.#Gt()
-    } finally {
-      this.#Te = !1
-    }
-    this.#St(e), t.clock.restore(e.simulation.captureSnapshot().clock)
-  }*/
-  mAdvanceTicks: "#xt",
-  /* ln. 21980
-  #Qt(e, t, n) {
-    this.#ie && this.#w?.tickLights(globalThis.performance.now());
-    let r = this.#xe;
-    this.#Yt(r);
-    let i = r === void 0 ? void 0 : this.#$t(r),
-      a = this.#Re?.track.routeLine ?? [];
-    this.#vt.smoothCrestOffset(a, i?.position, e.realDeltaSeconds);
-    let o = this.#vt.updateStartCameraTransition(e.realDeltaSeconds);
-    this.#vt.applyCameraTargetOffset(), this.#u.begin(Q.presentationUpdate), this.#_e > 0 ? this.#ze?.updateHeldCamera(e.alpha) : this.#ze?.update(e.alpha), !o && this.#vt.cameraLocked && i !== void 0 && this.#vt.applyLockedCameraView(i), this.#vt.syncTerrainAtmosphere(), this.#u.end(Q.presentationUpdate), o || n.updateOrbit(e.realDeltaSeconds);
-    let s = Math.max(1, this.#s.profile.cameraObstructionFrameInterval),
-      c = this.#vt.advanceObstructionFrame();
-    if (c % s === 0 && this.#vt.updateCameraObstruction(this.#vt.transitionStaged || o, this.#s.profile.cameraObstructionProbesStructures), r !== void 0 && i !== void 0) {
-      if (this.#lt?.updatePerformanceCulling(i.position), !o) {
-        let t = i.groundedWheelCount === 0 && Math.abs(i.speed) > 4 ? IE : 80,
-          r = 1 - Math.exp(-8 * e.realDeltaSeconds);
-        n.camera.fov += (t - n.camera.fov) * r, n.camera.updateProjectionMatrix()
-      }
-      this.#ht.rival?.update(e.alpha, i.position), this.#ht.pbGhost?.update(e.alpha, i.position), this.#ht.teamFieldView?.update(e.alpha, i.position), this.#ht.rival?.updateNameplate(n.camera), this.#ht.pbGhost?.updateNameplate(n.camera), this.#ht.teamFieldView?.updateNameplates(n.camera);
-      let t = this.#s.profile,
-        a = c % t.audioUpdateFrameInterval === 0;
-      if (a || t.surfaceEffectsEnabled) {
-        let n = ip(r.model.wheelSurfaceSamples),
-          o = Math.hypot(i.velocity.x, i.velocity.z);
-        if (a) {
-          let e = O_(i.velocity, i.quaternion),
-            t = i.wheels.reduce((e, t) => Math.max(e, Math.abs(t.steering)), 0);
-          this.#f.setEngine({
-            gear: i.gear,
-            groundedWheelCount: i.groundedWheelCount,
-            reverse: i.heldControls.reverse,
-            shiftTimer: i.shiftTimer,
-            speed: i.speed,
-            throttle: i.heldControls.throttle
-          }), this.#f.setSurface({
-            brake: i.heldControls.brake || i.heldControls.reverse && i.speed > .25,
-            groundedWheelCount: i.groundedWheelCount,
-            lateralSpeed: e,
-            material: n,
-            speed: o,
-            steeringAngle: t
-          })
-        }
-        t.surfaceEffectsEnabled && this.#ct?.update(n, i.position, i.speed, e.realDeltaSeconds)
-      }
-    }
-    this.#u.begin(Q.rendererSubmission), t.render(n.camera), this.#u.end(Q.rendererSubmission), this.#e.dataset.gameState === `ready` ? this.#e.dataset.cameraSettled !== `true` && (this.#e.dataset.cameraSettled = `true`, this.#lr()) : this.#e.dataset.cameraSettled === `true` && delete this.#e.dataset.cameraSettled
-  }*/
-  mRenderTick: "#Qt",
-  /* ln. 21365
-  let r = this.#ft.refreshAccountStatus(),
-    i = await V(`manifest`, async () => this.#Nt());
-  this.*#Re* = i, this.#_t.prefetchDailyBoard(), this.#gt.replayStrandedFinish(i), this.#p.record(i.mode === `challenge` ? `challenge_open` : `daily_open`, {
-    raceContextId: i.raceContextId,
-    trackDigest: i.track.revision.trackDigest
-  });*/
-  pTrack: "#Re",
-  /* ln. 7904
-  return Object.freeze({
-    dailyId: t.dailyId,
-    mode: `challenge`,
-    opponent: Object.freeze({
-      displayName: t.displayName,
-      displayTimeMs: P(t.durationTicks, t.displayTimeMs),
-      durationTicks: t.durationTicks,
-      publicRunId: t.publicRunId,
-      states: *tt*(t.statesBase64, {
-        expectedLength: t.durationTicks,
-        maximumLength: *Oe*(t.rulesetVersion).maximumRaceTicks
-      })
-    }),
-    raceContextId: `challenge:${e}`,
-    track: n,
-    trackName: td(t.seed)
-  })*/
-  fValidStates: "ut",
-  fGetRuleset: "Ee",
-  /* ln. 21520
-  let e = new *ot*({
-    modifiers: this.*#nt*,
-    presentationRaycastEmulation: i.opponent.replayMode === `camera-probe-v1`,
-    states: i.opponent.states,
-    track: i.track
-  }),*/
-  cRivalGhostSimulator: "ct",
-  pRivalGhostModifiers: "#nt",
-  /* ln. 21444
-  r = new we({
-    appearance: xm,
-    assetInstance: await this.#ye.instantiate(ue), // MAKE SURE NOT TO INCLUDE COMMA
-    definition: le,
-    entityId: n.car.entityId,
-    materialColorOverrides: Sm,
-    materialRegistrar: this.#ze.materialRegistrar
-  });*/
-  cGhostCarView: "Se", vGCVApperance: "Wm", vGCVAssetInstance: "await this.#ye.instantiate(ce)", vGCVDefinition: "se", vGCVMaterialColorOverrides: "Gm", pTerrainViewManagerObject: "#ze",
-  /* ln. 9629
-  function *Wf*(e) {
-    return e.surface === `gameplay` && e.isLocalPlayerCar === !0 ? null : e.relationship === `self-ghost` ? `You` : Gf(e.displayName)
-  }*/
-  fGetGhostDisplayName: "pp",
-  /* ln. 21473
-  o = new *rp*({
-    carView: r,
-    initialSnapshot: n.car,
-    nameplate: a === null ? null : {
-      label: a
-    },
-    parent: this.#ze.viewParent
-  });*/
-  cRivalGhostRenderer: "Ep",
-  /* ln. 24182
-  function uD(e) {
-    if (e === void 0) throw Error(`Swervle camera is unavailable.`);
-    return e
-  }*/
-  fValidateCamera: "JD",
-  /* ln. 21478
-  this.#s.resolveRendererCompatibility(d.rendererName, d.rendererVendor) && this.#vi(), this.*#be* = new og, this.#dt = new Zg, this.#ft.adoptCachedLivery(), this.#ze = new Qg(u.scene, this.*#be*, this.#dt, e => {
-    u.setExposure(e)
-  },*/
-  pCameraManagerObject: "#be",
-  /// REPLAY ///
-  /* ln. 8956
-  #x() {
-    if (this.#s === `disposed`) throw Error(`Rival replay simulation is disposed.`)
-  }*/
-  mCheckIfGhostDisposed: "#x",
-  /* ln. 8862
-  create() {
-    if (this.#x(), this.#u !== null) return this.#u;
-    let e = Yc(this.#e, this.#t, this.#n);
-    try {
-      e.create(), ol(e, this.#g), this.#o = e; // here
-      let t = e.model.base.requireCar(e.model.carEntityId).captureSnapshot();
-      return this.#u = sl(0, t, t, [], e.model.wheelSurfaceSamples, this.#i), this.#s = `running`, this.#u
-    } catch (t) {
-      throw e.dispose(), t
-    }
-  }*/
-  pReplaySimulationManager: "#o",
-  /* ln. 8911
-  diagnostics() {
-    let e = this.#o;
-    return Object.freeze({
-      phase: this.#s,
-      racePhase: e?.model.raceState.phase ?? null,
-      replayTick: this.#c,
-      replayTickCount: this.#r.length,
-      simulationTick: e?.simulation.tick ?? null,
-      trackDigest: this.#e.revision.trackDigest
-    })
-  }*/
-  pReplayTick: "#c",
-  /* ln. 8931
-  #_(e, t) {
-    if (this.#a < 1) return !1;
-    this.#h = t, this.#d = this.#a, this.#f = 0, this.#p = 0, this.#m = null, this.#s = `settling`;
-    let n = pt(this.#l, 0);
-    if (n.length > 0) try {
-      e.simulation.submitCommand(te({
-        edges: n,
-        sequence: e.simulation.nextCommandSequence(),
-        tick: e.simulation.tick + 1
-      }), e.simulation.sourceContext)
-    } catch {}
-    return this.#l = 0, !0 // here
-  }*/
-  pReplayPrevPyte: "#l",
-  /* ln. 8957
-  if (this.#s === `disposed`) throw Error(`Rival replay simulation is disposed.`)
-  */
-  pReplayPhase: "#s",
-  /* ln. 8871
-  step() {
-    this.#x();
-    let e = this.#u ?? this.create(); // here
-  */
-  pReplayCarState: "#u",
-  /* ln. 8682
-  function sl(e, t, n, r, i, a) {
-    let o = {
-      car: n,
-      previousCar: t,
-      tick: e
-    };
-    return Object.freeze(a ? {
-      ...o,
-      events: Object.freeze([...r]),
-      wheelSurfaceSamples: Object.freeze([...i])
-    } : o)
-  }*/
-  fReturnCarState: "zl",
-  /* ln. 8835
-  this.#i = e.capturePresentationData === !0;
-  */
-  pIsCapturePresentationData: "#i"
-};
-
-// Every patch's success/failure, in call order, across all three files —
-// printed as a summary at the end and used for the process's exit code, so
-// a site update that breaks one anchor is loud and specific ("patch X needs
-// regenerating") instead of silent or all-or-nothing.
-const results = [];
-
-// Each patch is independent and best-effort: a single stale anchor (the
-// site changed the one bit of code that patch targets) logs a clear warning
-// and skips *only* that insertion/replacement — every other patch, and the
-// output file itself, still get written. The alternative (throwing,
-// aborting the whole script before writeFileSync) meant one small site
-// change broke every feature at once, including ones the change had
-// nothing to do with, and produced no output to even partially test
-// against. This can't make anchor-based patching immune to the site
-// changing — that's not achievable without the site publishing a stable
-// extension API — but it keeps a redeploy's *blast radius* down to exactly
-// the features whose specific anchors actually moved.
-function makePatcher(fileLabel, getSrc, setSrc) {
-  function run(kind, name, anchor, apply) {
-    const src = getSrc();
-    const count = src.split(anchor).length - 1;
-    if (count !== 1) {
-      console.warn(
-        `⚠ [${fileLabel}] patch "${name}" anchor matched ${count} times (expected exactly 1) — ` +
-          `skipping. The site's bundle has likely changed; this patch needs regenerating.\nAnchor: ${anchor}`
-      );
-      results.push({ file: fileLabel, name, ok: false });
-      return;
-    }
-    setSrc(apply(src));
-    results.push({ file: fileLabel, name, ok: true });
-  }
-  return {
-    insertAfter(name, anchor, insertion) {
-      run("insertAfter", name, anchor, (src) => {
-        const idx = src.indexOf(anchor) + anchor.length;
-        return src.slice(0, idx) + insertion + src.slice(idx);
-      });
-    },
-    insertBefore(name, anchor, insertion) {
-      run("insertBefore", name, anchor, (src) => {
-        const idx = src.indexOf(anchor);
-        return src.slice(0, idx) + insertion + src.slice(idx);
-      });
-    },
-    replaceOnce(name, anchor, replacement) {
-      run("replaceOnce", name, anchor, (src) => src.split(anchor).join(replacement));
-    },
-  };
-}
-
-// Rewrites every chunk-relative *import specifier* in `src`
-// (`from"./Name-hash.js"`, and `import("./Name-hash.js")`) to an absolute
-// swervle.com URL. Necessary because rules.json redirects requests for each
-// of these three files' own URLs to a chrome-extension:// resource — which
-// changes what the *browser* resolves each file's own relative imports
-// against (a redirected response's URL becomes the new base for its module
-// graph). This applies to ALL THREE patched files, not just the main
-// bundle: TerrainView and CarAppearance each have their own relative
-// imports to sibling chunks (RaceRules, Sha256, FlatPlaneLevel,
-// ProtectedAssetManifest, SwervleEnvironment, and each other), and since
-// they're *also* served from a chrome-extension:// origin once redirected,
-// they need the same treatment. Without this, those sibling chunks 404/get
-// denied ("Resources must be listed in web_accessible_resources") and the
-// entire module graph breaks — the site never gets past its initial loading
-// screen.
+//   node tools/patch-bundle.mjs
+//     Fetches everything live from swervle.com, writes
+//     patched-bundle.js/patched-terrainview.js/state.json into this
+//     directory (this is what the GitHub Actions workflow runs), and runs
+//     the ESM-integrity self-check — a non-zero exit code here means the
+//     workflow's own commit/push step is skipped, so a corrupted patch is
+//     never published.
 //
-// Deliberately does NOT touch the site's own `__vite__mapDeps` preload
-// table (bare `"assets/Name-hash.js"` strings, no `./` prefix) — that table
-// only feeds a `<link rel=modulepreload>` performance-hint helper which
-// prepends its own "/" before resolving against `import.meta.url` (see the
-// site's own `jt`/`Nt` helpers). Rewriting those entries to absolute URLs
-// doesn't compose with that prepend and produces garbage double-prefixed
-// URLs (`chrome-extension://id/https://swervle.com/...`); left alone, that
-// helper instead resolves to a clean (if still wrong-origin) URL, so the
-// resulting 404 is quiet console noise instead of visible garbage — and
-// either way it's a non-blocking preload hint, not the actual import, so
-// real module loading is unaffected.
-function rewriteRelativeChunkRefs(name, src) {
-  const before = src;
-  // Chunk name portion allows dots now too — "three.core-B23Xfibg.js"
-  // (chunked out separately as of the 2026-08-18 update) wasn't matching
-  // the old [A-Za-z0-9_]+ character class, so it was silently skipped:
-  // still relative, still resolving against the wrong (extension) origin
-  // once redirected, still denied. `[A-Za-z0-9_.]+` covers it without
-  // getting greedy into the hash/extension part, since that's still
-  // anchored by the trailing `-<hash>.(js|css)` shape.
-  const out = src.replace(
-    /([\"'`])\.\/([A-Za-z0-9_.]+-[A-Za-z0-9_-]{6,}\.(?:js|css))\1/g,
-    `$1https://swervle.com/assets/$2$1`
-  );
-  const count = before === out ? 0 : (out.match(/https:\/\/swervle\.com\/assets\//g) || []).length;
-  console.log(`${name}: rewrote ${count} relative chunk references to absolute swervle.com URLs.`);
-  return out;
-}
+//   node tools/patch-bundle.mjs <main.js> <terrainview-chunk.js>
+//     Offline mode: patches two already-downloaded files instead of
+//     fetching, for local testing against a saved bundle. Doesn't write
+//     state.json (the real hashes/filenames aren't meaningful offline).
+// ============================================================================
 
-// Patches are minimized with duckduckgo's minifier
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { dirname, join } from "node:path";
+import {
+  rewriteRelativeChunkRefs,
+  makePatcher,
+  deriveIdentifiers,
+  patchMainBundle,
+  patchTerrainViewChunk,
+  discoverAndFetchMainBundle,
+  fetchTerrainViewChunk,
+} from "./patch-logic.mjs";
 
-// ---- main bundle ----
-let mainSrc = rewriteRelativeChunkRefs("main bundle", readFileSync(mainIn, "utf8"));
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUT_DIR = join(__dirname, "..");
 
-const mainPatcher = makePatcher(
-  "main bundle",
-  () => mainSrc,
-  (s) => (mainSrc = s)
-);
+const ORIGIN = "https://swervle.com";
+const [, , mainInArg, terrainViewInArg] = process.argv;
+const OFFLINE = Boolean(mainInArg && terrainViewInArg);
 
-// == 0-5 Make Game Local ==
-
-// 0. Replace the title text to confirm that the extension loaded
-//    successfully.
-mainPatcher.replaceOnce(
-  "00replaceTitleText",
-  "title:i.mode===`challenge`?`BEAT THIS RUN.`:`LET'S SWERVE`",
-  "title:i.mode===`challenge`?`DESTROY THIS RUN.`:`LET'S TAS`",
-)
-
-// 1. Kill the run-submission network call. submitRunOutcome's only side
-//    effect is POSTing to /runs via #f; making #f return a graceful
-//    transport-failure without ever calling #p means the run is never
-//    sent, while every other Rc method (leaderboard, status, etc.) is
-//    untouched. The existing failure-handling path (see the "server
-//    unreachable" branch a few lines below in #qn) already treats this
-//    exactly like a real network hiccup — saves the run locally, shows
-//    "OFFICIAL VERIFIER UNREACHABLE", never retries automatically.
+// Sanity-checks a patched output file by actually letting Node's ESM loader
+// parse AND link it — not just `node --check`, which only does a syntax
+// pass and has been observed to pass clean on code containing a genuine
+// "Private field must be declared in an enclosing class" defect (a
+// linking-time error, not a syntax error). Class-body private-field
+// validation only happens during linking, which only a real
+// parse-and-link attempt (like a dynamic import()) exercises.
 //
-//    TL:DR: Instead of posting, returns "server unreachable".
-//    This is backup code incase `forceLocalVerifier` fails.
-mainPatcher.replaceOnce(
-  "01disableRunSubmission",
-  "async"+NAMES.mRunPoster+"(e,t){try{let n=await this."+NAMES.mServerAccesser+"(`POST`,e,{body:t,csrf:!0,timeoutMs:this."+NAMES.pTimeoutMs+"});return Object.freeze({body:await "+NAMES.fResponseChecker+"(n),httpStatus:n.status,kind:`response`})}catch(e){return Object.freeze({classification:"+NAMES.fServerAccessErrorClassifier+"(e)?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0?e.message:null})}}",
-  "async"+NAMES.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
-);
-
-// 2. Forces local verification instead of submiting to servers.
-//    Suppose to prevent "OFFICIAL VERIFIER UNREACHABLE" screen
-//    from appearing and shows the time.
-// mainPatcher.replaceOnce(
-//   "02forceLocalVerifier",
-//   NAMES.mCheckIfLocalBaseOnHostname+"(){return "+NAMES.fCheckIfLocal+"(globalThis.location.hostname)}",
-//   NAMES.mCheckIfLocalBaseOnHostname+"(){return!1}"
-// );
-mainPatcher.replaceOnce(
-  "02forceLocalVerifier",
-  "if(this."+NAMES.pRunVerifierObject+".requiresServerTruth()){if",
-  "if(!1){if"
-);
-
-// 3. Force dailyRank() to call fetchStanding() to get rank.
-mainPatcher.replaceOnce(
-  "03forceFetchStanding",
-  "dailyRank(e,t,n){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let r=[];return r.push(Object.freeze({competitorId:`local-player`,durationTicks:t,participantKind:`human`,publicDisplayName:`YOU`,publicRunId:n,verifiedAtIso:new Date(`${e}T23:59:59.999Z`).toISOString()})),"+NAMES.fValidateDayRunsAndFindRank+"({dailyId:e,results:r}).rankedEntries.find(e=>e.competitorId===`local-player`)?.rank??null}",
-  "async dailyRank(e,t,n,r){if("+NAMES.fValidateDate+"(e),!Number.isSafeInteger(t)||t<1)return null;let g=new "+NAMES.cServerCommunicationManager+"({apiBase:`https://swervle.com/api/v1`});const standing=await g.fetchStanding(e,t,undefined,r).catch(()=>null);console.log(standing?.rank??null);return standing?.rank??null;}"
-)
-
-// 4. Add background daily rank fetch.
-mainPatcher.insertBefore(
-  "04AsyncRankFetchFunc",
-  "function "+NAMES.fRenderLeaderboard+"(e){",
-  "async function fetchDailyRankInBackground(dailyId, durationTicks) {let dailyRankGateway = new "+NAMES.cServerCommunicationManager+"({ apiBase: `https://swervle.com/api/v1` }); let standing = await dailyRankGateway.fetchStanding(dailyId, durationTicks); const nameElements = document.querySelectorAll('.leaderboard-name'); const myNameElement = Array.from(nameElements).find(el => el.textContent.trim() === 'YOU'); if (myNameElement) { const rankElement = myNameElement.closest('li').querySelector('.leaderboard-rank'); rankElement.textContent = String(standing.rank); } else { console.log(`[Swervle TAS Tool] Rank Element Not Found.`)}}"
-)
-/*
-async function fetchDailyRankInBackground(dailyId, durationTicks) {
-  // there prob should be failsafes, but I want this feature so I'm letting it fail to find the error.
-  let dailyRankGateway = new "+NAMES.cServerCommunicationManager+"({ apiBase: `https://swervle.com/api/v1` });
-  let standing = await dailyRankGateway.fetchStanding(dailyId, durationTicks);
-
-  // 1. Find all .leaderboard-name elements
-  const nameElements = document.querySelectorAll('.leaderboard-name');
-
-  // 2. Find the one containing "YOU"
-  const myNameElement = Array.from(nameElements).find(
-    el => el.textContent.trim() === 'YOU'
-  );
-
-  if (myNameElement) {
-    const rankElement = myNameElement.closest('li').querySelector('.leaderboard-rank');
-    rankElement.textContent = String(standing.rank);
-  } else {
-    console.log(`[Swervle TAS Tool] Rank Element Not Found.`)
-  }
-}
-*/
-
-// 5. call fetchDailyRankInBackground()
-mainPatcher.replaceOnce(
-  "05makeRankUseAsyncFetch",
-  "</li>`;return`",
-  "</li>`;try{fetchDailyRankInBackground(`2026-09-06`, e.entries[0].durationTicks);}catch(e){console.log(`[Swervle TAS Tool]: ` + e)}return`"
-)
-
-// == 6-? TAS ==
-
-// 6. Add TasPlayback class to manage tas playback.
-mainPatcher.insertBefore(
-  "06tasPlayback",
-  "var "+NAMES.vDefaultActionsSample+"=Object.freeze({",
-  "const BIT={throttle:1,reverse:2,steerLeft:4,steerRight:8,handbrake:16,recovery:32,boost:64};function decodeStateByte(prevByte,currByte){const heldBits=['throttle','reverse','steerLeft','steerRight','handbrake','boost'];const edges=[];for(const action of heldBits){const bit=BIT[action];const was=(prevByte&bit)!==0;const is=(currByte&bit)!==0;if(was!==is){edges.push({action,kind:is?'pressed':'released'})}}if((currByte&BIT.recovery)!==0){edges.push({action:'recover',kind:'pressed'})}const held={throttle:(currByte&BIT.throttle)!==0,reverse:(currByte&BIT.reverse)!==0,left:(currByte&BIT.steerLeft)!==0,right:(currByte&BIT.steerRight)!==0,handbrake:(currByte&BIT.handbrake)!==0,boost:(currByte&BIT.boost)!==0};return{edges,held}}class TasPlayback{constructor(statesBase64){const binary=atob(statesBase64);this.bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));this.prevByte=0}next(tick){const b=this.bytes[tick]??this.bytes[this.bytes.length-1]??0;const sample=decodeStateByte(this.prevByte,b);this.prevByte=b;return sample;}}"
-)
-/*
-// BIT from TerrainView.js car-state-byte-v1
-// too lazy to get it from the file
-// instead this is a copy
-const BIT = {
-  throttle: 1,
-  reverse: 2,
-  steerLeft: 4,
-  steerRight: 8,
-  handbrake: 16,
-  recovery: 32,   // encodes the "recover" edge, not a held state
-  boost: 64,
-};
-
-function decodeStateByte(prevByte, currByte) {
-  const heldBits = ['throttle', 'reverse', 'steerLeft', 'steerRight', 'handbrake', 'boost'];
-  const edges = [];
-  for (const action of heldBits) {
-    const bit = BIT[action];
-    const was = (prevByte & bit) !== 0;
-    const is  = (currByte & bit) !== 0;
-    if (was !== is) edges.push({ action, kind: is ? 'pressed' : 'released' });
-  }
-  if ((currByte & BIT.recovery) !== 0) {
-    edges.push({ action: 'recover', kind: 'pressed' });
-  }
-  const held = {
-    throttle: (currByte & BIT.throttle) !== 0,
-    reverse: (currByte & BIT.reverse) !== 0,
-    left: (currByte & BIT.steerLeft) !== 0,
-    right: (currByte & BIT.steerRight) !== 0,
-    handbrake: (currByte & BIT.handbrake) !== 0,
-    boost: (currByte & BIT.boost) !== 0,
-  };
-  return { edges, held };
-}
-
-class TasPlayback {
-  constructor(statesBase64) {
-    const binary = atob(statesBase64);
-    this.bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
-    this.prevByte = 0;
-  }
-  next(tick) {
-    const b = this.bytes[tick] ?? this.bytes[this.bytes.length - 1] ?? 0;
-    const sample = decodeStateByte(this.prevByte, b);
-    this.prevByte = b;
-    return sample; // {edges, held} — same shape n.sample() returns
-  }
-}
-*/
-
-// 7. Add getters and methods to the main game class.
-mainPatcher.insertAfter(
-  "07.01debugTimeScale",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "get __debugTimeScale(){return this."+NAMES.pTimeManagerObject+"?."+NAMES.pTimescale+"??null}"
-)
-/*
-get __debugTimeScale() { return this."+NAMES.pTimeManagerObject+"?."+NAMES.pTimescale+" ?? null; }
-*/
-mainPatcher.insertAfter(
-  "07.02debugCurrentActions",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "get __debugCurrentActions(){return this.__lastActions??null}"
-)
-/*
-get __debugCurrentActions() { return this.__lastActions ?? null; }
-*/
-mainPatcher.insertAfter(
-  "07.03debugCaptureStates",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "__debugCaptureStates(){return this."+NAMES.pRunRecorderObject+".captureStates()}"
-)
-/*
-__debugCaptureStates() { return this."+NAMES.pRunRecorderObject+".captureStates(); }
-*/
-mainPatcher.insertAfter(
-  "07.04debugStartPlayback",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "__debugStartPlayback(statesBase64){this.__tas=new TasPlayback(statesBase64)}"
-)
-/*
-__debugStartPlayback(statesBase64) {
-  this.__tas = new TasPlayback(statesBase64)
-}
-*/
-mainPatcher.insertAfter(
-  "07.05debugStopPlayback",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "__debugStopPlayback(){this.__tas=null}"
-)
-/*
-__debugStopPlayback() { this.__tas = null; }
-*/
-mainPatcher.insertAfter(
-  "07.06debugSaveState",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "__debugSaveState(){return{simulation:this."+NAMES.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this."+NAMES.pRunRecorderObject+".captureStates(),ghost:this."+NAMES.pRivalGhost+".rivalReplay?.captureRawSnapshot()??null}}"
-)
-/*
-__debugSaveState() {
-  return {
-    simulation: this."+NAMES.pSimulationManager+".simulation.captureSnapshot(),
-    inputBytes: this."+NAMES.pRunRecorderObject+".captureStates(),
-    ghost: this."+NAMES.pRivalGhost+".rivalReplay?.captureRawSnapshot() ?? null,
-  };
-}
-*/
-mainPatcher.insertAfter(
-  "07.07debugLoadState",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "__debugLoadState(state){this."+NAMES.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this."+NAMES.pTimeManagerObject+"?.clock.restore(this."+NAMES.pSimulationManager+".simulation.captureSnapshot().clock);this."+NAMES.pRunRecorderObject+".reset();for(const b of state.inputBytes){this."+NAMES.pRunRecorderObject+".recordByte(b)}this."+NAMES.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this."+NAMES.pRivalGhost+".rivalReplay&&state.ghost){this."+NAMES.pRivalGhost+".rivalReplay.restoreRawSnapshot(state.ghost);this."+NAMES.pRivalGhost+".rival?.consumeSnapshot(this."+NAMES.pRivalGhost+".rivalReplay.frame.car)}}"
-)
-/*
-__debugLoadState(state) {
-  this."+NAMES.pSimulationManager+".simulation.restoreSnapshot(state.simulation);
-  this."+NAMES.pTimeManagerObject+"?.clock.restore(this."+NAMES.pSimulationManager+".simulation.captureSnapshot().clock);
-
-  this."+NAMES.pRunRecorderObject+".reset();
-  for (const b of state.inputBytes) this."+NAMES.pRunRecorderObject+".recordByte(b);
-  this."+NAMES.pInputBase64+" = state.inputBytes.length > 0
-    ? state.inputBytes[state.inputBytes.length - 1] & 95
-    : 0;
-
-  if (this."+NAMES.pRivalGhost+".rivalReplay && state.ghost) {
-    this."+NAMES.pRivalGhost+".rivalReplay.restoreRawSnapshot(state.ghost);
-    this."+NAMES.pRivalGhost+".rival?.consumeSnapshot(this."+NAMES.pRivalGhost+".rivalReplay.frame.car);
-  }
-}
-*/
-mainPatcher.insertAfter(
-  "07.08debugDiagnostics",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "get __debugDiagnostics(){return{frameLoop:this."+NAMES.pTimeManagerObject+"?.diagnostics??null,quality:this."+NAMES.pQualityMonitor+"?.diagnostics()??null,renderer:this."+NAMES.pRenderer+"?.diagnostics()??null}}"
-)
-/*
-get __debugDiagnostics() {
-  return {
-      frameLoop: this."+NAMES.pTimeManagerObject+"?.diagnostics ?? null,
-      quality: this."+NAMES.pQualityMonitor+"?.diagnostics() ?? null,
-      renderer: this."+NAMES.pRenderer+"?.diagnostics() ?? null
-  }
-}
-*/
-mainPatcher.insertAfter(
-  "07.09advanceTestTicks",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "advanceTestTicks(e){let t=this."+NAMES.pSimulationManager+"?.model.ruleset??"+NAMES.vRaceRules+",n=t.warmupTicks+t.countdownTicks+t.maximumRaceTicks;if(!Number.isSafeInteger(e)||e<0||e>n){throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`)}let r=this."+NAMES.pSimulationManager+",i=this."+NAMES.pTimeManagerObject+";if(r===void 0||i===void 0){return}let a=r.model.raceState.phase;if(a!==`countdown`&&a!==`racing`){throw Error(`Swervle test ticks require an active countdown or race.`)}return i.stop(),this."+NAMES.mAdvanceTicks+"(r,i,e),e>0&&this."+NAMES.mRenderTick+"({alpha:1,realDeltaSeconds:e*1/60,simulationTick:r.simulation.tick,ticksAdvanced:e})}"
-)
-/*
-advanceTestTicks(e) {
-  let t = this."+NAMES.pSimulationManager+"?.model.ruleset ?? "+NAMES.vRaceRules+",
-    n = t.warmupTicks + t.countdownTicks + t.maximumRaceTicks;
-  if (!Number.isSafeInteger(e) || e < 0 || e > n) throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`);
-  let r = this."+NAMES.pSimulationManager+",
-    i = this."+NAMES.pTimeManagerObject+";
-  if (r === void 0 || i === void 0) return;
-  let a = r.model.raceState.phase;
-  if (a !== `countdown` && a !== `racing`) throw Error(`Swervle test ticks require an active countdown or race.`);
-  return i.stop(), this."+NAMES.mAdvanceTicks+"(r, i, e), e > 0 && this."+NAMES.mRenderTick+"({
-    alpha: 1,
-    realDeltaSeconds: e * 1/60,
-    simulationTick: r.simulation.tick,
-    ticksAdvanced: e
-  })
-}
-*/
-mainPatcher.insertAfter(
-  "07.10resumeTestFrames",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "resumeTestFrames(){let e=this."+NAMES.pTimeManagerObject+";if(e===void 0){return}if(this."+NAMES.pLifecycleState+"!==`running`){throw Error(`Swervle test frames require a running race.`)}return e.start()}"
-)
-/*
-resumeTestFrames() {
-  let e = this."+NAMES.pTimeManagerObject+";
-  if (e === void 0) return;
-  if (this."+NAMES.pLifecycleState+" !== `running`) throw Error(`Swervle test frames require a running race.`);
-  return e.start()
-}
-*/
-mainPatcher.insertAfter(
-  "07.11",
-  "get lifecycleState(){return this."+NAMES.pLifecycleState+"}",
-  "async loadRivalGhost(e){console.log(`hiyya`);if(this."+NAMES.pSimulationManager+"===undefined){throw new Error('loadRivalGhost failed: Instance state "+NAMES.pSimulationManager+" is undefined.')}if(this."+NAMES.pTrack+"===undefined){throw new Error('loadRivalGhost failed: Instance state "+NAMES.pTrack+" is undefined.')}if(!e||typeof e!=='object'){throw new TypeError(`loadRivalGhost failed: Expected an options object argument. ${ e }`)}if(typeof e.statesBase64!=='string'){throw new TypeError(`loadRivalGhost failed: 'statesBase64' must be a string, received ${ typeof e.statesBase64 }. ${e.statesBase64 }`)}if(typeof e.displayName!=='string'){if(typeof e.publicDisplayName!=='string'){throw new TypeError(`loadRivalGhost failed: 'displayName' or 'publicDisplayName' must be a string, received ${ typeof e.displayName } and ${ typeof e.publicDisplayName }.`)}e.displayName=e.publicDisplayName}if(!e.livery||typeof e.livery!=='object'){console.warn(`loadRivalGhost warning: 'livery' expected an object, received ${ typeof e.livery }.`)}try{let t="+NAMES.fValidStates+"(e.statesBase64,{expectedLength:e.durationTicks,maximumLength:"+NAMES.fGetRuleset+"(this."+NAMES.pTrack+".track.revision.rulesetVersion).maximumRaceTicks});this.__ghostStates=t;if(this."+NAMES.pRivalGhost+".rivalReplay?.dispose(),this."+NAMES.pRivalGhost+".rival?.dispose(),this."+NAMES.pRivalGhost+".rivalReplay=void 0,this."+NAMES.pRivalGhost+".rival=void 0,this."+NAMES.pRivalGhost+".rivalGap=void 0,t.length===0){return}let n=new "+NAMES.cRivalGhostSimulator+"({modifiers:this."+NAMES.pRivalGhostModifiers+",states:t,track:this."+NAMES.pTrack+".track}),r=null;try{let i=n.create();let a=new "+NAMES.cGhostCarView+"({appearance:"+NAMES.vGCVApperance+",assetInstance:"+NAMES.vGCVAssetInstance+",definition:"+NAMES.vGCVDefinition+",entityId:i.car.entityId,materialColorOverrides:"+NAMES.vGCVMaterialColorOverrides+",materialRegistrar:this."+NAMES.pTerrainViewManagerObject+".materialRegistrar});let ghostLivery=e.livery??e.ghost?.livery??e.design??null;r=await this."+NAMES.pRivalGhost+".createGhostRaceLivery(a,ghostLivery);let o="+NAMES.fGetGhostDisplayName+"({displayName:e.displayName,relationship:`friend`,surface:`gameplay`}),s=new "+NAMES.cRivalGhostRenderer+"({carView:a,initialSnapshot:i.car,nameplate:o===null?null:{label:o},parent:this."+NAMES.pTerrainViewManagerObject+".viewParent});s.setVisible(this."+NAMES.pRivalGhost+"),this."+NAMES.pRivalGhost+".rival=s,this."+NAMES.pRivalGhost+".rivalReplay=n,this."+NAMES.pRivalGhost+".rivalGap=new "+NAMES.cRivalGapGetter+"(this."+NAMES.pTrack+".track.routeLine),this."+NAMES.pRenderer+"?.render("+NAMES.fValidateCamera+"(this."+NAMES.pCameraManagerObject+").camera);console.log(`yippe!`)}catch(e){throw r?.dispose(),n.dispose(),e}return this.diagnostics()}catch(e){throw Error(`Failed to load rival ghost: ${ e instanceof Error?e.message:String(e)}`)}}"
-)
-/*
-async loadRivalGhost(e) {
-  console.log(`hiyya`);
-  // Check internal instance state
-  if (this."+NAMES.pSimulationManager+" === undefined) {
-    throw new Error('loadRivalGhost failed: Instance state "+NAMES.pSimulationManager+" is undefined.');
-  }
-  if (this."+NAMES.pTrack+" === undefined) {
-    throw new Error('loadRivalGhost failed: Instance state "+NAMES.pTrack+" is undefined.');
-  }
-
-  // Check argument object presence
-  if (!e || typeof e !== 'object') {
-    throw new TypeError(`loadRivalGhost failed: Expected an options object argument. ${e}`);
-  }
-
-  // Check required properties and types
-  if (typeof e.statesBase64 !== 'string') {
-    throw new TypeError(`loadRivalGhost failed: 'statesBase64' must be a string, received ${typeof e.statesBase64}. ${e.statesBase64}`);
-  }
-
-  if (typeof e.displayName !== 'string') {
-    if (typeof e.publicDisplayName !== 'string') {
-      throw new TypeError(`loadRivalGhost failed: 'displayName' or 'publicDisplayName' must be a string, received ${typeof e.displayName} and ${typeof e.publicDisplayName}.`);
-    }
-    e.displayName = e.publicDisplayName;
-  }
-
-  // durationTicks is not necessary
-  // if (typeof e.durationTicks !== 'number') {
-  //   throw new TypeError(`loadRivalGhost failed: 'durationTicks' must be a number, received ${typeof e.durationTicks}.`);
-  // }
-
-  if (!e.livery || typeof e.livery !== 'object') {
-    console.warn(`loadRivalGhost warning: 'livery' expected an object, received ${typeof e.livery}.`);
-  }
+// The patched files legitimately contain `import("https://swervle.com/...")`
+// calls meant for a browser, which Node's loader can never resolve — so a
+// SUCCESSFUL run of this always ends in one specific, benign error *after*
+// parsing/linking already completed. Anything else (a SyntaxError, or an
+// error before that expected point) means this patch run corrupted the
+// file, and is treated as a hard failure — which, on GitHub Actions,
+// prevents the broken output from ever being committed/published.
+async function verifyEsmIntegrity(fileLabel, absPath) {
   try {
-    let t = "+NAMES.fValidStates+"(e.statesBase64, {
-      expectedLength: e.durationTicks,
-      maximumLength: "+NAMES.fGetRuleset+"(this."+NAMES.pTrack+".track.revision.rulesetVersion).maximumRaceTicks
-    });
-    this.__ghostStates = t; // Save ghost states for save and load state
-    if (this."+NAMES.pRivalGhost+".rivalReplay?.dispose(), this."+NAMES.pRivalGhost+".rival?.dispose(), this."+NAMES.pRivalGhost+".rivalReplay = void 0, this."+NAMES.pRivalGhost+".rival = void 0, this."+NAMES.pRivalGhost+".rivalGap = void 0, t.length === 0)
-      return;
-    let n = new "+NAMES.cRivalGhostSimulator+"({
-      modifiers: this."+NAMES.pRivalGhostModifiers+",
-      states: t,
-      track: this."+NAMES.pTrack+".track
-    }),
-    r = null;
-    try {
-      let i = n.create();
-      let a = new "+NAMES.cGhostCarView+"({
-        appearance: "+NAMES.vGCVApperance+",
-        assetInstance: "+NAMES.vGCVAssetInstance+",
-        definition: "+NAMES.vGCVDefinition+",
-        entityId: i.car.entityId,
-        materialColorOverrides: "+NAMES.vGCVMaterialColorOverrides+",
-        materialRegistrar: this."+NAMES.pTerrainViewManagerObject+".materialRegistrar
-      });
-      // Extract livery from argument and pass to #ga instead of null
-      let ghostLivery = e.livery ?? e.ghost?.livery ?? e.design ?? null;
-      r = await this."+NAMES.pRivalGhost+".createGhostRaceLivery(a, ghostLivery);
-      let o = "+NAMES.fGetGhostDisplayName+"({
-        displayName: e.displayName,
-        relationship: `friend`,
-        surface: `gameplay`
-      }),
-      s = new "+NAMES.cRivalGhostRenderer+"({
-        carView: a,
-        initialSnapshot: i.car,
-        nameplate: o === null ? null : {label: o},
-        parent: this."+NAMES.pTerrainViewManagerObject+".viewParent
-      });
-      s.setVisible(this."+NAMES.pRivalGhost+"),
-      this."+NAMES.pRivalGhost+".rival = s,
-      this."+NAMES.pRivalGhost+".rivalReplay = n,
-      this."+NAMES.pRivalGhost+".rivalGap = new "+NAMES.cRivalGapGetter+"(this."+NAMES.pTrack+".track.routeLine),
-      this."+NAMES.pRenderer+"?.render("+NAMES.fValidateCamera+"(this."+NAMES.pCameraManagerObject+").camera);
-      console.log(`yippe!`);
+    await import(pathToFileURL(absPath).href + `?verify=${Date.now()}`);
+    console.log(`✓ [${fileLabel}] parsed and linked cleanly (imported with no error at all — unexpected but fine).`);
+    return true;
+  } catch (err) {
+    // Matched on the stable "Received protocol 'https:'" part rather than
+    // the more verbose "Only URLs with a scheme in: ..." prefix — that
+    // prefix's exact wording changed between Node versions (older Node:
+    // "file and data"; Node 24+: "file, data, and node", once it added
+    // node: import support), which silently broke this check the moment
+    // the CI runner picked up Node 24 — a real false positive that briefly
+    // blocked every otherwise-successful patch run.
+    const isExpectedNetworkError =
+      err instanceof Error &&
+      !(err instanceof SyntaxError) &&
+      /Received protocol ['"]https:['"]|Only URLs with a scheme|Cannot find module|ENOTFOUND|fetch failed/i.test(err.message);
+    if (isExpectedNetworkError) {
+      console.log(`✓ [${fileLabel}] parsed and linked cleanly (only failed on an expected unresolvable https:// import).`);
+      return true;
     }
-    catch(e) {
-      throw r?.dispose(),
-      n.dispose(),
-      e
-    }
-    return this.diagnostics()
-  }
-  catch(e) {
-    throw Error(`Failed to load rival ghost: ${e instanceof Error ? e.message : String(e)}`)
+    console.error(
+      `✗ [${fileLabel}] FAILED to parse/link — this patch run likely corrupted the file's structure ` +
+        `(e.g. an anchor split a multi-statement declaration, as happened once before):\n` +
+        `  ${err.constructor.name}: ${err.message}`
+    );
+    return false;
   }
 }
-*/
 
-// 8. Trick game into getting the inputs from the tas.
-mainPatcher.replaceOnce(
-  "08useTas",
-  "let r=n.sample()",
-  "let r=this.__tas?this.__tas.next(e-211):n.sample()"
-)
-/*
-let r = this.__tas ? this.__tas.next(e-211) : n.sample()
-*/
+async function main() {
+  const results = [];
 
-// 9. Capture last actions.
-mainPatcher.replaceOnce(
-  "09.1getActions",
-  "d="+NAMES.fActionBools+"({boost:(r.held.boost===!0||s?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0})",
-  "actions={boost:(r.held.boost===!0||s?.boost===!0)&&"+NAMES.fBoostMeter+"(this."+NAMES.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0},d="+NAMES.fActionBools+"(actions)"
-)
-mainPatcher.insertAfter(
-  "09.2setActions",
-  "f=t.model.raceState;",
-  "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
-)
+  let mainFilename, mainRawSrc;
+  if (OFFLINE) {
+    mainRawSrc = readFileSync(mainInArg, "utf8");
+    mainFilename = mainInArg.split(/[\\/]/).pop();
+    console.log(`Offline mode: using local file ${mainInArg}`);
+  } else {
+    ({ mainFilename, mainRawSrc } = await discoverAndFetchMainBundle(ORIGIN));
+    console.log(`Discovered live main bundle: ${mainFilename}`);
+  }
 
-// 10. Expose main game as __SWERVLE_GAME__
-mainPatcher.insertAfter(
-  "10exposeMain",
-  "let t=new "+NAMES.cMainGame+"({mount:e});",
-  "window.__SWERVLE_GAME__=t;"
-)
+  const mainRewritten = rewriteRelativeChunkRefs(ORIGIN, "main bundle", mainRawSrc);
+  const names = deriveIdentifiers(mainRewritten, mainRawSrc);
+  console.log("Derived identifiers:", names);
+  const { patchedSrc: mainSrc } = patchMainBundle(mainRewritten, mainRawSrc, names, ORIGIN, results);
 
-writeFileSync(mainOut, mainSrc, "utf8");
-console.log(`Patched main bundle written to ${mainOut} (${mainSrc.length} bytes).`);
+  writeFileSync(join(OUT_DIR, "patched-bundle.js"), mainSrc, "utf8");
+  console.log(`Patched main bundle written to patched-bundle.js (${mainSrc.length} bytes).`);
 
-// ---- Replay Chunk ----
-let replaySrc = rewriteRelativeChunkRefs("Replay chunk", readFileSync(replayIn, "utf8"));
-const replayPatcher = makePatcher(
-  "Replay chunk",
-  () => replaySrc,
-  (s) => (replaySrc = s)
-);
+  let tvFilename, tvRawSrc;
+  if (OFFLINE) {
+    tvRawSrc = readFileSync(terrainViewInArg, "utf8");
+    tvFilename = terrainViewInArg.split(/[\\/]/).pop();
+  } else {
+    if (!names.rvChunkPath) throw new Error("Could not locate the RV/TerrainView chunk's import path in the main bundle.");
+    ({ tvFilename, tvRawSrc } = await fetchTerrainViewChunk(ORIGIN, names.rvChunkPath));
+    console.log(`Discovered live RV/TerrainView chunk: ${tvFilename}`);
+  }
 
-// r1. Add captureStates to the run recorder
-replayPatcher.insertAfter(
-  "r1addCaptureStates",
-  "get tickCount(){return this.#t.length}",
-  "captureStates(){return Uint8Array.from(this.#t)}"
-)
-// #t is technically an unstable private property,
-// but because the class is so small and minor that
-// it doesn't get much updates, it is stable enough.
+  const tvRewritten = rewriteRelativeChunkRefs(ORIGIN, "TerrainView chunk", tvRawSrc);
+  const { patchedSrc: tvSrc } = patchTerrainViewChunk(tvRewritten, results);
 
-// r2. Add captureRawSnapshot and restoreRawSnapshot
-//     to ghost replay.
-replayPatcher.insertAfter(
-  "r2addSnapshotMethods",
-  "captureFrame(){return this.frame}",
-  "captureRawSnapshot(){this."+NAMES.mCheckIfGhostDisposed+"();let e=this."+NAMES.pReplaySimulationManager+";if(e===null){return null}return{tick:this."+NAMES.pReplayTick+",prevByte:this."+NAMES.pReplayPrevPyte+",phase:this."+NAMES.pReplayPhase+",sim:e.simulation.captureSnapshot()}}restoreRawSnapshot(snap){this."+NAMES.mCheckIfGhostDisposed+"();let e=this."+NAMES.pReplaySimulationManager+";if(e===null||snap===null){return}e.simulation.restoreSnapshot(snap.sim);this."+NAMES.pReplayTick+"=snap.tick;this."+NAMES.pReplayPrevPyte+"=snap.prevByte;this."+NAMES.pReplayPhase+"=snap.phase;let t=e.model.base.requireCar(e.model.carEntityId).captureSnapshot();this."+NAMES.pReplayCarState+"="+NAMES.fReturnCarState+"(this."+NAMES.pReplayTick+",t,t,[],e.model.wheelSurfaceSamples,this."+NAMES.pIsCapturePresentationData+")}"
-)
-/*
-captureRawSnapshot() {
-  this."+NAMES.mCheckIfGhostDisposed+"();
-  let e = this."+NAMES.pReplaySimulationManager+";
-  if (e === null) return null;
-  return {
-    tick: this."+NAMES.pReplayTick+",
-    prevByte: this."+NAMES.pReplayPrevPyte+",
-    phase: this."+NAMES.pReplayPhase+",
-    sim: e.simulation.captureSnapshot(),
-  };
+  writeFileSync(join(OUT_DIR, "patched-terrainview.js"), tvSrc, "utf8");
+  console.log(`Patched TerrainView chunk written to patched-terrainview.js (${tvSrc.length} bytes).`);
+
+  const mainOk = await verifyEsmIntegrity("main bundle", join(OUT_DIR, "patched-bundle.js"));
+  const tvOk = await verifyEsmIntegrity("TerrainView chunk", join(OUT_DIR, "patched-terrainview.js"));
+
+  const failed = results.filter((r) => !r.ok);
+  console.log(`\n${results.length - failed.length}/${results.length} patches applied.`);
+  if (failed.length > 0) {
+    console.log("Needs re-deriving (site likely changed structurally, not just renamed identifiers):");
+    for (const r of failed) console.log(`  - [${r.file}] ${r.name}`);
+    console.log("\nBoth output files were still written with every OTHER patch applied — only the features tied to the anchors above are affected.");
+  }
+
+  // state.json is what the extension actually reads (from the same GitHub
+  // raw host as the patched files themselves) — just enough for it to know
+  // which live swervle.com filenames to redirect, without ever fetching
+  // swervle.com itself or running any derivation logic in the browser.
+  //
+  // Only actually rewritten when something MEANINGFUL changed — `patchedAt`
+  // is excluded from that comparison specifically so an unchanged run
+  // doesn't touch the file at all (a fresh timestamp every 15 minutes would
+  // otherwise make every single run "changed" from git's point of view,
+  // forcing a commit — and therefore a push — every run regardless of
+  // whether swervle.com actually redeployed).
+  if (!OFFLINE) {
+    const statePath = join(OUT_DIR, "state.json");
+    const newState = {
+      mainFilename,
+      tvFilename,
+      patchCount: results.length,
+      failedPatches: failed.map((r) => `${r.file}/${r.name}`),
+    };
+    let priorState = null;
+    if (existsSync(statePath)) {
+      try {
+        const { patchedAt: _ignored, ...rest } = JSON.parse(readFileSync(statePath, "utf8"));
+        priorState = rest;
+      } catch {
+        // Malformed/missing prior file — treat as "changed" and rewrite below.
+      }
+    }
+    if (priorState && JSON.stringify(priorState) === JSON.stringify(newState)) {
+      console.log("state.json unchanged (same filenames/patch results as last run) — leaving it as-is.");
+    } else {
+      const state = { ...newState, patchedAt: new Date().toISOString() };
+      writeFileSync(statePath, JSON.stringify(state, null, 2) + "\n", "utf8");
+      console.log(`state.json written: ${JSON.stringify(state)}`);
+    }
+  }
+
+  if (!mainOk || !tvOk) {
+    console.error(
+      "\n⚠ At least one output file failed ESM integrity verification — refusing to treat this run as " +
+        "successful. On GitHub Actions this exit code stops the workflow before it commits/pushes, so the " +
+        "last known-good published files stay live instead of being overwritten with something broken. " +
+        "An anchor likely inserted code into the middle of an existing statement (see patch-logic.mjs's " +
+        "patch #2 comment history for a real past example) — it needs re-deriving there."
+    );
+    process.exitCode = 1;
+  }
 }
-restoreRawSnapshot(snap) {
-  this."+NAMES.mCheckIfGhostDisposed+"();
-  let e = this."+NAMES.pReplaySimulationManager+";
-  if (e === null || snap === null) return;
-  e.simulation.restoreSnapshot(snap.sim);
-  this."+NAMES.pReplayTick+" = snap.tick;
-  this."+NAMES.pReplayPrevPyte+" = snap.prevByte;
-  this."+NAMES.pReplayPhase+" = snap.phase;
-  let t = e.model.base.requireCar(e.model.carEntityId).captureSnapshot();
-  this."+NAMES.pReplayCarState+" = "+NAMES.fReturnCarState+"(this."+NAMES.pReplayTick+", t, t, [], e.model.wheelSurfaceSamples, this."+NAMES.pIsCapturePresentationData+");
-}
-*/
 
-writeFileSync(replayOut, replaySrc, "utf8");
-console.log(`Patched Replay chunk written to ${replayOut} (${replaySrc.length} bytes).`);
-
-// ---- summary ----
-const failed = results.filter((r) => !r.ok);
-console.log(`\n${results.length - failed.length}/${results.length} patches applied.`);
-if (failed.length > 0) {
-  console.log("Needs re-deriving:");
-  for (const r of failed) console.log(`  - [${r.file}] ${r.name}`);
-  console.log(
-    "\nBoth output files were still written with every OTHER patch applied — " +
-      "only the features tied to the anchors above are affected. Re-derive those " +
-      "specific anchors against the current bundle (see the comments above each " +
-      "patch call for what stable string to search for) and re-run."
-  );
-  process.exitCode = 1;
-}
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
