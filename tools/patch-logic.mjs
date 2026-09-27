@@ -266,6 +266,12 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.fValidStates = m?.[1] ?? null;
     names.fGetRuleset = m?.[2] ?? null;
   }
+  {
+    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(r.held.boost===!0\|\|s\?.boost===!0\)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0/);
+    names.fActionBools = m?.[2] ?? null;
+    names.fBoostMeter = m?.[3] ?? null;
+    names.pBoostMeter = m?.[4] ?? null;
+  }
 
   return names;
 }
@@ -697,6 +703,40 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   }
   */
 
+  // 8. Trick game into getting the inputs from the tas.
+  mainPatcher.replaceOnce(
+    "08useTas",
+    /let r=n.sample\(\)/,
+    () =>
+      "let r=this.__tas?this.__tas.next(e-211):n.sample()"
+  )
+  /*
+  let r = this.__tas ? this.__tas.next(e-211) : n.sample()
+  */
+
+  // 9. Capture last actions.
+  if (names.fBoostMeter && names.pBoostMeter && names.fActionBools) {
+    mainPatcher.replaceOnce(
+      "09.1getActions",
+      /([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(r.held.boost===!0\|\|s\?.boost===!0)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:r.held.handbrake===!0\|\|s\?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0\|\|s\?.reverse===!0,steerLeft:c\|\|u===`left`,steerRight:l\|\|u===`right`,throttle:r.held.throttle===!0\|\|s\?.throttle===!0\}\)/,
+      () =>
+        "actions={boost:(r.held.boost===!0||s?.boost===!0)&&"+names.fBoostMeter+"(this."+names.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0},d="+names.fActionBools+"(actions)"
+    )
+  } else {
+    mainPatcher.skip("09.1getActions", "fBoostMeter, pBoostMeter, and/or fActionBools could not be derived")
+  }
+  mainPatcher.insertAfter(
+    "09.2setActions",
+    "f=t.model.raceState;",
+    "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
+  )
+
+  // 10. Expose main game as __SWERVLE_GAME__
+  mainPatcher.insertAfter(
+    "10exposeMain",
+    /let t=new ([A-Za-z0-9_$]+)\(\{mount:e\}\);/,
+    "window.__SWERVLE_GAME__=t;"
+  )
 
   return { patchedSrc: src, liveryChunkUrl };
 }
