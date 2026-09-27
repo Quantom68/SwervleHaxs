@@ -531,8 +531,8 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   )
 
   // 7. Add getters and methods to the main game class.
+  const lifecycleStateRegex = /([A-Za-z0-9_$]+).dispatchEvent\(new KeyboardEvent\(`keyup`,([A-Za-z0-9_$]+)\)\),!0\}get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}/
   if (names.pTimeManagerObject && names.pTimescale) {
-    const lifecycleStateRegex = /([A-Za-z0-9_$]+).dispatchEvent\(new KeyboardEvent\(`keyup`,([A-Za-z0-9_$]+)\)\),!0\}get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}/
     mainPatcher.insertAfter(
       "07.01debugTimeScale",
       lifecycleStateRegex,
