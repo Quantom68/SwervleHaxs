@@ -71,10 +71,6 @@ export function makePatcher(fileLabel, getSrc, setSrc, results, log = console) {
     skip(name, reason) {
       log.warn(`⚠ [${fileLabel}] patch "${name}" skipped — ${reason}`);
       results.push({ file: fileLabel, name, ok: false });
-    },
-    stop(name, reason) {
-      results.push({ file: fileLabel, name, ok: false });
-      log.error(`⚠ [${fileLabel}] patch "${name}" failed — ${reason}`)
     }
   };
 }
@@ -219,6 +215,69 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
   {
     const m = mainRawSrc.match(/if\(this.#([A-Za-z0-9_$]+).requiresServerTruth\(\)\)\{if\(this.#([A-Za-z0-9_$]+)/);
     names.pRunVerifierObject = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/([A-Za-z0-9_$]+).restore\(([A-Za-z0-9_$]+).simulation.captureSnapshot\(\).clock\),this.#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(\{/);
+    names.pTimeManagerObject = m?.[3] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/constructor\(e\)\{this.#([A-Za-z0-9_$]+)=e.callbacks,this.#([A-Za-z0-9_$]+)=e.frameDriver,this.clock=e.clock\?\?new ([A-Za-z0-9_$]+),this.([A-Za-z0-9_$]+)=e.([A-Za-z0-9_$]+)\?\?new ([A-Za-z0-9_$]+)\}/);
+    names.pTimescale = m?.[4] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(([A-Za-z0-9_$]+).maximumRaceTicks\);/);
+    names.pRunRecorderObject = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+).rivalGap=new ([A-Za-z0-9_$]+)\(([A-Za-z0-9_$]+).track.routeLine\)/);
+    names.pRivalGhost = m?.[1] ?? null;
+    names.cRivalGapGetter = m?.[2] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)&95/);
+    names.pInputBase64 = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/if\(this.#([A-Za-z0-9_$]+)\?.model.raceState.phase!==`invalid`\)/);
+    names.pSimulationManager = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/gpuFrameMs:this.#([A-Za-z0-9_$]+).diagnostics\(\).lastGpuFrameMs,/);
+    names.pQualityMonitor = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+),([A-Za-z0-9_$]+)\(\);let ([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+).diagnostics\(\);/);
+    names.pRenderer = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)=!0;try\{/);
+    names.mAdvanceTicks = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)\?.gearMeter/);
+    names.mRenderTick = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}create/);
+    names.pLifecycleState = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/publicRunId:t.publicRunId,states:([A-Za-z0-9_$]+)\(t.statesBase64,\{expectedLength:t.durationTicks,maximumLength:([A-Za-z0-9_$]+)\(t.rulesetVersion\).maximumRaceTicks/);
+    names.fValidStates = m?.[1] ?? null;
+    names.fGetRuleset = m?.[2] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(([A-Za-z0-9_$]+).held.boost===!0\|\|([A-Za-z0-9_$]+)\?.boost===!0\)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:([A-Za-z0-9_$]+).held.handbrake===!0\|\|([A-Za-z0-9_$]+)\?.handbrake===!0,recoveryRequested:([A-Za-z0-9_$]+),reverse:([A-Za-z0-9_$]+).held.reverse===!0\|\|([A-Za-z0-9_$]+)\?.reverse===!0,steerLeft:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`left`,steerRight:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`right`,throttle:([A-Za-z0-9_$]+).held.throttle===!0\|\|([A-Za-z0-9_$]+)\?.throttle===!0\}\)/);
+    names.vActionBools = m?.[1] ?? null;
+    names.fActionBools = m?.[2] ?? null;
+    names.fBoostMeter = m?.[5] ?? null;
+    names.pBoostMeter = m?.[6] ?? null;
+    names.vABSampledInput = m?.[3] ?? null;
+    names.vABTarget = m?.[4] ?? null;
+    names.vABRecoveryFlag = m?.[9] ?? null;
+    names.vABLeftHeld = m?.[12] ?? null;
+    names.vABRightHeld = m?.[14] ?? null;
+    names.vABSteeringDirection = m?.[13] ?? null;
   }
 
   return names;
@@ -432,12 +491,16 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   //
   //    TL:DR: Instead of posting, returns "server unreachable".
   //    This is backup code incase `forceLocalVerifier` fails.
-  mainPatcher.replaceOnce(
-    "01disableRunSubmission",
-    /async#([A-Za-z0-9_$]+)\(e,t\){try\{let n=await this\.#([A-Za-z0-9_$]+)\(`POST`,e,\{body:t,csrf:!0,timeoutMs:this\.#([A-Za-z0-9_$]+)\}\);return Object\.freeze\(\{body:await ([A-Za-z0-9_$]+)\(n\),httpStatus:n\.status,kind:`response`\}\)\}catch\(e\)\{return Object\.freeze\(\{classification:([A-Za-z0-9_$]+)\(e\)\?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e\.message\.length>0\?e\.message:null\}\)\}\}/,
-    () =>
-      "async#"+names.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
-  );
+  if (names.mRunPoster) {
+    mainPatcher.replaceOnce(
+      "01disableRunSubmission",
+      /async#([A-Za-z0-9_$]+)\(e,t\){try\{let n=await this\.#([A-Za-z0-9_$]+)\(`POST`,e,\{body:t,csrf:!0,timeoutMs:this\.#([A-Za-z0-9_$]+)\}\);return Object\.freeze\(\{body:await ([A-Za-z0-9_$]+)\(n\),httpStatus:n\.status,kind:`response`\}\)\}catch\(e\)\{return Object\.freeze\(\{classification:([A-Za-z0-9_$]+)\(e\)\?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e\.message\.length>0\?e\.message:null\}\)\}\}/,
+      () =>
+        "async#"+names.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
+    );
+  } else {
+    mainPatcher.skip("01disableRunSubmission", "mRunPoster could not be derived")
+  }
 
   // 2. Forces local verification instead of submiting to servers.
   //    Suppose to prevent "OFFICIAL VERIFIER UNREACHABLE" screen
@@ -453,6 +516,236 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
     () =>
       "if(!1){if"
   );
+
+  // 6. Add TasPlayback class to manage tas playback.
+  mainPatcher.insertAfter(
+    "06tasPlayback",
+    /function ([A-Za-z0-9_$]+)\(e\)\{return e!==void 0&&([A-Za-z0-9_$]+).has\(e\)\}/,
+    () =>
+      "const BIT={throttle:1,reverse:2,steerLeft:4,steerRight:8,handbrake:16,recovery:32,boost:64};function decodeStateByte(prevByte,currByte){const heldBits=['throttle','reverse','steerLeft','steerRight','handbrake','boost'];const edges=[];for(const action of heldBits){const bit=BIT[action];const was=(prevByte&bit)!==0;const is=(currByte&bit)!==0;if(was!==is){edges.push({action,kind:is?'pressed':'released'})}}if((currByte&BIT.recovery)!==0){edges.push({action:'recover',kind:'pressed'})}const held={throttle:(currByte&BIT.throttle)!==0,reverse:(currByte&BIT.reverse)!==0,left:(currByte&BIT.steerLeft)!==0,right:(currByte&BIT.steerRight)!==0,handbrake:(currByte&BIT.handbrake)!==0,boost:(currByte&BIT.boost)!==0};return{edges,held}}class TasPlayback{constructor(statesBase64){const binary=atob(statesBase64);this.bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));this.prevByte=0}next(tick){const b=this.bytes[tick]??this.bytes[this.bytes.length-1]??0;const sample=decodeStateByte(this.prevByte,b);this.prevByte=b;return sample;}}"
+  )
+
+  // 7. Add getters and methods to the main game class.
+  const lifecycleStateRegex = /([A-Za-z0-9_$]+).dispatchEvent\(new KeyboardEvent\(`keyup`,([A-Za-z0-9_$]+)\)\),!0\}get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}/
+  if (names.pTimeManagerObject && names.pTimescale) {
+    mainPatcher.insertAfter(
+      "07.01debugTimeScale",
+      lifecycleStateRegex,
+      () =>
+        "get __debugTimeScale(){return this.#"+names.pTimeManagerObject+"?."+names.pTimescale+"??null}"
+    )
+  } else {
+    mainPatcher.skip("07.01debugTimeScale", "pTimeManagerObject and/or pTimescale could not be derived")
+  }
+  /*
+  get __debugTimeScale() { return this."+names.pTimeManagerObject+"?."+names.pTimescale+" ?? null; }
+  */
+  mainPatcher.insertAfter(
+    "07.02debugCurrentActions",
+    lifecycleStateRegex,
+    () =>
+      "get __debugCurrentActions(){return this.__lastActions??null}"
+  )
+  /*
+  get __debugCurrentActions() { return this.__lastActions ?? null; }
+  */
+  if (names.pRunRecorderObject) {
+    mainPatcher.insertAfter(
+      "07.03debugCaptureStates",
+      lifecycleStateRegex,
+      () =>
+        "__debugCaptureStates(){return this.#"+names.pRunRecorderObject+".captureStates()}"
+    )
+  } else {
+    mainPatcher.skip("07.03debugCaptureStates", "pRunRecorderObject could not be derived")
+  }
+  /*
+  __debugCaptureStates() { return this."+names.pRunRecorderObject+".captureStates(); }
+  */
+  mainPatcher.insertAfter(
+    "07.04debugStartPlayback",
+    lifecycleStateRegex,
+    () =>
+      "__debugStartPlayback(statesBase64){this.__tas=new TasPlayback(statesBase64)}"
+  )
+  /*
+  __debugStartPlayback(statesBase64) {
+    this.__tas = new TasPlayback(statesBase64)
+  }
+  */
+  mainPatcher.insertAfter(
+    "07.05debugStopPlayback",
+    lifecycleStateRegex,
+    () =>
+      "__debugStopPlayback(){this.__tas=null}"
+  )
+  /*
+  __debugStopPlayback() { this.__tas = null; }
+  */
+  if (names.pSimulationManager && names.pRunRecorderObject && names.pRivalGhost) {
+    mainPatcher.insertAfter(
+      "07.06debugSaveState",
+      lifecycleStateRegex,
+      () =>
+        "__debugSaveState(){return{simulation:this.#"+names.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this.#"+names.pRunRecorderObject+".captureStates(),ghost:this.#"+names.pRivalGhost+".rivalReplay?.captureRawSnapshot()??null}}"
+    )
+  } else {
+    mainPatcher.skip("07.06debugSaveState", "pSimulationManager, pRunRecorderObject, and/or pRivalGhost could not be derived")
+  }
+  /*
+  __debugSaveState() {
+    return {
+      simulation: this."+names.pSimulationManager+".simulation.captureSnapshot(),
+      inputBytes: this."+names.pRunRecorderObject+".captureStates(),
+      ghost: this."+names.pRivalGhost+".rivalReplay?.captureRawSnapshot() ?? null,
+    };
+  }
+  */
+  //#region
+  if (
+    names.pSimulationManager &&
+    names.pTimeManagerObject &&
+    names.pRunRecorderObject &&
+    names.pInputBase64 &&
+    names.pRivalGhost
+  ) {
+  //#endregion
+    mainPatcher.insertAfter(
+      "07.07debugLoadState",
+      lifecycleStateRegex,
+      () =>
+        "__debugLoadState(state){this.#"+names.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this.#"+names.pTimeManagerObject+"?.clock.restore(this.#"+names.pSimulationManager+".simulation.captureSnapshot().clock);this.#"+names.pRunRecorderObject+".reset();for(const b of state.inputBytes){this.#"+names.pRunRecorderObject+".recordByte(b)}this.#"+names.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this.#"+names.pRivalGhost+".rivalReplay&&state.ghost){this.#"+names.pRivalGhost+".rivalReplay.restoreRawSnapshot(state.ghost);this.#"+names.pRivalGhost+".rival?.consumeSnapshot(this.#"+names.pRivalGhost+".rivalReplay.frame.car)}}"
+    )
+  } else {
+    mainPatcher.skip("07.07debugLoadState", "1 or more identifiers could not be derived")
+  }
+  /*
+  __debugLoadState(state) {
+    this."+names.pSimulationManager+".simulation.restoreSnapshot(state.simulation);
+    this."+names.pTimeManagerObject+"?.clock.restore(this."+names.pSimulationManager+".simulation.captureSnapshot().clock);
+
+    this."+names.pRunRecorderObject+".reset();
+    for (const b of state.inputBytes) this."+names.pRunRecorderObject+".recordByte(b);
+    this."+names.pInputBase64+" = state.inputBytes.length > 0
+      ? state.inputBytes[state.inputBytes.length - 1] & 95
+      : 0;
+
+    if (this."+names.pRivalGhost+".rivalReplay && state.ghost) {
+      this."+names.pRivalGhost+".rivalReplay.restoreRawSnapshot(state.ghost);
+      this."+names.pRivalGhost+".rival?.consumeSnapshot(this."+names.pRivalGhost+".rivalReplay.frame.car);
+    }
+  }
+  */
+  if (names.pTimeManagerObject && names.pQualityMonitor && names.pRenderer) {
+    mainPatcher.insertAfter(
+      "07.08debugDiagnostics",
+      lifecycleStateRegex,
+      () =>
+        "get __debugDiagnostics(){return{frameLoop:this.#"+names.pTimeManagerObject+"?.diagnostics??null,quality:this.#"+names.pQualityMonitor+"?.diagnostics()??null,renderer:this.#"+names.pRenderer+"?.diagnostics()??null}}"
+    )
+  } else {
+    mainPatcher.skip("07.08debugDiagnostics", "pTimeManagerObject, pQualityMonitor, and/or pRenderer could not be derived")
+  }
+  /*
+  get __debugDiagnostics() {
+    return {
+        frameLoop: this."+names.pTimeManagerObject+"?.diagnostics ?? null,
+        quality: this."+names.pQualityMonitor+"?.diagnostics() ?? null,
+        renderer: this."+names.pRenderer+"?.diagnostics() ?? null
+    }
+  }
+  */
+  //#region
+  if (
+    names.pSimulationManager &&
+    names.fGetRuleset &&
+    names.pTimeManagerObject &&
+    names.mAdvanceTicks &&
+    names.mRenderTick
+  ) {
+  //#endregion
+    mainPatcher.insertAfter(
+      "07.09advanceTestTicks",
+      lifecycleStateRegex,
+      () =>
+        "advanceTestTicks(e){let t=this.#"+names.pSimulationManager+"?.model.ruleset??"+names.fGetRuleset+",n=t.warmupTicks+t.countdownTicks+t.maximumRaceTicks;if(!Number.isSafeInteger(e)||e<0||e>n){throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`)}let r=this.#"+names.pSimulationManager+",i=this.#"+names.pTimeManagerObject+";if(r===void 0||i===void 0){return}let a=r.model.raceState.phase;if(a!==`countdown`&&a!==`racing`){throw Error(`Swervle test ticks require an active countdown or race.`)}return i.stop(),this.#"+names.mAdvanceTicks+"(r,i,e),e>0&&this.#"+names.mRenderTick+"({alpha:1,realDeltaSeconds:e*1/60,simulationTick:r.simulation.tick,ticksAdvanced:e})}"
+    )
+  } else {
+    mainPatcher.skip("07.09advanceTestTicks", "1 or more identifiers could not be derived")
+  }
+  /*
+  advanceTestTicks(e) {
+    let t = this."+names.pSimulationManager+"?.model.ruleset ?? "+names.fGetRuleset+",
+      n = t.warmupTicks + t.countdownTicks + t.maximumRaceTicks;
+    if (!Number.isSafeInteger(e) || e < 0 || e > n) throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`);
+    let r = this."+names.pSimulationManager+",
+      i = this."+names.pTimeManagerObject+";
+    if (r === void 0 || i === void 0) return;
+    let a = r.model.raceState.phase;
+    if (a !== `countdown` && a !== `racing`) throw Error(`Swervle test ticks require an active countdown or race.`);
+    return i.stop(), this."+names.mAdvanceTicks+"(r, i, e), e > 0 && this."+names.mRenderTick+"({
+      alpha: 1,
+      realDeltaSeconds: e * 1/60,
+      simulationTick: r.simulation.tick,
+      ticksAdvanced: e
+    })
+  }
+  */
+  if (names.pTimeManagerObject && names.pLifecycleState) {
+    mainPatcher.insertAfter(
+      "07.10resumeTestFrames",
+      lifecycleStateRegex,
+      () =>
+        "resumeTestFrames(){let e=this.#"+names.pTimeManagerObject+";if(e===void 0){return}if(this.#"+names.pLifecycleState+"!==`running`){throw Error(`Swervle test frames require a running race.`)}return e.start()}"
+    )
+  } else {
+    mainPatcher.skip("07.10resumeTestFrames", "pTimeManagerObject, and/or pLifecycleState could not be derived")
+  }
+  /*
+  resumeTestFrames() {
+    let e = this."+names.pTimeManagerObject+";
+    if (e === void 0) return;
+    if (this."+names.pLifecycleState+" !== `running`) throw Error(`Swervle test frames require a running race.`);
+    return e.start()
+  }
+  */
+
+  // 8. Trick game into getting the inputs from the tas.
+  mainPatcher.replaceOnce(
+    "08useTas",
+    /let r=n.sample\(\)/,
+    () =>
+      "let r=this.__tas?this.__tas.next(e-211):n.sample()"
+  )
+  /*
+  let r = this.__tas ? this.__tas.next(e-211) : n.sample()
+  */
+
+  // 9. Capture last actions.
+  if (names.fBoostMeter && names.pBoostMeter && names.fActionBools) {
+    mainPatcher.replaceOnce(
+      "09.1getActions",
+      /([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(([A-Za-z0-9_$]+).held.boost===!0\|\|([A-Za-z0-9_$]+)\?.boost===!0\)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:([A-Za-z0-9_$]+).held.handbrake===!0\|\|([A-Za-z0-9_$]+)\?.handbrake===!0,recoveryRequested:([A-Za-z0-9_$]+),reverse:([A-Za-z0-9_$]+).held.reverse===!0\|\|([A-Za-z0-9_$]+)\?.reverse===!0,steerLeft:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`left`,steerRight:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`right`,throttle:([A-Za-z0-9_$]+).held.throttle===!0\|\|([A-Za-z0-9_$]+)\?.throttle===!0\}\)/,
+      () =>
+        "actions={boost:("+names.vABSampledInput+".held.boost===!0||"+names.vABTarget+"?.boost===!0)&&"+names.fBoostMeter+"(this."+names.pBoostMeter+")>0,handbrake:"+names.vABSampledInput+".held.handbrake===!0||"+names.vABTarget+"?.handbrake===!0,recoveryRequested:"+names.vABRecoveryFlag+",reverse:"+names.vABSampledInput+".held.reverse===!0||"+names.vABTarget+"?.reverse===!0,steerLeft:"+names.vABLeftHeld+"||"+names.vABSteeringDirection+"===`left`,steerRight:"+names.vABRightHeld+"||"+names.vABSteeringDirection+"===`right`,throttle:"+names.vABSampledInput+".held.throttle===!0||"+names.vABTarget+"?.throttle===!0},"+names.vActionBools+"="+names.fActionBools+"(actions)"
+    )
+  } else {
+    mainPatcher.skip("09.1getActions", "fBoostMeter, pBoostMeter, and/or fActionBools could not be derived")
+  }
+  mainPatcher.insertAfter(
+    "09.2setActions",
+    /([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+).model.raceState;/,
+    () =>
+      "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
+  )
+
+  // 10. Expose main game as __SWERVLE_GAME__
+  mainPatcher.insertAfter(
+    "10exposeMain",
+    /let t=new ([A-Za-z0-9_$]+)\(\{mount:e\}\);/,
+    () =>
+      "window.__SWERVLE_GAME__=t;"
+  )
 
   return { patchedSrc: src, liveryChunkUrl };
 }
