@@ -58,6 +58,7 @@ import {
   rewriteRelativeChunkRefs,
   makePatcher,
   deriveIdentifiers,
+  deriveTvIdentifiers,
   patchMainBundle,
   patchTerrainViewChunk,
   discoverAndFetchMainBundle,
@@ -148,7 +149,9 @@ async function main() {
   }
 
   const tvRewritten = rewriteRelativeChunkRefs(ORIGIN, "TerrainView chunk", tvRawSrc);
-  const { patchedSrc: tvSrc } = patchTerrainViewChunk(tvRewritten, results);
+  const tvNames = deriveTvIdentifiers(tvRewritten);
+  console.log("Derived tv identifiers:", tvNames);
+  const { patchedSrc: tvSrc } = patchTerrainViewChunk(tvRewritten, tvNames, results);
 
   writeFileSync(join(OUT_DIR, "patched-terrainview.js"), tvSrc, "utf8");
   console.log(`Patched TerrainView chunk written to patched-terrainview.js (${tvSrc.length} bytes).`);

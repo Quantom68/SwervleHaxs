@@ -112,24 +112,6 @@ export async function fetchTerrainViewChunk(origin, rvChunkPath) {
   return first; // nothing matched — the patch will report itself as skipped
 }
 
-const REPLAY_CLASS_MARKER = /Simulation clock elapsed time does not match its tick./;
-
-export async function fetchReplayChunk(origin, replayChunkPath) {
-  const fetchChunk = async (path, base) => {
-    const url = new URL(path, base).href;
-    return { replayUrl: url, replayFilename: url.split("/").pop(), replayRawSrc: await fetch(url).then((r) => r.text()) };
-  };
-  const first = await fetchChunk(replayChunkPath, origin + "/assets/x");
-  if (REPLAY_CLASS_MARKER.test(first.replayRawSrc)) return first;
-
-  const deps = [...new Set([...first.replayRawSrc.matchAll(/from"(\.\/[^"]+\.js)"/g)].map((m) => m[1]))];
-  for (const dep of deps) {
-    const candidate = await fetchChunk(dep, first.replayUrl);
-    if (REPLAY_CLASS_MARKER.test(candidate.replayRawSrc)) return candidate;
-  }
-  return first; // nothing matched — the patch will report itself as skipped
-}
-
 // Auto-derives every minified identifier this patch set needs from stable,
 // non-minified (human-authored, multi-word) method/property names the
 // minifier leaves alone — see tools/patch-bundle.mjs's top comment for the
@@ -213,7 +195,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.fServerAccessErrorClassifier = m?.[5] ?? null;
   }
   {
-    const m = mainRawSrc.match(/if\(this.#([A-Za-z0-9_$]+).requiresServerTruth\(\)\)\{if\(this.#([A-Za-z0-9_$]+)/);
+    const m = mainSrc.match(/if\(this.#([A-Za-z0-9_$]+).requiresServerTruth\(\)\)\{if\(this.#([A-Za-z0-9_$]+)/);
     names.pRunVerifierObject = m?.[1] ?? null;
   }
   {
@@ -221,53 +203,53 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.pTimeManagerObject = m?.[3] ?? null;
   }
   {
-    const m = mainRawSrc.match(/constructor\(e\)\{this.#([A-Za-z0-9_$]+)=e.callbacks,this.#([A-Za-z0-9_$]+)=e.frameDriver,this.clock=e.clock\?\?new ([A-Za-z0-9_$]+),this.([A-Za-z0-9_$]+)=e.([A-Za-z0-9_$]+)\?\?new ([A-Za-z0-9_$]+)\}/);
+    const m = mainSrc.match(/constructor\(e\)\{this.#([A-Za-z0-9_$]+)=e.callbacks,this.#([A-Za-z0-9_$]+)=e.frameDriver,this.clock=e.clock\?\?new ([A-Za-z0-9_$]+),this.([A-Za-z0-9_$]+)=e.([A-Za-z0-9_$]+)\?\?new ([A-Za-z0-9_$]+)\}/);
     names.pTimescale = m?.[4] ?? null;
   }
   {
-    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(([A-Za-z0-9_$]+).maximumRaceTicks\);/);
+    const m = mainSrc.match(/#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(([A-Za-z0-9_$]+).maximumRaceTicks\);/);
     names.pRunRecorderObject = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+).rivalGap=new ([A-Za-z0-9_$]+)\(([A-Za-z0-9_$]+).track.routeLine\)/);
+    const m = mainSrc.match(/this.#([A-Za-z0-9_$]+).rivalGap=new ([A-Za-z0-9_$]+)\(([A-Za-z0-9_$]+).track.routeLine\)/);
     names.pRivalGhost = m?.[1] ?? null;
     names.cRivalGapGetter = m?.[2] ?? null;
   }
   {
-    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)&95/);
+    const m = mainSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)&95/);
     names.pInputBase64 = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/if\(this.#([A-Za-z0-9_$]+)\?.model.raceState.phase!==`invalid`\)/);
+    const m = mainSrc.match(/if\(this.#([A-Za-z0-9_$]+)\?.model.raceState.phase!==`invalid`\)/);
     names.pSimulationManager = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/gpuFrameMs:this.#([A-Za-z0-9_$]+).diagnostics\(\).lastGpuFrameMs,/);
+    const m = mainSrc.match(/gpuFrameMs:this.#([A-Za-z0-9_$]+).diagnostics\(\).lastGpuFrameMs,/);
     names.pQualityMonitor = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+),([A-Za-z0-9_$]+)\(\);let ([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+).diagnostics\(\);/);
+    const m = mainSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+),([A-Za-z0-9_$]+)\(\);let ([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+).diagnostics\(\);/);
     names.pRenderer = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)=!0;try\{/);
+    const m = mainSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)=!0;try\{/);
     names.mAdvanceTicks = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)\?.gearMeter/);
+    const m = mainSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)\?.gearMeter/);
     names.mRenderTick = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}create/);
+    const m = mainSrc.match(/get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}create/);
     names.pLifecycleState = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/publicRunId:t.publicRunId,states:([A-Za-z0-9_$]+)\(t.statesBase64,\{expectedLength:t.durationTicks,maximumLength:([A-Za-z0-9_$]+)\(t.rulesetVersion\).maximumRaceTicks/);
+    const m = mainSrc.match(/publicRunId:t.publicRunId,states:([A-Za-z0-9_$]+)\(t.statesBase64,\{expectedLength:t.durationTicks,maximumLength:([A-Za-z0-9_$]+)\(t.rulesetVersion\).maximumRaceTicks/);
     names.fValidStates = m?.[1] ?? null;
     names.fGetRuleset = m?.[2] ?? null;
   }
   {
-    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(([A-Za-z0-9_$]+).held.boost===!0\|\|([A-Za-z0-9_$]+)\?.boost===!0\)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:([A-Za-z0-9_$]+).held.handbrake===!0\|\|([A-Za-z0-9_$]+)\?.handbrake===!0,recoveryRequested:([A-Za-z0-9_$]+),reverse:([A-Za-z0-9_$]+).held.reverse===!0\|\|([A-Za-z0-9_$]+)\?.reverse===!0,steerLeft:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`left`,steerRight:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`right`,throttle:([A-Za-z0-9_$]+).held.throttle===!0\|\|([A-Za-z0-9_$]+)\?.throttle===!0\}\)/);
+    const m = mainSrc.match(/([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(([A-Za-z0-9_$]+).held.boost===!0\|\|([A-Za-z0-9_$]+)\?.boost===!0\)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:([A-Za-z0-9_$]+).held.handbrake===!0\|\|([A-Za-z0-9_$]+)\?.handbrake===!0,recoveryRequested:([A-Za-z0-9_$]+),reverse:([A-Za-z0-9_$]+).held.reverse===!0\|\|([A-Za-z0-9_$]+)\?.reverse===!0,steerLeft:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`left`,steerRight:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`right`,throttle:([A-Za-z0-9_$]+).held.throttle===!0\|\|([A-Za-z0-9_$]+)\?.throttle===!0\}\)/);
     names.vActionBools = m?.[1] ?? null;
     names.fActionBools = m?.[2] ?? null;
     names.fBoostMeter = m?.[5] ?? null;
@@ -278,6 +260,47 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.vABLeftHeld = m?.[12] ?? null;
     names.vABRightHeld = m?.[14] ?? null;
     names.vABSteeringDirection = m?.[13] ?? null;
+  }
+
+  return names;
+}
+
+export function deriveTvIdentifiers(tvSrc) {
+  const names = {};
+
+  // Swervle Haxs
+
+  {
+    const m = tvSrc.match(/#([A-Za-z0-9_$]+)\(\){if\(this.#([A-Za-z0-9_$]+)===`disposed`\)throw Error\(`Rival replay simulation is disposed.`\)}/);
+    names.mCheckIfGhostDisposed = m?.[1] ?? null;
+  }
+  {
+    const m = tvSrc.match(/([A-Za-z0-9_$]+).create\(\),([A-Za-z0-9_$]+)\(([A-Za-z0-9_$]+),this.#([A-Za-z0-9_$]+)\),this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+);/);
+    names.pReplaySimulationManager = m?.[5] ?? null;
+  }
+  {
+    const m = tvSrc.match(/replayTick:this.#([A-Za-z0-9_$]+)/);
+    names.pReplayTick = m?.[1] ?? null;
+  }
+  {
+    const m = tvSrc.match(/return this.#([A-Za-z0-9_$]+)=0,!0/);
+    names.pReplayPrevPyte = m?.[1] ?? null;
+  }
+  {
+    const m = tvSrc.match(/if\(this.#([A-Za-z0-9_$]+)===`disposed`\)throw Error\(`Rival replay simulation is disposed.`\)/);
+    names.pReplayPhase = m?.[1] ?? null;
+  }
+  {
+    const m = tvSrc.match(/let ([A-Za-z0-9_$]+)=this.#([A-Za-z0-9_$]+)\?\?this.create\(\)/);
+    names.pReplayCarState = m?.[2] ?? null;
+  }
+  {
+    const m = tvSrc.match(/function ([A-Za-z0-9_$]+)\(e,t,n,r,i,a\){let ([A-Za-z0-9_$]+)={car:([A-Za-z0-9_$]+),previousCar:([A-Za-z0-9_$]+),tick:([A-Za-z0-9_$]+)};/);
+    names.fReturnCarState = m?.[1] ?? null;
+  }
+  {
+    const m = tvSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+).capturePresentationData===!0;/);
+    names.pIsCapturePresentationData = m?.[1] ?? null;
   }
 
   return names;
@@ -751,7 +774,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
 }
 
 // Applies the one TerrainView/RV-chunk patch (the raceTelemetry getter).
-export function patchTerrainViewChunk(tvSrc, results, log = console) {
+export function patchTerrainViewChunk(tvSrc, names, results, log = console) {
   let src = tvSrc;
   const tvPatcher = makePatcher(
     "TerrainView chunk",
@@ -760,6 +783,8 @@ export function patchTerrainViewChunk(tvSrc, results, log = console) {
     results,
     log
   );
+
+  // Swervle Utils
 
   tvPatcher.insertAfter(
     "raceTelemetry",
@@ -775,21 +800,67 @@ export function patchTerrainViewChunk(tvSrc, results, log = console) {
       "tick:n===null?0:Math.max(0,this.#o.simulation.tick-n),displayTimeMs:r.displayTimeMs}}"
   );
 
+  // Swervle Haxs
+
+  // r1. Add captureStates to the run recorder
+  tvPatcher.insertAfter(
+    "r1addCaptureStates",
+    /get tickCount\(\){return this.#t.length}/,
+    () =>
+      "captureStates(){return Uint8Array.from(this.#t)}"
+  )
+  // #t is technically an unstable private property,
+  // but because the class is so small and minor that
+  // it doesn't get much updates, it is stable enough.
+
+  // r2. Add captureRawSnapshot and restoreRawSnapshot
+  //     to ghost replay.
+  if (
+    names.mCheckIfGhostDisposed &&
+    names.pReplaySimulationManager &&
+    names.pReplayTick &&
+    names.pReplayPrevPyte &&
+    names.pReplayPhase &&
+    names.pReplayCarState &&
+    names.fReturnCarState &&
+    names.pIsCapturePresentationData
+  ) {
+    tvPatcher.insertAfter(
+      "r2addSnapshotMethods",
+      /captureFrame\(\){return this.frame}/,
+      () =>
+        "captureRawSnapshot(){this."+names.mCheckIfGhostDisposed+"();let e=this."+names.pReplaySimulationManager+";if(e===null){return null}return{tick:this."+names.pReplayTick+",prevByte:this."+names.pReplayPrevPyte+",phase:this."+names.pReplayPhase+",sim:e.simulation.captureSnapshot()}}restoreRawSnapshot(snap){this."+names.mCheckIfGhostDisposed+"();let e=this."+names.pReplaySimulationManager+";if(e===null||snap===null){return}e.simulation.restoreSnapshot(snap.sim);this."+names.pReplayTick+"=snap.tick;this."+names.pReplayPrevPyte+"=snap.prevByte;this."+names.pReplayPhase+"=snap.phase;let t=e.model.base.requireCar(e.model.carEntityId).captureSnapshot();this."+names.pReplayCarState+"="+names.fReturnCarState+"(this."+names.pReplayTick+",t,t,[],e.model.wheelSurfaceSamples,this."+names.pIsCapturePresentationData+")}"
+    )
+  } else {
+    tvPatcher.skip("r2addSnapshotMethods", "1 or more identifiers could not be derived")
+  }
+  /*
+  captureRawSnapshot() {
+    this."+names.mCheckIfGhostDisposed+"();
+    let e = this."+names.pReplaySimulationManager+";
+    if (e === null) return null;
+    return {
+      tick: this."+names.pReplayTick+",
+      prevByte: this."+names.pReplayPrevPyte+",
+      phase: this."+names.pReplayPhase+",
+      sim: e.simulation.captureSnapshot(),
+    };
+  }
+  restoreRawSnapshot(snap) {
+    this."+names.mCheckIfGhostDisposed+"();
+    let e = this."+names.pReplaySimulationManager+";
+    if (e === null || snap === null) return;
+    e.simulation.restoreSnapshot(snap.sim);
+    this."+names.pReplayTick+" = snap.tick;
+    this."+names.pReplayPrevPyte+" = snap.prevByte;
+    this."+names.pReplayPhase+" = snap.phase;
+    let t = e.model.base.requireCar(e.model.carEntityId).captureSnapshot();
+    this."+names.pReplayCarState+" = "+names.fReturnCarState+"(this."+names.pReplayTick+", t, t, [], e.model.wheelSurfaceSamples, this."+names.pIsCapturePresentationData+");
+  }
+  */
+
   return { patchedSrc: src };
 }
-
-// export function patchReplayChunk(replaySrc, results, log = console) {
-//   let src = replaySrc;
-//   const replayPatcher = makePatcher(
-//     "Replay chunk",
-//     () => src,
-//     (s) => (src = s),
-//     results,
-//     log
-//   );
-
-
-// }
 
 // High-level one-shot: fetches everything live and returns fully patched
 // sources plus the metadata each caller needs to do its own delivery
@@ -812,7 +883,9 @@ export async function patchLiveBundles(origin, log = console) {
   const { tvFilename, tvRawSrc } = await fetchTerrainViewChunk(origin, names.rvChunkPath);
   log.log(`Discovered live RV/TerrainView chunk: ${tvFilename}`);
   const tvRewritten = rewriteRelativeChunkRefs(origin, "TerrainView chunk", tvRawSrc, log);
-  const { patchedSrc: tvSrc } = patchTerrainViewChunk(tvRewritten, results, log);
+  const tvNames = deriveTvIdentifiers(tvRewritten);
+  log.log("Derived tv identifiers:", names);
+  const { patchedSrc: tvSrc } = patchTerrainViewChunk(tvRewritten, tvNames, results, log);
 
   return { mainFilename, mainSrc, tvFilename, tvSrc, names, results };
 }
