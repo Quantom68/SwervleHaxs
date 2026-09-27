@@ -21,7 +21,7 @@
 // ---- EDIT THESE after creating your GitHub repo ----
 const GITHUB_OWNER = "Quantom68";
 const GITHUB_REPO = "SwervleHaxs";
-const GITHUB_BRANCH = "features";
+const GITHUB_BRANCH = "main";
 // -----------------------------------------------------
 
 const RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
