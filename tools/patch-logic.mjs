@@ -733,15 +733,17 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   }
   mainPatcher.insertAfter(
     "09.2setActions",
-    "f=t.model.raceState;",
-    "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
+    /([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+).model.raceState;/,
+    () =>
+      "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
   )
 
   // 10. Expose main game as __SWERVLE_GAME__
   mainPatcher.insertAfter(
     "10exposeMain",
     /let t=new ([A-Za-z0-9_$]+)\(\{mount:e\}\);/,
-    "window.__SWERVLE_GAME__=t;"
+    () =>
+      "window.__SWERVLE_GAME__=t;"
   )
 
   return { patchedSrc: src, liveryChunkUrl };
