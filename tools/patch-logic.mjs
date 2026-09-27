@@ -814,46 +814,46 @@ export function patchTerrainViewChunk(tvSrc, names, results, log = console) {
   // r2. Add captureRawSnapshot and restoreRawSnapshot
   //     to ghost replay.
   if (
-    mCheckIfGhostDisposed &&
-    pReplaySimulationManager &&
-    pReplayTick &&
-    pReplayPrevPyte &&
-    pReplayPhase &&
-    pReplayCarState &&
-    fReturnCarState &&
-    pIsCapturePresentationData
+    names.mCheckIfGhostDisposed &&
+    names.pReplaySimulationManager &&
+    names.pReplayTick &&
+    names.pReplayPrevPyte &&
+    names.pReplayPhase &&
+    names.pReplayCarState &&
+    names.fReturnCarState &&
+    names.pIsCapturePresentationData
   ) {
     tvPatcher.insertAfter(
       "r2addSnapshotMethods",
       /captureFrame\(\){return this.frame}/,
       () =>
-        "captureRawSnapshot(){this."+NAMES.mCheckIfGhostDisposed+"();let e=this."+NAMES.pReplaySimulationManager+";if(e===null){return null}return{tick:this."+NAMES.pReplayTick+",prevByte:this."+NAMES.pReplayPrevPyte+",phase:this."+NAMES.pReplayPhase+",sim:e.simulation.captureSnapshot()}}restoreRawSnapshot(snap){this."+NAMES.mCheckIfGhostDisposed+"();let e=this."+NAMES.pReplaySimulationManager+";if(e===null||snap===null){return}e.simulation.restoreSnapshot(snap.sim);this."+NAMES.pReplayTick+"=snap.tick;this."+NAMES.pReplayPrevPyte+"=snap.prevByte;this."+NAMES.pReplayPhase+"=snap.phase;let t=e.model.base.requireCar(e.model.carEntityId).captureSnapshot();this."+NAMES.pReplayCarState+"="+NAMES.fReturnCarState+"(this."+NAMES.pReplayTick+",t,t,[],e.model.wheelSurfaceSamples,this."+NAMES.pIsCapturePresentationData+")}"
+        "captureRawSnapshot(){this."+names.mCheckIfGhostDisposed+"();let e=this."+names.pReplaySimulationManager+";if(e===null){return null}return{tick:this."+names.pReplayTick+",prevByte:this."+names.pReplayPrevPyte+",phase:this."+names.pReplayPhase+",sim:e.simulation.captureSnapshot()}}restoreRawSnapshot(snap){this."+names.mCheckIfGhostDisposed+"();let e=this."+names.pReplaySimulationManager+";if(e===null||snap===null){return}e.simulation.restoreSnapshot(snap.sim);this."+names.pReplayTick+"=snap.tick;this."+names.pReplayPrevPyte+"=snap.prevByte;this."+names.pReplayPhase+"=snap.phase;let t=e.model.base.requireCar(e.model.carEntityId).captureSnapshot();this."+names.pReplayCarState+"="+names.fReturnCarState+"(this."+names.pReplayTick+",t,t,[],e.model.wheelSurfaceSamples,this."+names.pIsCapturePresentationData+")}"
     )
   } else {
     tvPatcher.skip("r2addSnapshotMethods", "1 or more identifiers could not be derived")
   }
   /*
   captureRawSnapshot() {
-    this."+NAMES.mCheckIfGhostDisposed+"();
-    let e = this."+NAMES.pReplaySimulationManager+";
+    this."+names.mCheckIfGhostDisposed+"();
+    let e = this."+names.pReplaySimulationManager+";
     if (e === null) return null;
     return {
-      tick: this."+NAMES.pReplayTick+",
-      prevByte: this."+NAMES.pReplayPrevPyte+",
-      phase: this."+NAMES.pReplayPhase+",
+      tick: this."+names.pReplayTick+",
+      prevByte: this."+names.pReplayPrevPyte+",
+      phase: this."+names.pReplayPhase+",
       sim: e.simulation.captureSnapshot(),
     };
   }
   restoreRawSnapshot(snap) {
-    this."+NAMES.mCheckIfGhostDisposed+"();
-    let e = this."+NAMES.pReplaySimulationManager+";
+    this."+names.mCheckIfGhostDisposed+"();
+    let e = this."+names.pReplaySimulationManager+";
     if (e === null || snap === null) return;
     e.simulation.restoreSnapshot(snap.sim);
-    this."+NAMES.pReplayTick+" = snap.tick;
-    this."+NAMES.pReplayPrevPyte+" = snap.prevByte;
-    this."+NAMES.pReplayPhase+" = snap.phase;
+    this."+names.pReplayTick+" = snap.tick;
+    this."+names.pReplayPrevPyte+" = snap.prevByte;
+    this."+names.pReplayPhase+" = snap.phase;
     let t = e.model.base.requireCar(e.model.carEntityId).captureSnapshot();
-    this."+NAMES.pReplayCarState+" = "+NAMES.fReturnCarState+"(this."+NAMES.pReplayTick+", t, t, [], e.model.wheelSurfaceSamples, this."+NAMES.pIsCapturePresentationData+");
+    this."+names.pReplayCarState+" = "+names.fReturnCarState+"(this."+names.pReplayTick+", t, t, [], e.model.wheelSurfaceSamples, this."+names.pIsCapturePresentationData+");
   }
   */
 
