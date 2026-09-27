@@ -5,7 +5,11 @@
   "failedPatches": [
     "main bundle/watchReplayControlLock_handbrake",
     "main bundle/watchReplayControlLock_throttle",
-    "main bundle/06tasPlayback"
+    "main bundle/06tasPlayback",
+    "main bundle/07.07debugLoadState",
+    "main bundle/07.09advanceTestTicks",
+    "main bundle/07.10resumeTestFrames",
+    "main bundle/07.11loadRivalGhost"
   ],
-  "patchedAt": "2026-09-27T13:02:35.500Z"
+  "patchedAt": "2026-09-27T13:54:09.573Z"
 }
