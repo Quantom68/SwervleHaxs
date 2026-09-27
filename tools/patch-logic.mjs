@@ -246,6 +246,18 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.pRenderer = m?.[1] ?? null;
   }
   {
+    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)=!0;try\{/);
+    names.mAdvanceTicks = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)&&this.#([A-Za-z0-9_$]+)\?.tickLights;/);
+    names.mRenderTick = m?.[1] ?? null;
+  }
+  {
+    const m = mainRawSrc.match(/get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}create/);
+    names.pLifecycleState = m?.[1] ?? null;
+  }
+  {
     const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=await ([A-Za-z0-9_$]+)\(`manifest`,async\(\)=>this.#([A-Za-z0-9_$]+)\(\)\);this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)/);
     names.pTrack = m?.[4] ?? null;
   }
@@ -260,7 +272,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.pRivalGhostModifiers = m?.[3] ?? null;
   }
   {
-    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(\{appearance:([A-Za-z0-9_$]+),assetInstance:\(await this.#([A-Za-z0-9_$]+)\.instantiate\(([A-Za-z0-9_$]+)\)\),definition:([A-Za-z0-9_$]+),entityId:n.car.entityId,materialColorOverrides:([A-Za-z0-9_$]+),materialRegistrar:this.#([A-Za-z0-9_$]+).materialRegistrar/);
+    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(\{appearance:([A-Za-z0-9_$]+),assetInstance:await this.#([A-Za-z0-9_$]+)\.instantiate\(([A-Za-z0-9_$]+)\),definition:([A-Za-z0-9_$]+),entityId:n.car.entityId,materialColorOverrides:([A-Za-z0-9_$]+),materialRegistrar:this.#([A-Za-z0-9_$]+).materialRegistrar/);
     names.cGhostCarView = m?.[2] ?? null;
     names.vGCVApperance = m?.[3] ?? null;
     names.vGCVAssetInstance = m?.[4] ?? null;
@@ -663,7 +675,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   //#region
   if (
     names.pSimulationManager &&
-    names.vRaceRules &&
+    names.fGetRuleset &&
     names.pTimeManagerObject &&
     names.mAdvanceTicks &&
     names.mRenderTick
@@ -673,14 +685,14 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
       "07.09advanceTestTicks",
       lifecycleStateRegex,
       () =>
-        "advanceTestTicks(e){let t=this.#"+names.pSimulationManager+"?.model.ruleset??"+names.vRaceRules+",n=t.warmupTicks+t.countdownTicks+t.maximumRaceTicks;if(!Number.isSafeInteger(e)||e<0||e>n){throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`)}let r=this.#"+names.pSimulationManager+",i=this.#"+names.pTimeManagerObject+";if(r===void 0||i===void 0){return}let a=r.model.raceState.phase;if(a!==`countdown`&&a!==`racing`){throw Error(`Swervle test ticks require an active countdown or race.`)}return i.stop(),this.#"+names.mAdvanceTicks+"(r,i,e),e>0&&this.#"+names.mRenderTick+"({alpha:1,realDeltaSeconds:e*1/60,simulationTick:r.simulation.tick,ticksAdvanced:e})}"
+        "advanceTestTicks(e){let t=this.#"+names.pSimulationManager+"?.model.ruleset??"+names.fGetRuleset+",n=t.warmupTicks+t.countdownTicks+t.maximumRaceTicks;if(!Number.isSafeInteger(e)||e<0||e>n){throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`)}let r=this.#"+names.pSimulationManager+",i=this.#"+names.pTimeManagerObject+";if(r===void 0||i===void 0){return}let a=r.model.raceState.phase;if(a!==`countdown`&&a!==`racing`){throw Error(`Swervle test ticks require an active countdown or race.`)}return i.stop(),this.#"+names.mAdvanceTicks+"(r,i,e),e>0&&this.#"+names.mRenderTick+"({alpha:1,realDeltaSeconds:e*1/60,simulationTick:r.simulation.tick,ticksAdvanced:e})}"
     )
   } else {
     mainPatcher.skip("07.09advanceTestTicks", "1 or more identifiers could not be derived")
   }
   /*
   advanceTestTicks(e) {
-    let t = this."+names.pSimulationManager+"?.model.ruleset ?? "+names.vRaceRules+",
+    let t = this."+names.pSimulationManager+"?.model.ruleset ?? "+names.fGetRuleset+",
       n = t.warmupTicks + t.countdownTicks + t.maximumRaceTicks;
     if (!Number.isSafeInteger(e) || e < 0 || e > n) throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`);
     let r = this."+names.pSimulationManager+",
