@@ -718,7 +718,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   if (names.fBoostMeter && names.pBoostMeter && names.fActionBools) {
     mainPatcher.replaceOnce(
       "09.1getActions",
-      /([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(r.held.boost===!0\|\|s\?.boost===!0)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:r.held.handbrake===!0\|\|s\?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0\|\|s\?.reverse===!0,steerLeft:c\|\|u===`left`,steerRight:l\|\|u===`right`,throttle:r.held.throttle===!0\|\|s\?.throttle===!0\}\)/,
+      /([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(r.held.boost===!0\|\|s\?.boost===!0\)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:r.held.handbrake===!0\|\|s\?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0\|\|s\?.reverse===!0,steerLeft:c\|\|u===`left`,steerRight:l\|\|u===`right`,throttle:r.held.throttle===!0\|\|s\?.throttle===!0\}\)/,
       () =>
         "actions={boost:(r.held.boost===!0||s?.boost===!0)&&"+names.fBoostMeter+"(this."+names.pBoostMeter+")>0,handbrake:r.held.handbrake===!0||s?.handbrake===!0,recoveryRequested:o,reverse:r.held.reverse===!0||s?.reverse===!0,steerLeft:c||u===`left`,steerRight:l||u===`right`,throttle:r.held.throttle===!0||s?.throttle===!0},d="+names.fActionBools+"(actions)"
     )
