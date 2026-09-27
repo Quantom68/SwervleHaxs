@@ -434,9 +434,9 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   //    This is backup code incase `forceLocalVerifier` fails.
   mainPatcher.replaceOnce(
     "01disableRunSubmission",
-    /async#[A-Za-z0-9_$]\(e,t\\\){try\{let n=await this.#[A-Za-z0-9_$]\(`POST`,e,\{body:t,csrf:!0,timeoutMs:this.#[A-Za-z0-9_$]\}\);return Object.freeze\(\{body:await [A-Za-z0-9_$]\(n\),httpStatus:n.status,kind:`response`\}\)\}catch\(e\)\{return Object.freeze\(\{classification:[A-Za-z0-9_$]\(e\)\?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0\?e.message:null})}}/,
+    /async#[A-Za-z0-9_$]\(e,t\\\){try\{let n=await this.#[A-Za-z0-9_$]\(`POST`,e,\{body:t,csrf:!0,timeoutMs:this.#[A-Za-z0-9_$]\}\);return Object.freeze\(\{body:await [A-Za-z0-9_$]\(n\),httpStatus:n.status,kind:`response`\}\)\}catch\(e\)\{return Object.freeze\(\{classification:[A-Za-z0-9_$]\(e\)\?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0\?e.message:null/,
     () =>
-      "async"+names.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
+      "async"+names.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`"
   );
 
   // 2. Forces local verification instead of submiting to servers.
