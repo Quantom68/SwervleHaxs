@@ -531,7 +531,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   )
 
   // 7. Add getters and methods to the main game class.
-  const lifecycleStateRegex = /get lifecycleState\(\)\{return this.([A-Za-z0-9_$]+)\}/
+  const lifecycleStateRegex = /get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}/
   mainPatcher.insertAfter(
     "07.01debugTimeScale",
     lifecycleStateRegex,
@@ -671,7 +671,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   }
   */
   mainPatcher.insertAfter(
-    "07.11",
+    "07.11loadRivalGhost",
     lifecycleStateRegex,
     () =>
       "async loadRivalGhost(e){console.log(`hiyya`);if(this."+names.pSimulationManager+"===undefined){throw new Error('loadRivalGhost failed: Instance state "+names.pSimulationManager+" is undefined.')}if(this."+names.pTrack+"===undefined){throw new Error('loadRivalGhost failed: Instance state "+names.pTrack+" is undefined.')}if(!e||typeof e!=='object'){throw new TypeError(`loadRivalGhost failed: Expected an options object argument. ${ e }`)}if(typeof e.statesBase64!=='string'){throw new TypeError(`loadRivalGhost failed: 'statesBase64' must be a string, received ${ typeof e.statesBase64 }. ${e.statesBase64 }`)}if(typeof e.displayName!=='string'){if(typeof e.publicDisplayName!=='string'){throw new TypeError(`loadRivalGhost failed: 'displayName' or 'publicDisplayName' must be a string, received ${ typeof e.displayName } and ${ typeof e.publicDisplayName }.`)}e.displayName=e.publicDisplayName}if(!e.livery||typeof e.livery!=='object'){console.warn(`loadRivalGhost warning: 'livery' expected an object, received ${ typeof e.livery }.`)}try{let t="+names.fValidStates+"(e.statesBase64,{expectedLength:e.durationTicks,maximumLength:"+names.fGetRuleset+"(this."+names.pTrack+".track.revision.rulesetVersion).maximumRaceTicks});this.__ghostStates=t;if(this."+names.pRivalGhost+".rivalReplay?.dispose(),this."+names.pRivalGhost+".rival?.dispose(),this."+names.pRivalGhost+".rivalReplay=void 0,this."+names.pRivalGhost+".rival=void 0,this."+names.pRivalGhost+".rivalGap=void 0,t.length===0){return}let n=new "+names.cRivalGhostSimulator+"({modifiers:this."+names.pRivalGhostModifiers+",states:t,track:this."+names.pTrack+".track}),r=null;try{let i=n.create();let a=new "+names.cGhostCarView+"({appearance:"+names.vGCVApperance+",assetInstance:"+names.vGCVAssetInstance+",definition:"+names.vGCVDefinition+",entityId:i.car.entityId,materialColorOverrides:"+names.vGCVMaterialColorOverrides+",materialRegistrar:this."+names.pTerrainViewManagerObject+".materialRegistrar});let ghostLivery=e.livery??e.ghost?.livery??e.design??null;r=await this."+names.pRivalGhost+".createGhostRaceLivery(a,ghostLivery);let o="+names.fGetGhostDisplayName+"({displayName:e.displayName,relationship:`friend`,surface:`gameplay`}),s=new "+names.cRivalGhostRenderer+"({carView:a,initialSnapshot:i.car,nameplate:o===null?null:{label:o},parent:this."+names.pTerrainViewManagerObject+".viewParent});s.setVisible(this."+names.pRivalGhost+"),this."+names.pRivalGhost+".rival=s,this."+names.pRivalGhost+".rivalReplay=n,this."+names.pRivalGhost+".rivalGap=new "+names.cRivalGapGetter+"(this."+names.pTrack+".track.routeLine),this."+names.pRenderer+"?.render("+names.fValidateCamera+"(this."+names.pCameraManagerObject+").camera);console.log(`yippe!`)}catch(e){throw r?.dispose(),n.dispose(),e}return this.diagnostics()}catch(e){throw Error(`Failed to load rival ghost: ${ e instanceof Error?e.message:String(e)}`)}}"
