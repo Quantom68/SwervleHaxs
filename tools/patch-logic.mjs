@@ -217,15 +217,15 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.pRunVerifierObject = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/_.restore\(s.simulation.captureSnapshot\(\).clock\),this.#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(\{/);
-    names.pTimeManagerObject = m?.[1] ?? null;
+    const m = mainRawSrc.match(/_.restore\(([A-Za-z0-9_$]+).simulation.captureSnapshot\(\).clock\),this.#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(\{/);
+    names.pTimeManagerObject = m?.[2] ?? null;
   }
   {
-    const m = mainRawSrc.match(/constructor\(e\)\{this.#([A-Za-z0-9_$]+)=e.callbacks,this.#([A-Za-z0-9_$]+)=e.frameDriver,this.clock=e.clock??new ([A-Za-z0-9_$]+),this.([A-Za-z0-9_$]+)=e.([A-Za-z0-9_$]+)??new ([A-Za-z0-9_$]+)}/);
+    const m = mainRawSrc.match(/constructor\(e\)\{this.#([A-Za-z0-9_$]+)=e.callbacks,this.#([A-Za-z0-9_$]+)=e.frameDriver,this.clock=e.clock\?\?new ([A-Za-z0-9_$]+),this.([A-Za-z0-9_$]+)=e.([A-Za-z0-9_$]+)\?\?new ([A-Za-z0-9_$]+)\}/);
     names.pTimescale = m?.[4] ?? null;
   }
   {
-    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)(([A-Za-z0-9_$]+).maximumRaceTicks);/);
+    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(([A-Za-z0-9_$]+).maximumRaceTicks\);/);
     names.pRunRecorderObject = m?.[1] ?? null;
   }
   {
@@ -234,7 +234,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.cRivalGapGetter = m?.[2] ?? null;
   }
   {
-    const m = mainRawSrc.match(/if\(this.#([A-Za-z0-9_$]+)?.model.raceState.phase!==`invalid`\)\{/);
+    const m = mainRawSrc.match(/if\(this.#([A-Za-z0-9_$]+)\?.model.raceState.phase!==`invalid`\)\{/);
     names.pSimulationManager = m?.[1] ?? null;
   }
   {
@@ -531,7 +531,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   )
 
   // 7. Add getters and methods to the main game class.
-  lifecycleStateRegex = /get lifecycleState\(\)\{return this.([A-Za-z0-9_$]+)\}/
+  const lifecycleStateRegex = /get lifecycleState\(\)\{return this.([A-Za-z0-9_$]+)\}/
   mainPatcher.insertAfter(
     "07.01debugTimeScale",
     lifecycleStateRegex,
