@@ -2,15 +2,24 @@
     "manifest_version": 3,
     "name": "Swervle Tas Tool",
     "description": "tba",
-    "version": "1.2.2",
+    "version": "2.0.0",
     "permissions": [
         "declarativeNetRequest",
         "activeTab",
         "scripting"
     ],
-    "host_permissions": ["https://swervle.com/*"],
+    "host_permissions": [
+        "https://swervle.com/*",
+        "https://raw.githubusercontent.com/*",
+        "https://cdn.jsdelivr.net/*",
+        "https://api.github.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_title": "Swervle Haxs — badge shows patch-sync status (blank = ok, ! = some patches skipped upstream, X = couldn't reach GitHub)"
     },
     "content_scripts": [
         {
@@ -27,18 +36,9 @@
         "world": "MAIN"
         }
     ],
-    "declarative_net_request": {
-        "rule_resources": [
-        {
-            "id": "swervle_patch",
-            "enabled": true,
-            "path": "rules.json"
-        }
-        ]
-    },
     "web_accessible_resources": [
         {
-        "resources": ["patched-bundle.js", "patched-replay.js"],
+        "resources": ["patched-bundle.js", "patched-replay.js", "patched-terrainview.js"],
         "matches": ["https://swervle.com/*"]
         }
     ]
