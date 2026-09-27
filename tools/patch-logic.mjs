@@ -268,6 +268,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
   }
   {
     const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(([A-Za-z0-9_$]+).held.boost===!0\|\|([A-Za-z0-9_$]+)\?.boost===!0\)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:([A-Za-z0-9_$]+).held.handbrake===!0\|\|([A-Za-z0-9_$]+)\?.handbrake===!0,recoveryRequested:([A-Za-z0-9_$]+),reverse:([A-Za-z0-9_$]+).held.reverse===!0\|\|([A-Za-z0-9_$]+)\?.reverse===!0,steerLeft:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`left`,steerRight:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`right`,throttle:([A-Za-z0-9_$]+).held.throttle===!0\|\|([A-Za-z0-9_$]+)\?.throttle===!0\}\)/);
+    names.vActionBools = m?.[1] ?? null;
     names.fActionBools = m?.[2] ?? null;
     names.fBoostMeter = m?.[5] ?? null;
     names.pBoostMeter = m?.[6] ?? null;
@@ -726,7 +727,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
       "09.1getActions",
       /([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)\(\{boost:\(([A-Za-z0-9_$]+).held.boost===!0\|\|([A-Za-z0-9_$]+)\?.boost===!0\)&&([A-Za-z0-9_$]+)\(this.#([A-Za-z0-9_$]+)\)>0,handbrake:([A-Za-z0-9_$]+).held.handbrake===!0\|\|([A-Za-z0-9_$]+)\?.handbrake===!0,recoveryRequested:([A-Za-z0-9_$]+),reverse:([A-Za-z0-9_$]+).held.reverse===!0\|\|([A-Za-z0-9_$]+)\?.reverse===!0,steerLeft:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`left`,steerRight:([A-Za-z0-9_$]+)\|\|([A-Za-z0-9_$]+)===`right`,throttle:([A-Za-z0-9_$]+).held.throttle===!0\|\|([A-Za-z0-9_$]+)\?.throttle===!0\}\)/,
       () =>
-        "actions={boost:("+names.vABSampledInput+".held.boost===!0||"+names.vABTarget+"?.boost===!0)&&"+names.fBoostMeter+"(this."+names.pBoostMeter+")>0,handbrake:"+names.vABSampledInput+".held.handbrake===!0||"+names.vABTarget+"?.handbrake===!0,recoveryRequested:"+names.vABRecoveryFlag+",reverse:"+names.vABSampledInput+".held.reverse===!0||"+names.vABTarget+"?.reverse===!0,steerLeft:"+names.vABLeftHeld+"||"+names.vABSteeringDirection+"===`left`,steerRight:"+names.vABRightHeld+"||"+names.vABSteeringDirection+"===`right`,throttle:"+names.vABSampledInput+".held.throttle===!0||"+names.vABTarget+"?.throttle===!0},d="+names.fActionBools+"(actions)"
+        "actions={boost:("+names.vABSampledInput+".held.boost===!0||"+names.vABTarget+"?.boost===!0)&&"+names.fBoostMeter+"(this."+names.pBoostMeter+")>0,handbrake:"+names.vABSampledInput+".held.handbrake===!0||"+names.vABTarget+"?.handbrake===!0,recoveryRequested:"+names.vABRecoveryFlag+",reverse:"+names.vABSampledInput+".held.reverse===!0||"+names.vABTarget+"?.reverse===!0,steerLeft:"+names.vABLeftHeld+"||"+names.vABSteeringDirection+"===`left`,steerRight:"+names.vABRightHeld+"||"+names.vABSteeringDirection+"===`right`,throttle:"+names.vABSampledInput+".held.throttle===!0||"+names.vABTarget+"?.throttle===!0},="+names.fActionBools+"(actions)"
     )
   } else {
     mainPatcher.skip("09.1getActions", "fBoostMeter, pBoostMeter, and/or fActionBools could not be derived")
