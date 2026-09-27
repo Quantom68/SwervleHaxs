@@ -209,7 +209,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
   // Swervle Haxs
 
   {
-    const m = mainSrc.match(/async\(#([A-Za-z0-9_$]+)\(e,t)\{try\{let n=await this.\(#([A-Za-z0-9_$]+)\(`POST`,e,\{body:t,csrf:!0,timeoutMs:this.\(#([A-Za-z0-9_$]+)\}\);return Object.freeze\(\{body:await ([A-Za-z0-9_$]+)\(n\),httpStatus:n.status,kind:`response`\}\)\}catch\(e\)\{return Object.freeze\(\{classification:([A-Za-z0-9_$]+)\(e\)\?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0\?e.message:null/);
+    const m = mainSrc.match(/async\(#([A-Za-z0-9_$]+)\(e,t\)\{try\{let n=await this.\(#([A-Za-z0-9_$]+)\(`POST`,e,\{body:t,csrf:!0,timeoutMs:this.\(#([A-Za-z0-9_$]+)\}\);return Object.freeze\(\{body:await ([A-Za-z0-9_$]+)\(n\),httpStatus:n.status,kind:`response`\}\)\}catch\(e\)\{return Object.freeze\(\{classification:([A-Za-z0-9_$]+)\(e\)\?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0\?e.message:null/);
     names.mRunPoster = m?.[1] ?? null;
     names.mServerAccesser = m?.[2] ?? null;
     names.pTimeoutMs = m?.[3] ?? null;
@@ -434,7 +434,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   //    This is backup code incase `forceLocalVerifier` fails.
   mainPatcher.replaceOnce(
     "01disableRunSubmission",
-    /async#[A-Za-z0-9_$]\(e,t\\){try\{let n=await this.#[A-Za-z0-9_$]\(`POST`,e,\{body:t,csrf:!0,timeoutMs:this.#[A-Za-z0-9_$]\}\);return Object.freeze\(\{body:await [A-Za-z0-9_$]\(n\),httpStatus:n.status,kind:`response`\}\)\}catch\(e\)\{return Object.freeze\(\{classification:[A-Za-z0-9_$]\(e\)\?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0\?e.message:null})}}/,
+    /async#[A-Za-z0-9_$]\(e,t\\\){try\{let n=await this.#[A-Za-z0-9_$]\(`POST`,e,\{body:t,csrf:!0,timeoutMs:this.#[A-Za-z0-9_$]\}\);return Object.freeze\(\{body:await [A-Za-z0-9_$]\(n\),httpStatus:n.status,kind:`response`\}\)\}catch\(e\)\{return Object.freeze\(\{classification:[A-Za-z0-9_$]\(e\)\?`server-timeout`:`server-unreachable`,kind:`transport-failure`,message:e instanceof Error&&e.message.length>0\?e.message:null})}}/,
     () =>
       "async"+names.mRunPoster+"(e,t){return Object.freeze({classification:`server-unreachable`,kind:`transport-failure`,message:`disabled-by-tas`})}"
   );
@@ -449,7 +449,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   // );
   mainPatcher.replaceOnce(
     "02forceLocalVerifier",
-    /if(this.#[A-Za-z0-9_$].requiresServerTruth()){if/,
+    /if\(this.#([A-Za-z0-9_$]+).requiresServerTruth\(\)\)\{if/,
     () =>
       "if(!1){if"
   );
