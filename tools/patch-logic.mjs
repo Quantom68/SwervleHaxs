@@ -254,7 +254,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.mAdvanceTicks = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)&&this.#([A-Za-z0-9_$]+)\?.tickLights/);
+    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)\?.gearMeter/);
     names.mRenderTick = m?.[1] ?? null;
   }
   {
