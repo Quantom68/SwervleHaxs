@@ -234,7 +234,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.cRivalGapGetter = m?.[2] ?? null;
   }
   {
-    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+) = ([A-Za-z0-9_$]+) & 95/);
+    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)&95/);
     names.pInputBase64 = m?.[1] ?? null;
   }
   {
