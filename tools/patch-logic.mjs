@@ -531,7 +531,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   )
 
   // 7. Add getters and methods to the main game class.
-  const lifecycleStateRegex = /get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}/
+  const lifecycleStateRegex = /get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}create\(\)/
   mainPatcher.insertAfter(
     "07.01debugTimeScale",
     lifecycleStateRegex,
