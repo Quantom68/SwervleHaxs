@@ -234,6 +234,10 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.cRivalGapGetter = m?.[2] ?? null;
   }
   {
+    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+) = ([A-Za-z0-9_$]+) & 95/);
+    names.pInputBase64 = m?.[1] ?? null;
+  }
+  {
     const m = mainRawSrc.match(/if\(this.#([A-Za-z0-9_$]+)\?.model.raceState.phase!==`invalid`\)/);
     names.pSimulationManager = m?.[1] ?? null;
   }
@@ -250,7 +254,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.mAdvanceTicks = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)&&this.#([A-Za-z0-9_$]+)\?.tickLights;/);
+    const m = mainRawSrc.match(/#([A-Za-z0-9_$]+)\(e,t,n\)\{this.#([A-Za-z0-9_$]+)&&this.#([A-Za-z0-9_$]+)\?.tickLights/);
     names.mRenderTick = m?.[1] ?? null;
   }
   {
@@ -501,9 +505,9 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   );
 
   // 6. Add TasPlayback class to manage tas playback.
-  mainPatcher.insertBefore(
+  mainPatcher.insertAfter(
     "06tasPlayback",
-    /var ([A-Za-z0-9_$]+)=Object.freeze\(\{boost:!1/,
+    /function ([A-Za-z0-9_$]+)\(e\)\{return e!==void 0&&([A-Za-z0-9_$]+).has\(e\)\}/,
     () =>
       "const BIT={throttle:1,reverse:2,steerLeft:4,steerRight:8,handbrake:16,recovery:32,boost:64};function decodeStateByte(prevByte,currByte){const heldBits=['throttle','reverse','steerLeft','steerRight','handbrake','boost'];const edges=[];for(const action of heldBits){const bit=BIT[action];const was=(prevByte&bit)!==0;const is=(currByte&bit)!==0;if(was!==is){edges.push({action,kind:is?'pressed':'released'})}}if((currByte&BIT.recovery)!==0){edges.push({action:'recover',kind:'pressed'})}const held={throttle:(currByte&BIT.throttle)!==0,reverse:(currByte&BIT.reverse)!==0,left:(currByte&BIT.steerLeft)!==0,right:(currByte&BIT.steerRight)!==0,handbrake:(currByte&BIT.handbrake)!==0,boost:(currByte&BIT.boost)!==0};return{edges,held}}class TasPlayback{constructor(statesBase64){const binary=atob(statesBase64);this.bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));this.prevByte=0}next(tick){const b=this.bytes[tick]??this.bytes[this.bytes.length-1]??0;const sample=decodeStateByte(this.prevByte,b);this.prevByte=b;return sample;}}"
   )
