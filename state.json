@@ -1,15 +1,13 @@
 {
   "mainFilename": "e5c40cc0-B-XRXr-c.js",
   "tvFilename": "c5c40cc0-r3Wv6p1v.js",
-  "patchCount": 27,
+  "patchCount": 26,
   "failedPatches": [
     "main bundle/watchReplayControlLock_handbrake",
     "main bundle/watchReplayControlLock_throttle",
     "main bundle/06tasPlayback",
     "main bundle/07.07debugLoadState",
-    "main bundle/07.09advanceTestTicks",
-    "main bundle/07.10resumeTestFrames",
-    "main bundle/07.11loadRivalGhost"
+    "main bundle/07.09advanceTestTicks"
   ],
-  "patchedAt": "2026-09-27T13:54:09.573Z"
+  "patchedAt": "2026-09-27T14:54:19.689Z"
 }
