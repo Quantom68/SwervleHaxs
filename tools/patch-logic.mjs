@@ -537,7 +537,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
       "07.01debugTimeScale",
       lifecycleStateRegex,
       () =>
-        "get __debugTimeScale(){return this.#"+names.pTimeManagerObject+"?.#"+names.pTimescale+"??null}"
+        "get __debugTimeScale(){return this.#"+names.pTimeManagerObject+"?."+names.pTimescale+"??null}"
     )
   } else {
     mainPatcher.skip("07.01debugTimeScale", "pTimeManagerObject and/or pTimescale could not be derived")
