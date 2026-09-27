@@ -801,7 +801,7 @@ export function patchTerrainViewChunk(tvSrc, names, results, log = console) {
   // Swervle Haxs
 
   // r1. Add captureStates to the run recorder
-  replayPatcher.insertAfter(
+  tvPatcher.insertAfter(
     "r1addCaptureStates",
     /get tickCount\(\){return this.#t.length}/,
     () =>
@@ -823,14 +823,14 @@ export function patchTerrainViewChunk(tvSrc, names, results, log = console) {
     fReturnCarState &&
     pIsCapturePresentationData
   ) {
-    replayPatcher.insertAfter(
+    tvPatcher.insertAfter(
       "r2addSnapshotMethods",
       /captureFrame\(\){return this.frame}/,
       () =>
         "captureRawSnapshot(){this."+NAMES.mCheckIfGhostDisposed+"();let e=this."+NAMES.pReplaySimulationManager+";if(e===null){return null}return{tick:this."+NAMES.pReplayTick+",prevByte:this."+NAMES.pReplayPrevPyte+",phase:this."+NAMES.pReplayPhase+",sim:e.simulation.captureSnapshot()}}restoreRawSnapshot(snap){this."+NAMES.mCheckIfGhostDisposed+"();let e=this."+NAMES.pReplaySimulationManager+";if(e===null||snap===null){return}e.simulation.restoreSnapshot(snap.sim);this."+NAMES.pReplayTick+"=snap.tick;this."+NAMES.pReplayPrevPyte+"=snap.prevByte;this."+NAMES.pReplayPhase+"=snap.phase;let t=e.model.base.requireCar(e.model.carEntityId).captureSnapshot();this."+NAMES.pReplayCarState+"="+NAMES.fReturnCarState+"(this."+NAMES.pReplayTick+",t,t,[],e.model.wheelSurfaceSamples,this."+NAMES.pIsCapturePresentationData+")}"
     )
   } else {
-    replayPatcher.skip("r2addSnapshotMethods", "1 or more identifiers could not be derived")
+    tvPatcher.skip("r2addSnapshotMethods", "1 or more identifiers could not be derived")
   }
   /*
   captureRawSnapshot() {
