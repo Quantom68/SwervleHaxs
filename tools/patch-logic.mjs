@@ -268,8 +268,10 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
 export function deriveTvIdentifiers(tvSrc) {
   const names = {};
 
+  // Swervle Haxs
+
   {
-    const m = tvSrc.match(/#([A-Za-z0-9_$]+)\(\){if\(this.#([A-Za-z0-9_$]+)===`disposed`\){throw Error\(`Rival replay simulation is disposed.`\)}}/);
+    const m = tvSrc.match(/#([A-Za-z0-9_$]+)\(\){if\(this.#([A-Za-z0-9_$]+)===`disposed`\)throw Error\(`Rival replay simulation is disposed.`\)}/);
     names.mCheckIfGhostDisposed = m?.[1] ?? null;
   }
   {
@@ -281,11 +283,11 @@ export function deriveTvIdentifiers(tvSrc) {
     names.pReplayTick = m?.[1] ?? null;
   }
   {
-    const m = tvSrc.match(/return this.#([A-Za-z0-9_$]+)=0,!0;/);
+    const m = tvSrc.match(/return this.#([A-Za-z0-9_$]+)=0,!0/);
     names.pReplayPrevPyte = m?.[1] ?? null;
   }
   {
-    const m = tvSrc.match(/if\(this.#([A-Za-z0-9_$]+)===`disposed`\){throw Error\(`Rival replay simulation is disposed.`\)}/);
+    const m = tvSrc.match(/if\(this.#([A-Za-z0-9_$]+)===`disposed`\)throw Error\(`Rival replay simulation is disposed.`\)/);
     names.pReplayPhase = m?.[1] ?? null;
   }
   {
