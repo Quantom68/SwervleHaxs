@@ -1,5 +1,7 @@
 # Swervle Haxs
 
+A lot of core code is from [Swervle Utils](https://github.com/PhantomOrigin/SwervleUtils), so read their README for more information.
+
 ## Features
 
 ### Run Offline
@@ -10,7 +12,6 @@
 
 ### Helping Hecking Hacky Haxs
 
-- Load a ghost.json to run against (overides rival ghost).
 - Adds pausing and resuming.
 - Advance the game a set number of ticks.
 - Slow down the game.
@@ -22,19 +23,25 @@
 - Play imported states.
 - Save state and load state.
 
-### Swervle Overlay's Keyboard Overlay
+### Extension compatibility.
+
+The following are info on the compatibility state with other Swervle extensions.
+
+#### Swervle Overlay's Keyboard Overlay
 
 Compatible with Swervle Overlays. Makes the keyboard overlay get the internal actions so it gets tas inputs too.
 
-## rules.json
+#### Swervle Utils
 
-The redirect to the patched bundle filters for the exact hash, so when the website updates, the extension completely fails. This is intentional, as it means the patched bundle is outdated. If an improper patched bundle is use, the user could **risk getting banned**. MAKE SURE THERE IS NOTHING WRONG WITH PATCHING THE FILES BEFORE UPDATING OR **RISK GETTING BANNED** WHEN A TAS FINISHES.
+Compatible with Swervle Utils (have to load this extension after Swervel Utils).
 
 # tools
 
 ## patch-bundle.mjs
 
-From "Swervle Utils" extension. Patches a downloaded `index.js` and `replay.js` with added code to expose and add new properties and methods. Unlike Swervle Utils, there are a few important patches so it is unrecommened to use the patched-bundle if any patches fail. Further documentation is in the file.
+From "Swervle Utils" extension. Patches a downloaded `index.js` and `replay.js` with added code to expose and add new properties and methods. Unlike Swervle Utils, there are a few important patches so it is not recommened to use the patched-bundle if any patches fail.
+
+The file can be run through a workflow action or manually with local files.
 
 ### Usage
 
