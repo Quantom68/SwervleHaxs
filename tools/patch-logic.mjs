@@ -531,13 +531,17 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   )
 
   // 7. Add getters and methods to the main game class.
-  const lifecycleStateRegex = /([A-Za-z0-9_$]+).dispatchEvent\(new KeyboardEvent\(`keyup`,([A-Za-z0-9_$]+)\)\),!0\}get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}/
-  mainPatcher.insertAfter(
-    "07.01debugTimeScale",
-    lifecycleStateRegex,
-    () =>
-      "get __debugTimeScale(){return this.#"+names.pTimeManagerObject+"?.#"+names.pTimescale+"??null}"
-  )
+  if (names.pTimeManagerObject && names.pTimescale) {
+    const lifecycleStateRegex = /([A-Za-z0-9_$]+).dispatchEvent\(new KeyboardEvent\(`keyup`,([A-Za-z0-9_$]+)\)\),!0\}get lifecycleState\(\)\{return this.#([A-Za-z0-9_$]+)\}/
+    mainPatcher.insertAfter(
+      "07.01debugTimeScale",
+      lifecycleStateRegex,
+      () =>
+        "get __debugTimeScale(){return this.#"+names.pTimeManagerObject+"?.#"+names.pTimescale+"??null}"
+    )
+  } else {
+    mainPatcher.skip("07.01debugTimeScale", "pTimeManagerObject and/or pTimescale could not be derived")
+  }
   /*
   get __debugTimeScale() { return this."+names.pTimeManagerObject+"?."+names.pTimescale+" ?? null; }
   */
@@ -550,12 +554,16 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   /*
   get __debugCurrentActions() { return this.__lastActions ?? null; }
   */
-  mainPatcher.insertAfter(
-    "07.03debugCaptureStates",
-    lifecycleStateRegex,
-    () =>
-      "__debugCaptureStates(){return this.#"+names.pRunRecorderObject+".captureStates()}"
-  )
+  if (names.pRunRecorderObject) {
+    mainPatcher.insertAfter(
+      "07.03debugCaptureStates",
+      lifecycleStateRegex,
+      () =>
+        "__debugCaptureStates(){return this.#"+names.pRunRecorderObject+".captureStates()}"
+    )
+  } else {
+    mainPatcher.skip("07.03debugCaptureStates", "pRunRecorderObject could not be derived")
+  }
   /*
   __debugCaptureStates() { return this."+names.pRunRecorderObject+".captureStates(); }
   */
@@ -579,12 +587,16 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   /*
   __debugStopPlayback() { this.__tas = null; }
   */
-  mainPatcher.insertAfter(
-    "07.06debugSaveState",
-    lifecycleStateRegex,
-    () =>
-      "__debugSaveState(){return{simulation:this.#"+names.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this.#"+names.pRunRecorderObject+".captureStates(),ghost:this.#"+names.pRivalGhost+".rivalReplay?.captureRawSnapshot()??null}}"
-  )
+  if (names.pSimulationManager && names.pRunRecorderObject && names.pRivalGhost) {
+    mainPatcher.insertAfter(
+      "07.06debugSaveState",
+      lifecycleStateRegex,
+      () =>
+        "__debugSaveState(){return{simulation:this.#"+names.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this.#"+names.pRunRecorderObject+".captureStates(),ghost:this.#"+names.pRivalGhost+".rivalReplay?.captureRawSnapshot()??null}}"
+    )
+  } else {
+    mainPatcher.skip("07.06debugSaveState", "pSimulationManager, pRunRecorderObject, and/or pRivalGhost could not be derived")
+  }
   /*
   __debugSaveState() {
     return {
@@ -594,12 +606,24 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
     };
   }
   */
-  mainPatcher.insertAfter(
-    "07.07debugLoadState",
-    lifecycleStateRegex,
-    () =>
-      "__debugLoadState(state){this.#"+names.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this.#"+names.pTimeManagerObject+"?.clock.restore(this.#"+names.pSimulationManager+".simulation.captureSnapshot().clock);this.#"+names.pRunRecorderObject+".reset();for(const b of state.inputBytes){this.#"+names.pRunRecorderObject+".recordByte(b)}this.#"+names.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this.#"+names.pRivalGhost+".rivalReplay&&state.ghost){this.#"+names.pRivalGhost+".rivalReplay.restoreRawSnapshot(state.ghost);this.#"+names.pRivalGhost+".rival?.consumeSnapshot(this.#"+names.pRivalGhost+".rivalReplay.frame.car)}}"
-  )
+  //#region
+  if (
+    names.pSimulationManager &&
+    names.pTimeManagerObject &&
+    names.pRunRecorderObject &&
+    names.pInputBase64 &&
+    names.pRivalGhost
+  ) {
+  //#endregion
+    mainPatcher.insertAfter(
+      "07.07debugLoadState",
+      lifecycleStateRegex,
+      () =>
+        "__debugLoadState(state){this.#"+names.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this.#"+names.pTimeManagerObject+"?.clock.restore(this.#"+names.pSimulationManager+".simulation.captureSnapshot().clock);this.#"+names.pRunRecorderObject+".reset();for(const b of state.inputBytes){this.#"+names.pRunRecorderObject+".recordByte(b)}this.#"+names.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this.#"+names.pRivalGhost+".rivalReplay&&state.ghost){this.#"+names.pRivalGhost+".rivalReplay.restoreRawSnapshot(state.ghost);this.#"+names.pRivalGhost+".rival?.consumeSnapshot(this.#"+names.pRivalGhost+".rivalReplay.frame.car)}}"
+    )
+  } else {
+    mainPatcher.skip("07.07debugLoadState", "1 or more identifiers could not be derived")
+  }
   /*
   __debugLoadState(state) {
     this."+names.pSimulationManager+".simulation.restoreSnapshot(state.simulation);
@@ -617,12 +641,16 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
     }
   }
   */
-  mainPatcher.insertAfter(
-    "07.08debugDiagnostics",
-    lifecycleStateRegex,
-    () =>
-      "get __debugDiagnostics(){return{frameLoop:this.#"+names.pTimeManagerObject+"?.diagnostics??null,quality:this.#"+names.pQualityMonitor+"?.diagnostics()??null,renderer:this.#"+names.pRenderer+"?.diagnostics()??null}}"
-  )
+  if (names.pTimeManagerObject && names.pQualityMonitor && names.pRenderer) {
+    mainPatcher.insertAfter(
+      "07.08debugDiagnostics",
+      lifecycleStateRegex,
+      () =>
+        "get __debugDiagnostics(){return{frameLoop:this.#"+names.pTimeManagerObject+"?.diagnostics??null,quality:this.#"+names.pQualityMonitor+"?.diagnostics()??null,renderer:this.#"+names.pRenderer+"?.diagnostics()??null}}"
+    )
+  } else {
+    mainPatcher.skip("07.08debugDiagnostics", "pTimeManagerObject, pQualityMonitor, and/or pRenderer could not be derived")
+  }
   /*
   get __debugDiagnostics() {
     return {
@@ -632,12 +660,24 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
     }
   }
   */
-  mainPatcher.insertAfter(
-    "07.09advanceTestTicks",
-    lifecycleStateRegex,
-    () =>
-      "advanceTestTicks(e){let t=this.#"+names.pSimulationManager+"?.model.ruleset??"+names.vRaceRules+",n=t.warmupTicks+t.countdownTicks+t.maximumRaceTicks;if(!Number.isSafeInteger(e)||e<0||e>n){throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`)}let r=this.#"+names.pSimulationManager+",i=this.#"+names.pTimeManagerObject+";if(r===void 0||i===void 0){return}let a=r.model.raceState.phase;if(a!==`countdown`&&a!==`racing`){throw Error(`Swervle test ticks require an active countdown or race.`)}return i.stop(),this.#"+names.mAdvanceTicks+"(r,i,e),e>0&&this.#"+names.mRenderTick+"({alpha:1,realDeltaSeconds:e*1/60,simulationTick:r.simulation.tick,ticksAdvanced:e})}"
-  )
+  //#region
+  if (
+    names.pSimulationManager &&
+    names.vRaceRules &&
+    names.pTimeManagerObject &&
+    names.mAdvanceTicks &&
+    names.mRenderTick
+  ) {
+  //#endregion
+    mainPatcher.insertAfter(
+      "07.09advanceTestTicks",
+      lifecycleStateRegex,
+      () =>
+        "advanceTestTicks(e){let t=this.#"+names.pSimulationManager+"?.model.ruleset??"+names.vRaceRules+",n=t.warmupTicks+t.countdownTicks+t.maximumRaceTicks;if(!Number.isSafeInteger(e)||e<0||e>n){throw RangeError(`Swervle test tick count must be an integer from 0 through ${String(n)}.`)}let r=this.#"+names.pSimulationManager+",i=this.#"+names.pTimeManagerObject+";if(r===void 0||i===void 0){return}let a=r.model.raceState.phase;if(a!==`countdown`&&a!==`racing`){throw Error(`Swervle test ticks require an active countdown or race.`)}return i.stop(),this.#"+names.mAdvanceTicks+"(r,i,e),e>0&&this.#"+names.mRenderTick+"({alpha:1,realDeltaSeconds:e*1/60,simulationTick:r.simulation.tick,ticksAdvanced:e})}"
+    )
+  } else {
+    mainPatcher.skip("07.09advanceTestTicks", "1 or more identifiers could not be derived")
+  }
   /*
   advanceTestTicks(e) {
     let t = this."+names.pSimulationManager+"?.model.ruleset ?? "+names.vRaceRules+",
@@ -656,12 +696,16 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
     })
   }
   */
-  mainPatcher.insertAfter(
-    "07.10resumeTestFrames",
-    lifecycleStateRegex,
-    () =>
-      "resumeTestFrames(){let e=this.#"+names.pTimeManagerObject+";if(e===void 0){return}if(this.#"+names.pLifecycleState+"!==`running`){throw Error(`Swervle test frames require a running race.`)}return e.start()}"
-  )
+  if (names.pTimeManagerObject && names.pLifecycleState) {
+    mainPatcher.insertAfter(
+      "07.10resumeTestFrames",
+      lifecycleStateRegex,
+      () =>
+        "resumeTestFrames(){let e=this.#"+names.pTimeManagerObject+";if(e===void 0){return}if(this.#"+names.pLifecycleState+"!==`running`){throw Error(`Swervle test frames require a running race.`)}return e.start()}"
+    )
+  } else {
+    mainPatcher.skip("07.10resumeTestFrames", "pTimeManagerObject, and/or pLifecycleState could not be derived")
+  }
   /*
   resumeTestFrames() {
     let e = this."+names.pTimeManagerObject+";
@@ -670,15 +714,40 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
     return e.start()
   }
   */
-  mainPatcher.insertAfter(
-    "07.11loadRivalGhost",
-    lifecycleStateRegex,
-    () =>
-      "async loadRivalGhost(e){if(this.#"+names.pSimulationManager+"===undefined){throw new Error('loadRivalGhost failed: Instance state #"+names.pSimulationManager+" is undefined.')}if(this.#"+names.pTrack+"===undefined){throw new Error('loadRivalGhost failed: Instance state #"+names.pTrack+" is undefined.')}if(!e||typeof e!=='object'){throw new TypeError(`loadRivalGhost failed: Expected an options object argument. ${ e }`)}if(typeof e.statesBase64!=='string'){throw new TypeError(`loadRivalGhost failed: 'statesBase64' must be a string, received ${ typeof e.statesBase64 }. ${e.statesBase64 }`)}if(typeof e.displayName!=='string'){if(typeof e.publicDisplayName!=='string'){throw new TypeError(`loadRivalGhost failed: 'displayName' or 'publicDisplayName' must be a string, received ${ typeof e.displayName } and ${ typeof e.publicDisplayName }.`)}e.displayName=e.publicDisplayName}if(!e.livery||typeof e.livery!=='object'){console.warn(`loadRivalGhost warning: 'livery' expected an object, received ${ typeof e.livery }.`)}try{let t="+names.fValidStates+"(e.statesBase64,{expectedLength:e.durationTicks,maximumLength:"+names.fGetRuleset+"(this.#"+names.pTrack+".track.revision.rulesetVersion).maximumRaceTicks});this.__ghostStates=t;if(this.#"+names.pRivalGhost+".rivalReplay?.dispose(),this.#"+names.pRivalGhost+".rival?.dispose(),this.#"+names.pRivalGhost+".rivalReplay=void 0,this.#"+names.pRivalGhost+".rival=void 0,this.#"+names.pRivalGhost+".rivalGap=void 0,t.length===0){return}let n=new "+names.cRivalGhostSimulator+"({modifiers:this.#"+names.pRivalGhostModifiers+",states:t,track:this.#"+names.pTrack+".track}),r=null;try{let i=n.create();let a=new "+names.cGhostCarView+"({appearance:"+names.vGCVApperance+",assetInstance:"+names.vGCVAssetInstance+",definition:"+names.vGCVDefinition+",entityId:i.car.entityId,materialColorOverrides:"+names.vGCVMaterialColorOverrides+",materialRegistrar:this.#"+names.pTerrainViewManagerObject+".materialRegistrar});let ghostLivery=e.livery??e.ghost?.livery??e.design??null;r=await this.#"+names.pRivalGhost+".createGhostRaceLivery(a,ghostLivery);let o="+names.fGetGhostDisplayName+"({displayName:e.displayName,relationship:`friend`,surface:`gameplay`}),s=new "+names.cRivalGhostRenderer+"({carView:a,initialSnapshot:i.car,nameplate:o===null?null:{label:o},parent:this.#"+names.pTerrainViewManagerObject+".viewParent});s.setVisible(this.#"+names.pRivalGhost+"),this.#"+names.pRivalGhost+".rival=s,this.#"+names.pRivalGhost+".rivalReplay=n,this.#"+names.pRivalGhost+".rivalGap=new "+names.cRivalGapGetter+"(this.#"+names.pTrack+".track.routeLine),this.#"+names.pRenderer+"?.render("+names.fValidateCamera+"(this.#"+names.pCameraManagerObject+").camera)}catch(e){throw r?.dispose(),n.dispose(),e}return this.diagnostics()}catch(e){throw Error(`Failed to load rival ghost: ${ e instanceof Error?e.message:String(e)}`)}}"
-  )
+  //#region
+  if (
+    names.pSimulationManager &&
+    names.pTrack &&
+    names.fValidStates &&
+    names.fGetRuleset &&
+    names.pRivalGhost &&
+    names.cRivalGhostSimulator &&
+    names.pRivalGhostModifiers &&
+    names.cGhostCarView &&
+    names.vGCVApperance &&
+    names.vGCVAssetInstance &&
+    names.vGCVDefinition &&
+    names.vGCVMaterialColorOverrides &&
+    names.pTerrainViewManagerObject &&
+    names.fGetGhostDisplayName &&
+    names.cRivalGhostRenderer &&
+    names.cRivalGapGetter &&
+    names.pRenderer &&
+    names.fValidateCamera &&
+    names.pCameraManagerObject
+  ) {
+  //#endregion
+    mainPatcher.insertAfter(
+      "07.11loadRivalGhost",
+      lifecycleStateRegex,
+      () =>
+        "async loadRivalGhost(e){if(this.#"+names.pSimulationManager+"===undefined){throw new Error('loadRivalGhost failed: Instance state #"+names.pSimulationManager+" is undefined.')}if(this.#"+names.pTrack+"===undefined){throw new Error('loadRivalGhost failed: Instance state #"+names.pTrack+" is undefined.')}if(!e||typeof e!=='object'){throw new TypeError(`loadRivalGhost failed: Expected an options object argument. ${ e }`)}if(typeof e.statesBase64!=='string'){throw new TypeError(`loadRivalGhost failed: 'statesBase64' must be a string, received ${ typeof e.statesBase64 }. ${e.statesBase64 }`)}if(typeof e.displayName!=='string'){if(typeof e.publicDisplayName!=='string'){throw new TypeError(`loadRivalGhost failed: 'displayName' or 'publicDisplayName' must be a string, received ${ typeof e.displayName } and ${ typeof e.publicDisplayName }.`)}e.displayName=e.publicDisplayName}if(!e.livery||typeof e.livery!=='object'){console.warn(`loadRivalGhost warning: 'livery' expected an object, received ${ typeof e.livery }.`)}try{let t="+names.fValidStates+"(e.statesBase64,{expectedLength:e.durationTicks,maximumLength:"+names.fGetRuleset+"(this.#"+names.pTrack+".track.revision.rulesetVersion).maximumRaceTicks});this.__ghostStates=t;if(this.#"+names.pRivalGhost+".rivalReplay?.dispose(),this.#"+names.pRivalGhost+".rival?.dispose(),this.#"+names.pRivalGhost+".rivalReplay=void 0,this.#"+names.pRivalGhost+".rival=void 0,this.#"+names.pRivalGhost+".rivalGap=void 0,t.length===0){return}let n=new "+names.cRivalGhostSimulator+"({modifiers:this.#"+names.pRivalGhostModifiers+",states:t,track:this.#"+names.pTrack+".track}),r=null;try{let i=n.create();let a=new "+names.cGhostCarView+"({appearance:"+names.vGCVApperance+",assetInstance:"+names.vGCVAssetInstance+",definition:"+names.vGCVDefinition+",entityId:i.car.entityId,materialColorOverrides:"+names.vGCVMaterialColorOverrides+",materialRegistrar:this.#"+names.pTerrainViewManagerObject+".materialRegistrar});let ghostLivery=e.livery??e.ghost?.livery??e.design??null;r=await this.#"+names.pRivalGhost+".createGhostRaceLivery(a,ghostLivery);let o="+names.fGetGhostDisplayName+"({displayName:e.displayName,relationship:`friend`,surface:`gameplay`}),s=new "+names.cRivalGhostRenderer+"({carView:a,initialSnapshot:i.car,nameplate:o===null?null:{label:o},parent:this.#"+names.pTerrainViewManagerObject+".viewParent});s.setVisible(this.#"+names.pRivalGhost+"),this.#"+names.pRivalGhost+".rival=s,this.#"+names.pRivalGhost+".rivalReplay=n,this.#"+names.pRivalGhost+".rivalGap=new "+names.cRivalGapGetter+"(this.#"+names.pTrack+".track.routeLine),this.#"+names.pRenderer+"?.render("+names.fValidateCamera+"(this.#"+names.pCameraManagerObject+").camera)}catch(e){throw r?.dispose(),n.dispose(),e}return this.diagnostics()}catch(e){throw Error(`Failed to load rival ghost: ${ e instanceof Error?e.message:String(e)}`)}}"
+    )
+  } else {
+    mainPatcher.skip("07.11loadRivalGhost", "1 or more identifiers could not be derived")
+  }
   /*
   async loadRivalGhost(e) {
-    console.log(`hiyya`);
     // Check internal instance state
     if (this."+names.pSimulationManager+" === undefined) {
       throw new Error('loadRivalGhost failed: Instance state "+names.pSimulationManager+" is undefined.');
@@ -755,7 +824,6 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
         this."+names.pRivalGhost+".rivalReplay = n,
         this."+names.pRivalGhost+".rivalGap = new "+names.cRivalGapGetter+"(this."+names.pTrack+".track.routeLine),
         this."+names.pRenderer+"?.render("+names.fValidateCamera+"(this."+names.pCameraManagerObject+").camera);
-        console.log(`yippe!`);
       }
       catch(e) {
         throw r?.dispose(),
