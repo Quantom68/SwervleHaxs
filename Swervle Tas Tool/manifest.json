@@ -35,11 +35,5 @@
         "run_at": "document_start",
         "world": "MAIN"
         }
-    ],
-    "web_accessible_resources": [
-        {
-        "resources": ["patched-bundle.js", "patched-replay.js", "patched-terrainview.js"],
-        "matches": ["https://swervle.com/*"]
-        }
     ]
 }
