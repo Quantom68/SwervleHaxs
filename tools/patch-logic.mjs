@@ -246,7 +246,7 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.pRenderer = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=await ([A-Za-z0-9_$]+)(`manifest`,async()=>this.#([A-Za-z0-9_$]+)());this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)/);
+    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=await ([A-Za-z0-9_$]+)\(`manifest`,async\(\)=>this.#([A-Za-z0-9_$]+)\(\)\);this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+)/);
     names.pTrack = m?.[4] ?? null;
   }
   {
@@ -255,12 +255,12 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.fGetRuleset = m?.[2] ?? null;
   }
   {
-    const m = mainRawSrc.match(/let ([A-Za-z0-9_$]+)=new([A-Za-z0-9_$]+)\(\{modifiers:this.([A-Za-z0-9_$]+),presentationRaycastEmulation:([A-Za-z0-9_$]+).opponent.replayMode===`camera-probe-v1`,states:([A-Za-z0-9_$]+).opponent.states,track:([A-Za-z0-9_$]+).track/);
+    const m = mainRawSrc.match(/let ([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(\{modifiers:this.#([A-Za-z0-9_$]+),presentationRaycastEmulation/);
     names.cRivalGhostSimulator = m?.[2] ?? null;
     names.pRivalGhostModifiers = m?.[3] ?? null;
   }
   {
-    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)({appearance:([A-Za-z0-9_$]+),assetInstance:\(await this.#([A-Za-z0-9_$]+)\.instantiate\(([A-Za-z0-9_$]+)\)),definition:([A-Za-z0-9_$]+),entityId:n.car.entityId,materialColorOverrides:([A-Za-z0-9_$]+),materialRegistrar:this.#([A-Za-z0-9_$]+).materialRegistrar/);
+    const m = mainRawSrc.match(/([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+)\(\{appearance:([A-Za-z0-9_$]+),assetInstance:\(await this.#([A-Za-z0-9_$]+)\.instantiate\(([A-Za-z0-9_$]+)\)\),definition:([A-Za-z0-9_$]+),entityId:n.car.entityId,materialColorOverrides:([A-Za-z0-9_$]+),materialRegistrar:this.#([A-Za-z0-9_$]+).materialRegistrar/);
     names.cGhostCarView = m?.[2] ?? null;
     names.vGCVApperance = m?.[3] ?? null;
     names.vGCVAssetInstance = m?.[4] ?? null;
@@ -269,19 +269,19 @@ export function deriveIdentifiers(mainSrc, mainRawSrc) {
     names.pTerrainViewManagerObject = m?.[7] ?? null;
   }
   {
-    const m = mainRawSrc.match(/function([A-Za-z0-9_$]+)\(e\)\{return e.surface===`gameplay`&&e.isLocalPlayerCar===!0\?null:e.relationship===`self-ghost`\?`You`:([A-Za-z0-9_$]+)\(e.displayName/);
+    const m = mainRawSrc.match(/function ([A-Za-z0-9_$]+)\(e\)\{return e.surface===`gameplay`&&e.isLocalPlayerCar===!0\?null:e.relationship===`self-ghost`\?`You`:([A-Za-z0-9_$]+)\(e.displayName/);
     names.fGetGhostDisplayName = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/o=new([A-Za-z0-9_$]+)\(\{carView:r,initialSnapshot:n.car,nameplate:a===null\?null:\{label:a\},parent:this.#([A-Za-z0-9_$]+).viewParent/);
+    const m = mainRawSrc.match(/o=new ([A-Za-z0-9_$]+)\(\{carView:r,initialSnapshot:n.car,nameplate:a===null\?null:\{label:a\},parent:this.#([A-Za-z0-9_$]+).viewParent/);
     names.cRivalGhostRenderer = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/function ([A-Za-z0-9_$]+)\(e\)\{if\(e===void 0\)\{throw Error\(`Swervle camera is unavailable.`\)\}return e/);
+    const m = mainRawSrc.match(/function ([A-Za-z0-9_$]+)\(e\)\{if\(e===void 0\)throw Error\(`Swervle camera is unavailable.`\)/);
     names.fValidateCamera = m?.[1] ?? null;
   }
   {
-    const m = mainRawSrc.match(/this.([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+),this.#([A-Za-z0-9_$]+)=new ([A-Za-z0-9_$]+),this.#([A-Za-z0-9_$]+).adoptCachedLivery/);
+    const m = mainRawSrc.match(/this.#([A-Za-z0-9_$]+).initializeVehicleOrbit/);
     names.pCameraManagerObject = m?.[1] ?? null;
   }
 
