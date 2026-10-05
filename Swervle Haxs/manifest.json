@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Swervle Tas Tool",
-    "description": "tba",
+    "name": "Swervle Haxs",
+    "description": "Disables run submissions and adds a button to inject a panel with haxs.",
     "version": "2.0.0",
     "permissions": [
         "declarativeNetRequest",

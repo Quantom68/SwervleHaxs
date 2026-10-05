@@ -610,7 +610,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
       "07.06debugSaveState",
       lifecycleStateRegex,
       () =>
-        "__debugSaveState(){return{simulation:this.#"+names.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this.#"+names.pRunRecorderObject+".captureStates(),ghost:this.#"+names.pRivalGhost+".rivalReplay?.captureRawSnapshot()??null}}"
+        "__debugSaveState(){return{simulation:this.#"+names.pSimulationManager+".simulation.captureSnapshot(),inputBytes:this.#"+names.pRunRecorderObject+".captureStates()}}"
     )
   } else {
     mainPatcher.skip("07.06debugSaveState", "pSimulationManager, pRunRecorderObject, and/or pRivalGhost could not be derived")
@@ -620,7 +620,6 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
     return {
       simulation: this."+names.pSimulationManager+".simulation.captureSnapshot(),
       inputBytes: this."+names.pRunRecorderObject+".captureStates(),
-      ghost: this."+names.pRivalGhost+".rivalReplay?.captureRawSnapshot() ?? null,
     };
   }
   */
@@ -637,7 +636,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
       "07.07debugLoadState",
       lifecycleStateRegex,
       () =>
-        "__debugLoadState(state){this.#"+names.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this.#"+names.pTimeManagerObject+"?.clock.restore(this.#"+names.pSimulationManager+".simulation.captureSnapshot().clock);this.#"+names.pRunRecorderObject+".reset();for(const b of state.inputBytes){this.#"+names.pRunRecorderObject+".recordByte(b)}this.#"+names.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0;if(this.#"+names.pRivalGhost+".rivalReplay&&state.ghost){this.#"+names.pRivalGhost+".rivalReplay.restoreRawSnapshot(state.ghost);this.#"+names.pRivalGhost+".rival?.consumeSnapshot(this.#"+names.pRivalGhost+".rivalReplay.frame.car)}}"
+        "__debugLoadState(state){this.#"+names.pSimulationManager+".simulation.restoreSnapshot(state.simulation);this.#"+names.pTimeManagerObject+"?.clock.restore(this.#"+names.pSimulationManager+".simulation.captureSnapshot().clock);this.#"+names.pRunRecorderObject+".reset();for(const b of state.inputBytes){this.#"+names.pRunRecorderObject+".recordByte(b)}this.#"+names.pInputBase64+"=state.inputBytes.length>0?state.inputBytes[state.inputBytes.length-1]&95:0}"
     )
   } else {
     mainPatcher.skip("07.07debugLoadState", "1 or more identifiers could not be derived")
@@ -651,12 +650,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
     for (const b of state.inputBytes) this."+names.pRunRecorderObject+".recordByte(b);
     this."+names.pInputBase64+" = state.inputBytes.length > 0
       ? state.inputBytes[state.inputBytes.length - 1] & 95
-      : 0;
-
-    if (this."+names.pRivalGhost+".rivalReplay && state.ghost) {
-      this."+names.pRivalGhost+".rivalReplay.restoreRawSnapshot(state.ghost);
-      this."+names.pRivalGhost+".rival?.consumeSnapshot(this."+names.pRivalGhost+".rivalReplay.frame.car);
-    }
+      : 0
   }
   */
   if (names.pTimeManagerObject && names.pQualityMonitor && names.pRenderer) {
@@ -802,38 +796,38 @@ export function patchTerrainViewChunk(tvSrc, names, results, log = console) {
 
   // Swervle Haxs
 
-  // r1. Add captureStates to the run recorder
-  tvPatcher.insertAfter(
-    "r1addCaptureStates",
-    /get tickCount\(\){return this.#t.length}/,
-    () =>
-      "captureStates(){return Uint8Array.from(this.#t)}"
-  )
-  // #t is technically an unstable private property,
-  // but because the class is so small and minor that
-  // it doesn't get much updates, it is stable enough.
+  // // r1. Add captureStates to the run recorder
+  // tvPatcher.insertAfter(
+  //   "r1addCaptureStates",
+  //   /get tickCount\(\){return this.#t.length}/,
+  //   () =>
+  //     "captureStates(){return Uint8Array.from(this.#t)}"
+  // )
+  // // #t is technically an unstable private property,
+  // // but because the class is so small and minor that
+  // // it doesn't get much updates, it is stable enough.
 
-  // r2. Add captureRawSnapshot and restoreRawSnapshot
-  //     to ghost replay.
-  if (
-    names.mCheckIfGhostDisposed &&
-    names.pReplaySimulationManager &&
-    names.pReplayTick &&
-    names.pReplayPrevPyte &&
-    names.pReplayPhase &&
-    names.pReplayCarState &&
-    names.fReturnCarState &&
-    names.pIsCapturePresentationData
-  ) {
-    tvPatcher.insertAfter(
-      "r2addSnapshotMethods",
-      /captureFrame\(\){return this.frame}/,
-      () =>
-        "captureRawSnapshot(){this."+names.mCheckIfGhostDisposed+"();let e=this."+names.pReplaySimulationManager+";if(e===null){return null}return{tick:this."+names.pReplayTick+",prevByte:this."+names.pReplayPrevPyte+",phase:this."+names.pReplayPhase+",sim:e.simulation.captureSnapshot()}}restoreRawSnapshot(snap){this."+names.mCheckIfGhostDisposed+"();let e=this."+names.pReplaySimulationManager+";if(e===null||snap===null){return}e.simulation.restoreSnapshot(snap.sim);this."+names.pReplayTick+"=snap.tick;this."+names.pReplayPrevPyte+"=snap.prevByte;this."+names.pReplayPhase+"=snap.phase;let t=e.model.base.requireCar(e.model.carEntityId).captureSnapshot();this."+names.pReplayCarState+"="+names.fReturnCarState+"(this."+names.pReplayTick+",t,t,[],e.model.wheelSurfaceSamples,this."+names.pIsCapturePresentationData+")}"
-    )
-  } else {
-    tvPatcher.skip("r2addSnapshotMethods", "1 or more identifiers could not be derived")
-  }
+  // // r2. Add captureRawSnapshot and restoreRawSnapshot
+  // //     to ghost replay.
+  // if (
+  //   names.mCheckIfGhostDisposed &&
+  //   names.pReplaySimulationManager &&
+  //   names.pReplayTick &&
+  //   names.pReplayPrevPyte &&
+  //   names.pReplayPhase &&
+  //   names.pReplayCarState &&
+  //   names.fReturnCarState &&
+  //   names.pIsCapturePresentationData
+  // ) {
+  //   tvPatcher.insertAfter(
+  //     "r2addSnapshotMethods",
+  //     /captureFrame\(\){return this.frame}/,
+  //     () =>
+  //       "captureRawSnapshot(){this."+names.mCheckIfGhostDisposed+"();let e=this."+names.pReplaySimulationManager+";if(e===null){return null}return{tick:this."+names.pReplayTick+",prevByte:this."+names.pReplayPrevPyte+",phase:this."+names.pReplayPhase+",sim:e.simulation.captureSnapshot()}}restoreRawSnapshot(snap){this."+names.mCheckIfGhostDisposed+"();let e=this."+names.pReplaySimulationManager+";if(e===null||snap===null){return}e.simulation.restoreSnapshot(snap.sim);this."+names.pReplayTick+"=snap.tick;this."+names.pReplayPrevPyte+"=snap.prevByte;this."+names.pReplayPhase+"=snap.phase;let t=e.model.base.requireCar(e.model.carEntityId).captureSnapshot();this."+names.pReplayCarState+"="+names.fReturnCarState+"(this."+names.pReplayTick+",t,t,[],e.model.wheelSurfaceSamples,this."+names.pIsCapturePresentationData+")}"
+  //   )
+  // } else {
+  //   tvPatcher.skip("r2addSnapshotMethods", "1 or more identifiers could not be derived")
+  // }
   /*
   captureRawSnapshot() {
     this."+names.mCheckIfGhostDisposed+"();

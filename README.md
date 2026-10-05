@@ -1,5 +1,7 @@
 # Swervle Haxs
 
+Disables run submissions and adds a button to inject a panel with haxs.
+
 A lot of core code is from [Swervle Utils](https://github.com/PhantomOrigin/SwervleUtils), so read their README for more information.
 
 ## Features

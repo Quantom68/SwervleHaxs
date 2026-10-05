@@ -20,9 +20,6 @@
             <div class="tm-multi-element-line tm-advanced-only">
                 <button id="tm-action-btn" class="tm-btn">Test</button>
             </div>
-            <p style="font-size: 13px; margin: 10px 0 0 0;">Ghosts:</p>
-            <button id="tm-import-ghost-btn" class="tm-btn">Import Ghost.json</button>
-            <input type="file" id="tm-import-ghost-file-input" style="display: none;" accept=".json,.txt,.csv" />
             <p style="font-size: 13px; margin: 10px 0 0 0;">Play Controls:</p>
             <div class="tm-multi-element-line tm-advanced-only">
                 <button id="tm-playback-start-btn" class="tm-btn">Start</button>
