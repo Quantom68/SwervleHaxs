@@ -351,6 +351,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
         `buildNameplate:${names.buildNameplate},viewParent:this.${names.playerSceneManager}.viewParent,` +
         `materialRegistrar:this.${names.playerSceneManager}.materialRegistrar,` +
         `modifiers:this.${names.physicsModifiers},track:i.track,assetFactory:this.${names.assetFactory},` +
+        `liveryModuleUrl:${JSON.stringify(liveryChunkUrl)},loadLiveryModule:()=>import(${JSON.stringify(liveryChunkUrl)}),` +
         // loadLiveryModule prefers window.__srvLiveryUrl (kept fresh across
         // swervle.com redeploys by background.js's periodic re-sync + a
         // "srv:setLiveryUrl" push to this page — see background.js/
@@ -362,6 +363,8 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
         // livery would silently render with no livery (wearLivery's own
         // catch) until the next scheduled repatch, up to 15 minutes later.
         `liveryModuleUrl:${JSON.stringify(liveryChunkUrl)},loadLiveryModule:()=>import(window.__srvLiveryUrl||${JSON.stringify(liveryChunkUrl)}),` +
+        (names.cameraController ? `camera:this.${names.cameraController}?.camera` : "camera:null") +
+        "};" +
         "try{window.__srv.onRaceBoot?.();}catch(e){console.error(e);}"
     );
   } else {
