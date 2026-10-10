@@ -59,6 +59,7 @@ import {
   makePatcher,
   RV_CLASS_MARKER,
   deriveIdentifiers,
+  deriveTvIdentifiers,
   patchMainBundle,
   patchTerrainViewChunk,
   discoverAndFetchMainBundle,
