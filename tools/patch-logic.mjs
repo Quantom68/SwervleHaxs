@@ -271,6 +271,10 @@ export function deriveTvIdentifiers(tvSrc) {
   // Swervle Haxs
 
   {
+    const m = tvSrc.match(/tickCount\(\){return this.#([A-Za-z0-9_$]+).length}/);
+    names.pReplayStates = m?.[1] ?? null;
+  }
+  {
     const m = tvSrc.match(/#([A-Za-z0-9_$]+)\(\){if\(this.#([A-Za-z0-9_$]+)===`disposed`\)throw Error\(`Rival replay simulation is disposed.`\)}/);
     names.mCheckIfGhostDisposed = m?.[1] ?? null;
   }
@@ -301,10 +305,6 @@ export function deriveTvIdentifiers(tvSrc) {
   {
     const m = tvSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+).capturePresentationData===!0;/);
     names.pIsCapturePresentationData = m?.[1] ?? null;
-  }
-  {
-    const m = tvSrc.match(/tickCount\(\){return this.#([A-Za-z0-9_$]+).length}/);
-    names.pReplayStates = m?.[1] ?? null;
   }
 
   return names;
@@ -811,12 +811,16 @@ export function patchTerrainViewChunk(tvSrc, names, results, log = console) {
   // Swervle Haxs
 
   // r1. Add captureStates to the run recorder
-  tvPatcher.insertAfter(
-    "r1addCaptureStates",
-    /get tickCount\(\){return this.#([A-Za-z0-9_$]+).length}/,
-    () =>
-      "captureStates(){return Uint8Array.from(this.#"+names.pReplayStates+")}"
-  )
+  if (names.pReplayStates) {
+    tvPatcher.insertAfter(
+      "r1addCaptureStates",
+      /get tickCount\(\){return this.#([A-Za-z0-9_$]+).length}/,
+      () =>
+        "captureStates(){return Uint8Array.from(this.#"+names.pReplayStates+")}"
+    )
+  } else {
+    tvPatcher.skip("r1addCaptureStates", "pReplayStates could not be derived")
+  }
 
   // // r2. Add captureRawSnapshot and restoreRawSnapshot
   // //     to ghost replay.
