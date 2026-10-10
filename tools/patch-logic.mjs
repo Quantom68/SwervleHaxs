@@ -302,6 +302,10 @@ export function deriveTvIdentifiers(tvSrc) {
     const m = tvSrc.match(/this.#([A-Za-z0-9_$]+)=([A-Za-z0-9_$]+).capturePresentationData===!0;/);
     names.pIsCapturePresentationData = m?.[1] ?? null;
   }
+  {
+    const m = tvSrc.match(/tickCount\(\){return this.#([A-Za-z0-9_$]+).length}/);
+    names.pReplayStates = m?.[1] ?? null;
+  }
 
   return names;
 }
@@ -806,16 +810,13 @@ export function patchTerrainViewChunk(tvSrc, names, results, log = console) {
 
   // Swervle Haxs
 
-  // // r1. Add captureStates to the run recorder
-  // tvPatcher.insertAfter(
-  //   "r1addCaptureStates",
-  //   /get tickCount\(\){return this.#t.length}/,
-  //   () =>
-  //     "captureStates(){return Uint8Array.from(this.#t)}"
-  // )
-  // // #t is technically an unstable private property,
-  // // but because the class is so small and minor that
-  // // it doesn't get much updates, it is stable enough.
+  // r1. Add captureStates to the run recorder
+  tvPatcher.insertAfter(
+    "r1addCaptureStates",
+    /get tickCount\(\){return this.#([A-Za-z0-9_$]+).length}/,
+    () =>
+      "captureStates(){return Uint8Array.from(this.#"+names.pReplayStates+")}"
+  )
 
   // // r2. Add captureRawSnapshot and restoreRawSnapshot
   // //     to ghost replay.
