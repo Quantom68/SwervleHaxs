@@ -1,0 +1,10 @@
+import{r as e,t}from"c5c40cc0-BhOk4swo.js";import{Dt as n,jt as r,x as i}from"e5c40cc0-DicLYlw2.js";function a(e){for(let t of n){let n=t.vehicles.find(t=>t.id===e);if(n!==void 0)return n.label}return`That vehicle`}function o(e){let r=t(`${n.find(t=>t.id===e.packId)?.label??`VEHICLE`} PACK`),a=e.signedIn?`<button class="secondary-button" type="button" data-vehicle-offer-action="close">NOT NOW</button>`:`<button class="primary-button" type="button" data-vehicle-offer-action="sign-in">SIGN UP</button>
+        <button class="secondary-button" type="button" data-vehicle-offer-action="close">NOT NOW</button>`;return`
+      <div class="result-card vehicle-offer panel" role="dialog" aria-modal="true"
+        aria-labelledby="vehicle-offer-title" tabindex="-1">
+        <h2 id="vehicle-offer-title">${r}</h2>
+        <div class="vehicle-pack-options vehicle-offer-pack" role="list" aria-label="Vehicle pack">${i(e.packId,`none`,e.signedIn,e.signedIn)}
+        </div>
+        <div class="vehicle-offer-actions">${a}
+        </div>
+      </div>`}function s(t){let n=!1,i=e=>{n||(n=!0,t.onResolve?.(e))},s=e({content:o({packId:t.packId,signedIn:t.signedIn,vehicleLabel:a(t.vehicleId)}),initialFocusSelector:`.vehicle-offer`,mount:t.mount,onClose:t.onClose,onDismiss:e=>{i(e)},scrimClassName:`menu-scrim vehicle-offer-scrim`});return s.element.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let n=e.target.closest(`[data-vehicle-offer-action]`)?.dataset.vehicleOfferAction;if(n===`close`){i(`not-now`),s.close();return}if(n===`sign-in`){i(`sign-up`),s.close(),t.onSignIn?.();return}let a=e.target.closest(`[data-vehicle-pack-buy]`),o=a?.dataset.vehiclePackBuy;a===null||o===void 0||!r(o)||(i(`buy`),s.close(),t.onBuy?.(o))}),s}export{s as openVehicleOfferDialogV1};

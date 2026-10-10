@@ -1,0 +1,1 @@
+import{l as e}from"c5c40cc0-pXB29GhL.js";import{d as t}from"c5c40cc0-r3Wv6p1v.js";function n(n,r){return e(r).terrain?.tunnelStructures===`removed`?t(n):n}export{n as t};

@@ -1,0 +1,1 @@
+var e=.02,t=.005;function n(n){let r=n.kind===`plate`?.65/n.width:n.kind===`decal`?t:e;return{width:n.width*r,height:n.height*r,depth:n.depth*r}}export{t as n,n as r,e as t};
