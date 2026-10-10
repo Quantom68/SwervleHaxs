@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Swervle Haxs",
     "description": "Disables run submissions and adds a button to inject a panel with haxs.",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "permissions": [
         "declarativeNetRequest",
         "activeTab",
