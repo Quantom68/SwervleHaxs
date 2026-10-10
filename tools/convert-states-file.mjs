@@ -9,7 +9,7 @@ try {
   const fileContent = readFileSync(inputPath, 'utf8').trim();
   
   // Convert the text content to Base64 encoding
-  const statesBase64 = Buffer.from(fileContent, 'utf8').toString('base64');
+  const statesBase64 = Buffer.from(fileContent, 'utf8').toString();
 
   const ghostData = {
     displayName: "",

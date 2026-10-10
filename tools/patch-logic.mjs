@@ -91,7 +91,7 @@ export async function discoverAndFetchMainBundle(origin) {
 }
 
 // The raceTelemetry patch anchors on the replay class's `get finished()`.
-const RV_CLASS_MARKER = /get finished\(\)\{return this\.#s===`finished`\|\|this\.#s===`exhausted`\}/;
+export const RV_CLASS_MARKER = /get finished\(\)\{return this\.#s===`finished`\|\|this\.#s===`exhausted`\}/;
 
 // The chunk the main bundle imports RV from is sometimes just a re-export
 // hub, with the class itself defined in one of ITS imports — so if the
@@ -351,7 +351,6 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
         `buildNameplate:${names.buildNameplate},viewParent:this.${names.playerSceneManager}.viewParent,` +
         `materialRegistrar:this.${names.playerSceneManager}.materialRegistrar,` +
         `modifiers:this.${names.physicsModifiers},track:i.track,assetFactory:this.${names.assetFactory},` +
-        `liveryModuleUrl:${JSON.stringify(liveryChunkUrl)},loadLiveryModule:()=>import(${JSON.stringify(liveryChunkUrl)}),` +
         // loadLiveryModule prefers window.__srvLiveryUrl (kept fresh across
         // swervle.com redeploys by background.js's periodic re-sync + a
         // "srv:setLiveryUrl" push to this page — see background.js/
