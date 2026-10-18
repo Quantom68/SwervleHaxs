@@ -1,0 +1,1 @@
+function e(e,t=`durationTicks`){if(!Number.isSafeInteger(e)||e<0)throw TypeError(`${t} must be a non-negative safe integer.`)}function t(t){return e(t),Math.round(t*1e3/60)}function n(n,r){if(e(n),r==null)return t(n);if(!Number.isSafeInteger(r)||r<0)throw TypeError(`displayTimeMs must be a non-negative safe integer.`);return r}export{n as t};
