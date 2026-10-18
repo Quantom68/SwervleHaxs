@@ -512,9 +512,9 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   //    successfully.
   mainPatcher.replaceOnce(
     "00replaceTitleText",
-    /title:i.mode===`challenge`\?`BEAT THIS RUN.`:`LET'S SWERVE`/,
+    /`BEAT THIS RUN.`:`LET'S SWERVE`/,
     () =>
-      "title:i.mode===`challenge`?`DESTROY THIS RUN.`:`LET'S TAS`",
+      "`DESTROY THIS RUN.`:`LET'S TAS`",
   )
 
   // 1. Kill the run-submission network call. submitRunOutcome's only side
