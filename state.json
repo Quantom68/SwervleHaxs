@@ -6,8 +6,7 @@
   "failedPatches": [
     "main bundle/expose-ready-ingredients",
     "main bundle/watchReplayControlLock_handbrake",
-    "main bundle/watchReplayControlLock_throttle",
-    "main bundle/00replaceTitleText"
+    "main bundle/watchReplayControlLock_throttle"
   ],
-  "patchedAt": "2026-10-18T17:54:08.959Z"
+  "patchedAt": "2026-10-18T17:56:57.950Z"
 }
