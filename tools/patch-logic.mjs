@@ -781,7 +781,7 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
   // 11. Prevent reloading
   mainPatcher.replaceOnce(
     "11preventReloading",
-    /return globalThis.location.replace\(t\), !0;/,
+    /return globalThis.location.replace\(t\),!0;/,
     () =>
       "return !1;"
   )
