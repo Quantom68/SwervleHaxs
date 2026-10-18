@@ -778,6 +778,14 @@ export function patchMainBundle(mainSrc, mainRawSrc, names, origin, results, log
       "window.__SWERVLE_GAME__=t;"
   )
 
+  // 11. Prevent reloading
+  mainPatcher.replaceOnce(
+    "11preventReloading",
+    /return globalThis.location.replace\(t\), !0;/,
+    () =>
+      "return !1;"
+  )
+
   return { patchedSrc: src, liveryChunkUrl };
 }
 
