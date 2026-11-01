@@ -1,246 +1,181 @@
 #!/usr/bin/env node
-// CLI wrapper around tools/patch-logic.mjs (the portable derive/patch core —
-// see that file for the actual identifier-derivation regexes and the
-// rationale behind the wildcarded-anchor approach).
+// Swervle Haxs bundle patcher (CLI around tools/patch-logic.mjs).
 //
-// ============================================================================
-// WHY THIS RUNS ON GITHUB ACTIONS, NOT INSIDE THE EXTENSION
-// ============================================================================
-// Two earlier attempts tried to make the extension patch itself entirely at
-// runtime, inside the browser:
-//   1. Redirect swervle.com's script request to a `data:` URL built in
-//      memory. Worked in one browser, but Chromium's redirect-safety rules
-//      reject redirecting a script-destination request to `data:` in
-//      others (confirmed: net::ERR_UNSAFE_REDIRECT in Brave) — inconsistent
-//      across browsers, not something a config change fixes.
-//   2. Redirect to a made-up `chrome-extension://` path and serve it
-//      dynamically from the background service worker's own `fetch` event.
-//      Also failed: a service worker only intercepts fetches from clients
-//      IT CONTROLS (pages loaded from its own extension origin) — a
-//      cross-origin redirect from an external page never reaches that
-//      handler at all. `web_accessible_resources` only exposes REAL files
-//      that exist in the package, with no hook for dynamic content.
-// Conclusion: MV3 does not allow an extension to synthesize content for an
-// external page without that content already existing as a real file
-// somewhere reachable over plain https:// — full stop, not a bug to work
-// around.
-//
-// So the actual fetch+derive+patch step now runs OUTSIDE any browser
-// entirely, on a schedule, via GitHub Actions (see
-// .github/workflows/repatch.yml) — which runs this exact script and commits
-// patched-bundle.js/patched-terrainview.js/state.json when they change.
-// Redirecting a `<script>` tag to a normal `https://raw.githubusercontent.com/...`
-// URL is completely unrestricted (ordinary cross-origin script loading),
-// which is what background.js in the extension itself now does — it only
-// needs to know *which* live swervle.com filenames to intercept (from
-// state.json, a few bytes) and points the ACTION at these fixed GitHub URLs,
-// whose CONTENT updates independently, with no extension release needed.
-//
-// Usage:
 //   node tools/patch-bundle.mjs
-//     Fetches everything live from swervle.com, writes
-//     patched-bundle.js/patched-terrainview.js/state.json into this
-//     directory (this is what the GitHub Actions workflow runs), and runs
-//     the ESM-integrity self-check — a non-zero exit code here means the
-//     workflow's own commit/push step is skipped, so a corrupted patch is
-//     never published.
+//     LIVE: fetches swervle.com, writes patched-bundle.js (+ patched-terrainview.js
+//     if the recorder lives in a separate chunk) and state.json into the repo
+//     root. This is what the GitHub Action runs.
 //
-//   node tools/patch-bundle.mjs <main.js> <terrainview-chunk.js>
-//     Offline mode: patches two already-downloaded files instead of
-//     fetching, for local testing against a saved bundle. Doesn't write
-//     state.json (the real hashes/filenames aren't meaningful offline).
-// ============================================================================
+//   node tools/patch-bundle.mjs --local <main.js> [--tv <chunk.js>]
+//                               [--origin <url>] [--assets-path /assets/] [--out local]
+//     LOCAL FILES (e.g. an offline build): patches the given file(s) and writes
+//     <out>/patched-bundle.js, <out>/patched-terrainview.js and <out>/state.json.
+//     The extension loads these from its own package (see background.js).
+//     --origin must be the origin the offline build is SERVED from
+//     (e.g. http://localhost:5500): chunk imports are rewritten to absolute URLs
+//     on it, because the patched file is served from chrome-extension://.
+//
+//   node tools/patch-bundle.mjs --install <main.js> [--tv <chunk.js>]
+//     IN PLACE: patches the file and writes it back over itself (original saved
+//     as <name>.orig). No extension redirect and no URL rewriting needed —
+//     just load the page. Run again after restoring .orig if you update the build.
+//
+// Exit code is non-zero if a patched file fails the ESM parse/link self-check
+// (so CI never publishes a corrupted file). Individual stale anchors only warn.
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, copyFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { dirname, join } from "node:path";
+import { dirname, join, basename, resolve } from "node:path";
 import {
   rewriteRelativeChunkRefs,
-  makePatcher,
-  RV_CLASS_MARKER,
   deriveIdentifiers,
-  deriveTvIdentifiers,
   patchMainBundle,
-  patchTerrainViewChunk,
+  patchRecorder,
   discoverAndFetchMainBundle,
-  fetchTerrainViewChunk,
+  fetchReplayChunk,
+  findReplayChunkPath,
+  RECORDER_MARKER,
 } from "./patch-logic.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUT_DIR = join(__dirname, "..");
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-const ORIGIN = "https://swervle.com";
-const [, , mainInArg, terrainViewInArg] = process.argv;
-const OFFLINE = Boolean(mainInArg && terrainViewInArg);
+function parseArgs(argv) {
+  const o = { mode: "live", origin: "https://swervle.com", assetsPath: "/assets/", out: "local", tv: null, main: null };
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i];
+    const next = () => argv[++i] ?? (console.error(`Missing value for ${a}`), process.exit(1));
+    if (a === "--local") (o.mode = "local"), (o.main = next());
+    else if (a === "--install") (o.mode = "install"), (o.main = next());
+    else if (a === "--tv") o.tv = next();
+    else if (a === "--origin") o.origin = next();
+    else if (a === "--assets-path") o.assetsPath = next();
+    else if (a === "--out") o.out = next();
+    else if (a === "-h" || a === "--help") (console.log(readFileSync(fileURLToPath(import.meta.url), "utf8").split("\n").slice(1, 26).join("\n")), process.exit(0));
+    else if (!o.main && !a.startsWith("--")) (o.mode = "local"), (o.main = a); // legacy: <main.js> [tv.js]
+    else if (o.main && !o.tv && !a.startsWith("--")) o.tv = a;
+    else (console.error(`Unknown argument ${a}`), process.exit(1));
+  }
+  return o;
+}
 
-// Sanity-checks a patched output file by actually letting Node's ESM loader
-// parse AND link it — not just `node --check`, which only does a syntax
-// pass and has been observed to pass clean on code containing a genuine
-// "Private field must be declared in an enclosing class" defect (a
-// linking-time error, not a syntax error). Class-body private-field
-// validation only happens during linking, which only a real
-// parse-and-link attempt (like a dynamic import()) exercises.
-//
-// The patched files legitimately contain `import("https://swervle.com/...")`
-// calls meant for a browser, which Node's loader can never resolve — so a
-// SUCCESSFUL run of this always ends in one specific, benign error *after*
-// parsing/linking already completed. Anything else (a SyntaxError, or an
-// error before that expected point) means this patch run corrupted the
-// file, and is treated as a hard failure — which, on GitHub Actions,
-// prevents the broken output from ever being committed/published.
-async function verifyEsmIntegrity(fileLabel, absPath) {
+// Parses AND links the output with Node's ESM loader (plain `node --check`
+// misses private-field errors). A correct file always ends in one benign
+// error afterwards: its absolute http(s):// imports can't be loaded by Node.
+async function verifyEsmIntegrity(label, absPath) {
   try {
     await import(pathToFileURL(absPath).href + `?verify=${Date.now()}`);
-    console.log(`✓ [${fileLabel}] parsed and linked cleanly (imported with no error at all — unexpected but fine).`);
+    console.log(`✓ [${label}] parsed and linked cleanly.`);
     return true;
   } catch (err) {
-    // Matched on the stable "Received protocol 'https:'" part rather than
-    // the more verbose "Only URLs with a scheme in: ..." prefix — that
-    // prefix's exact wording changed between Node versions (older Node:
-    // "file and data"; Node 24+: "file, data, and node", once it added
-    // node: import support), which silently broke this check the moment
-    // the CI runner picked up Node 24 — a real false positive that briefly
-    // blocked every otherwise-successful patch run.
-    const isExpectedNetworkError =
+    const benign =
       err instanceof Error &&
       !(err instanceof SyntaxError) &&
-      /Received protocol ['"]https:['"]|Only URLs with a scheme|Cannot find module|ENOTFOUND|fetch failed/i.test(err.message);
-    if (isExpectedNetworkError) {
-      console.log(`✓ [${fileLabel}] parsed and linked cleanly (only failed on an expected unresolvable https:// import).`);
-      return true;
-    }
-    console.error(
-      `✗ [${fileLabel}] FAILED to parse/link — this patch run likely corrupted the file's structure ` +
-        `(e.g. an anchor split a multi-statement declaration, as happened once before):\n` +
-        `  ${err.constructor.name}: ${err.message}`
-    );
+      /Received protocol ['"]https?:['"]|Only URLs with a scheme|Cannot find module|Cannot find package|ENOTFOUND|fetch failed|ERR_MODULE_NOT_FOUND/i.test(err.message);
+    if (benign) return console.log(`✓ [${label}] parsed and linked cleanly (only failed on an unresolvable import).`), true;
+    console.error(`✗ [${label}] FAILED to parse/link: ${err.constructor.name}: ${err.message}`);
     return false;
   }
 }
 
 async function main() {
+  const opt = parseArgs(process.argv.slice(2));
   const results = [];
+  const live = opt.mode === "live";
+  const install = opt.mode === "install";
+  // Absolute-URL rewriting is only needed when the file is served from somewhere else.
+  const rewrite = (label, src) => (install ? src : rewriteRelativeChunkRefs(opt.origin, opt.assetsPath, label, src));
 
-  let mainFilename, mainRawSrc;
-  if (OFFLINE) {
-    mainRawSrc = readFileSync(mainInArg, "utf8");
-    mainFilename = mainInArg.split(/[\\/]/).pop();
-    console.log(`Offline mode: using local file ${mainInArg}`);
-  } else {
-    ({ mainFilename, mainRawSrc } = await discoverAndFetchMainBundle(ORIGIN));
-    console.log(`Discovered live main bundle: ${mainFilename}`);
+  let mainFilename, mainRaw;
+  if (live) ({ mainFilename, mainRawSrc: mainRaw } = await discoverAndFetchMainBundle(opt.origin));
+  else {
+    // --install re-patches from the saved original, so running it twice is safe.
+    const src = install && existsSync(opt.main + ".orig") ? opt.main + ".orig" : opt.main;
+    (mainRaw = readFileSync(src, "utf8")), (mainFilename = basename(opt.main));
   }
+  console.log(`${live ? "Discovered live" : "Using local"} main bundle: ${mainFilename}`);
 
-  const mainRewritten = rewriteRelativeChunkRefs(ORIGIN, "main bundle", mainRawSrc);
-  const names = deriveIdentifiers(mainRewritten, mainRawSrc);
+  const names = deriveIdentifiers(mainRaw);
   console.log("Derived identifiers:", names);
-  let { patchedSrc: mainSrc, liveryChunkUrl } = patchMainBundle(mainRewritten, mainRawSrc, names, ORIGIN, results);
+  let mainSrc = patchMainBundle(rewrite("main bundle", mainRaw), names, results);
 
-  // swervle sometimes folds the replay (RV) class into the main bundle
-  // instead of its own chunk. Then there is no TerrainView chunk to
-  // redirect: the raceTelemetry patch goes into the main bundle itself and
-  // state.json carries tvFilename: null (background.js skips that rule).
-  const rvInMain = !names.rvChunkPath && RV_CLASS_MARKER.test(mainSrc);
-  if (rvInMain) {
-    console.log("RV class lives in the main bundle — applying the raceTelemetry patch there.");
-    const tvNames = deriveTvIdentifiers(mainSrc);
-    console.log("Derived tv identifiers:", tvNames);
-    ({ patchedSrc: mainSrc } = patchTerrainViewChunk(mainSrc, tvNames, results));
-  }
-
-  writeFileSync(join(OUT_DIR, "patched-bundle.js"), mainSrc, "utf8");
-  console.log(`Patched main bundle written to patched-bundle.js (${mainSrc.length} bytes).`);
-
+  // Where does the run recorder live?
+  const recorderInMain = RECORDER_MARKER.test(mainSrc);
   let tvFilename = null;
-  let tvOk = true;
-  if (!rvInMain) {
-    let tvRawSrc;
-  if (OFFLINE) {
-    tvRawSrc = readFileSync(terrainViewInArg, "utf8");
-      tvFilename = terrainViewInArg.split(/[\/]/).pop();
+  let tvSrc = null;
+  if (recorderInMain) {
+    mainSrc = patchRecorder(mainSrc, "main bundle", results);
   } else {
-    if (!names.rvChunkPath) throw new Error("Could not locate the RV/TerrainView chunk's import path in the main bundle.");
-    ({ tvFilename, tvRawSrc } = await fetchTerrainViewChunk(ORIGIN, names.rvChunkPath));
-    console.log(`Discovered live RV/TerrainView chunk: ${tvFilename}`);
+    let tvRaw;
+    if (opt.tv) (tvRaw = readFileSync(install && existsSync(opt.tv + ".orig") ? opt.tv + ".orig" : opt.tv, "utf8")), (tvFilename = basename(opt.tv));
+    else if (live) {
+      const path = findReplayChunkPath(mainRaw);
+      if (!path) throw new Error("Recorder isn't in the main bundle and the replay chunk's import path couldn't be found.");
+      ({ tvFilename, tvRawSrc: tvRaw } = await fetchReplayChunk(opt.origin, path));
+    } else throw new Error("The run recorder isn't in the main bundle: pass the replay chunk with --tv <file>.");
+    tvSrc = patchRecorder(rewrite("replay chunk", tvRaw), "replay chunk", results);
   }
 
-  const tvRewritten = rewriteRelativeChunkRefs(ORIGIN, "TerrainView chunk", tvRawSrc);
-  const tvNames = deriveTvIdentifiers(tvRewritten);
-  console.log("Derived tv identifiers:", tvNames);
-  const { patchedSrc: tvSrc } = patchTerrainViewChunk(tvRewritten, tvNames, results);
-
-  writeFileSync(join(OUT_DIR, "patched-terrainview.js"), tvSrc, "utf8");
-  console.log(`Patched TerrainView chunk written to patched-terrainview.js (${tvSrc.length} bytes).`);
-  tvOk = await verifyEsmIntegrity("TerrainView chunk", join(OUT_DIR, "patched-terrainview.js"));
+  // ---- write ----
+  let outMain, outTv;
+  if (install) {
+    for (const [file, src] of [[opt.main, mainSrc], [opt.tv, tvSrc]]) {
+      if (!file || src == null) continue;
+      if (!existsSync(file + ".orig")) copyFileSync(file, file + ".orig");
+      writeFileSync(file, src, "utf8");
+      console.log(`Patched ${file} in place (original: ${file}.orig).`);
+    }
+    outMain = opt.main;
+    outTv = opt.tv;
+  } else {
+    const dir = live ? ROOT : resolve(ROOT, opt.out);
+    mkdirSync(dir, { recursive: true });
+    outMain = join(dir, "patched-bundle.js");
+    writeFileSync(outMain, mainSrc, "utf8");
+    console.log(`Patched main bundle -> ${outMain} (${mainSrc.length} bytes)`);
+    if (tvSrc != null) {
+      outTv = join(dir, "patched-terrainview.js");
+      writeFileSync(outTv, tvSrc, "utf8");
+      console.log(`Patched replay chunk -> ${outTv} (${tvSrc.length} bytes)`);
+    }
   }
 
-  const mainOk = await verifyEsmIntegrity("main bundle", join(OUT_DIR, "patched-bundle.js"));
+  const okMain = await verifyEsmIntegrity("main bundle", resolve(outMain));
+  const okTv = outTv && tvSrc != null ? await verifyEsmIntegrity("replay chunk", resolve(outTv)) : true;
 
   const failed = results.filter((r) => !r.ok);
   console.log(`\n${results.length - failed.length}/${results.length} patches applied.`);
-  if (failed.length > 0) {
-    console.log("Needs re-deriving (site likely changed structurally, not just renamed identifiers):");
+  if (failed.length) {
+    console.log("Needs re-deriving (anchor missing or ambiguous):");
     for (const r of failed) console.log(`  - [${r.file}] ${r.name}`);
-    console.log("\nBoth output files were still written with every OTHER patch applied — only the features tied to the anchors above are affected.");
   }
 
-  // state.json is what the extension actually reads (from the same GitHub
-  // raw host as the patched files themselves) — just enough for it to know
-  // which live swervle.com filenames to redirect, without ever fetching
-  // swervle.com itself or running any derivation logic in the browser.
-  //
-  // Only actually rewritten when something MEANINGFUL changed — `patchedAt`
-  // is excluded from that comparison specifically so an unchanged run
-  // doesn't touch the file at all (a fresh timestamp every 15 minutes would
-  // otherwise make every single run "changed" from git's point of view,
-  // forcing a commit — and therefore a push — every run regardless of
-  // whether swervle.com actually redeployed).
-  if (!OFFLINE) {
-    const statePath = join(OUT_DIR, "state.json");
-    const newState = {
+  // state.json — what the extension reads to know which filenames to redirect.
+  if (!install) {
+    const statePath = join(live ? ROOT : resolve(ROOT, opt.out), "state.json");
+    const next = {
+      source: live ? "live" : "local",
       mainFilename,
       tvFilename,
-      // The URL the game's own livery chunk currently lives at — see
-      // srv-main.js's loadLiveryModule/window.__srvLiveryUrl for why this
-      // needs to be kept live instead of only baked into the patched
-      // bundle text at patch time (that copy goes stale on every
-      // swervle.com redeploy, same as mainFilename/tvFilename, but unlike
-      // those two nothing else ever refreshes it without this).
-      liveryChunkUrl,
+      origin: live ? undefined : opt.origin,
+      assetsPath: live ? undefined : opt.assetsPath,
       patchCount: results.length,
       failedPatches: failed.map((r) => `${r.file}/${r.name}`),
     };
-    let priorState = null;
+    let prior = null;
     if (existsSync(statePath)) {
       try {
         const { patchedAt: _ignored, ...rest } = JSON.parse(readFileSync(statePath, "utf8"));
-        priorState = rest;
-      } catch {
-        // Malformed/missing prior file — treat as "changed" and rewrite below.
-      }
+        prior = rest;
+      } catch {}
     }
-    if (priorState && JSON.stringify(priorState) === JSON.stringify(newState)) {
-      console.log("state.json unchanged (same filenames/patch results as last run) — leaving it as-is.");
-    } else {
-      const state = { ...newState, patchedAt: new Date().toISOString() };
-      writeFileSync(statePath, JSON.stringify(state, null, 2) + "\n", "utf8");
-      console.log(`state.json written: ${JSON.stringify(state)}`);
-    }
+    if (prior && JSON.stringify(prior) === JSON.stringify(next)) console.log("state.json unchanged.");
+    else writeFileSync(statePath, JSON.stringify({ ...next, patchedAt: new Date().toISOString() }, null, 2) + "\n", "utf8"), console.log(`state.json written: ${statePath}`);
   }
 
-  if (!mainOk || !tvOk) {
-    console.error(
-      "\n⚠ At least one output file failed ESM integrity verification — refusing to treat this run as " +
-        "successful. On GitHub Actions this exit code stops the workflow before it commits/pushes, so the " +
-        "last known-good published files stay live instead of being overwritten with something broken. " +
-        "An anchor likely inserted code into the middle of an existing statement (see patch-logic.mjs's " +
-        "patch #2 comment history for a real past example) — it needs re-deriving there."
-    );
+  if (!okMain || !okTv) {
+    console.error("\n⚠ A patched file failed ESM verification — treat this run as failed (CI will not publish it).");
     process.exitCode = 1;
   }
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main().catch((e) => (console.error(e), process.exit(1)));
