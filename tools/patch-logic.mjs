@@ -145,7 +145,8 @@ export function deriveIdentifiers(src) {
   first(new RegExp(String.raw`this\.#(${ID})=${ID}&95\}catch\{this\.#${ID}\(\`input-system\`\)\}`), "pInputBase64");
   first(new RegExp(String.raw`if\(this\.#(${ID})\?\.model\.raceState\.phase!==\`invalid\`\)`), "pSimulationManager");
   first(new RegExp(String.raw`gpuFrameMs:this\.#(${ID})\.diagnostics\(\)\.lastGpuFrameMs,`), "pQualityMonitor");
-  first(new RegExp(String.raw`this\.#(${ID})=${ID},${ID}\(\);let ${ID}=${ID}\.diagnostics\(\);`), "pRenderer");
+  // Renderer field: assigned right before its onContextRestored hook is registered.
+  first(new RegExp(String.raw`this\.#(${ID})=(${ID}),\2\.onContextRestored\(`), "pRenderer");
   first(new RegExp(String.raw`#(${ID})\(e,t,n\)\{this\.#${ID}=!0;try\{`), "mAdvanceTicks");
   first(new RegExp(String.raw`#(${ID})\(e,t,n\)\{this\.#${ID}\?\.gearMeter`), "mRenderTick");
   // The main game class's getter — anchored on the keyboard-event tail that
@@ -156,11 +157,18 @@ export function deriveIdentifiers(src) {
     ),
     "pLifecycleState"
   );
+  // The input-sampling method (`#nr`): `let t=e.sample(),n=this.#gt.sample(),r=this.#gt.consumeRecoverPulse()`
   first(
     new RegExp(
-      String.raw`(${ID})=(${ID})\(\{boost:\((${ID})\.held\.boost===!0\|\|(${ID})\?\.boost===!0\)&&(${ID})\(this\.#(${ID})\)>0,handbrake:${ID}\.held\.handbrake===!0\|\|${ID}\?\.handbrake===!0,recoveryRequested:(${ID}),reverse:${ID}\.held\.reverse===!0\|\|${ID}\?\.reverse===!0,steerLeft:(${ID})\|\|(${ID})===\`left\`,steerRight:(${ID})\|\|${ID}===\`right\`,throttle:${ID}\.held\.throttle===!0\|\|${ID}\?\.throttle===!0\}\)`
+      String.raw`#(${ID})\(e\)\{let ${ID}=e\.sample\(\),${ID}=this\.#${ID}\.sample\(\),${ID}=this\.#${ID}\.consumeRecoverPulse\(\)`
     ),
-    "vActionBools",
+    "mInputSampler"
+  );
+  // Its returned `mask:le({...})` (previously a `d=Ke({...})` in the tick function).
+  first(
+    new RegExp(
+      String.raw`mask:(${ID})\(\{boost:\((${ID})\.held\.boost===!0\|\|(${ID})\?\.boost===!0\)&&(${ID})\(this\.#(${ID})\)>0,handbrake:${ID}\.held\.handbrake===!0\|\|${ID}\?\.handbrake===!0,recoveryRequested:(${ID}),reverse:${ID}\.held\.reverse===!0\|\|${ID}\?\.reverse===!0,steerLeft:(${ID})\|\|(${ID})===\`left\`,steerRight:(${ID})\|\|${ID}===\`right\`,throttle:${ID}\.held\.throttle===!0\|\|${ID}\?\.throttle===!0\}\)`
+    ),
     "fActionBools",
     "vABSampledInput",
     "vABTarget",
@@ -268,34 +276,44 @@ export function patchMainBundle(mainSrc, names, results, log = console) {
         `resumeTestFrames(){let e=this.#${n.pTimeManagerObject};if(e===void 0){return}if(this.#${n.pLifecycleState}!==\`running\`){throw Error(\`Swervle test frames require a running race.\`)}return e.start()}`
     );
 
-  // 8. Feed TAS bytes in place of the keyboard sample. The race-start offset
-  //    is read from the game's own field (warmupTicks+countdownTicks) when it
-  //    could be derived, otherwise the historical 211.
-  p.replaceOnce(
-    "08useTas",
-    /let r=n\.sample\(\)/,
-    () => `let r=this.__tas?this.__tas.next(e-${n.pRaceStartTick ? "this.#" + n.pRaceStartTick : "211"}):n.sample()`
-  );
+  // 8. Feed TAS bytes in place of the keyboard sample. The sampling method
+  //    (#nr) no longer receives the tick, so 8b stashes it on `this` at the
+  //    call site first. The race-start offset is read from the game's own
+  //    field (warmupTicks+countdownTicks) when derived, else the historical 211.
+  if (need("08useTas", "mInputSampler"))
+    p.replaceOnce(
+      "08useTas",
+      new RegExp(String.raw`(let )(${ID})=e\.sample\(\)(,${ID}=this\.#${ID}\.sample\(\),${ID}=this\.#${ID}\.consumeRecoverPulse\(\))`),
+      (m) =>
+        `${m[1]}${m[2]}=this.__tas?this.__tas.next(this.__curTick-${n.pRaceStartTick ? "this.#" + n.pRaceStartTick : "211"}):e.sample()${m[3]}`
+    );
+  if (need("08bstashTick", "mInputSampler"))
+    p.replaceOnce(
+      "08bstashTick",
+      new RegExp(String.raw`(\{mask:${ID},recoveryRequested:${ID}\}=)this\.#${n.mInputSampler}\((${ID})\)`),
+      (m) => `${m[1]}(this.__curTick=e,this.#${n.mInputSampler}(${m[2]}))`
+    );
 
-  // 9. Capture the actions the game actually used each tick.
-  if (need("09.1getActions", "vActionBools", "fActionBools", "fBoostMeter", "pBoostMeter", "vABSampledInput", "vABTarget", "vABRecoveryFlag", "vABLeftHeld", "vABRightHeld", "vABSteeringDirection")) {
+  // 9. Capture the actions the game actually used each tick. The object
+  //    passed to the mask builder is routed through __recordActions.
+  if (need("09.1getActions", "fActionBools", "fBoostMeter", "pBoostMeter", "vABSampledInput", "vABTarget", "vABRecoveryFlag", "vABLeftHeld", "vABRightHeld", "vABSteeringDirection")) {
     p.replaceOnce(
       "09.1getActions",
       new RegExp(
-        String.raw`${ID}=${ID}\(\{boost:\(${ID}\.held\.boost===!0\|\|${ID}\?\.boost===!0\)&&${ID}\(this\.#${ID}\)>0,handbrake:${ID}\.held\.handbrake===!0\|\|${ID}\?\.handbrake===!0,recoveryRequested:${ID},reverse:${ID}\.held\.reverse===!0\|\|${ID}\?\.reverse===!0,steerLeft:${ID}\|\|${ID}===\`left\`,steerRight:${ID}\|\|${ID}===\`right\`,throttle:${ID}\.held\.throttle===!0\|\|${ID}\?\.throttle===!0\}\)`
+        String.raw`mask:${ID}\(\{boost:\(${ID}\.held\.boost===!0\|\|${ID}\?\.boost===!0\)&&${ID}\(this\.#${ID}\)>0,handbrake:${ID}\.held\.handbrake===!0\|\|${ID}\?\.handbrake===!0,recoveryRequested:${ID},reverse:${ID}\.held\.reverse===!0\|\|${ID}\?\.reverse===!0,steerLeft:${ID}\|\|${ID}===\`left\`,steerRight:${ID}\|\|${ID}===\`right\`,throttle:${ID}\.held\.throttle===!0\|\|${ID}\?\.throttle===!0\}\)`
       ),
       () =>
-        `actions={boost:(${n.vABSampledInput}.held.boost===!0||${n.vABTarget}?.boost===!0)&&${n.fBoostMeter}(this.#${n.pBoostMeter})>0,handbrake:${n.vABSampledInput}.held.handbrake===!0||${n.vABTarget}?.handbrake===!0,recoveryRequested:${n.vABRecoveryFlag},reverse:${n.vABSampledInput}.held.reverse===!0||${n.vABTarget}?.reverse===!0,steerLeft:${n.vABLeftHeld}||${n.vABSteeringDirection}===\`left\`,steerRight:${n.vABRightHeld}||${n.vABSteeringDirection}===\`right\`,throttle:${n.vABSampledInput}.held.throttle===!0||${n.vABTarget}?.throttle===!0},${n.vActionBools}=${n.fActionBools}(actions)`
+        `mask:${n.fActionBools}(this.__recordActions({boost:(${n.vABSampledInput}.held.boost===!0||${n.vABTarget}?.boost===!0)&&${n.fBoostMeter}(this.#${n.pBoostMeter})>0,handbrake:${n.vABSampledInput}.held.handbrake===!0||${n.vABTarget}?.handbrake===!0,recoveryRequested:${n.vABRecoveryFlag},reverse:${n.vABSampledInput}.held.reverse===!0||${n.vABTarget}?.reverse===!0,steerLeft:${n.vABLeftHeld}||${n.vABSteeringDirection}===\`left\`,steerRight:${n.vABRightHeld}||${n.vABSteeringDirection}===\`right\`,throttle:${n.vABSampledInput}.held.throttle===!0||${n.vABTarget}?.throttle===!0}))`
     );
   }
   p.insertAfter(
     "09.2setActions",
-    new RegExp(String.raw`${ID}=${ID}\.model\.raceState;`),
-    () => "this.__lastActions={tick:e,source:this.__tas?`tas`:`live`,...actions};"
+    L,
+    () => "__recordActions(a){this.__lastActions={tick:this.__curTick,source:this.__tas?`tas`:`live`,...a};return a}"
   );
 
-  // 10. Expose the main game.
-  p.insertAfter("10exposeMain", new RegExp(String.raw`let t=new ${ID}\(\{mount:e\}\);`), () => "window.__SWERVLE_GAME__=t;");
+  // 10. Expose the main game (the constructor variable is not always `t`).
+  p.insertAfter("10exposeMain", new RegExp(String.raw`let (${ID})=new ${ID}\(\{mount:e\}\);`), (m) => `window.__SWERVLE_GAME__=${m[1]};`);
 
   // 11. Don't let the site reload the page under us.
   p.replaceOnce("11preventReloading", /return globalThis\.location\.replace\(t\),!0/, () => "return !1");
