@@ -5,6 +5,8 @@
     "version": "2.0.1",
     "permissions": [
         "declarativeNetRequest",
+        "alarms",
+        "storage",
         "activeTab",
         "scripting"
     ],
@@ -12,15 +14,24 @@
         "https://swervle.com/*",
         "https://raw.githubusercontent.com/*",
         "https://cdn.jsdelivr.net/*",
-        "https://api.github.com/*"
+        "https://api.github.com/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
     ],
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "background.js",
+        "default_title": "Swervle Haxs"
     },
     "action": {
         "default_popup": "popup.html",
         "default_title": "Swervle Haxs — badge shows patch-sync status (blank = ok, ! = some patches skipped upstream, X = couldn't reach GitHub)"
     },
+    "web_accessible_resources": [
+        {
+        "resources": ["local/*"],
+        "matches": ["https://swervle.com/*", "http://localhost/*", "http://127.0.0.1/*"]
+        }
+    ],
     "content_scripts": [
         {
         "matches": ["https://swervle.com/*"],
@@ -32,6 +43,12 @@
         "matches": ["https://swervle.com/*"],
         "js": ["draggable.js", "overlay.js"],
         "css": ["overlay.css"],
+        "run_at": "document_start",
+        "world": "MAIN"
+        },
+        {
+        "matches": ["https://swervle.com/*", "http://localhost/*", "http://127.0.0.1/*"],
+        "js": ["haxs-rank.js"],
         "run_at": "document_start",
         "world": "MAIN"
         }
