@@ -126,12 +126,8 @@ export function deriveIdentifiers(src) {
     "mRunPoster"
   );
   first(new RegExp(String.raw`if\(this\.#(${ID})\.requiresServerTruth\(\)\)\{if`), "pRunVerifierObject");
-  first(
-    new RegExp(String.raw`(${ID})\.restore\((${ID})\.simulation\.captureSnapshot\(\)\.clock\),this\.#(${ID})=new (${ID})\(\{`),
-    "_a",
-    "_b",
-    "pTimeManagerObject"
-  );
+  // Game loop: anchored on its constructor call. (`.restore(...clock),this.#X=new` is now the frame scheduler.)
+  first(new RegExp(String.raw`this\.#(${ID})=new ${ID}\(\{callbacks:\{beforeTicks:`), "pTimeManagerObject");
   first(
     new RegExp(
       String.raw`constructor\(e\)\{this\.#${ID}=e\.callbacks,this\.#${ID}=e\.frameDriver,this\.clock=e\.clock\?\?new ${ID},this\.(${ID})=e\.\1\?\?new ${ID}\}`
