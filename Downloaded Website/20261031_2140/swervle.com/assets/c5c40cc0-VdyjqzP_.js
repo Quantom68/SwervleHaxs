@@ -1,0 +1,1 @@
+var e=null,t=null,n=null,r=`swervle.staticDailies`,i=e=>typeof e==`string`&&/^https:\/\/[a-z0-9.-]+$/u.test(e)?e:null;function a(a){e=i(a.staticBoards),t=i(a.staticShop),n=i(a.staticDailies);try{n===null?localStorage.removeItem(r):localStorage.setItem(r,n)}catch{}}function o(){return e}function s(){return t}function c(){return n??null}export{s as i,o as n,c as r,a as t};

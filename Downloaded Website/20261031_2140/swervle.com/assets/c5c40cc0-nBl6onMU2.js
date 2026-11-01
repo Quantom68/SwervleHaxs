@@ -1,0 +1,7 @@
+var e=new Set([`today`,`people`,`teams`,`liveries`,`moderation`,`shop`,`steam-reports`,`growth`,`traffic`,`revenue`,`overview`,`funnel`,`sources`,`campaigns`,`maps`,`locations`,`referrals`,`races`,`live`,`seed-lab`,`operations`,`player`]),t=`today`;function n(n){let r=n.searchParams.get(`tab`);return r!==null&&e.has(r)?r:t}var r=new Set([`today`,`people`,`teams`,`liveries`,`moderation`,`shop`,`steam-reports`,`races`,`live`,`player`,`operations`,`seed-lab`,`growth`,`traffic`,`revenue`,`overview`,`funnel`,`sources`,`campaigns`,`maps`,`locations`,`referrals`]);function i(e,t){return`<main class="swervle-admin admin-analytics-shell"${r.has(e)?` data-admin-surface="v2"`:``} aria-busy="false">
+    <header class="admin-analytics-header">
+      <div><p class="admin-eyebrow">Swervle operations</p><h1>${s(e)}</h1></div>
+      ${a(e)}
+    </header>
+    ${t}
+  </main>`}function a(e){return`<nav class="admin-primary-nav" aria-label="Admin sections">${[[`today`,`Today`],[`people`,`People`],[`teams`,`Teams`],[`liveries`,`Liveries`],[`moderation`,`Moderation`],[`shop`,`Shop`],[`steam-reports`,`Steam Reports`],[`growth`,`Growth`],[`traffic`,`Traffic`],[`revenue`,`Revenue`],[`races`,`Activity`],[`live`,`Live Feed`],[`seed-lab`,`Seed Lab`],[`operations`,`Operations`]].map(([t,n])=>`<a href="?tab=${t}" ${t===e?`aria-current="page"`:``}>${n}</a>`).join(``)}</nav>`}var o=Object.freeze({live:`Live Feed`,races:`Activity`,"steam-reports":`Steam Reports`});function s(e){return o[e]??e.slice(0,1).toUpperCase()+e.slice(1)}export{i,r as n,n as r,t};

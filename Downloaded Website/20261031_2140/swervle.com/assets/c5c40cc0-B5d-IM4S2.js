@@ -1,0 +1,1 @@
+var e=()=>!1,t=250;function n(t){e=t??(()=>!1)}function r(){try{return e()}catch{return!1}}async function i(){for(;r();)await new Promise(e=>{globalThis.setTimeout(e,t)})}export{r as n,n as r,i as t};

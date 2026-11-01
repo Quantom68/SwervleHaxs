@@ -1,0 +1,1 @@
+import{t as e}from"c5c40cc0-DpfM-SsN.js";e({steamEdition:document.body.dataset.swervleEntry===`steam`});
