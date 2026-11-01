@@ -60,12 +60,32 @@ const ID = String.raw`[A-Za-z0-9_$]+`;
 // ---------------------------------------------------------------------------
 // Live discovery (fetch mode only)
 // ---------------------------------------------------------------------------
-export async function discoverAndFetchMainBundle(origin) {
+// Markers that only exist in the real game bundle.
+const GAME_MARKERS = [/requiresServerTruth\(\)/, /get lifecycleState\(\)/];
+
+const IMPORT_RE = /(?:\bfrom|\bimport)\s*\(?\s*["'`](?:\.\/)?([A-Za-z0-9_.]+-[A-Za-z0-9_-]{6,}\.js)["'`]/g;
+
+// Walks static/dynamic imports (breadth-first) from the entry module and
+// returns the first chunk that looks like the game bundle.
+export async function discoverAndFetchMainBundle(origin, maxChunks = 25) {
   const html = await fetch(origin).then((r) => r.text());
   const m = html.match(/<script[^>]*type="module"[^>]*src="([^"]*\/assets\/[^"]+\.js)"/);
   if (!m) throw new Error("Could not find main module script tag in the page's HTML.");
-  const mainUrl = new URL(m[1], origin).href;
-  return { mainUrl, mainFilename: mainUrl.split("/").pop(), mainRawSrc: await fetch(mainUrl).then((r) => r.text()) };
+  const entryUrl = new URL(m[1], origin).href;
+  const base = entryUrl.slice(0, entryUrl.lastIndexOf("/") + 1);
+
+  const seen = new Set();
+  const queue = [entryUrl];
+  while (queue.length && seen.size < maxChunks) {
+    const url = queue.shift();
+    if (seen.has(url)) continue;
+    seen.add(url);
+    const src = await fetch(url).then((r) => r.text());
+    if (GAME_MARKERS.every((re) => re.test(src)))
+      return { mainUrl: url, mainFilename: url.split("/").pop(), mainRawSrc: src, entryUrl };
+    for (const [, file] of src.matchAll(IMPORT_RE)) queue.push(base + file);
+  }
+  throw new Error(`No chunk reachable from ${entryUrl} contains the game code (checked ${seen.size}).`);
 }
 
 // The run recorder (`get tickCount`) lives in the main bundle in current
@@ -151,6 +171,9 @@ export function deriveIdentifiers(src) {
     "vABSteeringDirection",
     "vABRightHeld"
   );
+  if (Object.values(n).every((v) => v === null))
+    throw new Error("No identifiers derived — wrong file? (entry stub instead of game bundle?)");
+
   return n;
 }
 
@@ -290,6 +313,6 @@ export function patchRecorder(src, label, results, log = console) {
   if (names.pReplayStates)
     p.insertAfter("r1addCaptureStates", RECORDER_MARKER, () => `captureStates(){return Uint8Array.from(this.#${names.pReplayStates})}`);
   else p.skip("r1addCaptureStates", "pReplayStates could not be derived");
-  
+
   return out;
 }
